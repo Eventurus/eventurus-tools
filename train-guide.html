@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>China High-Speed Train Seat Guide — EVENTURUS</title>
-<meta name="description" content="Compare China high-speed rail seat classes: 2nd class, 1st class, business class and sleeper. Photos, prices and comfort levels explained.">
+<meta name="description" content="Compare China high-speed rail seat classes: 2nd class, 1st class, business class and sleeper. Official seat diagrams, real photos, prices and comfort levels explained.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 920px; margin: 0 auto; padding: 0 20px; }
 
 /* Brand */
 .brand-bar { padding: 24px 0 0; text-align: center; }
@@ -61,7 +61,7 @@ body {
 }
 .intro-note strong { color: var(--color-text); }
 
-/* Class cards - vertical stack for scrolling */
+/* Class cards */
 .class-card {
   background: var(--color-surface);
   border-radius: var(--radius);
@@ -83,17 +83,9 @@ body {
   font-size: 28px;
   font-weight: 500;
 }
-.class-card-header .class-price {
-  text-align: right;
-}
-.class-card-header .class-price .price-range {
-  font-size: 18px;
-  font-weight: 600;
-}
-.class-card-header .class-price .price-label {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
+.class-card-header .class-price { text-align: right; }
+.class-card-header .class-price .price-range { font-size: 18px; font-weight: 600; }
+.class-card-header .class-price .price-label { font-size: 12px; color: var(--color-text-muted); }
 .class-card-body {
   padding: 0 24px 20px;
   display: grid;
@@ -104,20 +96,34 @@ body {
   .class-card-body { grid-template-columns: 1fr; }
 }
 
-/* Seat diagram placeholder */
-.seat-visual {
+/* Image containers */
+.seat-diagram {
   background: var(--color-bg);
   border-radius: 8px;
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: var(--color-text-muted);
-  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.seat-diagram img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cabin-photo {
+  border-radius: 8px;
   overflow: hidden;
 }
-.seat-visual svg { width: 100%; height: 100%; }
+.cabin-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.image-caption {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  padding: 6px 0 0;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
 
 /* Specs list */
 .spec-list { list-style: none; }
@@ -213,7 +219,7 @@ body {
 .site-footer a { color: var(--color-brand); text-decoration: none; }
 .site-footer .brand-foot { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
 
-/* Train route helper */
+/* Route helper */
 .route-helper {
   background: var(--color-surface);
   border-radius: var(--radius);
@@ -238,7 +244,7 @@ body {
   font-weight: 500;
 }
 
-/* Color themes for each class */
+/* Color themes */
 .class-2 .class-card-header { background: #F1EFE8; }
 .class-2 .rating-bar-fill { background: #888780; width: 45%; }
 .class-1 .class-card-header { background: #E6F1FB; }
@@ -252,7 +258,7 @@ body {
 <body>
 
 <div class="brand-bar">
-  <a href="/" class="brand">EVENT<em>URUS</em></a>
+  <a href="index.html" class="brand">EVENT<em>URUS</em></a>
   <div class="tagline">China, Vetted.</div>
 </div>
 
@@ -260,11 +266,11 @@ body {
 
 <div class="hero">
   <h1>High-Speed Train Seat Guide</h1>
-  <p>Everything you need to know about China's high-speed rail seat classes.</p>
+  <p>Everything you need to know about China's high-speed rail seat classes. Official diagrams &amp; real cabin photos.</p>
 </div>
 
 <div class="intro-note">
-  <strong>Good to know:</strong> All high-speed train seats face forward. Trains are very punctual. Boarding gates close 3-5 minutes before departure. Your foreign passport works at the自助 ticket machine (automatic kiosk) at most major stations.
+  <strong>Good to know:</strong> All high-speed train seats face forward. Trains are very punctual. Boarding gates close 3-5 minutes before departure. Your foreign passport works at the自助 ticket machine at most major stations.
 </div>
 
 <!-- === 2nd Class === -->
@@ -280,36 +286,21 @@ body {
     </div>
   </div>
   <div class="class-card-body">
-    <div class="seat-visual">
-      <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2nd class seat layout">
-        <rect x="20" y="20" width="260" height="160" rx="8" fill="#F1EFE8" stroke="#D3D1C7" stroke-width="0.5"/>
-        <!-- Seats: 3-2 layout -->
-        <rect x="36" y="40" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="96" y="40" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="156" y="40" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="220" y="40" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <text x="61" y="65" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">A</text>
-        <text x="121" y="65" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">B</text>
-        <text x="181" y="65" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">C</text>
-        <text x="245" y="65" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">D</text>
-        <line x1="146" y1="40" x2="146" y2="80" stroke="#888780" stroke-width="0.5"/>
-        <text x="150" y="95" text-anchor="middle" font-size="9" fill="#888780">aisle</text>
-        <line x1="210" y1="40" x2="210" y2="80" stroke="#888780" stroke-width="0.5"/>
-        <!-- Rear row -->
-        <rect x="36" y="110" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="96" y="110" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="156" y="110" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="220" y="110" width="50" height="40" rx="4" fill="#B4B2A9" stroke="#888780" stroke-width="0.5"/>
-        <rect x="30" y="165" width="40" height="12" rx="2" fill="#D3D1C7"/>
-        <text x="50" y="174" text-anchor="middle" font-size="8" fill="#888">table</text>
-      </svg>
+    <div>
+      <div class="seat-diagram">
+        <img src="images/fuxing_chart_2.jpg" alt="Fuxing CR400AF 2nd class seat layout diagram showing 3+2 seat arrangement with window, aisle and middle seats labelled A-F" loading="lazy">
+      </div>
+      <div class="cabin-photo">
+        <img src="images/second_class_seat.jpg" alt="Real photo of 2nd class cabin with 3+2 seat arrangement" loading="lazy">
+      </div>
+      <div class="image-caption">Actual 2nd class cabin interior — spacious enough for shorter journeys</div>
     </div>
     <div>
       <ul class="spec-list">
         <li><span class="spec-label">Layout</span><span class="spec-value">3+2 (5 seats per row)</span></li>
         <li><span class="spec-label">Seat width</span><span class="spec-value">~43 cm / 17 in</span></li>
         <li><span class="spec-label">Recline</span><span class="spec-value">Minimal (5-10&deg;)</span></li>
-        <li><span class="spec-label">Power outlet</span><span class="spec-value">At seat base (frequent)</span></li>
+        <li><span class="spec-label">Power outlet</span><span class="spec-value">At seat base</span></li>
         <li><span class="spec-label">Legroom</span><span class="spec-value">Adequate for short trips</span></li>
       </ul>
       <div class="rating-bar-wrap">
@@ -336,31 +327,21 @@ body {
     </div>
   </div>
   <div class="class-card-body">
-    <div class="seat-visual">
-      <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1st class seat layout">
-        <rect x="20" y="20" width="260" height="160" rx="8" fill="#E6F1FB" stroke="#B5D4F4" stroke-width="0.5"/>
-        <rect x="36" y="40" width="70" height="45" rx="6" fill="#85B7EB" stroke="#378ADD" stroke-width="0.5"/>
-        <rect x="116" y="40" width="70" height="45" rx="6" fill="#85B7EB" stroke="#378ADD" stroke-width="0.5"/>
-        <text x="71" y="67" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">A</text>
-        <text x="151" y="67" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">C</text>
-        <line x1="96" y1="40" x2="96" y2="85" stroke="#888780" stroke-width="0.5"/>
-        <text x="100" y="95" text-anchor="middle" font-size="9" fill="#888780">aisle</text>
-        <rect x="196" y="40" width="70" height="45" rx="6" fill="#85B7EB" stroke="#378ADD" stroke-width="0.5"/>
-        <text x="231" y="67" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">D</text>
-        <line x1="186" y1="40" x2="186" y2="85" stroke="#888780" stroke-width="0.5"/>
-        <rect x="36" y="115" width="70" height="45" rx="6" fill="#85B7EB" stroke="#378ADD" stroke-width="0.5"/>
-        <rect x="116" y="115" width="70" height="45" rx="6" fill="#85B7EB" stroke="#378ADD" stroke-width="0.5"/>
-        <rect x="196" y="115" width="70" height="45" rx="6" fill="#85B7EB" stroke="#378ADD" stroke-width="0.5"/>
-        <rect x="30" y="175" width="40" height="10" rx="2" fill="#B5D4F4"/>
-        <text x="50" y="183" text-anchor="middle" font-size="8" fill="#185FA5">table</text>
-      </svg>
+    <div>
+      <div class="seat-diagram">
+        <img src="images/layout_first.png" alt="1st class 2+2 seat layout diagram showing window seats A, F and aisle seats C, D" loading="lazy">
+      </div>
+      <div class="cabin-photo">
+        <img src="images/first_class_seat.jpg" alt="Real photo of 1st class cabin with 2+2 seat arrangement and generous legroom" loading="lazy">
+      </div>
+      <div class="image-caption">1st class cabin — noticeably wider seats and fewer people per row</div>
     </div>
     <div>
       <ul class="spec-list">
         <li><span class="spec-label">Layout</span><span class="spec-value">2+2 (4 seats per row)</span></li>
         <li><span class="spec-label">Seat width</span><span class="spec-value">~53 cm / 21 in</span></li>
         <li><span class="spec-label">Recline</span><span class="spec-value">Moderate (20-30&deg;)</span></li>
-        <li><span class="spec-label">Power outlet</span><span class="spec-value">Between seats (always)</span></li>
+        <li><span class="spec-label">Power outlet</span><span class="spec-value">Between seats</span></li>
         <li><span class="spec-label">Legroom</span><span class="spec-value">Generous</span></li>
       </ul>
       <div class="rating-bar-wrap">
@@ -387,28 +368,21 @@ body {
     </div>
   </div>
   <div class="class-card-body">
-    <div class="seat-visual">
-      <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="business class seat layout">
-        <rect x="20" y="20" width="260" height="160" rx="8" fill="#EAF3DE" stroke="#C0DD97" stroke-width="0.5"/>
-        <rect x="36" y="35" width="100" height="55" rx="8" fill="#97C459" stroke="#639922" stroke-width="0.5"/>
-        <rect x="56" y="40" width="60" height="10" rx="4" fill="#fff" opacity="0.3"/>
-        <text x="86" y="67" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">A</text>
-        <line x1="146" y1="35" x2="146" y2="90" stroke="#888780" stroke-width="0.5"/>
-        <text x="150" y="100" text-anchor="middle" font-size="9" fill="#888780">aisle</text>
-        <rect x="160" y="35" width="100" height="55" rx="8" fill="#97C459" stroke="#639922" stroke-width="0.5"/>
-        <text x="210" y="67" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">C</text>
-        <rect x="36" y="115" width="100" height="55" rx="8" fill="#97C459" stroke="#639922" stroke-width="0.5"/>
-        <rect x="160" y="115" width="100" height="55" rx="8" fill="#97C459" stroke="#639922" stroke-width="0.5"/>
-        <rect x="30" y="175" width="40" height="10" rx="2" fill="#C0DD97"/>
-        <text x="50" y="183" text-anchor="middle" font-size="8" fill="#3B6D11">table</text>
-      </svg>
+    <div>
+      <div class="seat-diagram">
+        <img src="images/layout_business.png" alt="Business class 2+1 seat layout diagram showing lie-flat seats A, C and F" loading="lazy">
+      </div>
+      <div class="cabin-photo">
+        <img src="images/business_class_seat.jpg" alt="Real photo of business class cabin with 1+2 lie-flat seats" loading="lazy">
+      </div>
+      <div class="image-caption">Business class — lie-flat seats, included meals, and lounge access at major stations</div>
     </div>
     <div>
       <ul class="spec-list">
         <li><span class="spec-label">Layout</span><span class="spec-value">2+1 (3 seats per row)</span></li>
         <li><span class="spec-label">Seat width</span><span class="spec-value">~65 cm / 26 in</span></li>
         <li><span class="spec-label">Recline</span><span class="spec-value">Full recline (180&deg;)</span></li>
-        <li><span class="spec-label">Power outlet</span><span class="spec-value">At armrest (always)</span></li>
+        <li><span class="spec-label">Power outlet</span><span class="spec-value">At armrest</span></li>
         <li><span class="spec-label">Extras</span><span class="spec-value">Meal, slippers, eye mask, pillow</span></li>
       </ul>
       <div class="rating-bar-wrap">
@@ -435,21 +409,14 @@ body {
     </div>
   </div>
   <div class="class-card-body">
-    <div class="seat-visual">
-      <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="sleeper seat layout">
-        <rect x="20" y="20" width="260" height="160" rx="8" fill="#FAEEDA" stroke="#FAC775" stroke-width="0.5"/>
-        <rect x="36" y="25" width="90" height="60" rx="6" fill="#EF9F27" stroke="#BA7517" stroke-width="0.5" opacity="0.7"/>
-        <rect x="36" y="92" width="90" height="60" rx="6" fill="#EF9F27" stroke="#BA7517" stroke-width="0.5" opacity="0.7"/>
-        <text x="45" y="45" font-size="9" fill="#fff">upper</text>
-        <text x="45" y="112" font-size="9" fill="#fff">lower</text>
-        <rect x="140" y="25" width="60" height="10" rx="3" fill="#D3D1C7"/>
-        <text x="170" y="33" text-anchor="middle" font-size="8" fill="#888">table</text>
-        <rect x="140" y="45" width="60" height="55" rx="4" fill="#D3D1C7" opacity="0.3"/>
-        <rect x="220" y="25" width="50" height="60" rx="6" fill="#EF9F27" stroke="#BA7517" stroke-width="0.5" opacity="0.7"/>
-        <rect x="220" y="92" width="50" height="60" rx="6" fill="#EF9F27" stroke="#BA7517" stroke-width="0.5" opacity="0.7"/>
-        <text x="230" y="45" font-size="9" fill="#fff">upper</text>
-        <text x="230" y="112" font-size="9" fill="#fff">lower</text>
-      </svg>
+    <div>
+      <div class="cabin-photo">
+        <img src="images/sleeper_compartment.jpg" alt="Real photo of 4-berth soft sleeper compartment with upper and lower bunks" loading="lazy">
+      </div>
+      <div class="cabin-photo" style="margin-top:10px;">
+        <img src="images/sleeper_lower.jpg" alt="Soft sleeper lower bunk with pillow and bedding" loading="lazy">
+      </div>
+      <div class="image-caption">Soft sleeper — four-bed compartment, ideal for overnight routes like Beijing–Shanghai</div>
     </div>
     <div>
       <ul class="spec-list">
@@ -464,7 +431,7 @@ body {
         <div class="rating-bar"><div class="rating-bar-fill"></div></div>
       </div>
       <div style="margin-top:12px;font-size:13px;color:var(--color-text-muted);">
-        <strong>Best for:</strong> long overnight routes (Beijing-Shenzhen, Shanghai-Chengdu). Saves a night of hotel cost.
+        <strong>Best for:</strong> long overnight routes (Beijing–Shenzhen, Shanghai–Chengdu). Saves a night of hotel cost.
       </div>
     </div>
   </div>
@@ -499,7 +466,7 @@ body {
     <li><strong>Use Trip.com or the 12306 app</strong> in English. Both accept foreign passports. The 12306 app also issues e-tickets.</li>
     <li><strong>Choose window seats (A or F)</strong> for the best views. On most routes, seat A = window, C = aisle on the 3-seat side.</li>
     <li><strong>1st class is the sweet spot</strong> for trips over 3 hours. More legroom, fewer seats per row, and only 1.7x the price of 2nd class.</li>
-    <li><strong>Business class is worth it</strong> for long routes like Shanghai-Beiing (4.5h) if you want to sleep or work in peace. Lie-flat seats on most G-trains.</li>
+    <li><strong>Business class is worth it</strong> for long routes like Shanghai–Beijing (4.5h) if you want to sleep or work in peace. Lie-flat seats on most G-trains.</li>
     <li><strong>Bring snacks.</strong> Food carts come through but selection is limited. Pack instant noodles (the train has hot water) and a drink.</li>
   </ol>
 </div>
@@ -521,11 +488,7 @@ body {
 <script>
 function toggleCard(header) {
   const body = header.nextElementSibling;
-  if (body.style.display === 'none') {
-    body.style.display = 'grid';
-  } else {
-    body.style.display = 'none';
-  }
+  body.style.display = body.style.display === 'none' ? 'grid' : 'none';
 }
 </script>
 </body>
