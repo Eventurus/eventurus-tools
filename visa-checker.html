@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Visa Checker — EVENTURUS</title>
+<meta name="description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --radius:12px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:inherit; background:var(--color-bg); color:var(--color-text); line-height:1.6; font-size:16px; }
+.container { max-width:680px; margin:0 auto; padding:0 20px; }
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:36px 0 20px; }
+.hero h1 { font-size:30px; font-weight:600; line-height:1.2; margin-bottom:8px; }
+.hero p { font-size:15px; color:var(--color-muted); }
+
+/* Step form */
+.step-indicators { display:flex; justify-content:center; gap:8px; margin-bottom:24px; }
+.step-dot { width:10px; height:10px; border-radius:50%; background:var(--color-border); transition:all .3s; }
+.step-dot.active { background:var(--color-brand); width:28px; border-radius:5px; }
+.step-dot.done { background:var(--color-brand); }
+
+.question-card {
+  background:var(--color-surface); border-radius:var(--radius); box-shadow:0 1px 3px rgba(0,0,0,0.06); border:1px solid var(--color-border);
+  padding:28px 24px; margin-bottom:16px; display:none;
+}
+.question-card.active { display:block; animation:fadeIn .35s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+.q-label { font-size:14px; font-weight:600; margin-bottom:16px; }
+.options { display:flex; flex-direction:column; gap:10px; }
+.opt {
+  padding:14px 18px; border:2px solid var(--color-border); border-radius:8px; cursor:pointer; font-size:15px; transition:all .2s;
+  background:var(--color-surface); text-align:left; display:flex; align-items:center; gap:12px;
+}
+.opt:hover { border-color:var(--color-brand); background:#F5F9F3; }
+.opt.selected { border-color:var(--color-brand); background:#EAF3DE; font-weight:600; }
+.opt .flag { font-size:22px; }
+
+/* Result card */
+.result-card {
+  background:var(--color-surface); border-radius:var(--radius); box-shadow:0 1px 3px rgba(0,0,0,0.06); border:1px solid var(--color-border);
+  padding:28px 24px; display:none; animation:fadeIn .4s ease;
+}
+.result-card.show { display:block; }
+.result-visa { font-size:28px; font-weight:700; margin:8px 0; }
+.result-badge { display:inline-block; padding:4px 14px; border-radius:20px; font-size:13px; font-weight:600; margin-bottom:12px; }
+.badge-green { background:#EAF3DE; color:#3B6D11; }
+.badge-orange { background:#FFF0E0; color:#A06600; }
+.badge-red { background:#FFE8E8; color:#B33; }
+.badge-blue { background:#E6F1FB; color:#2A5580; }
+.result-details { margin-top:16px; font-size:14px; line-height:1.7; color:var(--color-muted); }
+.result-details strong { color:var(--color-text); }
+.result-actions { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
+.btn { padding:12px 24px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; border:none; text-decoration:none; display:inline-block; }
+.btn-primary { background:var(--color-brand); color:#fff; }
+.btn-outline { background:var(--color-surface); color:var(--color-text); border:2px solid var(--color-border); }
+.btn-outline:hover { border-color:var(--color-brand); }
+.btn-small { padding:8px 16px; font-size:13px; }
+.btn-ghost { background:none; color:var(--color-muted); border:1px solid var(--color-border); }
+.btn-ghost:hover { border-color:var(--color-brand); color:var(--color-brand); }
+.separator { text-align:center; color:var(--color-border); font-size:13px; padding:16px 0; }
+.form-select { width:100%; padding:14px 18px; border:2px solid var(--color-border); border-radius:8px; font-size:15px; background:var(--color-surface); appearance:auto; }
+.form-select:focus { border-color:var(--color-brand); outline:none; }
+
+/* Disclaimer */
+.disclaimer { background:#F8F6F0; border-radius:var(--radius); padding:16px 20px; margin:20px 0; font-size:12px; color:var(--color-muted); line-height:1.6; }
+.disclaimer strong { color:var(--color-text); }
+
+/* Footer */
+.site-footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
+.site-footer a { color:var(--color-brand); text-decoration:none; }
+.site-footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+</style>
+</head>
+<body>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+<div class="hero"><h1>China Visa Checker</h1><p>3 quick questions to find out which visa you need.</p></div>
+
+<div class="step-indicators">
+  <div class="step-dot active" id="s1"></div>
+  <div class="step-dot" id="s2"></div>
+  <div class="step-dot" id="s3"></div>
+</div>
+
+<!-- Step 1: Nationality -->
+<div class="question-card active" id="q1">
+  <div class="q-label">① Which passport do you hold?</div>
+  <div class="options" id="nat-options"></div>
+</div>
+
+<!-- Step 2: Purpose -->
+<div class="question-card" id="q2">
+  <div class="q-label">② What's the purpose of your visit?</div>
+  <div class="options" id="purpose-options"></div>
+</div>
+
+<!-- Step 3: Duration -->
+<div class="question-card" id="q3">
+  <div class="q-label">③ How long will you be staying?</div>
+  <div class="options" id="duration-options"></div>
+</div>
+
+<div class="separator">—</div>
+
+<!-- Result -->
+<div class="result-card" id="result">
+  <div class="result-badge" id="result-badge">Tourist Visa (L)</div>
+  <div class="result-visa" id="result-visa"></div>
+  <div class="result-details" id="result-details"></div>
+  <div class="result-actions">
+    <button class="btn btn-outline btn-small" onclick="restart()">← Start over</button>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> This tool provides general guidance only. Visa policies change frequently. Always confirm with the <a href="http://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener">Chinese Visa Application Service Centre</a> or your local Chinese embassy before making travel plans.
+</div>
+
+<div class="site-footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+</div>
+
+<script>
+const D = {
+  nationalities: [
+    {id:"sg",label:"Singapore",flag:"🇸🇬",visaFree:30},
+    {id:"my",label:"Malaysia",flag:"🇲🇾",visaFree:30},
+    {id:"th",label:"Thailand",flag:"🇹🇭",visaFree:60},
+    {id:"kr",label:"South Korea",flag:"🇰🇷",visaFree:30},
+    {id:"jp",label:"Japan",flag:"🇯🇵",visaFree:15},
+    {id:"br",label:"Brazil",flag:"🇧🇷",visaFree:30},
+    {id:"ae",label:"UAE",flag:"🇦🇪",visaFree:30},
+    {id:"qa",label:"Qatar",flag:"🇶🇦",visaFree:30},
+    {id:"om",label:"Oman",flag:"🇴🇲",visaFree:14},
+    {id:"bh",label:"Bahrain",flag:"🇧🇭",visaFree:14},
+    {id:"sa",label:"Saudi Arabia",flag:"🇸🇦",visaFree:30},
+    {id:"kw",label:"Kuwait",flag:"🇰🇼",visaFree:30},
+    {id:"us",label:"United States",flag:"🇺🇸",visaFree:0},
+    {id:"uk",label:"United Kingdom",flag:"🇬🇧",visaFree:0},
+    {id:"ca",label:"Canada",flag:"🇨🇦",visaFree:0},
+    {id:"au",label:"Australia",flag:"🇦🇺",visaFree:0},
+    {id:"nz",label:"New Zealand",flag:"🇳🇿",visaFree:0},
+    {id:"fr",label:"France",flag:"🇫🇷",visaFree:0},
+    {id:"de",label:"Germany",flag:"🇩🇪",visaFree:0},
+    {id:"it",label:"Italy",flag:"🇮🇹",visaFree:0},
+    {id:"es",label:"Spain",flag:"🇪🇸",visaFree:0},
+    {id:"nl",label:"Netherlands",flag:"🇳🇱",visaFree:0},
+    {id:"ch",label:"Switzerland",flag:"🇨🇭",visaFree:0},
+    {id:"se",label:"Sweden",flag:"🇸🇪",visaFree:0},
+    {id:"dk",label:"Denmark",flag:"🇩🇰",visaFree:0},
+    {id:"no",label:"Norway",flag:"🇳🇴",visaFree:0},
+    {id:"fi",label:"Finland",flag:"🇫🇮",visaFree:0},
+    {id:"ie",label:"Ireland",flag:"🇮🇪",visaFree:0},
+    {id:"be",label:"Belgium",flag:"🇧🇪",visaFree:0},
+    {id:"at",label:"Austria",flag:"🇦🇹",visaFree:0},
+    {id:"pt",label:"Portugal",flag:"🇵🇹",visaFree:0},
+    {id:"gr",label:"Greece",flag:"🇬🇷",visaFree:0},
+    {id:"pl",label:"Poland",flag:"🇵🇱",visaFree:0},
+    {id:"cz",label:"Czechia",flag:"🇨🇿",visaFree:0},
+    {id:"hu",label:"Hungary",flag:"🇭🇺",visaFree:0},
+    {id:"il",label:"Israel",flag:"🇮🇱",visaFree:0},
+    {id:"ru",label:"Russia",flag:"🇷🇺",visaFree:0},
+    {id:"in",label:"India",flag:"🇮🇳",visaFree:0},
+    {id:"id",label:"Indonesia",flag:"🇮🇩",visaFree:0},
+    {id:"ph",label:"Philippines",flag:"🇵🇭",visaFree:0},
+    {id:"vn",label:"Vietnam",flag:"🇻🇳",visaFree:0},
+    {id:"mx",label:"Mexico",flag:"🇲🇽",visaFree:0},
+    {id:"ar",label:"Argentina",flag:"🇦🇷",visaFree:0},
+    {id:"za",label:"South Africa",flag:"🇿🇦",visaFree:0},
+    {id:"other",label:"Other passport",flag:"🌍",visaFree:0}
+  ],
+  purposes: [
+    {id:"tourism",label:"Tourism / Holiday"},
+    {id:"business",label:"Business"},
+    {id:"transit",label:"Transit (connecting flight)"},
+    {id:"visit_family",label:"Visiting friends or family"},
+    {id:"study",label:"Study"},
+    {id:"work",label:"Work"}
+  ],
+  durations: [
+    {id:"<24h",label:"Less than 24 hours (transit)"},
+    {id:"1-7d",label:"1–7 days"},
+    {id:"8-14d",label:"8–14 days"},
+    {id:"15-30d",label:"15–30 days"},
+    {id:"30-90d",label:"30–90 days"},
+    {id:">90d",label:"More than 90 days"}
+  ]
+};
+
+let state = { nationality: null, purpose: null, duration: null };
+
+function init() {
+  renderOptions('nat-options', D.nationalities, n => n, 'nationality');
+  renderOptions('purpose-options', D.purposes, p => p, 'purpose');
+  renderOptions('duration-options', D.durations, d => d, 'duration');
+}
+
+function renderOptions(containerId, items, mapper, stateKey) {
+  const c = document.getElementById(containerId);
+  c.innerHTML = items.map(item => {
+    const data = mapper(item);
+    const flag = data.flag ? `<span class="flag">${data.flag}</span>` : '';
+    return `<div class="opt" onclick="selectOpt('${stateKey}','${data.id}','${containerId}')">${flag}${data.label}</div>`;
+  }).join('');
+}
+
+function selectOpt(key, val, containerId) {
+  state[key] = val;
+  document.querySelectorAll(`#${containerId} .opt`).forEach(el => el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  if (key === 'nationality') { goStep(2); document.getElementById('q2').classList.add('active'); scrollTo(0,0); }
+  else if (key === 'purpose') { goStep(3); document.getElementById('q3').classList.add('active'); scrollTo(0,0); }
+  else if (key === 'duration') { showResult(); }
+}
+
+function goStep(n) {
+  for (let i=1; i<=3; i++) {
+    const dot = document.getElementById('s'+i);
+    if (i < n) { dot.className = 'step-dot done'; }
+    else if (i === n) { dot.className = 'step-dot active'; }
+    else { dot.className = 'step-dot'; }
+  }
+}
+
+function showResult() {
+  const nat = D.nationalities.find(n => n.id === state.nationality) || D.nationalities.find(n => n.id === 'other');
+  const purpose = state.purpose;
+  const dur = state.duration;
+  const vf = nat.visaFree;
+
+  let visaName = '', badge = '', badgeClass = '', details = '';
+
+  // Transit case
+  if (purpose === 'transit' && (dur === '<24h' || dur === '1-7d')) {
+    visaName = '24/144-Hour Transit Without Visa';
+    badge = 'TRANSIT EXEMPTION';
+    badgeClass = 'badge-blue';
+    details = `<strong>You likely qualify for transit without a visa!</strong><br><br>
+    Most nationalities can transit through China for <strong>24 hours</strong> without a visa (any city).<br><br>
+    Major hubs like Beijing, Shanghai, Guangzhou, Chengdu, and Xi'an offer <strong>144-hour (6-day) transit</strong> for citizens of most European countries, the US, Canada, Australia, and many others.<br><br>
+    <strong>Conditions:</strong> You must have a confirmed onward ticket to a third country (not your origin). You cannot leave the designated region/city.<br><br>
+    <a href="https://www.visaforchina.org/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Check eligibility at VisaForChina.org</a>`;
+  }
+
+  // Visa-free tourism (short stay)
+  else if (purpose === 'tourism' && vf > 0) {
+    const maxDur = Math.min(vf, dur === '1-7d' ? 7 : dur === '8-14d' ? 14 : 30);
+    if (maxDur >= vf) {
+      visaName = 'Visa-Free Travel (免签)';
+      badge = 'VISA-FREE';
+      badgeClass = 'badge-green';
+      details = `<strong>Your passport allows visa-free entry to China!</strong><br><br>
+      Citizens of <strong>${nat.label}</strong> can enter China without a visa for stays up to <strong>${vf} days</strong> for tourism and business.<br><br>
+      <strong>What you need:</strong><br>
+      • Valid passport (6+ months remaining)<br>
+      • Confirmed return/onward ticket<br>
+      • Hotel booking confirmation (they may ask)<br><br>
+      At immigration, you will receive a temporary stay permit. Enjoy your trip!`;
+    } else {
+      visaName = 'Visa-Free + Extend / Tourist Visa (L)';
+      badge = 'VISA-FREE OR L-VISA';
+      badgeClass = 'badge-orange';
+      details = `<strong>Your ${vf}-day visa-free stay can cover this trip.</strong><br><br>
+      If your stay is ${vf} days or less, you don't need a visa. For longer stays, you'll need a <strong>Tourist Visa (L)</strong> from a Chinese embassy or visa centre before departure.<br><br>
+      <strong>Tourist Visa (L) requirements:</strong><br>
+      • Valid passport + photo<br>
+      • Completed online application form<br>
+      • Round-trip flight and hotel bookings<br>
+      • Usually takes 4-5 working days<br>
+      • Standard fee: ~$140 USD (varies by nationality)<br>
+      • Single-entry (3 months) or double-entry (6 months) available`;
+    }
+  }
+
+  // No visa-free → need visa
+  else if (vf === 0) {
+    switch (purpose) {
+      case 'tourism':
+        visaName = 'Tourist Visa (L)';
+        badge = 'VISA REQUIRED';
+        badgeClass = 'badge-red';
+        details = `<strong>Citizens of ${nat.label} need a visa to enter China for tourism.</strong><br><br>
+        <strong>Application process:</strong><br>
+        1. Fill out the form at <a href="https://www.visaforchina.org/" target="_blank" rel="noopener" style="color:var(--color-brand)">visaforchina.org</a><br>
+        2. Submit in person or via agent to the nearest Chinese Visa Application Service Centre<br>
+        3. Provide: passport, photo, flight/hotel bookings, bank statements<br>
+        4. Processing: typically 4-5 working days<br>
+        5. Fee: ~$140-200 USD depending on nationality<br><br>
+        <strong>Tip:</strong> Ten-year multiple-entry L-visas are common for US and UK citizens. Apply for the longest validity you can.`;
+        break;
+      case 'business':
+        visaName = 'Business Visa (M)';
+        badge = 'VISA REQUIRED';
+        badgeClass = 'badge-red';
+        details = `<strong>You need an M-Visa for business visits to China.</strong><br><br>
+        <strong>Requirements:</strong><br>
+        • Letter of invitation from a Chinese business partner<br>
+        • Valid passport (6+ months)<br>
+        • Completed application form + photo<br>
+        • Processing: 4-5 working days<br><br>
+        M-visas typically allow 30-60 day stays and can be single, double, or multiple-entry. Let the visa officer know if you travel frequently — they may issue a 1-2 year multi-entry visa.`;
+        break;
+      case 'visit_family':
+        visaName = 'Family Visit Visa (Q2) or Tourist Visa (L)';
+        badge = 'VISA REQUIRED';
+        badgeClass = 'badge-red';
+        details = `<strong>For visiting family: Q2 Visa is your best option.</strong><br><br>
+        If you have family members (parents, spouse, children) who are Chinese citizens or permanent residents, you can apply for a <strong>Q2 Visa</strong> (up to 180 days per stay, multi-entry up to 10 years).<br><br>
+        <strong>You need:</strong> An invitation letter from your family member in China, plus their ID or residence permit copy.<br><br>
+        Alternatively, a Tourist Visa (L) also works for casual visits. Application centres are the same.`;
+        break;
+      case 'study':
+        visaName = 'Student Visa (X1 / X2)';
+        badge = 'VISA REQUIRED';
+        badgeClass = 'badge-red';
+        details = `<strong>For study in China: X-Visa.</strong><br><br>
+        If your course is <strong>more than 180 days</strong> → <strong>X1 Visa</strong> (must apply for residence permit within 30 days of arrival).<br>
+        If your course is <strong>180 days or less</strong> → <strong>X2 Visa</strong> (no residence permit needed).<br><br>
+        <strong>Required documents:</strong><br>
+        • Admission letter from a Chinese school/university<br>
+        • JW201 or JW202 form (issued by the school)<br>
+        • Physical examination record (for X1)<br>
+        • Valid passport + photos`;
+        break;
+      default:
+        visaName = 'Contact your nearest Chinese embassy';
+        badge = 'VISA REQUIRED';
+        badgeClass = 'badge-red';
+        details = `<strong>Based on your selections, you will likely need a visa.</strong><br><br>
+        We recommend contacting the Chinese embassy or visa application centre in your country for specific guidance.<br><br>
+        <a href="https://www.visaforchina.org/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Find your local Visa Application Centre</a>`;
+    }
+  }
+
+  // Visa-free country but longer stay or business
+  else if (vf > 0 && purpose !== 'tourism' && purpose !== 'transit') {
+    if (purpose === 'business' && dur === '1-7d') {
+      visaName = 'Visa-Free Business Visit';
+      badge = 'VISA-FREE';
+      badgeClass = 'badge-green';
+      details = `<strong>Your nationality allows visa-free business visits up to ${vf} days.</strong><br><br>
+      For business activities like meetings, trade fairs, and contract signing within ${vf} days, you likely don't need a visa.<br><br>
+      <strong>Note:</strong> If you plan to work (receive salary) or provide paid services, a work visa (Z) is required.`;
+    } else {
+      visaName = 'May need a visa';
+      badge = 'CHECK WITH EMBASSY';
+      badgeClass = 'badge-orange';
+      details = `<strong>Your passport allows visa-free entry for short stays, but your purpose may require specific documentation.</strong><br><br>
+      For stays over ${vf} days, non-tourism purposes, or work/study, you will likely need a dedicated visa. Contact the Chinese embassy in your country.<br><br>
+      <a href="https://www.visaforchina.org/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Find your local Visa Application Centre</a>`;
+    }
+  }
+
+  document.getElementById('result-visa').textContent = visaName;
+  document.getElementById('result-badge').textContent = badge;
+  document.getElementById('result-badge').className = 'result-badge ' + badgeClass;
+  document.getElementById('result-details').innerHTML = details;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('q3').classList.remove('active');
+  goStep(3);
+  scrollTo(0, document.getElementById('result').offsetTop - 20);
+}
+
+function restart() {
+  state = { nationality: null, purpose: null, duration: null };
+  document.querySelectorAll('.opt').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('.question-card').forEach(el => el.classList.remove('active'));
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('q1').classList.add('active');
+  goStep(1);
+  scrollTo(0,0);
+}
+
+init();
+</script>
+</body>
+</html>

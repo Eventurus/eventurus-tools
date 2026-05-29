@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Airport → City Transport Guide — EVENTURUS</title>
+<meta name="description" content="Taxi, metro and shuttle prices from 15 major Chinese airports to city centre. Quick reference for travellers.">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --radius:12px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:inherit; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
+.container { max-width:900px; margin:0 auto; padding:0 20px; }
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:36px 0 24px; }
+.hero h1 { font-size:28px; font-weight:600; line-height:1.2; margin-bottom:8px; }
+.hero p { font-size:15px; color:var(--color-muted); }
+
+.search-bar { margin-bottom:24px; }
+.search-bar input { width:100%; padding:12px 18px; border:2px solid var(--color-border); border-radius:8px; font-size:15px; background:var(--color-surface); }
+.search-bar input:focus { border-color:var(--color-brand); outline:none; }
+
+.airport-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:640px) { .airport-grid { grid-template-columns:1fr; } }
+
+.airport-card {
+  background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); overflow:hidden;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04);
+}
+.airport-card-header {
+  padding:14px 16px; border-bottom:1px solid var(--color-border);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.apt-name { font-size:16px; font-weight:600; }
+.apt-code { font-size:11px; color:var(--color-muted); background:#F0F0EE; padding:2px 8px; border-radius:4px; }
+
+.airport-card-body { padding:12px 16px; }
+.transport-row { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid #F0F0EE; font-size:13px; }
+.transport-row:last-child { border-bottom:none; }
+.transport-icon { font-size:16px; width:24px; }
+.transport-name { flex:1; font-weight:500; }
+.transport-detail { text-align:right; font-size:12px; color:var(--color-muted); }
+.transport-price { font-weight:600; color:var(--color-text); font-size:14px; }
+.transport-time { font-size:11px; color:var(--color-muted); display:block; }
+
+.recommend { color:var(--color-brand); font-weight:600; }
+.airport-tip { font-size:12px; color:var(--color-muted); margin-top:8px; padding-top:8px; border-top:1px solid #F0F0EE; }
+
+.footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
+.footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+.footer a { color:var(--color-brand); text-decoration:none; }
+
+.cross-link { text-align:center; margin:20px 0; font-size:14px; }
+.cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
+</style>
+</head>
+<body>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+<div class="hero"><h1>Airport → City Quick Guide</h1><p>How to get from the airport to the city at 15 major Chinese airports. Prices in CNY (&yen;).</p></div>
+
+<div class="search-bar"><input type="text" id="search" placeholder="Search airport or city..." oninput="filterAirports()"></div>
+
+<div class="airport-grid" id="grid"></div>
+
+<div class="cross-link">
+  <p>Find trains between cities → <a href="transit-matrix.html">China City Transit Matrix</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+</div>
+
+<script>
+const AIRPORTS = [
+  {name:"Beijing Capital",code:"PEK",city:"Beijing",
+    metro:{line:"Airport Express",price:25,time:"20-35min",note:"Direct to Dongzhimen (Line 2)"},
+    taxi:{price:"120-180",time:"30-60min",note:"¥80 extra for late-night"},
+    shuttle:{price:30,time:"60-90min",note:"Multiple city routes"},
+    best:"metro",tip:"Airport Express is fastest. Taxi can be slow in traffic."
+  },
+  {name:"Beijing Daxing",code:"PKX",city:"Beijing",
+    metro:{line:"Daxing Airport Express",price:35,time:"20-40min",note:"To Caoqiao (Line 10)"},
+    taxi:{price:"150-250",time:"45-90min",note:"Far from city centre"},
+    shuttle:{price:40,time:"60-120min",note:"Multiple routes"},
+    best:"metro",tip:"Metro to Caoqiao station, then transfer. Taxi is expensive and slow."
+  },
+  {name:"Shanghai Pudong",code:"PVG",city:"Shanghai",
+    metro:{line:"Line 2 / Maglev",price:7+"-"+50,time:"40-65min",note:"Maglev 50¥ (7min to Longyang Rd)"},
+    taxi:{price:"180-250",time:"45-80min",note:"Depends on destination"},
+    shuttle:{price:30,time:"60-90min",note:"To various stops in city"},
+    best:"metro",tip:"Maglev to Longyang Road then Line 2. Late-night? Book a taxi via Didi."
+  },
+  {name:"Shanghai Hongqiao",code:"SHA",city:"Shanghai",
+    metro:{line:"Lines 2, 10, 17",price:5-8,time:"25-50min",note:"Multiple lines to city centre"},
+    taxi:{price:"80-150",time:"30-60min",note:"Closer than PVG"},
+    shuttle:{price:0,time:"0",note:"Not needed — metro is excellent"},
+    best:"metro",tip:"Direct metro to downtown. Hongqiao is also the HSR station — same complex."
+  },
+  {name:"Guangzhou Baiyun",code:"CAN",city:"Guangzhou",
+    metro:{line:"Line 3",price:7,time:"40-60min",note:"To Tiyu Xilu / Zhujiang New Town"},
+    taxi:{price:"100-180",time:"40-70min",note:"¥20 extra after 11pm"},
+    shuttle:{price:28,time:"50-80min",note:"City shuttle + Foshan routes"},
+    best:"metro",tip:"Line 3 connects to most of Guangzhou. Avoid taxi during rush hour."
+  },
+  {name:"Shenzhen Bao'an",code:"SZX",city:"Shenzhen",
+    metro:{line:"Line 11",price:7,time:"30-45min",note:"Direct to Futian / Luohu"},
+    taxi:{price:"100-180",time:"30-60min",note:"¥20 surcharge late night"},
+    shuttle:{price:25,time:"40-70min",note:"Multiple destinations"},
+    best:"metro",tip:"Line 11 is comfortable with luggage racks. To Futian in ~30 min."
+  },
+  {name:"Chengdu Tianfu",code:"TFU",city:"Chengdu",
+    metro:{line:"Line 18",price:10,time:"40-55min",note:"To South Railway Station"},
+    taxi:{price:"120-200",time:"40-80min",note:"Far from city centre"},
+    shuttle:{price:35,time:"50-80min",note:"City shuttle buses"},
+    best:"metro",tip:"Chengdu has TWO airports! Tianfu (TFU) is the new one, far from city. Shuangliu (CTU) is closer."
+  },
+  {name:"Chengdu Shuangliu",code:"CTU",city:"Chengdu",
+    metro:{line:"Line 10",price:6,time:"20-35min",note:"To Taipingyuan (Line 3/7)"},
+    taxi:{price:"60-100",time:"25-45min",note:"Closer to city than TFU"},
+    shuttle:{price:0,time:"0",note:"Metro is best here"},
+    best:"metro",tip:"Closer to city centre. Many domestic flights still use CTU."
+  },
+  {name:"Xi'an Xianyang",code:"XIY",city:"Xi'an",
+    metro:{line:"Airport Line → Line 14",price:8,time:"50min",note:"To Xi'an North Station"},
+    taxi:{price:"100-150",time:"40-60min",note:"Flat rate to city centre"},
+    shuttle:{price:25,time:"50-70min",note:"Xi'an's Muslim Quarter shuttle"},
+    best:"metro",tip:"New metro line connects airport to Xi'an North HSR station. Change there."
+  },
+  {name:"Hangzhou Xiaoshan",code:"HGH",city:"Hangzhou",
+    metro:{line:"Lines 1, 19",price:6,time:"35-55min",note:"Line 19 is express to city centre"},
+    taxi:{price:"120-180",time:"35-60min",note:"¥20 extra after 10pm"},
+    shuttle:{price:20,time:"50-80min",note:"City + Wuzhen routes"},
+    best:"metro",tip:"Line 19 Express is fastest (~25min to West Lake area)."
+  },
+  {name:"Kunming Changshui",code:"KMG",city:"Kunming",
+    metro:{line:"Line 6",price:5,time:"30min",note:"To East Bus Station (Line 3)"},
+    taxi:{price:"80-130",time:"30-50min",note:"Cheap compared to other cities"},
+    shuttle:{price:25,time:"40-60min",note:"Multiple routes"},
+    best:"taxi",tip:"Taxis are affordable here. If travelling light, metro works."
+  },
+  {name:"Harbin Taiping",code:"HRB",city:"Harbin",
+    metro:{line:"Line 2",price:4,time:"30-45min",note:"To downtown"},
+    taxi:{price:"50-80",time:"25-40min",note:"Very cheap by China standards"},
+    shuttle:{price:20,time:"40-60min",note:"Multiple routes"},
+    best:"metro",tip:"In winter, metro is warmer than waiting for a taxi outside."
+  },
+  {name:"Sanya Phoenix",code:"SYX",city:"Sanya",
+    metro:{line:"None",price:0,time:"0",note:"No metro — use taxi or bus"},
+    taxi:{price:"20-60",time:"15-30min",note:"Cheapest taxi among major airports"},
+    shuttle:{price:15,time:"30-50min",note:"To Dadonghai / Yalong Bay"},
+    best:"taxi",tip:"Sanya is small — taxi to most resorts is ¥20-60. Excellent value."
+  },
+  {name:"Guilin Liangjiang",code:"KWL",city:"Guilin",
+    metro:{line:"None",price:0,time:"0",note:"No metro"},
+    taxi:{price:"60-100",time:"30-50min",note:"Flat rate to city centre"},
+    shuttle:{price:25,time:"40-60min",note:"Airport bus to city centre"},
+    best:"taxi",tip:"Compact airport. Taxi to city is affordable. Don't trust touts."
+  },
+  {name:"Lhasa Gonggar",code:"LXA",city:"Lhasa",
+    metro:{line:"None",price:0,time:"0",note:"No metro"},
+    taxi:{price:"150-200",time:"50-70min",note:"Fixed price, pre-book recommended"},
+    shuttle:{price:30,time:"60min",note:"Airport bus to city centre"},
+    best:"shuttle",tip:"Altitude warning: 3650m. Take it easy. The bus is cheap and reliable."
+  }
+];
+
+function renderAirport(a) {
+  const div = document.createElement('div');
+  div.className = 'airport-card';
+  div.setAttribute('data-search', (a.name + a.city).toLowerCase());
+
+  const metroPrice = a.metro.price ? `¥${a.metro.price}` : '-';
+  const metroInfo = a.metro.line !== 'None' && a.metro.price !== 0
+    ? `<div class="transport-row"><span class="transport-icon">🚇</span><span class="transport-name ${a.best==='metro'?'recommend':''}">Metro</span><span class="transport-detail"><span class="transport-price">${metroPrice}</span><span class="transport-time">${a.metro.time}</span></span></div><div style="font-size:11px;color:var(--color-muted);padding:0 24px 4px;margin-top:-6px;">${a.metro.note}</div>`
+    : '';
+
+  const taxiInfo = a.taxi.price !== 0
+    ? `<div class="transport-row"><span class="transport-icon">🚕</span><span class="transport-name ${a.best==='taxi'?'recommend':''}">Taxi</span><span class="transport-detail"><span class="transport-price">¥${a.taxi.price}</span><span class="transport-time">${a.taxi.time}</span></span></div><div style="font-size:11px;color:var(--color-muted);padding:0 24px 4px;margin-top:-6px;">${a.taxi.note}</div>`
+    : '';
+
+  const shuttleInfo = a.shuttle.price !== 0 && a.shuttle.price !== "0"
+    ? `<div class="transport-row"><span class="transport-icon">🚌</span><span class="transport-name ${a.best==='shuttle'?'recommend':''}">Shuttle</span><span class="transport-detail"><span class="transport-price">¥${a.shuttle.price}</span><span class="transport-time">${a.shuttle.time}</span></span></div><div style="font-size:11px;color:var(--color-muted);padding:0 24px 4px;margin-top:-6px;">${a.shuttle.note}</div>`
+    : '';
+
+  const bestLabel = {metro:'Best: Metro',taxi:'Best: Taxi',shuttle:'Best: Shuttle'}[a.best];
+
+  div.innerHTML = `
+    <div class="airport-card-header">
+      <div><span class="apt-name">${a.name}</span> <span class="apt-code">${a.code}</span></div>
+      <div style="font-size:12px;color:var(--color-muted);">${a.city}</div>
+    </div>
+    <div class="airport-card-body">
+      ${metroInfo}${taxiInfo}${shuttleInfo}
+      <div style="font-size:11px;color:var(--color-brand);font-weight:600;margin-top:8px;">${bestLabel}</div>
+      <div class="airport-tip">💡 ${a.tip}</div>
+    </div>
+  `;
+  document.getElementById('grid').appendChild(div);
+}
+
+function filterAirports() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.airport-card').forEach(c => {
+    c.style.display = c.getAttribute('data-search').includes(q) ? '' : 'none';
+  });
+}
+
+AIRPORTS.forEach(renderAirport);
+</script>
+</body>
+</html>

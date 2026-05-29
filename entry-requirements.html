@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Entry Requirements Quick Ref — EVENTURUS</title>
+<meta name="description" content="Quick reference for China entry requirements. Visa-free, visa-on-arrival, eVisa and regular visa rules by nationality.">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --radius:12px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:inherit; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
+.container { max-width:920px; margin:0 auto; padding:0 20px; }
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:36px 0 20px; }
+.hero h1 { font-size:28px; font-weight:600; line-height:1.2; margin-bottom:8px; }
+.hero p { font-size:15px; color:var(--color-muted); }
+.info-box { background:#F8F6F0; border-radius:var(--radius); padding:14px 18px; margin-bottom:20px; font-size:13px; color:var(--color-muted); line-height:1.6; }
+.info-box strong { color:var(--color-text); }
+
+.filter-bar { margin-bottom:20px; }
+.filter-bar input { width:100%; padding:12px 18px; border:2px solid var(--color-border); border-radius:8px; font-size:15px; background:var(--color-surface); }
+.filter-bar input:focus { border-color:var(--color-brand); outline:none; }
+
+.tabs { display:flex; gap:6px; margin-bottom:20px; flex-wrap:wrap; }
+.tab { padding:8px 16px; border-radius:6px; border:1px solid var(--color-border); background:var(--color-surface); font-size:13px; cursor:pointer; transition:all .2s; }
+.tab:hover { border-color:var(--color-brand); }
+.tab.active { background:var(--color-brand); color:#fff; border-color:var(--color-brand); }
+
+table { width:100%; border-collapse:collapse; background:var(--color-surface); border-radius:var(--radius); overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+th { padding:12px 16px; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--color-muted); border-bottom:2px solid var(--color-border); text-align:left; background:#FAFAF8; }
+td { padding:12px 16px; border-bottom:1px solid #F0F0EE; font-size:14px; }
+tr:last-child td { border-bottom:none; }
+tr:hover td { background:#FAFAF8; }
+
+.badge-vf { display:inline-block; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:600; background:#EAF3DE; color:#3B6D11; }
+.badge-voa { display:inline-block; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:600; background:#FFF0E0; color:#A06600; }
+.badge-evisa { display:inline-block; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:600; background:#E6F1FB; color:#2A5580; }
+.badge-visa { display:inline-block; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:600; background:#FFE8E8; color:#B33; }
+
+.flag-icon { font-size:20px; margin-right:8px; }
+.note-row td { font-size:12px; color:var(--color-muted); padding:4px 16px 12px; }
+
+.footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
+.footer a { color:var(--color-brand); text-decoration:none; }
+.footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+
+.cross-link { text-align:center; margin:24px 0; }
+.cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
+</style>
+</head>
+<body>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+<div class="hero"><h1>China Entry Requirements</h1><p>Quick reference — visa-free, visa-on-arrival, eVisa and regular visa rules by nationality.</p></div>
+
+<div class="info-box">
+  <strong>Last updated:</strong> May 2026. China's visa policies change frequently. Always confirm with your local Chinese embassy or <a href="https://www.visaforchina.org/" target="_blank" rel="noopener" style="color:var(--color-brand)">visaforchina.org</a> before booking.
+</div>
+
+<div class="filter-bar">
+  <input type="text" id="search" placeholder="Search nationality..." oninput="filterTable()">
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" onclick="filterType('all')" data-type="all">All</button>
+  <button class="tab" onclick="filterType('visa-free')" data-type="visa-free">Visa-Free</button>
+  <button class="tab" onclick="filterType('evisa')" data-type="evisa">eVisa</button>
+  <button class="tab" onclick="filterType('visa-required')" data-type="visa-required">Visa Required</button>
+</div>
+
+<div style="overflow-x:auto;border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <table>
+    <thead><tr><th>Nationality</th><th>Entry Type</th><th>Max Stay</th><th>Notes</th></tr></thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="cross-link">
+  <p>Check what visa you need → <a href="visa-checker.html">Visa Eligibility Checker</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+</div>
+
+<script>
+const ENTRIES = [
+  {nat:"Singapore",flag:"🇸🇬",type:"visa-free",stay:"30 days",note:"Visa-free for tourism/business"},
+  {nat:"Malaysia",flag:"🇲🇾",type:"visa-free",stay:"30 days",note:"Visa-free extended to 30 days"},
+  {nat:"Thailand",flag:"🇹🇭",type:"visa-free",stay:"60 days",note:"Mutual visa-free agreement"},
+  {nat:"South Korea",flag:"🇰🇷",type:"visa-free",stay:"30 days",note:"Visa-free for tourism"},
+  {nat:"Japan",flag:"🇯🇵",type:"visa-free",stay:"15 days",note:"Limited to 15 days visa-free"},
+  {nat:"UAE",flag:"🇦🇪",type:"visa-free",stay:"30 days",note:"Visa-free agreement"},
+  {nat:"Qatar",flag:"🇶🇦",type:"visa-free",stay:"30 days",note:"Visa-free"},
+  {nat:"Brunei",flag:"🇧🇳",type:"visa-free",stay:"15 days",note:"Visa-free"},
+  {nat:"Armenia",flag:"🇦🇲",type:"visa-free",stay:"30 days",note:"Mutual visa-free"},
+  {nat:"Maldives",flag:"🇲🇻",type:"visa-free",stay:"30 days",note:"Visa-free"},
+  {nat:"Fiji",flag:"🇫🇯",type:"visa-free",stay:"30 days",note:"Visa-free"},
+  {nat:"Seychelles",flag:"🇸🇨",type:"visa-free",stay:"30 days",note:"Visa-free"},
+  {nat:"Mauritius",flag:"🇲🇺",type:"visa-free",stay:"60 days",note:"Visa-free"},  
+  {nat:"Samoa",flag:"🇼🇸",type:"visa-free",stay:"60 days",note:"Visa-free"},
+  {nat:"Bahrain",flag:"🇧🇭",type:"visa-free",stay:"14 days",note:"Visa-free limited duration"},
+  {nat:"Oman",flag:"🇴🇲",type:"visa-free",stay:"14 days",note:"Visa-free limited duration"},
+  {nat:"Kuwait",flag:"🇰🇼",type:"visa-free",stay:"30 days",note:"Visa-free"},
+  {nat:"Saudi Arabia",flag:"🇸🇦",type:"visa-free",stay:"30 days",note:"Visa-free (new agreement)"},
+  {nat:"United States",flag:"🇺🇸",type:"visa-required",stay:"Up to 60 days",note:"L-visa (tourist). 10-year multi-entry common"},
+  {nat:"United Kingdom",flag:"🇬🇧",type:"visa-required",stay:"Up to 60 days",note:"L-visa or Q2 (family). 2–10 year multi-entry possible"},
+  {nat:"Canada",flag:"🇨🇦",type:"visa-required",stay:"Up to 60 days",note:"L-visa. 10-year multi-entry common"},
+  {nat:"Australia",flag:"🇦🇺",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Multiple-entry common"},
+  {nat:"New Zealand",flag:"🇳🇿",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"France",flag:"🇫🇷",type:"visa-required",stay:"Up to 60 days",note:"Schengen nationals: L-visa required"},
+  {nat:"Germany",flag:"🇩🇪",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Italy",flag:"🇮🇹",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Spain",flag:"🇪🇸",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Netherlands",flag:"🇳🇱",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Switzerland",flag:"🇨🇭",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Sweden",flag:"🇸🇪",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Denmark",flag:"🇩🇰",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Norway",flag:"🇳🇴",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Finland",flag:"🇫🇮",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Ireland",flag:"🇮🇪",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Belgium",flag:"🇧🇪",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Austria",flag:"🇦🇹",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Portugal",flag:"🇵🇹",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Greece",flag:"🇬🇷",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Poland",flag:"🇵🇱",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Czechia",flag:"🇨🇿",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Hungary",flag:"🇭🇺",type:"visa-required",stay:"Up to 60 days",note:"L-visa. Eligible for 144h transit"},
+  {nat:"Russia",flag:"🇷🇺",type:"visa-required",stay:"Up to 30 days",note:"L-visa. Team tourism visa available"},
+  {nat:"Israel",flag:"🇮🇱",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"India",flag:"🇮🇳",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Indonesia",flag:"🇮🇩",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Philippines",flag:"🇵🇭",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Vietnam",flag:"🇻🇳",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Mexico",flag:"🇲🇽",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Brazil",flag:"🇧🇷",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Argentina",flag:"🇦🇷",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"South Africa",flag:"🇿🇦",type:"visa-required",stay:"Up to 60 days",note:"L-visa"},
+  {nat:"Turkey",flag:"🇹🇷",type:"visa-required",stay:"Up to 60 days",note:"L-visa"}
+];
+
+const BADGES = {
+  'visa-free': 'badge-vf',
+  'evisa': 'badge-evisa',
+  'visa-required': 'badge-visa'
+};
+
+const LABELS = {
+  'visa-free': 'Visa-Free',
+  'evisa': 'eVisa',
+  'visa-required': 'Visa Required'
+};
+
+function renderTable(entries) {
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = entries.map(e => `
+    <tr>
+      <td><span class="flag-icon">${e.flag}</span> ${e.nat}</td>
+      <td><span class="${BADGES[e.type]}">${LABELS[e.type]}</span></td>
+      <td>${e.stay}</td>
+      <td style="font-size:12px;color:var(--color-muted)">${e.note}</td>
+    </tr>
+  `).join('');
+}
+
+function filterTable() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const type = document.querySelector('#tabs .tab.active').getAttribute('data-type');
+  let filtered = ENTRIES;
+  if (type !== 'all') filtered = filtered.filter(e => e.type === type);
+  if (q) filtered = filtered.filter(e => e.nat.toLowerCase().includes(q));
+  renderTable(filtered);
+}
+
+function filterType(type) {
+  document.querySelectorAll('#tabs .tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`#tabs .tab[data-type="${type}"]`).classList.add('active');
+  filterTable();
+}
+
+renderTable(ENTRIES);
+</script>
+</body>
+</html>
