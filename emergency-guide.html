@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency & Hospital Guide — EVENTURUS</title>
+<meta name="description" content="What to do in a medical emergency in China. Emergency numbers, international hospitals by city, lost passport steps, pharmacy guide, and emergency phrases for foreign travellers.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Emergency & Hospital Guide — EVENTURUS">
+<meta property="og:description" content="What to do in a medical emergency in China. Emergency numbers, international hospitals by city, lost passport steps, pharmacy guide, and emergency phrases for foreign travellers.">
+<meta property="og:url" content="https://eventurus.github.io/eventurus-tools/emergency-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EVENTURUS">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emergency & Hospital Guide — EVENTURUS">
+<meta name="twitter:description" content="What to do in a medical emergency in China. Emergency numbers, international hospitals by city, lost passport steps, pharmacy guide, and emergency phrases for foreign travellers.">
+<meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://eventurus.github.io/eventurus-tools/emergency-guide.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text: #2c2c2c;
+  --color-muted: #888780;
+  --color-brand: #6B7F65;
+  --color-brand-light: #EAF3DE;
+  --color-brand-dark: #5a6e55;
+  --color-bg: #F9F9F9;
+  --color-surface: #fff;
+  --color-border: #E5E5E0;
+  --color-highlight: #F1EFE8;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, Helvetica, Arial, sans-serif;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+.brand-bar { padding: 24px 0 0; text-align: center; }
+.brand-bar .brand { font-family: var(--font-serif); font-size: 18px; font-weight: 500; letter-spacing: 2px; color: var(--color-text); text-decoration: none; }
+.brand-bar .brand em { font-style: italic; color: var(--color-brand); }
+.brand-bar .tagline { font-size: 12px; color: var(--color-muted); letter-spacing: 1px; margin-top: 2px; }
+.hero { text-align: center; padding: 48px 0 24px; }
+.hero h1 { font-family: var(--font-serif); font-size: 34px; font-weight: 500; line-height: 1.25; margin-bottom: 12px; }
+.hero p { font-size: 15px; color: var(--color-muted); max-width: 520px; margin: 0 auto; }
+.section { padding: 24px 0; }
+.section h2 { font-family: var(--font-serif); font-size: 26px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+.section .sub { font-size: 13px; color: var(--color-muted); margin-bottom: 20px; }
+.section p { font-size: 15px; color: var(--color-text); margin-bottom: 14px; line-height: 1.7; }
+.section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 20px; }
+
+/* Cards */
+.info-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px;
+}
+.info-card h3 { font-size: 17px; font-weight: 600; margin-top: 0; margin-bottom: 12px; }
+.info-card h3 .emoji { margin-right: 8px; }
+.info-card p, .info-card li { font-size: 14px; line-height: 1.6; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card li { padding: 6px 0; border-bottom: 1px solid #F0F0EE; display: flex; align-items: flex-start; gap: 8px; }
+.info-card li:last-child { border-bottom: none; }
+.info-card li .bullet { color: var(--color-brand); flex-shrink: 0; }
+.info-card strong { color: var(--color-text); }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: 13px; }
+th { padding: 10px 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-muted); border-bottom: 2px solid var(--color-border); text-align: left; background: var(--color-highlight); }
+td { padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #FAFAF8; }
+
+/* Highlight boxes */
+.highlight-box {
+  background: var(--color-brand-light); border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6;
+}
+.highlight-box strong { color: #3B6D11; }
+.warning-box {
+  background: #FFF0E0; border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6; border: 1px solid #FFE0B0;
+}
+.warning-box strong { color: #A06600; }
+.info-box {
+  background: #E6F1FB; border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6; border: 1px solid #CDE0F5;
+}
+.info-box strong { color: #185FA5; }
+
+/* Steps */
+.steps { counter-reset: step; list-style: none; padding: 0; }
+.steps li { counter-increment: step; padding: 10px 0 10px 40px; position: relative; font-size: 14px; line-height: 1.6; border-bottom: 1px solid #F0F0EE; }
+.steps li:last-child { border-bottom: none; }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: 10px; width: 26px; height: 26px; border-radius: 50%; background: var(--color-brand-light); color: var(--color-brand-dark); font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.steps li strong { color: var(--color-text); }
+
+/* Phrase cards */
+.phrase-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  padding: 16px 20px; margin-bottom: 10px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+}
+.phrase-card .pc-en { font-size: 14px; font-weight: 500; color: var(--color-text); }
+.phrase-card .pc-cn { font-size: 16px; color: var(--color-brand); font-weight: 600; text-align: right; }
+.phrase-card .pc-pinyin { font-size: 12px; color: var(--color-muted); text-align: right; font-style: italic; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--color-border); padding: 16px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--color-text); }
+.faq-a { font-size: 14px; color: var(--color-muted); line-height: 1.6; }
+
+/* Footer */
+.footer { text-align: center; padding: 32px 0 24px; font-size: 12px; color: var(--color-muted); }
+.footer a { color: var(--color-brand); text-decoration: none; }
+.footer .brand-foot { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
+
+.cross-link { text-align: center; padding: 4px 0; font-size: 13px; color: var(--color-muted); }
+.cross-link a { color: var(--color-brand); text-decoration: none; font-weight: 500; }
+.cross-link a:hover { text-decoration: underline; }
+
+.divider { text-align: center; padding: 8px 0; color: var(--color-border); font-size: 14px; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-muted: #a0a0a0;
+    --color-border: #333;
+    --color-highlight: #2a2a2a;
+    --color-brand-light: #2a3a2a;
+  }
+  .warning-box { background: #2a1a0a; border-color: #4a3a1a; }
+  .warning-box strong { color: #D4A040; }
+  .info-box { background: #0a1a2a; border-color: #1a3a5a; }
+  .info-box strong { color: #60A0D0; }
+  .highlight-box { background: #2a3a2a; }
+  .highlight-box strong { color: #7AA84C; }
+  tr:hover td { background: #1a1a1a; }
+}
+</style>
+</head>
+<body>
+
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+
+<div class="hero">
+  <h1>Emergency &amp; Hospital Guide</h1>
+  <p>What to do if something goes wrong in China. Emergency numbers, hospital finder, lost passport protocol, pharmacy guide, and essential phrases — organised so you don't have to think when you're under pressure.</p>
+</div>
+
+<!-- ─── Section 1: Emergency Numbers ─────────────── -->
+<div class="section">
+  <h2>Emergency Numbers</h2>
+  <p class="sub">Save these now. They cost nothing to dial and operators in major cities can usually transfer to an English-speaking line.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Service</th><th>Number</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-brand" style="font-weight:600;color:var(--color-brand);">Police</td><td><strong>110</strong></td><td>English operators available in major cities. Ask for an interpreter.</td></tr>
+        <tr><td class="td-brand" style="font-weight:600;color:var(--color-brand);">Fire</td><td><strong>119</strong></td><td>English assistance may be limited — have a Chinese speaker or translation app ready.</td></tr>
+        <tr><td class="td-brand" style="font-weight:600;color:var(--color-brand);">Ambulance</td><td><strong>120</strong></td><td>English operators available in Beijing, Shanghai, and Guangzhou. Dispatch times vary by city.</td></tr>
+        <tr><td class="td-brand" style="font-weight:600;color:var(--color-brand);">Traffic Accidents</td><td><strong>122</strong></td><td>For non-injury accidents. Police will attend to document the incident.</td></tr>
+        <tr><td class="td-brand" style="font-weight:600;color:var(--color-brand);">Consular Protection</td><td><strong>12308</strong></td><td>China's foreign ministry hotline for foreign nationals. English available. Operated by the MFA.</td></tr>
+        <tr><td class="td-brand" style="font-weight:600;color:var(--color-brand);">Medical Emergency SMS</td><td><strong>999</strong></td><td>Some cities accept SMS to 999 for hearing-impaired or non-verbal emergencies.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-box">
+    <strong>📱 Save tip:</strong> Take a screenshot of this table now. Better yet, write the numbers 110, 119, 120, 122, and 12308 into your phone contacts under ICE (In Case of Emergency).
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ─── Section 2: Lost or Stolen Passport ───────── -->
+<div class="section">
+  <h2>Lost or Stolen Passport</h2>
+  <p class="sub">This happens more often than you'd think. Here is the sequence to follow.</p>
+
+  <ol class="steps">
+    <li><strong>Report to the police immediately.</strong> Go to the nearest police station (派出所, pàichūsuǒ). You need a <em>Report of Loss</em> (遗失证明, yíshī zhèngmíng) — this is your legal proof of identity while you sort out a replacement. Dial <strong>110</strong> and they will direct you to the correct station.</li>
+    <li><strong>Contact your embassy or consulate.</strong> Apply for an Emergency Travel Document (emergency passport). This typically takes 1–4 working days. Most embassies have 24-hour emergency phone lines for their citizens.</li>
+    <li><strong>Cancel affected cards.</strong> Call your bank to freeze cards. Most international banks have collect-call numbers in China.</li>
+    <li><strong>Check your travel insurance.</strong> Most policies cover passport replacement costs and provide a 24-hour assistance hotline. They can also arrange emergency cash transfers.</li>
+    <li><strong>Use the police report to rebook travel.</strong> Airlines and high-speed train operators accept the police report of loss as temporary ID. Keep it with you at all times.</li>
+  </ol>
+
+  <div class="info-box">
+    <strong>💡 Pro tip:</strong> Keep a photocopy of your passport photo page and current visa sticker in your phone's photo album and in your luggage separately. It significantly speeds up the replacement process.
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🏛️</span> Key embassy emergency numbers (24h)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Country</th><th>Emergency Line</th><th>Embassy City</th></tr></thead>
+        <tbody>
+          <tr><td class="td-brand">🇺🇸 United States</td><td>021-6031-3600</td><td>Beijing / Shanghai / Guangzhou / Shenyang / Chengdu</td></tr>
+          <tr><td class="td-brand">🇬🇧 United Kingdom</td><td>010-8529-6600</td><td>Beijing / Shanghai / Guangzhou / Chongqing</td></tr>
+          <tr><td class="td-brand">🇦🇺 Australia</td><td>010-5140-4111</td><td>Beijing / Shanghai / Guangzhou / Chengdu / Shenyang</td></tr>
+          <tr><td class="td-brand">🇨🇦 Canada</td><td>010-5139-4000</td><td>Beijing / Shanghai / Guangzhou / Chongqing</td></tr>
+          <tr><td class="td-brand">🇩🇪 Germany</td><td>010-8532-9000</td><td>Beijing / Shanghai / Guangzhou / Chengdu / Shenyang</td></tr>
+          <tr><td class="td-brand">🇫🇷 France</td><td>010-8531-2000</td><td>Beijing / Shanghai / Guangzhou / Chengdu / Shenyang</td></tr>
+          <tr><td class="td-brand">🇯🇵 Japan</td><td>010-6410-6970</td><td>Beijing / Shanghai / Guangzhou / Chengdu / Qingdao / Shenyang</td></tr>
+          <tr><td class="td-brand">🇰🇷 South Korea</td><td>010-8531-0700</td><td>Beijing / Shanghai / Guangzhou / Chengdu / Xi'an / Qingdao</td></tr>
+          <tr><td class="td-brand">🇸🇬 Singapore</td><td>010-6532-1115</td><td>Beijing / Shanghai / Guangzhou / Chengdu / Xiamen</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ─── Section 3: Hospitals ──────────────────── -->
+<div class="section">
+  <h2>International &amp; VIP Hospitals</h2>
+  <p class="sub">Public hospitals in China can be overwhelming. These international and VIP clinics serve foreign patients with English-speaking staff, international insurance direct billing, and Western standards of care.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>City</th><th>Hospital / Clinic</th><th>24h Emergency</th><th>Insurance Billing</th><th>Address Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="3" style="font-weight:600;vertical-align:middle;">Beijing</td>
+            <td>Beijing United Family Hospital (OAG)</td><td>Yes</td><td>Yes</td><td>2 Jiangtai Lu, Chaoyang. 24h: 010-5927-7120</td></tr>
+        <tr><td>Beijing International Medical Centre (BIMC)</td><td>Yes</td><td>Yes</td><td>9 Fanjiayuan, Diplomatic Compound. Metro Liangmaqiao.</td></tr>
+        <tr><td>Peking Union Medical College Hospital — VIP</td><td>Yes</td><td>Direct pay for most</td><td>1 Shuaifuyuan, Dongcheng. The VIP wing has English staff.</td></tr>
+
+        <tr><td rowspan="3" style="font-weight:600;vertical-align:middle;">Shanghai</td>
+            <td>Shanghai United Family Hospital (PUH)</td><td>Yes</td><td>Yes</td><td>1139 Xianxia Lu, Changning. 24h: 021-2216-3999</td></tr>
+        <tr><td>ParkwayHealth Shanghai (Jiahui Health)</td><td>Yes</td><td>Yes</td><td>225 Pingtang Lu, Qingpu. Multi-location clinics.</td></tr>
+        <tr><td>Huashan Hospital — International Medical Centre</td><td>Yes</td><td>Yes</td><td>12 Wulumuqi Zhong Lu, Jing'an. Excellent neurology.</td></tr>
+
+        <tr><td rowspan="3" style="font-weight:600;vertical-align:middle;">Guangzhou</td>
+            <td>United Family Hospital Guangzhou</td><td>Yes</td><td>Yes</td><td>255 Tonghe Lu, Baiyun. 24h: 020-8710-6060</td></tr>
+        <tr><td>Guangzhou International Medical Centre</td><td>Yes</td><td>Direct pay for most</td><td>Inside Guangzhou Concord Clinic, Tianhe.</td></tr>
+        <tr><td>Clifford Hospital — VIP</td><td>Yes</td><td>Some international</td><td>3 Hongfu Lu, Panyu. Strong TCM department.</td></tr>
+
+        <tr><td rowspan="2" style="font-weight:600;vertical-align:middle;">Shenzhen</td>
+            <td>United Family Hospital Shenzhen</td><td>Yes</td><td>Yes</td><td>1139 Yitian Lu, Futian. 24h: 0755-8886-5888</td></tr>
+        <tr><td>International Medical Services (HKU-SZH)</td><td>Yes</td><td>Yes</td><td>1 Haiyuan Yi Lu, Nanshan. HKU-affiliated, English-friendly.</td></tr>
+
+        <tr><td rowspan="2" style="font-weight:600;vertical-align:middle;">Chengdu</td>
+            <td>Chengdu United Family Hospital</td><td>Yes</td><td>Yes</td><td>63 Sec 2, East Avenue. 24h: 028-8556-9999</td></tr>
+        <tr><td>West China International Hospital (VIP)</td><td>Yes</td><td>Some international</td><td>37 Guoxue Xiang, Wuhou. Affiliated with Sichuan University.</td></tr>
+
+        <tr><td rowspan="2" style="font-weight:600;vertical-align:middle;">Xi'an</td>
+            <td>Xi'an United Family Hospital</td><td>Yes</td><td>Yes</td><td>5 Jinye Lu, Yanta. 24h: 029-8886-6888</td></tr>
+        <tr><td>Shaanxi Provincial People's Hospital — VIP</td><td>Yes</td><td>Some international</td><td>256 Youyi Xi Lu, Beilin. English-speaking expat liaison.</td></tr>
+
+        <tr><td rowspan="2" style="font-weight:600;vertical-align:middle;">Hangzhou</td>
+            <td>Sir Run Run Shaw Hospital — International</td><td>Yes</td><td>Yes</td><td>3 Qingchun Dong Lu. 24h ER with English service.</td></tr>
+        <tr><td>Zhejiang Hospital — International Medical Centre</td><td>Yes</td><td>Some international</td><td>12 Linyin Lu, Xihu. Under renovation 2026 — call ahead.</td></tr>
+
+        <tr><td rowspan="2" style="font-weight:600;vertical-align:middle;">Nanjing</td>
+            <td>Nanjing Drum Tower Hospital — VIP</td><td>Yes</td><td>Some international</td><td>321 Zhongshan Lu, Gulou. English-speaking foreign affairs office.</td></tr>
+        <tr><td>United Family Hospital — Nanjing</td><td>Yes</td><td>Yes</td><td>100 Qingyuan Lu, Jianye.</td></tr>
+
+        <tr><td style="font-weight:600;vertical-align:middle;">Chongqing</td>
+            <td>Chongqing United Family Hospital</td><td>Yes</td><td>Yes</td><td>115 Qiaobei Yuan, Jiangbei. 24h: 023-8886-6888</td></tr>
+
+        <tr><td style="font-weight:600;vertical-align:middle;">Kunming</td>
+            <td>Kunming Medical University — VIP International</td><td>No (08:00–18:00)</td><td>Some international</td><td>1168 Chunrong Lu, Chenggong. Call for 24h emergencies: ask for expat liaison.</td></tr>
+
+        <tr><td style="font-weight:600;vertical-align:middle;">Xiamen</td>
+            <td>Xiamen United Family Hospital</td><td>Yes</td><td>Yes</td><td>11-17 Zhenhai Lu, Siming. 24h: 0592-8886-6888</td></tr>
+
+        <tr><td style="font-weight:600;vertical-align:middle;">Qingdao</td>
+            <td>Qingdao United Family Hospital</td><td>Yes</td><td>Yes</td><td>319 Shandong Lu, Shinan. 24h: 0532-8886-6888</td></tr>
+
+        <tr><td style="font-weight:600;vertical-align:middle;">Guilin</td>
+            <td>Guilin People's Hospital — International Clinic</td><td>No (08:00–17:30)</td><td>Some international</td><td>12 Wenming Lu, Xiangshan. Call 120 for emergencies; ask for English-speaking doctor.</td></tr>
+
+        <tr><td style="font-weight:600;vertical-align:middle;">Suzhou</td>
+            <td>Suzhou Kowloon Hospital — VIP</td><td>Yes</td><td>Yes</td><td>118 Wansheng Jie, Suzhou Industrial Park. Hong Kong-affiliated.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-box">
+    <strong>🏥 United Family Hospital (OAG):</strong> If you are in a city with a United Family Hospital (Beijing, Shanghai, Guangzhou, Shenzhen, Chengdu, Xi'an, Nanjing, Xiamen, Qingdao, Chongqing), this is your safest bet. They operate to international standards, all staff speak English, and they direct-bill most international insurance policies. Their 24-hour emergency numbers are reliable.
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ Important:</strong> Chinese public hospitals operate on a <em>pay-first, claim-later</em> model. Even emergency rooms may ask for a deposit (¥3,000–10,000) before treatment. International clinics like United Family bill your insurance directly. Always carry your travel insurance card and passport photocopy.
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ─── Section 4: Pharmacies ────────────────── -->
+<div class="section">
+  <h2>Pharmacies &amp; Over-the-Counter Medications</h2>
+  <p class="sub">Pharmacies (药店, yàodiàn) are everywhere in Chinese cities. Green cross sign, open 08:00–22:00 typically. Some are 24-hour.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">💊</span> What you can buy without a prescription</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Basic first aid:</strong> Band-aids, disinfectant (碘伏, diǎnfú), gauze, surgical masks — all widely available</li>
+      <li><span class="bullet">✓</span> <strong>Cold & flu:</strong> Paracetamol (对乙酰氨基酚, duìyǐxiān'ānjīfēn), ibuprofen (布洛芬, bùluòfēn), cough syrup</li>
+      <li><span class="bullet">✓</span> <strong>Digestive:</strong> Antacids, activated charcoal, oral rehydration salts (口服补液盐)</li>
+      <li><span class="bullet">✓</span> <strong>Allergies:</strong> Loratadine (氯雷他定, lǜléitādìng) — common OTC antihistamine</li>
+      <li><span class="bullet">✓</span> <strong>Travel health:</strong> Motion sickness tablets, anti-diarrhoeal (蒙脱石散, méngtuōshí sǎn)</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🔴</span> What requires a prescription</h3>
+    <ul>
+      <li><span class="bullet">✗</span> <strong>Antibiotics</strong> — strictly prescription-only (buying without one is illegal)</li>
+      <li><span class="bullet">✗</span> <strong>Strong painkillers</strong> — codeine, tramadol, morphine are tightly controlled</li>
+      <li><span class="bullet">✗</span> <strong>Psychiatric medications</strong> — antidepressants, anxiolytics require a Chinese prescription</li>
+      <li><span class="bullet">✗</span> <strong>Pseudoephedrine products</strong> — most cold medications containing it are controlled</li>
+    </ul>
+  </div>
+
+  <div class="info-box">
+    <strong>💊 Pharmacy tips:</strong> Show the pharmacist the Chinese name of the medication on your phone. Major chains like <em>Walvax</em>, <em>Guoda</em>, and <em>Da Sheng Lin</em> are reliable. In Beijing and Shanghai, some pharmacies near embassies stock imported medications — expect to pay 2–3× the Chinese equivalent price.
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ─── Section 5: Emergency Phrases ──────────── -->
+<div class="section">
+  <h2>Emergency Phrases</h2>
+  <p class="sub">Show these on your phone if you can't speak. The pinyin helps if you want to try saying them.</p>
+
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">Call an ambulance</div>
+    </div>
+    <div>
+      <div class="pc-cn">叫救护车</div>
+      <div class="pc-pinyin">Jiào jiùhù chē</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">I need a doctor who speaks English</div>
+    </div>
+    <div>
+      <div class="pc-cn">我需要会说英语的医生</div>
+      <div class="pc-pinyin">Wǒ xūyào huì shuō yīngyǔ de yīshēng</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">I have lost my passport</div>
+    </div>
+    <div>
+      <div class="pc-cn">我的护照丢了</div>
+      <div class="pc-pinyin">Wǒ de hùzhào diū le</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">Where is the nearest pharmacy?</div>
+    </div>
+    <div>
+      <div class="pc-cn">最近的药店在哪里？</div>
+      <div class="pc-pinyin">Zuìjìn de yàodiàn zài nǎlǐ?</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">I am allergic to [peanuts / penicillin]</div>
+    </div>
+    <div>
+      <div class="pc-cn">我对（花生/青霉素）过敏</div>
+      <div class="pc-pinyin">Wǒ duì (huāshēng / qīngméisù) guòmǐn</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">It hurts here / I have a fever</div>
+    </div>
+    <div>
+      <div class="pc-cn">这里疼 / 我发烧</div>
+      <div class="pc-pinyin">Zhèlǐ téng / Wǒ fāshāo</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">Please take me to the international hospital</div>
+    </div>
+    <div>
+      <div class="pc-cn">请带我去国际医院</div>
+      <div class="pc-pinyin">Qǐng dài wǒ qù guójì yīyuàn</div>
+    </div>
+  </div>
+  <div class="phrase-card">
+    <div>
+      <div class="pc-en">I need help — can you call 110 (police)?</div>
+    </div>
+    <div>
+      <div class="pc-cn">我需要帮助，你能打110吗？</div>
+      <div class="pc-pinyin">Wǒ xūyào bāngzhù, nǐ néng dǎ yāo yāo líng ma?</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ─── Section 6: Insurance ──────────────────── -->
+<div class="section">
+  <h2>Travel Insurance &amp; Medical Coverage</h2>
+  <p class="sub">China does not provide free emergency healthcare to foreign visitors. Travel insurance is not optional — it is essential.</p>
+
+  <div class="highlight-box">
+    <strong>🛡️ Minimum coverage you need:</strong> Medical evacuation/repatriation (¥500,000+), emergency treatment, hospital admission, and lost baggage. Most international travel insurance policies like World Nomads, SafetyWing, and AXA include China. Check the fine print for adventure sports — hiking in Zhangjiajie or skiing in Harbin may require a rider.
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📋</span> What to carry at all times</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Insurance card</strong> — printed or saved offline on your phone</li>
+      <li><span class="bullet">✓</span> <strong>Passport photocopy</strong> (photo page + visa sticker)</li>
+      <li><span class="bullet">✓</span> <strong>Emergency contact numbers</strong> — insurance hotline, next of kin, your embassy</li>
+      <li><span class="bullet">✓</span> <strong>Blood type</strong> and known allergies — written in Chinese (ask a hotel concierge to write it)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ─── Section 7: FAQ ────────────────────────── -->
+<div class="section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <p class="sub">Common concerns travellers have about emergencies in China.</p>
+
+  <div class="faq-item">
+    <div class="faq-q">Is 120 (ambulance) free in China?</div>
+    <div class="faq-a">No. Ambulance services in China are not free. Expect to pay ¥100–300 for the call-out plus ¥5–10 per kilometre. Some international insurance policies reimburse ambulance costs — check your policy. In an emergency, do not hesitate to call 120 regardless of cost.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I use my foreign health insurance in China?</div>
+    <div class="faq-a">Most standard health insurance plans from your home country <strong>do not</strong> cover overseas treatment. You need dedicated travel insurance or an international health insurance plan. United Family Hospital, ParkwayHealth, and similar international clinics direct-bill many international insurers including Allianz, AXA, Cigna, and Bupa — call them to confirm before you go.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What happens if I need surgery in China?</div>
+    <div class="faq-a">Major hospitals in Beijing (Peking Union, PLA General), Shanghai (Ruijin, Huashan), and Guangzhou (Sun Yat-sen) have international-grade surgical departments. You will need to pay a deposit (¥50,000–200,000 for major surgery) upfront if you are not using an insurance direct-billing facility. International clinics can arrange medical evacuation to Hong Kong, Singapore, or your home country if needed.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What if I need prescription medication that I take regularly?</div>
+    <div class="faq-a">Bring enough for your entire trip plus a reserve (2–3 weeks extra). Carry the original packaging and a doctor's note (translated into Chinese) explaining the medication. Some medications available over the counter in other countries (codeine, certain antidepressants) are tightly controlled in China. Contact the nearest Chinese embassy before travelling if you are unsure about a specific medication.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I get a refund if I prepay at a hospital?</div>
+    <div class="faq-a">Yes. Public hospitals bill on a deposit system — you pay ¥3,000–10,000 upfront for emergency treatment, costs are deducted, and the remainder is refunded at discharge. Keep all receipts and medical records for your insurance claim. International clinics usually settle directly with your insurer so no deposit is needed.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What if I am in a city without an international hospital?</div>
+    <div class="faq-a">In smaller cities, go to the <strong>largest public hospital</strong> (usually called People's Hospital, 人民医院). Ask for the <em>VIP / International Department</em> (国际医疗部) — many Tier-2 city hospitals have one. They may not have dedicated English staff on site, but they can connect to a telephone interpreter service. Alternatively, get a taxi or Didi to the nearest city with an international hospital (see the hospital table above).</div>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<div class="cross-link">
+  <p>Need to get to a hospital fast? → <a href="didi-guide.html">Didi Ride-Hailing Guide</a></p>
+</div>
+<div class="cross-link">
+  <p>Hospital phrases in our printable cards → <a href="chinese-cards.html">Chinese To-Go Cards</a></p>
+</div>
+<div class="cross-link">
+  <p>Find a city with international hospitals → <a href="city-season.html">City Season & Weather Guide</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS &middot; VETTED</div>
+  <div>China, Vetted. &mdash; <a href="index.html">All Tools</a></div>
+</div>
+
+</div><!-- .container -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 120 (ambulance) free in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ambulance services in China are not free. Expect to pay ¥100–300 for the call-out plus ¥5–10 per kilometre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my foreign health insurance in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most standard health insurance plans from your home country do not cover overseas treatment. You need dedicated travel insurance. United Family Hospital and ParkwayHealth direct-bill many international insurers including Allianz, AXA, Cigna, and Bupa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I need surgery in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Major hospitals in Beijing, Shanghai, and Guangzhou have international-grade surgical departments. You will need to pay a deposit upfront (¥50,000–200,000) if not using insurance direct billing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need prescription medication that I take regularly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bring enough for your entire trip plus 2–3 weeks extra. Carry original packaging and a Chinese-translated doctor's note. Some medications available OTC elsewhere are controlled in China."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a refund if I prepay at a hospital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Public hospitals use a deposit system. You pay upfront, costs are deducted, and the remainder is refunded at discharge. Keep all receipts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I am in a city without an international hospital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Go to the largest public hospital (People's Hospital) and ask for the International Department. Many Tier-2 city hospitals have one with telephone interpreter access."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EVENTURUS Tools",
+      "item": "https://eventurus.github.io/eventurus-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Emergency & Hospital Guide",
+      "item": "https://eventurus.github.io/eventurus-tools/emergency-guide.html"
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
