@@ -112,29 +112,19 @@ tr:hover td { background: #FAFAF8; }
 .decision-box li { margin-bottom: 4px; }
 /* Finder */
 .finder-section { padding: 28px 0; }
-.finder-input-wrap { position: relative; margin-bottom: 16px; }
-.finder-input {
-  width: 100%; padding: 14px 20px; border-radius: var(--radius); border: 1px solid var(--color-border);
+.finder-select-wrap { position: relative; margin-bottom: 16px; }
+.finder-select {
+  width: 100%; padding: 14px 48px 14px 20px; border-radius: var(--radius); border: 1px solid var(--color-border);
   font-size: 16px; font-family: var(--font-sans); background: var(--color-surface); color: var(--color-text);
   box-shadow: var(--shadow); outline: none; transition: border-color .2s;
+  appearance: none; -webkit-appearance: none; cursor: pointer;
 }
-.finder-input::placeholder { color: var(--color-muted); }
-.finder-input:focus { border-color: var(--color-brand); }
-.finder-dropdown {
-  position: absolute; top: 100%; left: 0; right: 0; z-index: 10;
-  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.1); max-height: 280px; overflow-y: auto; display: none;
+.finder-select:focus { border-color: var(--color-brand); }
+.finder-select option { font-size: 14px; padding: 10px; }
+.finder-select-wrap::after {
+  content: '▾'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  font-size: 14px; color: var(--color-muted); pointer-events: none;
 }
-.finder-dropdown.open { display: block; }
-.finder-option {
-  padding: 10px 20px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;
-  border-bottom: 1px solid #F0F0EE;
-}
-.finder-option:last-child { border-bottom: none; }
-.finder-option:hover { background: var(--color-highlight); }
-.finder-option .fo-flag { font-size: 18px; }
-.finder-option .fo-name { font-weight: 500; }
-.finder-option .fo-hint { font-size: 12px; color: var(--color-muted); margin-left: auto; }
 
 /* Result card */
 .finder-result { display: none; margin-top: 16px; }
@@ -187,9 +177,7 @@ tr:hover td { background: #FAFAF8; }
   .warning-box strong { color: #D0A040; }
   .info-box { background: #1A2A3A; border-color: #2A4A6A; }
   .info-box strong { color: #70A0FF; }
-  .finder-input { background: var(--color-surface); color: var(--color-text); border-color: var(--color-border); }
-  .finder-dropdown { background: var(--color-surface); border-color: var(--color-border); }
-  .finder-option:hover { background: var(--color-highlight); }
+  .finder-select { background: var(--color-surface); color: var(--color-text); border-color: var(--color-border); }
   .result-policy .rp-icon.green { background: #1A3A22; }
   .result-policy .rp-icon.blue { background: #1A2A4A; }
   .result-policy .rp-icon.amber { background: #3A2A10; }
@@ -227,9 +215,10 @@ tr:hover td { background: #FAFAF8; }
   <h2>Check your nationality</h2>
   <p class="sub">Select your country to see all visa-free options, durations and geographic limits at a glance.</p>
 
-  <div class="finder-input-wrap">
-    <input type="text" class="finder-input" id="countryInput" placeholder="Type your country name…" autocomplete="off">
-    <div class="finder-dropdown" id="countryDropdown"></div>
+  <div class="finder-select-wrap">
+    <select class="finder-select" id="countrySelect">
+      <option value="">Select your country…</option>
+    </select>
   </div>
 
   <div class="finder-result" id="finderResult">
@@ -768,56 +757,26 @@ const POLICIES = {
   }
 };
 
-const input = document.getElementById('countryInput');
-const dropdown = document.getElementById('countryDropdown');
+const select = document.getElementById('countrySelect');
 const result = document.getElementById('finderResult');
 const resultHeader = document.getElementById('resultHeader');
 const resultPolicies = document.getElementById('resultPolicies');
 
-let filtered = [];
-
-function showDropdown(list) {
-  if (list.length === 0) {
-    dropdown.innerHTML = '<div style="padding:14px 20px;font-size:14px;color:var(--color-muted);">No matching country found</div>';
-  } else {
-    dropdown.innerHTML = list.map((c, i) => {
-      const hint = c.p.length > 0 ? c.p.length + ' policy' + (c.p.length > 1 ? 's' : '') : 'No visa-free';
-      return '<div class="finder-option" data-idx="' + i + '"><span class="fo-flag">' + c.f + '</span><span class="fo-name">' + c.n + '</span><span class="fo-hint">' + hint + '</span></div>';
-    }).join('');
-  }
-  dropdown.classList.add('open');
-}
-
-input.addEventListener('input', function() {
-  const q = this.value.trim().toLowerCase();
-  if (q.length === 0) {
-    dropdown.classList.remove('open');
-    result.classList.remove('visible');
-    return;
-  }
-  filtered = COUNTRIES.filter(c => c.n.toLowerCase().includes(q));
-  showDropdown(filtered);
+// Populate select with country options
+COUNTRIES.forEach((c, i) => {
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = c.f + ' ' + c.n;
+  select.appendChild(opt);
 });
 
-dropdown.addEventListener('click', function(e) {
-  const opt = e.target.closest('.finder-option');
-  if (!opt) return;
-  const idx = parseInt(opt.dataset.idx);
-  selectCountry(filtered[idx]);
-});
-
-input.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') { dropdown.classList.remove('open'); }
-  if (e.key === 'Enter' && filtered.length === 1) { selectCountry(filtered[0]); }
-});
-
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.finder-input-wrap')) { dropdown.classList.remove('open'); }
+select.addEventListener('change', function() {
+  const idx = parseInt(this.value);
+  if (isNaN(idx)) { result.classList.remove('visible'); return; }
+  selectCountry(COUNTRIES[idx]);
 });
 
 function selectCountry(country) {
-  input.value = country.n;
-  dropdown.classList.remove('open');
   const policies = country.p.map(pid => POLICIES[pid]).filter(Boolean);
   if (policies.length === 0) {
     resultHeader.innerHTML = '<span class="rh-flag">' + country.f + '</span><span class="rh-country">' + country.n + '</span><div class="rh-summary">No visa-free policies currently apply. A standard visa is required.</div>';
