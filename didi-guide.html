@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Didi Guide for China — EVENTURUS</title>
+<meta name="description" content="How to use Didi ride-hailing in China as a foreigner. Registration, address tips, price estimates, and how it compares to taxis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#5a6e55; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.container { max-width:720px; margin:0 auto; padding:0 20px; }
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-family:var(--font-serif); font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:48px 0 32px; }
+.hero h1 { font-family:var(--font-serif); font-size:34px; font-weight:500; line-height:1.25; margin-bottom:12px; }
+.hero p { font-size:15px; color:var(--color-muted); max-width:520px; margin:0 auto; }
+.pull-quote { text-align:center; padding:28px 0 20px; }
+.pull-quote blockquote { font-family:var(--font-serif); font-size:20px; font-style:italic; color:var(--color-brand); line-height:1.4; max-width:520px; margin:0 auto; }
+.section { padding:28px 0; }
+.section h2 { font-family:var(--font-serif); font-size:26px; font-weight:500; margin-bottom:4px; line-height:1.3; }
+.section .sub { font-size:13px; color:var(--color-muted); margin-bottom:20px; }
+.section p { font-size:15px; margin-bottom:16px; }
+.info-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); padding:24px; margin-bottom:16px; }
+.info-card h3 { font-size:17px; font-weight:600; margin-bottom:12px; margin-top:0; }
+.info-card p, .info-card li { font-size:14px; line-height:1.6; }
+.info-card ul { list-style:none; padding:0; }
+.info-card li { padding:6px 0; border-bottom:1px solid #F0F0EE; display:flex; align-items:flex-start; gap:8px; }
+.info-card li:last-child { border-bottom:none; }
+.info-card li .bullet { color:var(--color-brand); flex-shrink:0; }
+.steps { counter-reset:step; list-style:none; padding:0; }
+.steps li { counter-increment:step; padding:10px 0 10px 40px; position:relative; font-size:14px; line-height:1.6; border-bottom:1px solid #F0F0EE; min-height:32px; }
+.steps li:last-child { border-bottom:none; }
+.steps li::before { content:counter(step); position:absolute; left:0; top:10px; width:26px; height:26px; border-radius:50%; background:var(--color-brand-light); color:#3B6D11; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.highlight-box { background:var(--color-brand-light); border-radius:var(--radius); padding:16px 20px; margin:16px 0; font-size:13px; line-height:1.6; }
+.highlight-box strong { color:#3B6D11; }
+.warning-box { background:#FFF0E0; border-radius:var(--radius); padding:16px 20px; margin:16px 0; font-size:13px; line-height:1.6; border:1px solid #FFE0B0; }
+.warning-box strong { color:#A06600; }
+.table-wrap { overflow-x:auto; border-radius:var(--radius); box-shadow:var(--shadow); margin:16px 0; }
+table { width:100%; border-collapse:collapse; background:var(--color-surface); font-size:13px; }
+th { padding:10px 14px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; color:var(--color-muted); border-bottom:2px solid var(--color-border); text-align:left; background:var(--color-highlight); }
+td { padding:10px 14px; border-bottom:1px solid var(--color-border); }
+tr:last-child td { border-bottom:none; }
+tr:hover td { background:#FAFAF8; }
+.td-brand { font-weight:600; color:var(--color-brand); }
+.pros-cons { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0; }
+@media (max-width:600px) { .pros-cons { grid-template-columns:1fr; } }
+.pro-box, .con-box { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); padding:16px 20px; box-shadow:var(--shadow); }
+.pro-box h4 { font-size:13px; color:var(--color-brand); margin-bottom:8px; }
+.con-box h4 { font-size:13px; color:#C85A5A; margin-bottom:8px; }
+.pro-box li, .con-box li { font-size:13px; padding:4px 0; line-height:1.5; }
+.cross-link { text-align:center; padding:24px 0; font-size:14px; color:var(--color-muted); }
+.cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
+.footer { text-align:center; padding:40px 0 32px; font-size:12px; color:var(--color-muted); }
+.footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+.footer a { color:var(--color-brand); text-decoration:none; }
+@media (prefers-color-scheme: dark) {
+  :root { --color-bg:#121212; --color-surface:#1e1e1e; --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-border:#333; --color-highlight:#2a2a2a; --color-brand-light:#3a5a3a; }
+  .warning-box { background:#3A2A10; border-color:#5A4020; }
+  .warning-box strong { color:#D0A040; }
+  tr:hover td { background:#222; }
+  img { opacity:.85; }
+}
+</style>
+</head>
+<body>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+
+<div class="hero">
+  <h1>Didi Ride-Hailing Guide</h1>
+  <p>How to register, book a ride, and communicate with your driver — all without speaking Chinese.</p>
+</div>
+
+<div class="pull-quote">
+  <blockquote>Street-hailing a taxi works, but Didi tells you the price upfront, tracks the car on a map, and means you never have to explain where you are going. It is the smarter way to move.</blockquote>
+</div>
+
+<!-- Section 1: Overview -->
+<div class="section">
+  <h2>Why Didi</h2>
+  <p>Didi Chuxing is China's dominant ride-hailing platform — think Uber but with more options. You can book a standard taxi, a private car, a six-seater, or even a carpool. Payment is linked to WeChat Pay or Alipay, so no cash changes hands.</p>
+
+  <div class="pros-cons">
+    <div class="pro-box">
+      <h4>✅ Why use Didi</h4>
+      <ul>
+        <li>Price shown before you confirm — no negotiation</li>
+        <li>Driver sees your location via GPS — no language barrier</li>
+        <li>Link to WeChat Pay / Alipay — no cash needed</li>
+        <li>English UI available (partial)</li>
+        <li>Ride types from budget to premium</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>⚠️ Considerations</h4>
+      <ul>
+        <li>Registration needs international SMS verification</li>
+        <li>Some features only in Chinese</li>
+        <li>Surge pricing during rain / peak hours</li>
+        <li>Driver may call you — use the in-app text translate</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 2: Registration -->
+<div class="section">
+  <h2>How to register</h2>
+  <p class="sub">Didi has improved international sign-up significantly. A foreign phone number works.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> Step-by-step</h3>
+    <ol class="steps">
+      <li><strong>Download Didi</strong> from the App Store or Google Play. Look for the orange-and-white logo.</li>
+      <li>Open the app and tap <strong>"Sign Up"</strong>. Enter your international phone number (including country code).</li>
+      <li>You will receive an SMS with a verification code. Enter it to proceed.</li>
+      <li>Set your <strong>nickname</strong> — this is what drivers see. Use your first name or initials.</li>
+      <li>Add a <strong>payment method</strong>: WeChat Pay or Alipay. You may need to set these up first (see <a href="payment-guide.html" style="color:var(--color-brand);">payment guide</a>).</li>
+      <li>Set your <strong>pick-up location</strong> using the map. Didi uses GPS — no need to type an address for pick-up.</li>
+      <li>Choose a ride type and confirm. The driver arrives in 3–10 minutes.</li>
+    </ol>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 Pro tip:</strong> If SMS verification fails (some carriers block China-bound SMS), try requesting a voice call verification instead. Didi offers a "Call me" option on the verification screen.
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 3: Address tips -->
+<div class="section">
+  <h2>Address &amp; navigation tips</h2>
+  <p class="sub">The trick that makes everything easier.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">📍</span> The pin-drop method</h3>
+    <p>For the destination, <strong>drop a pin on the map</strong> rather than typing an address. Zoom in to the exact building entrance or landmark. This tells the driver exactly where you need to go without either of you saying a word.</p>
+    <ul style="margin-top:12px;">
+      <li><span class="bullet">✓</span> Use <strong>Amap</strong> (高德地图) to search for a place, then tap "Share" → "Didi" to send the location directly.</li>
+      <li><span class="bullet">✓</span> Save key locations in advance: your hotel, the airport, train station, and the office.</li>
+      <li><span class="bullet">✓</span> For landmarks, search in Chinese Pinyin if English returns nothing (e.g. "waitan" for The Bund).</li>
+      <li><span class="bullet">✓</span> If meeting a friend, use the <strong>"Share my location"</strong> feature in WeChat, then open the link in Didi.</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📞</span> When the driver calls</h3>
+    <p>The driver may call to confirm your location. This is normal. A few strategies:</p>
+    <ul>
+      <li><span class="bullet">✓</span> Answer the call, say <strong>"Qing kan dingwei"</strong> (请看定位 — please check the GPS pin). Most drivers will understand.</li>
+      <li><span class="bullet">✓</span> Use the in-app <strong>auto-translate chat</strong> — type in English and it sends in Chinese.</li>
+      <li><span class="bullet">✓</span> If all else fails, hand the phone to a hotel concierge or a nearby shopkeeper.</li>
+      <li><span class="bullet">✓</span> <strong>Reminder:</strong> Never cancel a ride after the driver has arrived — you will be charged a cancellation fee.</li>
+    </ul>
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 4: Ride types & prices -->
+<div class="section">
+  <h2>Ride types &amp; price guide</h2>
+  <p class="sub">Didi offers more than just a standard car.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Ride type</th><th>Chinese name</th><th>Typical price (5 km)</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-brand">Taxi Hailing</td><td>快车 / 出租车</td><td>¥15–25</td><td>Short hops, solo travel</td></tr>
+        <tr><td class="td-brand">Express (Private Car)</td><td>快车</td><td>¥18–35</td><td>Everyday rides, slightly nicer cars</td></tr>
+        <tr><td class="td-brand">Premier</td><td>优享</td><td>¥25–50</td><td>Better cars, English-speaking drivers more likely</td></tr>
+        <tr><td class="td-brand">Luxury</td><td>豪华车</td><td>¥60–120</td><td>Business class experience, airport transfers</td></tr>
+        <tr><td class="td-brand">Six-Seater</td><td>六座商务</td><td>¥40–80</td><td>Groups of 4–6, airport runs</td></tr>
+        <tr><td class="td-brand">Carpool</td><td>拼车</td><td>¥10–18</td><td>Budget option, shared ride, may take longer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 Price tip:</strong> Didi often shows a fare estimate before you confirm. If it is raining or peak hour (8–9am, 6–7pm), expect a 1.2–1.8× surge multiplier. You can wait a few minutes for the price to drop, or switch to Taxi Hailing which has no surge pricing.
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 5: Airport -->
+<div class="section">
+  <h2>Airport &amp; long-distance</h2>
+
+  <div class="info-card">
+    <h3><span class="emoji">✈️</span> Airport transfers</h3>
+    <p>Didi is excellent for airport pick-ups. Your flight is tracked automatically — the driver knows your arrival time. Dedicated Didi pick-up zones are clearly signed at all major airports (look for "网约车上客点").</p>
+    <p style="margin-top:8px;">For premium airport transfers, consider booking via <strong>Trip.com</strong> (携程) — they offer fixed-price airport cars with English-speaking drivers, often cheaper than Didi Luxury.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🚄</span> Other ride-hailing options</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>CAOCAO (曹操出行)</strong> — New energy vehicle fleet, similar pricing to Didi Express. Available in most major cities.</li>
+      <li><span class="bullet">✓</span> <strong>T3 (T3出行)</strong> — State-backed competitor, often slightly cheaper. Growing fast.</li>
+      <li><span class="bullet">✓</span> <strong>Amap Taxi</strong> — Integrated into Amap navigation app. Compares prices across all ride-hailing platforms simultaneously.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cross-link">
+  <p>Need mobile payments to use Didi? → <a href="payment-guide.html">WeChat Pay & Alipay Guide</a></p>
+</div>
+<div class="cross-link">
+  <p>Compare HSR vs flights → <a href="transit-matrix.html">Transit Matrix</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+
+</div>
+</body>
+</html>

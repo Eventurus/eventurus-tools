@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eating in China — Dining Guide — EVENTURUS</title>
+<meta name="description" content="How to order food in China. Common dishes by category, dietary needs (vegetarian, halal, allergies), QR code ordering, and restaurant etiquette for foreign travellers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#5a6e55; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.container { max-width:720px; margin:0 auto; padding:0 20px; }
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-family:var(--font-serif); font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:48px 0 32px; }
+.hero h1 { font-family:var(--font-serif); font-size:34px; font-weight:500; line-height:1.25; margin-bottom:12px; }
+.hero p { font-size:15px; color:var(--color-muted); max-width:520px; margin:0 auto; }
+.pull-quote { text-align:center; padding:28px 0 20px; }
+.pull-quote blockquote { font-family:var(--font-serif); font-size:20px; font-style:italic; color:var(--color-brand); line-height:1.4; max-width:520px; margin:0 auto; }
+.section { padding:28px 0; }
+.section h2 { font-family:var(--font-serif); font-size:26px; font-weight:500; margin-bottom:4px; line-height:1.3; }
+.section .sub { font-size:13px; color:var(--color-muted); margin-bottom:20px; }
+.section p { font-size:15px; margin-bottom:16px; }
+.info-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); padding:24px; margin-bottom:16px; }
+.info-card h3 { font-size:17px; font-weight:600; margin-bottom:12px; margin-top:0; }
+.info-card h3 .emoji { margin-right:8px; }
+.info-card p, .info-card li { font-size:14px; line-height:1.6; }
+.info-card ul { list-style:none; padding:0; }
+.info-card li { padding:6px 0; border-bottom:1px solid #F0F0EE; display:flex; align-items:flex-start; gap:8px; }
+.info-card li:last-child { border-bottom:none; }
+.info-card li .bullet { color:var(--color-brand); flex-shrink:0; }
+.highlight-box { background:var(--color-brand-light); border-radius:var(--radius); padding:16px 20px; margin:16px 0; font-size:13px; line-height:1.6; }
+.highlight-box strong { color:#3B6D11; }
+.warning-box { background:#FFF0E0; border-radius:var(--radius); padding:16px 20px; margin:16px 0; font-size:13px; line-height:1.6; border:1px solid #FFE0B0; }
+.warning-box strong { color:#A06600; }
+.table-wrap { overflow-x:auto; border-radius:var(--radius); box-shadow:var(--shadow); margin:16px 0; }
+table { width:100%; border-collapse:collapse; background:var(--color-surface); font-size:13px; }
+th { padding:10px 14px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; color:var(--color-muted); border-bottom:2px solid var(--color-border); text-align:left; background:var(--color-highlight); }
+td { padding:10px 14px; border-bottom:1px solid var(--color-border); vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+tr:hover td { background:#FAFAF8; }
+.td-brand { font-weight:600; color:var(--color-brand); }
+.td-cn { font-weight:500; font-size:12px; }
+.dish-grid { display:grid; gap:12px; margin:16px 0; }
+.dish-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); padding:16px; display:flex; gap:14px; align-items:flex-start; }
+.dish-card .dc-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.dish-card .dc-icon.green { background:#E8F8ED; }
+.dish-card .dc-icon.amber { background:#FFF0E0; }
+.dish-card .dc-icon.blue { background:#E6F1FB; }
+.dish-card .dc-icon.rose { background:#FFE8E8; }
+.dish-card .dc-info { flex:1; }
+.dish-card .dc-name { font-size:15px; font-weight:600; }
+.dish-card .dc-name .dc-cn { font-size:12px; font-weight:400; color:var(--color-muted); margin-left:6px; }
+.dish-card .dc-desc { font-size:12px; color:var(--color-muted); line-height:1.5; margin-top:3px; }
+.sec-label { font-size:11px; font-weight:600; color:var(--color-muted); text-transform:uppercase; letter-spacing:1px; margin:16px 0 8px; }
+.cross-link { text-align:center; padding:24px 0; font-size:14px; color:var(--color-muted); }
+.cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
+.footer { text-align:center; padding:40px 0 32px; font-size:12px; color:var(--color-muted); }
+.footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+.footer a { color:var(--color-brand); text-decoration:none; }
+@media (prefers-color-scheme: dark) {
+  :root { --color-bg:#121212; --color-surface:#1e1e1e; --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-border:#333; --color-highlight:#2a2a2a; --color-brand-light:#3a5a3a; }
+  .warning-box { background:#3A2A10; border-color:#5A4020; }
+  .warning-box strong { color:#D0A040; }
+  .dish-card .dc-icon.green { background:#1A3A22; }
+  .dish-card .dc-icon.amber { background:#3A2A10; }
+  .dish-card .dc-icon.blue { background:#1A2A4A; }
+  .dish-card .dc-icon.rose { background:#3A1A1A; }
+  tr:hover td { background:#222; }
+  img { opacity:.85; }
+}
+</style>
+</head>
+<body>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+
+<div class="hero">
+  <h1>Eating in China</h1>
+  <p>How dining works — from QR menu ordering to dietary needs, common dishes, and how to pay the bill without fighting for it.</p>
+</div>
+
+<div class="pull-quote">
+  <blockquote>Chinese dining culture can feel overwhelming at first — QR codes instead of menus, a dozen dishes arriving at once, and the bill becoming a diplomatic negotiation. Once you understand the rhythm, it is one of the most rewarding parts of travel here.</blockquote>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 1: How ordering works -->
+<div class="section">
+  <h2>How ordering works</h2>
+  <p class="sub">Forget raising your hand for the waiter.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> QR code ordering</h3>
+    <p>At most casual and mid-range restaurants, there are no paper menus. Every table has a QR code sticker. Here is the drill:</p>
+    <ol class="steps" style="counter-reset:step;list-style:none;padding:0;margin-top:8px;">
+      <li style="counter-increment:step;padding:10px 0 10px 40px;position:relative;font-size:14px;line-height:1.6;border-bottom:1px solid #F0F0EE;min-height:32px;list-style:none;"><div style="position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;background:var(--color-brand-light);color:#3B6D11;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;">1</div>Open WeChat or Alipay and scan the QR code on the table</li>
+      <li style="counter-increment:step;padding:10px 0 10px 40px;position:relative;font-size:14px;line-height:1.6;border-bottom:1px solid #F0F0EE;min-height:32px;list-style:none;"><div style="position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;background:var(--color-brand-light);color:#3B6D11;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;">2</div>A digital menu opens — browse by category with photos and prices</li>
+      <li style="counter-increment:step;padding:10px 0 10px 40px;position:relative;font-size:14px;line-height:1.6;border-bottom:1px solid #F0F0EE;min-height:32px;list-style:none;"><div style="position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;background:var(--color-brand-light);color:#3B6D11;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;">3</div>Tap the items you want, then confirm your order</li>
+      <li style="counter-increment:step;padding:10px 0 10px 40px;position:relative;font-size:14px;line-height:1.6;border-bottom:1px solid #F0F0EE;min-height:32px;list-style:none;"><div style="position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;background:var(--color-brand-light);color:#3B6D11;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;">4</div>When you are done, pay directly through WeChat / Alipay — no need to call the waiter</li>
+    </ol>
+    <div class="highlight-box" style="margin-top:12px;">
+      <strong>📱 Tip:</strong> If the menu is in Chinese only, use <strong>Google Translate camera mode</strong> or WeChat's built-in scan-and-translate (long-press the image in the menu to translate). Most digital menus also have photos.
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 2: Common Dishes -->
+<div class="section">
+  <h2>Common dishes to know</h2>
+  <p class="sub">Order with confidence. These are staples you will see across the country.</p>
+
+  <div class="sec-label">Noodles &amp; Rice</div>
+  <div class="dish-grid">
+    <div class="dish-card"><div class="dc-icon amber">🍜</div><div class="dc-info"><div class="dc-name">Noodles <span class="dc-cn">面条 · miàn tiáo</span></div><div class="dc-desc">Wheat noodles in broth — beef (牛肉面), tomato-egg (番茄鸡蛋面), or dry-tossed (拌面).</div></div></div>
+    <div class="dish-card"><div class="dc-icon amber">🍚</div><div class="dc-info"><div class="dc-name">Fried Rice <span class="dc-cn">炒饭 · chǎo fàn</span></div><div class="dc-desc">Yangzhou-style (扬州炒饭) or egg-fried (蛋炒饭). Safe, filling, universally available.</div></div></div>
+    <div class="dish-card"><div class="dc-icon amber">🥟</div><div class="dc-info"><div class="dc-name">Dumplings <span class="dc-cn">饺子 · jiǎo zi</span></div><div class="dc-desc">Boiled or pan-fried. Pork (猪肉), lamb (羊肉), or vegetable (素). Dip in vinegar and chilli oil.</div></div></div>
+    <div class="dish-card"><div class="dc-icon amber">🫓</div><div class="dc-info"><div class="dc-name">Steamed Buns <span class="dc-cn">包子 · bāo zi</span></div><div class="dc-desc">Filled buns — meat (肉包) or vegetable (菜包). A classic breakfast grab-and-go.</div></div></div>
+  </div>
+
+  <div class="sec-label">Meat &amp; Poultry</div>
+  <div class="dish-grid">
+    <div class="dish-card"><div class="dc-icon rose">🐔</div><div class="dc-info"><div class="dc-name">Kung Pao Chicken <span class="dc-cn">宫保鸡丁 · gōng bǎo jī dīng</span></div><div class="dc-desc">Diced chicken with peanuts and dried chillies. Savoury-spicy, not blow-your-head-off hot.</div></div></div>
+    <div class="dish-card"><div class="dc-icon rose">🐷</div><div class="dc-info"><div class="dc-name">Sweet & Sour Pork <span class="dc-cn">糖醋里脊 · táng cù lǐ jǐ</span></div><div class="dc-desc">Crispy pork strips in a tangy-sweet sauce. A crowd-pleaser.</div></div></div>
+    <div class="dish-card"><div class="dc-icon rose">🐑</div><div class="dc-info"><div class="dc-name">Lamb Cumin <span class="dc-cn">孜然羊肉 · zī rán yáng ròu</span></div><div class="dc-desc">Cumin-scented lamb stir-fry. Especially good in Xi'an and northern China.</div></div></div>
+    <div class="dish-card"><div class="dc-icon rose">🥩</div><div class="dc-info"><div class="dc-name">Mapo Tofu <span class="dc-cn">麻婆豆腐 · má pó dòu fu</span></div><div class="dc-desc">Silky tofu in a numbing chilli sauce. Vegetarian if ordered without minced pork (不要肉).</div></div></div>
+  </div>
+
+  <div class="sec-label">Vegetables &amp; Sides</div>
+  <div class="dish-grid">
+    <div class="dish-card"><div class="dc-icon green">🥬</div><div class="dc-info"><div class="dc-name">Stir-fried Greens <span class="dc-cn">炒青菜 · chǎo qīng cài</span></div><div class="dc-desc">Seasonal leafy greens with garlic. Every region has its local variety — choy sum, bok choy, spinach.</div></div></div>
+    <div class="dish-card"><div class="dc-icon green">🥒</div><div class="dc-info"><div class="dc-name">Cucumber Salad <span class="dc-cn">拍黄瓜 · pāi huáng guā</span></div><div class="dc-desc">Smacked cucumber with garlic, vinegar and chilli oil. Cold, refreshing, addictive.</div></div></div>
+    <div class="dish-card"><div class="dc-icon green">🍆</div><div class="dc-info"><div class="dc-name">Eggplant with Garlic <span class="dc-cn">鱼香茄子 · yú xiāng qié zi</span></div><div class="dc-desc">"Fish-fragrant" eggplant — no fish involved. Braised in a rich, savoury sauce.</div></div></div>
+  </div>
+
+  <div class="sec-label">Soups &amp; Hot Pot</div>
+  <div class="dish-grid">
+    <div class="dish-card"><div class="dc-icon blue">🍲</div><div class="dc-info"><div class="dc-name">Hot Pot <span class="dc-cn">火锅 · huǒ guō</span></div><div class="dc-desc">An interactive meal — you cook raw ingredients in a bubbling broth at your table. Choose spicy (辣) or mild (清汤).</div></div></div>
+    <div class="dish-card"><div class="dc-icon blue">🥣</div><div class="dc-info"><div class="dc-name">Wonton Soup <span class="dc-cn">馄饨 · hún tun</span></div><div class="dc-desc">Delicate dumplings in clear broth. Shanghai-style or Sichuan-style.</div></div></div>
+    <div class="dish-card"><div class="dc-icon blue">🥄</div><div class="dc-info"><div class="dc-name">Egg Drop Soup <span class="dc-cn">蛋花汤 · dàn huā tāng</span></div><div class="dc-desc">Light, comforting egg swirl soup. A safe starter.</div></div></div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 3: Dietary needs -->
+<div class="section">
+  <h2>Dietary needs &amp; allergies</h2>
+  <p class="sub">China's food culture is group-oriented, but accommodation is possible.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">🥦</span> Vegetarian &amp; vegan</h3>
+    <p>Chinese vegetarianism (素食 · sù shí) is understood but usually means Buddhist-style — no meat, but may include eggs and dairy. Typical pitfalls:</p>
+    <ul>
+      <li><span class="bullet">✗</span> <strong>"Vegetable" dishes often have minced pork or lard.</strong> Say <strong>"Bu yao rou"</strong> (不要肉 — no meat) when ordering.</li>
+      <li><span class="bullet">✓</span> <strong>Buddhist vegetarian restaurants</strong> (素菜馆) are common in larger cities and are reliably vegan-friendly.</li>
+      <li><span class="bullet">✓</span> <strong>Use Dianping</strong> to search for "素食" near you — maps show photos of the food so you know what to expect.</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🥩</span> Halal</h3>
+    <p>China has a large Muslim population. Look for restaurants with green signs and Arabic script — these are <strong>清真 (qīng zhēn)</strong> halal restaurants. They are especially common in Xi'an, Lanzhou, Beijing (Niujie area), and Xinjiang restaurants across the country.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">⚠️</span> Allergies &amp; sensitivities</h3>
+    <ul>
+      <li><span class="bullet">✗</span> <strong>MSG (味精 · wèi jīng):</strong> Ubiquitous in Chinese cooking. Say <strong>"Bu yao wei jing"</strong> — most restaurants will accommodate.</li>
+      <li><span class="bullet">✗</span> <strong>Peanut oil:</strong> Most stir-fries use peanut oil. If allergic, specify <strong>"Hua sheng you guo min"</strong> (花生油过敏).</li>
+      <li><span class="bullet">✗</span> <strong>Gluten / dairy:</strong> Wheat-based soy sauce is everywhere. Cheese is rare outside Western restaurants. Carry an allergy card in Chinese.</li>
+      <li><span class="bullet">✓</span> <strong>Carry a card:</strong> Print or save a photo of your allergy written in Chinese (and severity). Show it to the waiter.</li>
+    </ul>
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 4: Dining etiquette -->
+<div class="section">
+  <h2>Dining etiquette &amp; paying</h2>
+  <p class="sub">A few customs go a long way.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">🍽️</span> The unwritten rules</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Wait for the host to start</strong> — Usually the oldest or most senior person picks up chopsticks first.</li>
+      <li><span class="bullet">✓</span> <strong>Do not stick chopsticks upright in rice</strong> — It resembles incense sticks at a funeral. Rest them on the chopstick rest.</li>
+      <li><span class="bullet">✓</span> <strong>Sharing is standard</strong> — Dishes arrive for the whole table. Use the serving spoon if provided, or the opposite end of your chopsticks.</li>
+      <li><span class="bullet">✓</span> <strong>Tea is free</strong> — Most restaurants serve complimentary tea (茶). You usually do not have to order it.</li>
+      <li><span class="bullet">✓</span> <strong>Tipping is not required</strong> — Do not tip in casual restaurants. In high-end places, a 10–15% service charge is already included.</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🧧</span> The bill fight</h3>
+    <p>In China, splitting the bill is less common than fighting for it. Friends and colleagues will physically compete to pay the bill — this is a sign of generosity, not awkwardness. As a foreigner you are unlikely to win this fight. The easiest response: offer once, thank them sincerely, and treat them next time. If you are the host, slip away to pay at the counter before the meal ends.</p>
+  </div>
+</div>
+
+<div class="cross-link">
+  <p>Need to say it in Chinese? → <a href="chinese-cards.html">Chinese To-Go Cards</a></p>
+</div>
+<div class="cross-link">
+  <p>How to pay at restaurants → <a href="payment-guide.html">WeChat Pay & Alipay Guide</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+
+</div>
+</body>
+</html>
