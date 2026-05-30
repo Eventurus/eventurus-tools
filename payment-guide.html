@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeChat Pay &amp; Alipay Guide — EVENTURUS</title>
+<meta name="description" content="How to set up WeChat Pay and Alipay as a foreign traveller in China. Step-by-step instructions, comparison, and tips for cashless payments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text: #2c2c2c;
+  --color-muted: #888780;
+  --color-brand: #6B7F65;
+  --color-brand-light: #EAF3DE;
+  --color-brand-dark: #5a6e55;
+  --color-bg: #F9F9F9;
+  --color-surface: #fff;
+  --color-border: #E5E5E0;
+  --color-highlight: #F1EFE8;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, Helvetica, Arial, sans-serif;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* Brand */
+.brand-bar { padding: 24px 0 0; text-align: center; }
+.brand-bar .brand { font-family: var(--font-serif); font-size: 18px; font-weight: 500; letter-spacing: 2px; color: var(--color-text); text-decoration: none; }
+.brand-bar .brand em { font-style: italic; color: var(--color-brand); }
+.brand-bar .tagline { font-size: 12px; color: var(--color-muted); letter-spacing: 1px; margin-top: 2px; }
+
+/* Hero */
+.hero { text-align: center; padding: 48px 0 32px; }
+.hero h1 { font-family: var(--font-serif); font-size: 34px; font-weight: 500; line-height: 1.25; margin-bottom: 12px; }
+.hero p { font-size: 15px; color: var(--color-muted); max-width: 500px; margin: 0 auto; }
+
+/* Pull quote */
+.pull-quote { text-align: center; padding: 32px 0 24px; }
+.pull-quote blockquote { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--color-brand); line-height: 1.4; max-width: 480px; margin: 0 auto; }
+
+/* Section */
+.section { padding: 32px 0; }
+.section h2 { font-family: var(--font-serif); font-size: 26px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+.section .sub { font-size: 13px; color: var(--color-muted); margin-bottom: 20px; }
+.section p { font-size: 15px; color: var(--color-text); margin-bottom: 16px; }
+
+/* Card */
+.info-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px;
+}
+.info-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 12px; }
+.info-card h3 .emoji { margin-right: 8px; }
+.info-card p, .info-card li { font-size: 14px; color: var(--color-text); line-height: 1.6; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card li { padding: 6px 0; border-bottom: 1px solid #F0F0EE; display: flex; align-items: flex-start; gap: 8px; }
+.info-card li:last-child { border-bottom: none; }
+.info-card li .bullet { color: var(--color-brand); flex-shrink: 0; }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--color-brand-light); border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6;
+}
+.highlight-box strong { color: #3B6D11; }
+
+/* Warning box */
+.warning-box {
+  background: #FFF0E0; border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6; border: 1px solid #FFE0B0;
+}
+.warning-box strong { color: #A06600; }
+
+/* Table */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: 13px; }
+th { padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-muted); border-bottom: 2px solid var(--color-border); text-align: left; background: var(--color-highlight); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--color-border); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #FAFAF8; }
+.td-brand { font-weight: 600; color: var(--color-brand); }
+.td-brand-wx { font-weight: 600; color: #07C160; }
+.td-brand-alipay { font-weight: 600; color: #1677FF; }
+.td-price { font-weight: 600; }
+.td-na { color: #ccc; }
+.td-yes { color: var(--color-brand); }
+.td-no { color: #C85A5A; }
+.td-partial { color: #B8962C; }
+
+/* Steps */
+.steps { counter-reset: step; list-style: none; padding: 0; }
+.steps li {
+  counter-increment: step; padding: 10px 0 10px 40px; position: relative; font-size: 14px; line-height: 1.6;
+  border-bottom: 1px solid #F0F0EE; min-height: 32px;
+}
+.steps li:last-child { border-bottom: none; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 10px;
+  width: 26px; height: 26px; border-radius: 50%; background: var(--color-brand-light);
+  color: #3B6D11; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+
+/* App header cards */
+.app-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+}
+.app-header .app-icon {
+  width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center;
+  justify-content: center; font-size: 22px; flex-shrink: 0;
+}
+.app-header .app-icon.wx { background: #E8F8ED; }
+.app-header .app-icon.alipay { background: #E6F0FF; }
+.app-header .app-name { font-size: 20px; font-weight: 600; }
+.app-header .app-meta { font-size: 12px; color: var(--color-muted); }
+
+/* Pro/Con table */
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+@media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+.pro-box, .con-box { background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border); padding: 16px 20px; box-shadow: var(--shadow); }
+.pro-box h4 { font-size: 13px; color: var(--color-brand); margin-bottom: 8px; }
+.con-box h4 { font-size: 13px; color: #C85A5A; margin-bottom: 8px; }
+.pro-box li, .con-box li { font-size: 13px; padding: 4px 0; line-height: 1.5; }
+
+/* Crosslink */
+.cross-link { text-align: center; padding: 24px 0; font-size: 14px; color: var(--color-muted); }
+.cross-link a { color: var(--color-brand); text-decoration: underline; font-weight: 500; }
+
+/* Footer */
+.footer { text-align: center; padding: 40px 0 32px; font-size: 12px; color: var(--color-muted); }
+.footer .brand-foot { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
+.footer a { color: var(--color-brand); text-decoration: none; }
+
+/* Acronym badge */
+.badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.3px; }
+.badge-wx { background: #E8F8ED; color: #1A8A3A; }
+.badge-alipay { background: #E6F0FF; color: #1677FF; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-muted: #a0a0a0;
+    --color-border: #333;
+    --color-highlight: #2a2a2a;
+    --color-brand-light: #3a5a3a;
+  }
+  .app-header .app-icon.wx { background: #1A3A22; }
+  .app-header .app-icon.alipay { background: #1A2A4A; }
+  .badge-wx { background: #1A3A22; color: #5AD080; }
+  .badge-alipay { background: #1A2A4A; color: #70A0FF; }
+  .warning-box { background: #3A2A10; border-color: #5A4020; }
+  .warning-box strong { color: #D0A040; }
+  tr:hover td { background: #222; }
+  img { opacity: 0.85; }
+}
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  <a href="index.html" class="brand">EVENT<em>URUS</em></a>
+  <div class="tagline">China, Vetted.</div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+  <h1>WeChat Pay &amp; Alipay Guide</h1>
+  <p>How to set up mobile payments as a foreign traveller. Step-by-step, from download to your first scan-to-pay.</p>
+</div>
+
+<div class="pull-quote">
+  <blockquote>China runs on QR codes. WeChat Pay and Alipay are everywhere — from Michelin-starred restaurants to street-side fruit stalls. Setting them up before you arrive saves every transaction.</blockquote>
+</div>
+
+<!-- Section 1: Overview -->
+<div class="section">
+  <h2>Why you need both</h2>
+  <p class="sub">Cash is still accepted, but mobile payments are the default.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">🇨🇳</span> The reality of payments in China</h3>
+    <p>China is overwhelmingly cashless. Most merchants — restaurants, convenience stores, taxi drivers, temple ticket booths, even some street vendors — display a QR code at the counter. You scan it with your phone, enter the amount, and pay. No tap, no swipe, no signature.</p>
+    <p>WeChat Pay and Alipay together cover well over 90&percnt; of all mobile payment transactions in China. Having <strong>both apps installed</strong> is the safest bet: some smaller merchants only have one.</p>
+    <div class="highlight-box">
+      <strong>📌 Key fact:</strong> As of 2024, both WeChat Pay and Alipay allow foreign travellers to link international Visa, Mastercard, JCB or Diners Club cards. You no longer need a Chinese bank account or a local phone number to get started.
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ Before you go:</strong> Set up both apps <strong>before you leave home</strong>, while you still have access to your home SMS and email. Verification can be tricky once you're inside China's network.
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 2: WeChat Pay -->
+<div class="section">
+  <h2>WeChat Pay</h2>
+  <p class="sub">The social + payments super-app. Chances are you already use WeChat for messaging.</p>
+
+  <div class="info-card">
+    <div class="app-header">
+      <div class="app-icon wx">💬</div>
+      <div>
+        <div class="app-name">WeChat <span class="badge badge-wx">微信支付</span></div>
+        <div class="app-meta">by Tencent &bull; Free &bull; iOS / Android</div>
+      </div>
+    </div>
+
+    <h3>Step-by-step setup</h3>
+    <ol class="steps">
+      <li><strong>Download WeChat</strong> from the App Store or Google Play. Install it before you arrive in China if possible.</li>
+      <li><strong>Create an account</strong> using your phone number. You'll receive an SMS verification code.</li>
+      <li><strong>Add a friend or join a group</strong> (optional but helpful). WeChat needs a small amount of activity before enabling payments.</li>
+      <li>Go to <strong>Me &rarr; Services &rarr; Wallet</strong>. Tap "Add a Card" to link your international Visa, Mastercard, JCB or Diners Club card.</li>
+      <li><strong>Verify your identity:</strong> You'll need to enter your passport details. Some users may be prompted for a facial verification scan.</li>
+      <li><strong>Set a 6-digit payment PIN</strong> &mdash; this is used for every transaction. Don't forget it.</li>
+      <li>Once the card is linked, you're ready. Look for the <strong>"Scan"</strong> icon in the top-right corner of the home screen to pay at merchants.</li>
+    </ol>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">💳</span> Card linking &amp; fees</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Card type</th><th>Supported</th><th>Fee per transaction</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Visa</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>Mastercard</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>JCB</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>Diners Club</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>UnionPay (international)</td><td class="td-yes">✓</td><td>Standard rates</td></tr>
+          <tr><td>Chinese bank card</td><td class="td-yes">✓</td><td>No fee (0.1&percnt; merchant fee)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box" style="margin-top:12px;">
+      <strong>💡 Pro tip:</strong> The ~3&percnt; international card fee adds up. For longer stays, consider getting a Chinese bank account (requires a work visa or residence permit) and linking a local card for fee-free payments.
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🧧</span> Key WeChat Pay features</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Scan to Pay</strong> — The default way to pay. Scan the merchant's QR code, enter the amount, confirm.</li>
+      <li><span class="bullet">✓</span> <strong>Quick Pay (Show Code)</strong> — The merchant scans your QR code. No amount entry needed.</li>
+      <li><span class="bullet">✓</span> <strong>Red Packets (Hongbao)</strong> — Send money in chat as a gift. Essential for group dinners and celebrations.</li>
+      <li><span class="bullet">✓</span> <strong>Split Bills</strong> — Divide a restaurant bill among friends in a group chat. Very common in China.</li>
+      <li><span class="bullet">✓</span> <strong>Mini Programs</strong> — Pay for Didi rides, Meituan food delivery, train tickets and more without leaving WeChat.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 3: Alipay -->
+<div class="section">
+  <h2>Alipay</h2>
+  <p class="sub">The original mobile payment platform. Often preferred for financial services and travel perks.</p>
+
+  <div class="info-card">
+    <div class="app-header">
+      <div class="app-icon alipay">🔵</div>
+      <div>
+        <div class="app-name">Alipay <span class="badge badge-alipay">支付宝</span></div>
+        <div class="app-meta">by Ant Group (Alibaba) &bull; Free &bull; iOS / Android</div>
+      </div>
+    </div>
+
+    <h3>Step-by-step setup</h3>
+    <ol class="steps">
+      <li><strong>Download Alipay</strong> from the App Store or Google Play. Look for the blue-and-white logo.</li>
+      <li><strong>Register</strong> with your international phone number. Unlike WeChat, Alipay has a dedicated "International" mode.</li>
+      <li>Open the app and tap <strong>"Sign Up"</strong>. Choose "Register with an overseas number". You'll receive an SMS code.</li>
+      <li>Go to <strong>Me &rarr; Bank Cards</strong> and tap the <strong>"+"</strong> icon. Select <strong>"Add international card"</strong>.</li>
+      <li>Enter your card details. Alipay supports Visa, Mastercard, JCB, Diners Club and UnionPay.</li>
+      <li><strong>Verify your identity</strong> with passport details and, in most cases, a facial recognition scan.</li>
+      <li>Once verified, your card shows up in the wallet. Go to <strong>"Pay"</strong> to scan a merchant QR code or show your payment code.</li>
+    </ol>
+
+    <div class="highlight-box" style="margin-top:16px;">
+      <strong>🌐 Alipay's "International" mode:</strong> The app detects overseas phone numbers and shows a simplified English interface by default. You can still switch to Chinese to access the full feature set. The international version only requires a passport &mdash; no Chinese ID needed.
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">💳</span> Card linking &amp; fees</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Card type</th><th>Supported</th><th>Fee per transaction</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Visa</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>Mastercard</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>JCB</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>Diners Club</td><td class="td-yes">✓</td><td>~3&percnt; + fixed fee</td></tr>
+          <tr><td>UnionPay (international)</td><td class="td-yes">✓</td><td>Standard rates</td></tr>
+          <tr><td>Chinese bank card</td><td class="td-yes">✓</td><td>No fee (0.1&percnt; merchant fee)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🧧</span> Key Alipay features</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Scan to Pay</strong> — Same as WeChat. Scan the merchant's QR code, pay.</li>
+      <li><span class="bullet">✓</span> <strong>Payment Code</strong> — Show your QR code for the merchant to scan (great for busy counters).</li>
+      <li><span class="bullet">✓</span> <strong>Alipay+</strong> — Some overseas e-wallets (like Kakao Pay, GCash, TrueMoney) work directly with Alipay merchants in China.</li>
+      <li><span class="bullet">✓</span> <strong>Travel Perks</strong> — Discounted museum tickets, airport lounge access, travel insurance.</li>
+      <li><span class="bullet">✓</span> <strong>Mini Programs</strong> — Book hotels on Fliggy, order Didi rides, pay utility bills, and more.</li>
+      <li><span class="bullet">✓</span> <strong>Yu'e Bao</strong> — A money-market fund built into Alipay. Not useful for short-term travellers.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 4: Comparison -->
+<div class="section">
+  <h2>WeChat Pay vs Alipay</h2>
+  <p class="sub">Which one should you use? Here is how they compare.</p>
+
+  <div class="info-card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th style="color:#07C160;">WeChat Pay</th><th style="color:#1677FF;">Alipay</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:500;">International card support</td><td class="td-yes">✓ Visa, MC, JCB, DC</td><td class="td-yes">✓ Visa, MC, JCB, DC</td></tr>
+          <tr><td style="font-weight:500;">English interface</td><td class="td-partial">Partial (most menus in Chinese)</td><td class="td-yes">✓ Dedicated international mode</td></tr>
+          <tr><td style="font-weight:500;">Messaging built-in</td><td class="td-yes">✓ Yes (core app)</td><td class="td-no">✗ Chat only in business tools</td></tr>
+          <tr><td style="font-weight:500;">Merchant acceptance</td><td class="td-yes">✓ Slightly wider for daily spending</td><td class="td-yes">✓ Nearly identical</td></tr>
+          <tr><td style="font-weight:500;">Mini-program ecosystem</td><td class="td-yes">✓ Vast (Didi, Meituan, JD, etc.)</td><td class="td-yes">✓ Vast (Didi, Fliggy, Ele.me, etc.)</td></tr>
+          <tr><td style="font-weight:500;">International transfer (remittance)</td><td class="td-partial">Limited</td><td class="td-yes">✓ Alipay International Transfer</td></tr>
+          <tr><td style="font-weight:500;">Tour Pass (prepaid top-up)</td><td class="td-no">✗</td><td class="td-yes">✓ Alipay Tour Pass (discontinued for some regions, check app)</td></tr>
+          <tr><td style="font-weight:500;">Face recognition payment</td><td class="td-partial">Selected merchants</td><td class="td-partial">Selected merchants</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="pros-cons">
+    <div class="pro-box">
+      <h4>✅ Start with WeChat Pay if &hellip;</h4>
+      <ul>
+        <li>You already use WeChat for messaging</li>
+        <li>You're dining out with Chinese friends (split bills and red packets)</li>
+        <li>You want the most universal payment method</li>
+        <li>You're comfortable navigating a Chinese UI</li>
+      </ul>
+    </div>
+    <div class="con-box" style="border-color:var(--color-border);">
+      <h4 style="color:#1677FF;">✅ Start with Alipay if &hellip;</h4>
+      <ul>
+        <li>You prefer a full English interface</li>
+        <li>You're a short-term tourist (travel perks)</li>
+        <li>You want international transfer options</li>
+        <li>You plan to use Fliggy (Alibaba Travel) for bookings</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 5: How to pay -->
+<div class="section">
+  <h2>How to pay: the two QR methods</h2>
+  <p class="sub">Understanding the difference saves awkward moments at the counter.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">📸</span> Method A: Merchant-presented QR (You scan)</h3>
+    <p>Most restaurants, shops and street vendors display a printed QR code on the counter or wall.</p>
+    <ol class="steps" style="margin-bottom:12px;">
+      <li>Open WeChat or Alipay</li>
+      <li>Tap the <strong>"Scan"</strong> icon (top-right in WeChat, bottom-left "Scan" in Alipay)</li>
+      <li>Scan the merchant's QR code</li>
+      <li>Enter the amount you need to pay</li>
+      <li>Add a note if you want (optional)</li>
+      <li>Enter your 6-digit PIN &rarr; done</li>
+    </ol>
+    <div class="highlight-box">
+      <strong>💡 Note:</strong> At restaurants, the waiter brings the QR code to your table. In convenience stores, it is usually taped to the counter near the register. You always scan their code and <strong>enter the amount yourself</strong>.
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> Method B: Customer-presented QR (They scan)</h3>
+    <p>Faster for fixed-price items (convenience stores, supermarkets, ticket counters).</p>
+    <ol class="steps" style="margin-bottom:12px;">
+      <li>Open WeChat or Alipay</li>
+      <li>WeChat: Tap "Me &rarr; Services &rarr; Wallet &rarr; QR Code"</li>
+      <li>Alipay: Tap "Pay" on the home screen</li>
+      <li>A large QR code (and barcode underneath) appears on your screen</li>
+      <li>The merchant scans it with their handheld scanner</li>
+      <li>The amount is deducted automatically &rarr; done</li>
+    </ol>
+    <div class="warning-box">
+      <strong>🛡️ Security note:</strong> Method B shows your payment code on screen. Never screenshot it and share it online. If someone scans it without authorisation, they can deduct money from your account. Most apps have a "Payment Code Protection" setting &mdash; enable it.
+    </div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 6: Practical Tips -->
+<div class="section">
+  <h2>Practical tips for foreign users</h2>
+  <p class="sub">Everything we wish someone had told us before the first scan.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">🛡️</span> Security &amp; common sense</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Enable payment code protection</strong> — Both apps have a setting to require your PIN before showing the payment QR. Turn it on.</li>
+      <li><span class="bullet">✓</span> <strong>Set a daily limit</strong> — WeChat Pay and Alipay both allow you to cap daily spending through international cards. Start low.</li>
+      <li><span class="bullet">✓</span> <strong>Never screenshot your payment code</strong> — Anyone with the image can scan and deduct money.</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">💡</span> Practical know-how</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Carry some cash</strong> — ¥200&ndash;500 in small notes. Some taxi drivers, rural vendors, and temple donation boxes still only take cash.</li>
+      <li><span class="bullet">✓</span> <strong>Alipay's "Discover" tab</strong> — Has curated travel guides, restaurant recommendations, and translation tools for tourists.</li>
+      <li><span class="bullet">✓</span> <strong>WeChat's "Translate" feature</strong> — Long-press a chat message or menu item and tap "Translate" to convert Chinese to English.</li>
+      <li><span class="bullet">✓</span> <strong>Receipts are digital</strong> — Both apps keep a transaction history you can refer back to. No paper receipts needed.</li>
+      <li><span class="bullet">✓</span> <strong>Top-up via friend</strong> — If your international card fails, a Chinese friend can top up your WeChat Pay or Alipay balance.</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">❌</span> Things that don't work (yet)</h3>
+    <ul>
+      <li><span class="bullet">✗</span> <strong>Apple Pay / Google Pay</strong> — Almost nowhere accepts NFC payments from Apple Pay or Google Pay. QR is king.</li>
+      <li><span class="bullet">✗</span> <strong>Samsung Pay</strong> — Similarly, not supported at the vast majority of merchants.</li>
+      <li><span class="bullet">✗</span> <strong>Amex</strong> — American Express is rarely accepted by either WeChat Pay or Alipay for international cards. Bring a Visa/Mastercard as backup.</li>
+      <li><span class="bullet">✗</span> <strong>PayPal</strong> — Virtually non-existent for in-person payments in China.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 7: Where to use -->
+<div class="section">
+  <h2>Where mobile payments work</h2>
+  <p class="sub">Spoiler: nearly everywhere.</p>
+
+  <div class="info-card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Place</th><th>WeChat Pay</th><th>Alipay</th><th>Cash</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Restaurants &amp; cafés</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-partial">Mostly</td></tr>
+          <tr><td>Convenience stores (7-Eleven, FamilyMart, Lawson)</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td></tr>
+          <tr><td>Supermarkets (Carrefour, Hema, Walmart)</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td></tr>
+          <tr><td>Didi / ride-hailing</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-no">✗</td></tr>
+          <tr><td>Metro &amp; bus</td><td class="td-partial">Some cities</td><td class="td-yes">✓ Most cities</td><td class="td-yes">✓</td></tr>
+          <tr><td>Hotel booking</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-no">Deposit often required</td></tr>
+          <tr><td>Museum &amp; attraction tickets</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-partial">Some</td></tr>
+          <tr><td>Street food &amp; night markets</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td></tr>
+          <tr><td>Taxi (street hail)</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td></tr>
+          <tr><td>High-speed rail ticket counter</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td></tr>
+          <tr><td>Small rural village shops</td><td class="td-partial">Often</td><td class="td-partial">Often</td><td class="td-yes">✓ Best bet</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="cross-link">
+  <p>Need internet before you can pay? → <a href="internet-guide.html">Get Online in China — eSIM & SIM Guide</a></p>
+</div>
+<div class="cross-link">
+  <p>Getting around the city? → <a href="airport-transport.html">Airport → City Transport Guide</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS &middot; VETTED</div>
+  <div>China, Vetted. &mdash; <a href="index.html">All Tools</a></div>
+</div>
+
+</div>
+</body>
+</html>
