@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Online in China — eSIM & SIM Guide — EVENTURUS</title>
+<meta name="description" content="How to get internet in China. Compare eSIM providers you can buy before you arrive, and find airport SIM counters for physical SIM cards at major airports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text: #2c2c2c;
+  --color-muted: #888780;
+  --color-brand: #6B7F65;
+  --color-brand-light: #EAF3DE;
+  --color-brand-dark: #5a6e55;
+  --color-bg: #F9F9F9;
+  --color-surface: #fff;
+  --color-border: #E5E5E0;
+  --color-highlight: #F1EFE8;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, Helvetica, Arial, sans-serif;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* Brand */
+.brand-bar { padding: 24px 0 0; text-align: center; }
+.brand-bar .brand { font-family: var(--font-serif); font-size: 18px; font-weight: 500; letter-spacing: 2px; color: var(--color-text); text-decoration: none; }
+.brand-bar .brand em { font-style: italic; color: var(--color-brand); }
+.brand-bar .tagline { font-size: 12px; color: var(--color-muted); letter-spacing: 1px; margin-top: 2px; }
+
+/* Hero */
+.hero { text-align: center; padding: 48px 0 32px; }
+.hero h1 { font-family: var(--font-serif); font-size: 34px; font-weight: 500; line-height: 1.25; margin-bottom: 12px; }
+.hero p { font-size: 15px; color: var(--color-muted); max-width: 500px; margin: 0 auto; }
+
+/* Pull quote */
+.pull-quote { text-align: center; padding: 32px 0 24px; }
+.pull-quote blockquote { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--color-brand); line-height: 1.4; max-width: 480px; margin: 0 auto; }
+
+/* Section */
+.section { padding: 32px 0; }
+.section h2 { font-family: var(--font-serif); font-size: 26px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+.section .sub { font-size: 13px; color: var(--color-muted); margin-bottom: 20px; }
+.section p { font-size: 15px; color: var(--color-text); margin-bottom: 16px; }
+
+/* Card */
+.info-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px;
+}
+.info-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 12px; }
+.info-card h3 .emoji { margin-right: 8px; }
+.info-card p, .info-card li { font-size: 14px; color: var(--color-text); line-height: 1.6; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card li { padding: 6px 0; border-bottom: 1px solid #F0F0EE; display: flex; align-items: flex-start; gap: 8px; }
+.info-card li:last-child { border-bottom: none; }
+.info-card li .bullet { color: var(--color-brand); flex-shrink: 0; }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--color-brand-light); border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6;
+}
+.highlight-box strong { color: #3B6D11; }
+
+/* Table */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: 13px; }
+th { padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-muted); border-bottom: 2px solid var(--color-border); text-align: left; background: var(--color-highlight); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--color-border); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #FAFAF8; }
+.td-brand { font-weight: 600; color: var(--color-brand); }
+.td-price { font-weight: 600; }
+.td-na { color: #ccc; }
+
+/* Checkmark / Cross in table */
+.tick { color: var(--color-brand); }
+.cross { color: #C85A5A; }
+
+/* Steps */
+.steps { counter-reset: step; list-style: none; padding: 0; }
+.steps li {
+  counter-increment: step; padding: 8px 0 8px 40px; position: relative; font-size: 14px; line-height: 1.6;
+  border-bottom: 1px solid #F0F0EE; min-height: 32px;
+}
+.steps li:last-child { border-bottom: none; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 8px;
+  width: 26px; height: 26px; border-radius: 50%; background: var(--color-brand-light);
+  color: #3B6D11; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+
+/* Airport SIM list */
+.airport-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+@media (max-width: 600px) { .airport-list { grid-template-columns: 1fr; } }
+.airport-item {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  padding: 14px 16px; box-shadow: var(--shadow);
+}
+.airport-item .apt { font-size: 14px; font-weight: 600; }
+.airport-item .apt-code { font-size: 10px; color: var(--color-muted); background: var(--color-highlight); padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+.airport-item .loc { font-size: 12px; color: var(--color-muted); margin-top: 4px; }
+.airport-item .loc .label { color: var(--color-text); font-weight: 500; }
+
+/* Pro/Con table */
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+@media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+.pro-box, .con-box { background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border); padding: 16px 20px; box-shadow: var(--shadow); }
+.pro-box h4 { font-size: 13px; color: var(--color-brand); margin-bottom: 8px; }
+.con-box h4 { font-size: 13px; color: #C85A5A; margin-bottom: 8px; }
+.pro-box li, .con-box li { font-size: 13px; padding: 4px 0; line-height: 1.5; }
+
+/* Crosslink */
+.cross-link { text-align: center; padding: 24px 0; font-size: 14px; color: var(--color-muted); }
+.cross-link a { color: var(--color-brand); text-decoration: underline; font-weight: 500; }
+
+/* Footer */
+.footer { text-align: center; padding: 40px 0 32px; font-size: 12px; color: var(--color-muted); }
+.footer .brand-foot { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
+.footer a { color: var(--color-brand); text-decoration: none; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-muted: #a0a0a0;
+    --color-border: #333;
+    --color-highlight: #2a2a2a;
+    --color-brand-light: #3a5a3a;
+  }
+  tr:hover td { background: #222; }
+  img { opacity: 0.85; }
+}
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  <a href="index.html" class="brand">EVENT<em>URUS</em></a>
+  <div class="tagline">China, Vetted.</div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+  <h1>Get Online in China</h1>
+  <p>eSIM you can buy before you leave, and where to find a physical SIM card when you land. Everything you need to stay connected.</p>
+</div>
+
+<div class="pull-quote">
+  <blockquote>Most travellers buy a data plan before they arrive and never visit a SIM counter. But knowing where the counters are — just in case — makes the arrival anxiety disappear.</blockquote>
+</div>
+
+<!-- Section 1: eSIM -->
+<div class="section">
+  <h2>eSIM &mdash; Set up before you fly</h2>
+  <p class="sub">Buy online, activate on arrival. No need to find a shop or swap your home SIM.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> Which phones support eSIM in China?</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>iPhone:</strong> XS and newer (except China mainland models which have no eSIM)</li>
+      <li><span class="bullet">✓</span> <strong>Google Pixel:</strong> 3 and newer (except Japan models)</li>
+      <li><span class="bullet">✓</span> <strong>Samsung Galaxy:</strong> S20 and newer, Z Fold/Flip series</li>
+      <li><span class="bullet">✓</span> <strong>Huawei:</strong> P40, Mate 40 Pro and newer (some models eSIM-only)</li>
+      <li><span class="bullet">✓</span> <strong>Others:</strong> OnePlus 11+, Oppo Find X5+, Xiaomi 13+ (regional variants vary)</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <strong>⚠️ Important:</strong> If you bought your iPhone 14 or newer in mainland China, it <strong>does not have eSIM</strong>. You'll need a physical SIM card (see next section).
+  </div>
+
+  <div class="info-card">
+    <h3>eSIM Provider Comparison</h3>
+    <p style="font-size:13px;color:var(--color-muted);margin-bottom:12px;">Prices are approximate and change frequently. Check each provider for current rates.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Provider</th><th>Data</th><th>Duration</th><th>Price</th><th>VPN</th><th>Top-up</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-brand">Airalo</td><td>1&ndash;20 GB</td><td>7&ndash;30 days</td><td class="td-price">$5&ndash;37</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+          <tr><td class="td-brand">Holafly</td><td>Unlimited</td><td>5&ndash;90 days</td><td class="td-price">$19&ndash;99</td><td class="tick">✓</td><td class="cross">✗</td></tr>
+          <tr><td class="td-brand">Nomad</td><td>1&ndash;50 GB</td><td>5&ndash;30 days</td><td class="td-price">$6&ndash;45</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+          <tr><td class="td-brand">Ubigi</td><td>1&ndash;30 GB</td><td>7&ndash;30 days</td><td class="td-price">$8&ndash;36</td><td class="cross">✗</td><td class="tick">✓</td></tr>
+          <tr><td class="td-brand">AloSIM</td><td>1&ndash;20 GB</td><td>7&ndash;30 days</td><td class="td-price">$7&ndash;35</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📥</span> How to set up an eSIM</h3>
+    <ol class="steps">
+      <li>Buy a plan from your chosen provider (Airalo, Holafly, Nomad &mdash; all have apps)</li>
+      <li>You'll receive a QR code or installation link via email</li>
+      <li>Add the eSIM to your phone <em>before</em> you leave (Settings &rarr; Cellular &rarr; Add eSIM)</li>
+      <li>Label it "China Data" in your settings</li>
+      <li>Turn off your home SIM or set it as the voice-only line</li>
+      <li>When you land in China, turn on data roaming for the China eSIM &rarr; you're online</li>
+    </ol>
+  </div>
+
+  <div class="pros-cons">
+    <div class="pro-box">
+      <h4>✅ Why eSIM</h4>
+      <ul>
+        <li>Set up at home, no queue at airport</li>
+        <li>Keep your home SIM active</li>
+        <li>Built-in VPN (most providers)</li>
+        <li>No passport needed</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>⚠️ Considerations</h4>
+      <ul>
+        <li>Phone must support eSIM</li>
+        <li>Chinese iPhones have no eSIM</li>
+        <li>Data only &mdash; no local phone number</li>
+        <li>Troubleshooting from abroad can be hard</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div style="text-align:center;padding:8px 0;color:var(--color-border);font-size:14px;">&bull; &bull; &bull;</div>
+
+<!-- Section 2: Airport SIM -->
+<div class="section">
+  <h2>Airport SIM Card &mdash; Buy when you land</h2>
+  <p class="sub">If your phone doesn't support eSIM, or you prefer a local number, buy a physical SIM card right after you clear customs.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">🛂</span> What you need</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Passport</strong> &mdash; mandatory for all SIM purchases in China</li>
+      <li><span class="bullet">✓</span> <strong>Cash or card</strong> &mdash; most airport counters accept Visa/Mastercard</li>
+      <li><span class="bullet">✓</span> <strong>Unlocked phone</strong> &mdash; your phone must be carrier-unlocked</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>Where to find SIM counters at major airports</h3>
+    <div class="airport-list">
+      <div class="airport-item">
+        <div><span class="apt">Beijing Capital</span> <span class="apt-code">PEK</span></div>
+        <div class="loc"><span class="label">Arrival hall T3</span> &mdash; China Mobile &amp; Unicom counters near Exit B</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Beijing Daxing</span> <span class="apt-code">PKX</span></div>
+        <div class="loc"><span class="label">Arrival hall (GTC)</span> &mdash; Ground Transportation Centre, ground floor</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Shanghai Pudong</span> <span class="apt-code">PVG</span></div>
+        <div class="loc"><span class="label">T1 &amp; T2 arrival halls</span> &mdash; All three operators, open 7am&ndash;11pm</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Shanghai Hongqiao</span> <span class="apt-code">SHA</span></div>
+        <div class="loc"><span class="label">Arrival hall</span> &mdash; Counter near the HSR connection corridor</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Guangzhou Baiyun</span> <span class="apt-code">CAN</span></div>
+        <div class="loc"><span class="label">Arrival hall T1 &amp; T2</span> &mdash; Visible right after baggage claim</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Shenzhen Bao'an</span> <span class="apt-code">SZX</span></div>
+        <div class="loc"><span class="label">Arrival hall</span> &mdash; China Mobile directly across from Exit 11</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Chengdu Tianfu</span> <span class="apt-code">TFU</span></div>
+        <div class="loc"><span class="label">Arrival hall T1</span> &mdash; Counter near the central information desk</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Xi'an Xianyang</span> <span class="apt-code">XIY</span></div>
+        <div class="loc"><span class="label">Arrival hall T3</span> &mdash; Between Exits 7 and 8</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Kunming Changshui</span> <span class="apt-code">KMG</span></div>
+        <div class="loc"><span class="label">Arrival hall</span> &mdash; China Unicom counter near the WHSmith</div>
+      </div>
+      <div class="airport-item">
+        <div><span class="apt">Guilin Liangjiang</span> <span class="apt-code">KWL</span></div>
+        <div class="loc"><span class="label">Arrival hall</span> &mdash; Small counter near the exit door</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3>Carrier Travel Plan Comparison</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Plan</th><th>Data</th><th>Duration</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-brand">China Mobile</td><td>Travel SIM</td><td>20&ndash;50 GB</td><td>7&ndash;30 days</td><td class="td-price">¥100&ndash;300</td></tr>
+          <tr><td class="td-brand">China Unicom</td><td>Foreign Tourist SIM</td><td>15&ndash;40 GB</td><td>7&ndash;30 days</td><td class="td-price">¥88&ndash;258</td></tr>
+          <tr><td class="td-brand">China Telecom</td><td>Welcome Card</td><td>20&ndash;30 GB</td><td>10&ndash;30 days</td><td class="td-price">¥100&ndash;200</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box" style="margin:12px 0 0;">
+      <strong>💡 Tip:</strong> All three operators work on the same networks in major cities. Don't overthink which one to choose. China Mobile has the widest coverage in remote areas.
+    </div>
+  </div>
+
+  <div class="pros-cons">
+    <div class="pro-box">
+      <h4>✅ Why physical SIM</h4>
+      <ul>
+        <li>Works on any unlocked phone</li>
+        <li>You get a Chinese phone number</li>
+        <li>Easier to use for Didi / Meituan / other local apps</li>
+        <li>Staff help you set it up on the spot</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>⚠️ Considerations</h4>
+      <ul>
+        <li>Need to queue at the counter</li>
+        <li>Must show your passport</li>
+        <li>Registering can take 5&ndash;15 minutes</li>
+        <li>Most plans don't include a VPN</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>🛡️ VPN note:</strong> Physical SIM cards from Chinese carriers do not include VPN access. If you rely on Google, Instagram, WhatsApp or other blocked services, <strong>install a VPN app before you arrive</strong> (while you still have access to your home internet). Most eSIM providers include a built-in VPN &mdash; another reason to go digital.
+  </div>
+</div>
+
+<!-- Section 3: Quick compare -->
+<div class="section">
+  <h2>eSIM vs Airport SIM: Which one for you?</h2>
+  <p class="sub">A quick decision guide.</p>
+
+  <div class="info-card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th style="color:var(--color-brand)">eSIM</th><th>Airport SIM</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:500;">Buy before arrival</td><td class="tick">✓</td><td class="td-na">✗</td></tr>
+          <tr><td style="font-weight:500;">Works on Chinese iPhones</td><td class="td-na">✗</td><td class="tick">✓</td></tr>
+          <tr><td style="font-weight:500;">Built-in VPN</td><td class="tick">✓ (most)</td><td class="td-na">✗</td></tr>
+          <tr><td style="font-weight:500;">Chinese phone number</td><td class="td-na">✗</td><td class="tick">✓</td></tr>
+          <tr><td style="font-weight:500;">Price (7 days, ~5 GB)</td><td>$7&ndash;15</td><td>¥100&ndash;150 (~$14&ndash;21)</td></tr>
+          <tr><td style="font-weight:500;">Setup time</td><td>2 mins (before trip)</td><td>10&ndash;15 mins (at airport)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="cross-link">
+  <p>Not sure if your phone works in China? → <a href="phone-checker.html">Check compatibility</a></p>
+</div>
+
+<div class="cross-link">
+  <p>Getting from the airport to your hotel? → <a href="airport-transport.html">Airport transport guide</a></p>
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS &middot; VETTED</div>
+  <div>China, Vetted. &mdash; <a href="index.html">All Tools</a></div>
+</div>
+
+</div>
+</body>
+</html>
