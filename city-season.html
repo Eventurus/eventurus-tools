@@ -11,6 +11,10 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
   <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -147,6 +151,27 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   }
 }
   </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EVENTURUS Tools",
+      "item": "https://eventurus.github.io/eventurus-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "City Season & Weather Guide",
+      "item": "https://eventurus.github.io/eventurus-tools/city-season.html"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
@@ -155,6 +180,8 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   <h1>China City Season & Weather Guide</h1>
   <p>When to go, what the weather is like, and how bad the air pollution gets. Data for 35+ cities.</p>
 </div>
+
+<h2>Browse by City</h2>
 
 <div class="filter-bar">
   <input type="text" id="search" placeholder="Search city..." oninput="filterCities()">

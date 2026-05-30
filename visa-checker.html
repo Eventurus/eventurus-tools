@@ -11,6 +11,10 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
   <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -126,6 +130,27 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   }
 }
   </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EVENTURUS Tools",
+      "item": "https://eventurus.github.io/eventurus-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Visa Eligibility Checker",
+      "item": "https://eventurus.github.io/eventurus-tools/visa-checker.html"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
@@ -140,19 +165,19 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 
 <!-- Step 1: Nationality -->
 <div class="question-card active" id="q1">
-  <div class="q-label">① Which passport do you hold?</div>
+  <h2 class="q-label">① Which passport do you hold?</h2>
   <div class="options" id="nat-options"></div>
 </div>
 
 <!-- Step 2: Purpose -->
 <div class="question-card" id="q2">
-  <div class="q-label">② What's the purpose of your visit?</div>
+  <h2 class="q-label">② What's the purpose of your visit?</h2>
   <div class="options" id="purpose-options"></div>
 </div>
 
 <!-- Step 3: Duration -->
 <div class="question-card" id="q3">
-  <div class="q-label">③ How long will you be staying?</div>
+  <h2 class="q-label">③ How long will you be staying?</h2>
   <div class="options" id="duration-options"></div>
 </div>
 

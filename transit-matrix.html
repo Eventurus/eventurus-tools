@@ -11,6 +11,10 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
   <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -506,6 +510,27 @@ body {
   }
 }
   </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EVENTURUS Tools",
+      "item": "https://eventurus.github.io/eventurus-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "China City Transit Matrix",
+      "item": "https://eventurus.github.io/eventurus-tools/transit-matrix.html"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -568,7 +593,7 @@ body {
 <!-- Results: Grid view -->
 <div id="gridView" class="results">
   <div class="grid-view">
-    <h3>Quick reference</h3>
+    <h2>Quick reference</h2>
     <p class="grid-hint">Select a departure city above, then browse arrival options.</p>
     <div class="grid-table-wrap">
       <table class="grid-table" id="gridTable">
@@ -583,7 +608,7 @@ body {
 
 <!-- Popular quick routes -->
 <div class="quick-routes">
-  <h3>Popular routes</h3>
+  <h2>Popular routes</h2>
   <div class="route-chips">
     <button class="route-chip" onclick="quickRoute('Shanghai','Beijing')">Shanghai &#8594; Beijing</button>
     <button class="route-chip" onclick="quickRoute('Beijing','Shanghai')">Beijing &#8594; Shanghai</button>
