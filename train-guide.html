@@ -32,8 +32,8 @@
 :root {
   --color-text: #2c2c2c;
   --color-text-muted: #888780;
-  --color-brand: #6B7F65;
-  --color-brand-light: #EAF3DE;
+  --color-brand: #5A6E55;
+  --color-brand-light: #E3EFD5;
   --color-brand-mid: #8A9E80;
   --color-bg: #F9F9F9;
   --color-surface: #ffffff;
@@ -44,6 +44,8 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
+
 
 body {
   font-family: var(--font-sans);
@@ -61,7 +63,7 @@ img { max-width: 100%; height: auto; }
 
 /* Brand */
 .brand-bar { padding: 24px 0 0; text-align: center; }
-.brand-bar .brand { font-family: var(--font-serif); font-size: 18px; font-weight: 500; letter-spacing: 2px; color: var(--color-text); text-decoration: none; }
+.brand-bar .brand { font-family: var(--font-serif); font-size: 18px; font-weight: 500; letter-spacing: 2px; color: var(--color-text); text-decoration: underline; text-underline-offset: 2px; }
 .brand-bar .brand em { font-style: italic; color: var(--color-brand); }
 .brand-bar .tagline { font-size: 12px; color: var(--color-text-muted); letter-spacing: 1px; margin-top: 2px; }
 
@@ -221,7 +223,7 @@ img { max-width: 100%; height: auto; }
 
 /* Footer */
 .site-footer { text-align: center; padding: 32px 0 28px; font-size: 12px; color: var(--color-text-muted); }
-.site-footer a { color: var(--color-brand); text-decoration: none; }
+.site-footer a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .site-footer .brand-foot { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
 
 /* Route helper */
@@ -257,6 +259,8 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Dark mode */
+a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #121212;
@@ -317,7 +321,8 @@ img { max-width: 100%; height: auto; }
   <div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
 </div>
 
-<div class="container" style="position:relative;">
+<a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
+<div class="container" id="main-content" style="position:relative;">
 
 <div class="hero">
   <h1>China High-Speed Train Seat Guide</h1>

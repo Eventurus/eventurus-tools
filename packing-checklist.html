@@ -24,8 +24,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#5a6e55; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
+:root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5; --color-brand-dark: #4A5C46; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
 * { margin:0; padding:0; box-sizing:border-box; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
+
 body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;  -webkit-tap-highlight-color: transparent; }
 .container { max-width:720px; margin:0 auto; padding:0 20px; }
 .brand-bar { padding:24px 0 0; text-align:center; }
@@ -69,7 +71,7 @@ tr:hover td { background:#FAFAF8; }
 .cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
 .footer { text-align:center; padding:40px 0 32px; font-size:12px; color:var(--color-muted); }
 .footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
-.footer a { color:var(--color-brand); text-decoration:none; }
+.footer a { color:var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 body.dark-mode,
 body.dark-mode,
 
@@ -82,6 +84,8 @@ body.dark-mode,
   h1, h2, h3 { page-break-after: avoid; }
 }
 
+a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
 @media (prefers-color-scheme: dark) {
   :root { --color-bg:#121212; --color-surface:#1e1e1e; --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-border:#333; --color-highlight:#2a2a2a; --color-brand-light:#3a5a3a; }
   .warning-box { background:#3A2A10; border-color:#5A4020; }
@@ -177,7 +181,8 @@ body.dark-mode,
 </head>
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
-<div class="container" style="position:relative;">
+<a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
+<div class="container" id="main-content" style="position:relative;">
 
 <div class="hero">
   <h1>China Packing Checklist</h1>
@@ -336,7 +341,7 @@ body.dark-mode,
 
   <div class="pros-cons">
     <div class="pro-box">
-      <h4>✅ Bring from home</h4>
+      <h3>✅ Bring from home</h3>
       <ul>
         <li>Specific medications you rely on</li>
         <li>Contact lens solution — brands differ in China</li>
@@ -346,7 +351,7 @@ body.dark-mode,
       </ul>
     </div>
     <div class="pro-box">
-      <h4>✅ Buy in China (cheaper)</h4>
+      <h3>✅ Buy in China (cheaper)</h3>
       <ul>
         <li>Toothbrush, toothpaste, shampoo — widely available</li>
         <li>Tissues / wet wipes — every convenience store</li>
