@@ -53,6 +53,7 @@ body {
   line-height: 1.6;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Layout */
@@ -478,6 +479,16 @@ body {
   color: var(--color-text-muted);
 }
 .no-data.visible { display: block; }
+
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
+  a { color: #000; text-decoration: underline; }
+  .container { max-width: 100%; }
+  table { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -627,6 +638,7 @@ body {
 
 </div>
 
+<div class="cross-link"><p>Related: <a href="train-guide.html">Train Seat Guide</a> · <a href="airport-transport.html">Airport Transport</a></p></div>
 <div class="site-footer">
   <div class="brand-foot">EVENTURUS &middot; VETTED</div>
   <div>China, Vetted. &mdash; <a href="https://eventurus.cn">eventurus.cn</a></div>

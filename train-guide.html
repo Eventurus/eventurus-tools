@@ -52,7 +52,10 @@ body {
   line-height: 1.6;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
+
+img { max-width: 100%; height: auto; }
 
 .container { max-width: 920px; margin: 0 auto; padding: 0 20px; }
 
@@ -243,6 +246,16 @@ body {
 .class-biz .rating-bar-fill { background: #639922; width: 95%; }
 .class-sleeper .class-card-header { background: #FAEEDA; }
 .class-sleeper .rating-bar-fill { background: #BA7517; width: 65%; }
+
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
+  a { color: #000; text-decoration: underline; }
+  .container { max-width: 100%; }
+  table { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -729,6 +742,7 @@ body {
   <a href="transit-matrix.html">Open China City Transit Matrix →</a>
 </div>
 
+<div class="cross-link"><p>Related: <a href="transit-matrix.html">Transit Matrix</a> · <a href="didi-guide.html">Didi Guide</a></p></div>
 <div class="site-footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
   <div>China, Vetted. — <a href="https://eventurus.cn">eventurus.cn</a></div>
