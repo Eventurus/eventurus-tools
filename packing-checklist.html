@@ -11,10 +11,10 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EVENTURUS">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+<meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-packing-checklist.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+<meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-packing-checklist.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="China Packing Checklist — EVENTURUS">
 <meta name="twitter:description" content="What to pack for your trip to China. Seasonal packing guide, essential electronics, prohibited items, toiletries, and what to buy locally.">
@@ -70,6 +70,8 @@ tr:hover td { background:#FAFAF8; }
 .footer { text-align:center; padding:40px 0 32px; font-size:12px; color:var(--color-muted); }
 .footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
 .footer a { color:var(--color-brand); text-decoration:none; }
+body.dark-mode,
+body.dark-mode,
 @media (prefers-color-scheme: dark) {
   :root { --color-bg:#121212; --color-surface:#1e1e1e; --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-border:#333; --color-highlight:#2a2a2a; --color-brand-light:#3a5a3a; }
   .warning-box { background:#3A2A10; border-color:#5A4020; }
@@ -114,10 +116,58 @@ tr:hover td { background:#FAFAF8; }
   ]
 }
 </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What documents do I need to enter China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A valid passport with at least 6 months validity and the appropriate visa (or eligibility under visa-free policies). Print your hotel booking and flight itinerary as backup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a VPN for China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you rely on Google, Instagram, WhatsApp, Facebook, or X, yes — install and test your VPN BEFORE you depart, as many VPN websites are blocked in China."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What voltage and plug type does China use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "China uses 220V, 50Hz with Type A (two flat pins) and Type I (three flat pins) sockets. Most modern device chargers are dual-voltage — check the label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I drink tap water in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Drink bottled or boiled water. Hotels provide bottled water daily. A reusable water bottle with a built-in filter is recommended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What medications should I bring to China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bring prescription medication in original packaging with a doctor's note. Pack a basic travel kit: pain reliever, anti-diarrhoea, antihistamine, cold medicine, and motion sickness tablets."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
-<div class="container">
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
+<div class="container" style="position:relative;">
 
 <div class="hero">
   <h1>China Packing Checklist</h1>
@@ -308,8 +358,29 @@ tr:hover td { background:#FAFAF8; }
 <div class="footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
   <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+<div class="cross-link"><p>Related: <a href="city-season.html">City Season Guide</a> · <a href="essential-apps.html">Essential Apps for China</a></p></div>
+
 </div>
 
 </div>
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+<script>
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
 </body>
 </html>

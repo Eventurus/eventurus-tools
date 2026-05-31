@@ -11,10 +11,10 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-airport-transport.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-airport-transport.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -140,10 +140,58 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which is the best way to get from a Chinese airport to the city?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metro is the most reliable option — fixed price, no traffic, and airport express lines are faster. Taxi is convenient but costs 2–3× more. Shuttle buses are cheapest but slowest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a taxi cost from Beijing Capital Airport to the city?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "¥120–180 to central Beijing, taking 30–60 minutes. There is a ¥80 surcharge for late-night rides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if my flight arrives late at night?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most airports have 24-hour taxi queues. Didi works around the clock. Metro typically stops between 22:30–23:30 — check the last train time at the station."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there luggage storage at Chinese airports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, most major airports have left-luggage counters (行李寄存) at ¥10–30 per item per day. Useful for layovers when you want to explore the city."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fastest way from Shanghai Pudong to the city?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Maglev train reaches 431 km/h and gets you to Longyang Road in 7 minutes for ¥50. Then transfer to Metro Line 2."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
-<div class="container">
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
+<div class="container" style="position:relative;">
 <div class="hero"><h1>Airport to City Transport Guide</h1><p>How to get from the airport to the city at 27 major Chinese airports. Prices in CNY (&yen;).</p></div>
 
 <div class="section">
@@ -207,6 +255,8 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 <div class="footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
   <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+<div class="cross-link"><p>Related: <a href="transit-matrix.html">China City Transit Matrix</a> · <a href="didi-guide.html">Didi Ride-Hailing Guide</a></p></div>
+
 </div>
 </div>
 
@@ -418,6 +468,25 @@ function filterAirports() {
 }
 
 AIRPORTS.forEach(renderAirport);
+</script>
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+<script>
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
 </script>
 </body>
 </html>

@@ -11,10 +11,10 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-dining-guide.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
+  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-dining-guide.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -83,6 +83,8 @@ tr:hover td { background:#FAFAF8; }
 .footer { text-align:center; padding:40px 0 32px; font-size:12px; color:var(--color-muted); }
 .footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
 .footer a { color:var(--color-brand); text-decoration:none; }
+body.dark-mode,
+body.dark-mode,
 @media (prefers-color-scheme: dark) {
   :root { --color-bg:#121212; --color-surface:#1e1e1e; --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-border:#333; --color-highlight:#2a2a2a; --color-brand-light:#3a5a3a; }
   .warning-box { background:#3A2A10; border-color:#5A4020; }
@@ -134,10 +136,66 @@ tr:hover td { background:#FAFAF8; }
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does QR code ordering work in Chinese restaurants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scan the QR code on your table with WeChat or Alipay. A digital menu opens with photos and prices. Select items, confirm, and pay directly through the app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is street food safe to eat in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you follow the queue rule: eat where locals queue. The turnover is fast and the food is cooked fresh. Avoid pre-cooked food sitting at room temperature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most common Chinese dishes for beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fried rice, noodles, dumplings, kung pao chicken, and stir-fried greens are universally available and beginner-friendly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I order food delivery in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Meituan or Ele.me. Browse by photos, pay with WeChat Pay or Alipay, and delivery typically arrives in 25–40 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the tipping etiquette in Chinese restaurants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tipping is not expected. In casual restaurants, do not tip. In high-end restaurants, a 10–15% service charge is usually included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find vegetarian food in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Dianping to search for \"素食\" (vegetarian). Buddhist vegetarian restaurants (素菜馆) are reliably vegan-friendly. Say \"bù yào ròu\" (不要肉) to request no meat."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
-<div class="container">
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
+<div class="container" style="position:relative;">
 
 <div class="hero">
   <h1>Eating in China</h1>
@@ -413,8 +471,29 @@ tr:hover td { background:#FAFAF8; }
 <div class="footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
   <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+<div class="cross-link"><p>Related: <a href="chinese-cards.html">Chinese To-Go Cards</a> · <a href="payment-guide.html">WeChat Pay & Alipay Guide</a></p></div>
+
 </div>
 
 </div>
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+<script>
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
 </body>
 </html>

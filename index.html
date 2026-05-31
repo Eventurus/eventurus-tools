@@ -64,7 +64,12 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .site-footer { text-align:center; padding:40px 0 28px; font-size:12px; color:var(--color-muted); }
 .site-footer a { color:var(--color-brand); text-decoration:none; }
 .site-footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+.search-bar { margin-bottom:24px; }
+.search-bar input { width:100%; padding:14px 18px; border:2px solid var(--color-border); border-radius:10px; font-size:16px; background:var(--color-surface); color:var(--color-text); transition:border-color .2s; }
+.search-bar input:focus { border-color:var(--color-brand); outline:none; }
+.search-bar input::placeholder { color:var(--color-muted); }
 /* Dark mode */
+body.dark-mode,
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #121212;
@@ -113,9 +118,12 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
-<div class="container">
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div><button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
+<div class="container" style="position:relative;">
 <div class="hero"><h1>China travel tools</h1><p>Practical tools for the China traveller. Built by EVENTURUS.</p></div>
+<div class="search-bar">
+  <input type="text" id="toolSearch" placeholder="Search tools..." oninput="filterTools()" aria-label="Search tools">
+</div>
 <div class="tool-grid">
 
 <h2 class="sec-label">Planning &amp; Entry</h2>
@@ -156,22 +164,13 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   <div class="arrow">→</div>
 </a>
 
-<a class="tool-card" href="packing-checklist.html">
-  <div class="icon-box slate">🎒</div>
-  <div class="tool-info">
-    <div class="tool-title">China Packing Checklist</div>
-    <div class="tool-desc">What to pack by season, what to leave at home, and what to buy locally. Electronics, toiletries, and restricted items.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
 <h2 class="sec-label">Getting Around</h2>
 
 <a class="tool-card" href="transit-matrix.html">
   <div class="icon-box purple">🚄</div>
   <div class="tool-info">
     <div class="tool-title">China City Transit Matrix</div>
-    <div class="tool-desc">Compare HSR and flights between 20 cities. Times, prices and distances at a glance.</div>
+    <div class="tool-desc">Compare HSR and flights between 30 cities. Times, prices and distances at a glance.</div>
   </div>
   <div class="arrow">→</div>
 </a>
@@ -277,24 +276,6 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   <div class="arrow">→</div>
 </a>
 
-<a class="tool-card" href="great-wall-guide.html">
-  <div class="icon-box amber">🏯</div>
-  <div class="tool-info">
-    <div class="tool-title">Great Wall of China Guide</div>
-    <div class="tool-desc">Compare 7 sections — Badaling, Mutianyu, Simatai, Jinshanling and more. Transport, tickets, best time, and tips for visiting the Great Wall.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="hotel-booking-guide.html">
-  <div class="icon-box purple">🛏️</div>
-  <div class="tool-info">
-    <div class="tool-title">Hotel Booking Guide for China</div>
-    <div class="tool-desc">How to book hotels as a foreigner. Trip.com, star ratings, check-in tips, cancellation policies, and payment methods for international travellers.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
 <a class="tool-card" href="museums-guide.html">
   <div class="icon-box gold">🏛️</div>
   <div class="tool-info">
@@ -337,5 +318,31 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   <div>China, Vetted. — <a href="https://eventurus.cn">eventurus.cn</a></div>
 </div>
 </div>
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+<script>
+function filterTools() {
+  const q = document.getElementById('toolSearch').value.toLowerCase();
+  document.querySelectorAll('.tool-card').forEach(card => {
+    const text = (card.querySelector('.tool-title').textContent + ' ' + card.querySelector('.tool-desc').textContent).toLowerCase();
+    card.style.display = text.includes(q) ? '' : 'none';
+  });
+}
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
 </body>
 </html>
