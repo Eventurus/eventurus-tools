@@ -6,7 +6,7 @@
 <title>China Airport → City Transport Guide — EVENTURUS</title>
   <!-- Open Graph -->
   <meta property="og:title" content="China Airport → City Transport Guide — EVENTURUS">
-  <meta property="og:description" content="Taxi, metro and shuttle prices from 15 major Chinese airports to city centre. Quick reference for travellers.">
+  <meta property="og:description" content="Taxi, metro and shuttle prices from 27 major Chinese airports to city centre. Night arrival tips, luggage storage, and airport-to-airport transfers for foreign travellers.">
   <meta property="og:url" content="https://eventurus.github.io/eventurus-tools/airport-transport.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
@@ -19,12 +19,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="China Airport → City Transport Guide — EVENTURUS">
-  <meta name="twitter:description" content="Taxi, metro and shuttle prices from 15 major Chinese airports to city centre. Quick reference for travellers.">
+  <meta name="twitter:description" content="Taxi, metro and shuttle prices from 27 major Chinese airports to city centre. Night arrival tips, luggage storage, and airport-to-airport transfers for foreign travellers.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://eventurus.github.io/eventurus-tools/airport-transport.html">
 
-<meta name="description" content="Taxi, metro and shuttle prices from 15 major Chinese airports to city centre. Quick reference for travellers.">
+<meta name="description" content="Taxi, metro and shuttle prices from 27 major Chinese airports to city centre. Night arrival tips, luggage storage, and airport-to-airport transfers for foreign travellers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -77,6 +77,16 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 
 .cross-link { text-align:center; margin:20px 0; font-size:14px; }
 .cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
+.section { padding:20px 0; }
+.section h2 { font-family:var(--font-serif); font-size:24px; font-weight:500; margin-bottom:4px; line-height:1.3; }
+.section .sub { font-size:13px; color:var(--color-muted); margin-bottom:16px; }
+.info-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:0 1px 3px rgba(0,0,0,0.04); padding:20px 24px; margin-bottom:14px; font-size:14px; line-height:1.6; }
+.info-card p { font-size:14px; margin-bottom:8px; }
+.info-card ul { list-style:none; padding:0; margin-top:6px; }
+.info-card li { padding:5px 0; font-size:13px; }
+.highlight-box { background:var(--color-brand-light); border-radius:var(--radius); padding:14px 20px; margin:14px 0; font-size:13px; line-height:1.6; }
+.highlight-box a { color:var(--color-brand); font-weight:500; }
+.warning-box { background:#FFF0E0; border-radius:var(--radius); padding:14px 20px; margin:14px 0; font-size:13px; line-height:1.6; border:1px solid #FFE0B0; }
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -98,7 +108,7 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "China Airport \u2192 City Transport Guide \u2014 EVENTURUS",
-  "description": "Taxi, metro and shuttle prices from 15 major Chinese airports to city centre. Quick reference for travellers.",
+  "description": "Taxi, metro and shuttle prices from 27 major Chinese airports to city centre. Night arrival tips, luggage storage, and airport-to-airport transfers for foreign travellers.",
   "url": "https://eventurus.github.io/eventurus-tools/airport-transport.html",
   "inLanguage": "en-GB",
   "publisher": {
@@ -134,13 +144,61 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <div class="container">
-<div class="hero"><h1>Airport to City Transport Guide</h1><p>How to get from the airport to the city at 15 major Chinese airports. Prices in CNY (&yen;).</p></div>
+<div class="hero"><h1>Airport to City Transport Guide</h1><p>How to get from the airport to the city at 27 major Chinese airports. Prices in CNY (&yen;).</p></div>
+
+<div class="section">
+  <h2>How to read this guide</h2>
+  <p class="sub">Three transport options at every airport — plus night arrivals and luggage tips below.</p>
+
+  <div class="info-card">
+    <p><strong>🚇 Metro</strong> — The most reliable option. Fixed price, no traffic risk, runs 6:00–23:00 typically. Airport express lines are faster than regular metro. Look for signs saying "地铁" in white on red. Best for: solo travellers, light luggage, peak hours.</p>
+    <p><strong>🚕 Taxi</strong> — Door-to-door convenience but costs more. Use the official queue (排队出租车) — never follow touts inside the terminal. Show the driver your destination in Chinese on your phone. Best for: groups, heavy luggage, late nights.</p>
+    <p><strong>🚌 Shuttle bus</strong> — Cheapest but slowest. Fixed routes and stops. Airport shuttles run to major hotels and transport hubs. Look for "机场大巴" signs. Best for: budget travellers, when the metro doesn't reach your destination.</p>
+  </div>
+
+  <div class="highlight-box">
+    <strong>📱 Best of all:</strong> Book a Didi from the airport. The app shows the fare before you confirm, you don't need to explain your destination, and payment happens automatically. See our <a href="didi-guide.html">Didi Guide</a>.
+  </div>
+</div>
 
 <div class="search-bar"><input type="text" id="search" placeholder="Search airport or city..." oninput="filterAirports()"></div>
 
 <h2>Airport Transport by City</h2>
 
 <div class="airport-grid" id="grid"></div>
+
+<div class="section">
+  <h2>Arriving late at night</h2>
+  <p class="sub">What to do when the metro has stopped.</p>
+
+  <div class="info-card">
+    <p><strong>Metro operating hours</strong> — Most metro lines stop between 22:30 and 23:30. Airport express lines sometimes run later — check the last train time at the station. After metro hours, your options are taxi, Didi, or the night shuttle (some airports run a late bus service).</p>
+  </div>
+
+  <div class="info-card">
+    <p><strong>Late-night taxi &amp; Didi</strong> — All airports have a 24-hour taxi queue. At major airports (PEK, PVG, CAN, SZX), the queue moves fast even at 2am. Didi also works 24/7. Expect a late-night surcharge of ¥5–15 on taxi fares. Ride-hailing pick-up zones stay open.</p>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ Avoid airport touts:</strong> Inside every Chinese airport, people will approach you offering "cheap taxi, hotel, SIM card." Ignore all of them. Use the official taxi queue, Didi, or the airport shuttle. Touts charge 3–5× the real price and may take you to commission-paying hotels.
+  </div>
+</div>
+
+<div class="section">
+  <h2>Luggage &amp; transfer tips</h2>
+
+  <div class="info-card">
+    <p><strong>Luggage storage</strong> — Most major airports have left-luggage counters (行李寄存 · xíng li jì cún). Rates are typically ¥10–30 per item per day. Look for signs with a suitcase icon. Useful if you have a long layover and want to explore the city without dragging bags.</p>
+  </div>
+
+  <div class="info-card">
+    <p><strong>Between airports</strong> — If you're transferring between two airports in the same city (e.g. PEK → PKX in Beijing, PVG → SHA in Shanghai), budget at least 2 hours for a taxi or Didi, or use the airport shuttle bus which is cheaper but slower. Beijing Capital (PEK) to Daxing (PKX) is ~70 km — about 90 min by car.</p>
+  </div>
+
+  <div class="info-card">
+    <p><strong>Train–airport connections</strong> — Several airports share the same complex as an HSR station: Shanghai Hongqiao (SHA), Chengdu Shuangliu (CTU), Shijiazhuang Zhengding (SJW), and Guiyang Longdongbao (KWE). You can walk from your flight to your next train without leaving the building. See our <a href="transit-matrix.html" style="color:var(--color-brand);">Transit Matrix</a> for route planning.</p>
+  </div>
+</div>
 
 <div class="cross-link">
   <p>Find trains between cities → <a href="transit-matrix.html">China City Transit Matrix</a></p>
@@ -243,6 +301,78 @@ const AIRPORTS = [
     taxi:{price:"150-200",time:"50-70min",note:"Fixed price, pre-book recommended"},
     shuttle:{price:30,time:"60min",note:"Airport bus to city centre"},
     best:"shuttle",tip:"Altitude warning: 3650m. Take it easy. The bus is cheap and reliable."
+  },
+  {name:"Xiamen Gaoqi",code:"XMN",city:"Xiamen",
+    metro:{line:"Line 1",price:5,time:"25-45min",note:"To Zhenhai Road / Zhongshan Road"},
+    taxi:{price:"40-80",time:"20-40min",note:"Affordable and fast"},
+    shuttle:{price:15,time:"35-50min",note:"City shuttle"},
+    best:"taxi",tip:"Compact airport close to the city. Taxi is often under ¥50. BRT bus also connects to the island."
+  },
+  {name:"Chongqing Jiangbei",code:"CKG",city:"Chongqing",
+    metro:{line:"Line 10",price:6,time:"35-55min",note:"To Jiefangbei / Nanping"},
+    taxi:{price:"60-120",time:"30-60min",note:"¥5 late-night surcharge"},
+    shuttle:{price:20,time:"40-70min",note:"Multiple routes"},
+    best:"metro",tip:"Chongqing has THREE terminals — T2, T3A, T3B. Check your ticket. Metro connects all three."
+  },
+  {name:"Nanjing Lukou",code:"NKG",city:"Nanjing",
+    metro:{line:"Line S1",price:7,time:"35-50min",note:"To Nanjing South Station (transfer to Line 1/3)"},
+    taxi:{price:"100-180",time:"35-60min",note:"Far from city — taxi is pricey"},
+    shuttle:{price:25,time:"50-70min",note:"City routes"},
+    best:"metro",tip:"S1 metro to Nanjing South in ~35 min. Then Line 1/3 to city centre."
+  },
+  {name:"Qingdao Jiaodong",code:"TAO",city:"Qingdao",
+    metro:{line:"Line 8",price:7,time:"40-55min",note:"To Qingdao North Station"},
+    taxi:{price:"120-200",time:"40-70min",note:"New airport — far from city centre"},
+    shuttle:{price:25,time:"50-80min",note:"Multiple routes"},
+    best:"metro",tip:"The new Jiaodong airport (2021) replaced old Liuting. It's much farther — budget 45+ min to downtown."
+  },
+  {name:"Dalian Zhoushuizi",code:"DLC",city:"Dalian",
+    metro:{line:"Line 2",price:4,time:"20-35min",note:"To Qingniwaqiao / city centre"},
+    taxi:{price:"25-50",time:"15-30min",note:"One of the closest airports to city"},
+    shuttle:{price:10,time:"25-40min",note:"Short route"},
+    best:"taxi",tip:"Exceptionally close to city — taxi to downtown is often ¥30 or less. Metro also works well."
+  },
+  {name:"Tianjin Binhai",code:"TSN",city:"Tianjin",
+    metro:{line:"Line 2",price:5,time:"25-40min",note:"To Tianjin Station"},
+    taxi:{price:"60-120",time:"25-50min",note:"¥10 extra after 23:00"},
+    shuttle:{price:20,time:"40-60min",note:"Multiple routes"},
+    best:"metro",tip:"Tianjin is 30 min by HSR from Beijing South. Some travellers fly into TSN as a cheaper alternative to PEK/PKX."
+  },
+  {name:"Wuhan Tianhe",code:"WUH",city:"Wuhan",
+    metro:{line:"Line 2",price:7,time:"35-55min",note:"To Jianghan Road / Hankou"},
+    taxi:{price:"80-150",time:"30-60min",note:"¥5 late-night surcharge"},
+    shuttle:{price:25,time:"50-80min",note:"Multiple routes"},
+    best:"metro",tip:"Wuhan has 3 main districts — Hankou, Wuchang, Hanyang. The airport is in the north, near Hankou."
+  },
+  {name:"Changsha Huanghua",code:"CSX",city:"Changsha",
+    metro:{line:"Line 6",price:6,time:"30-45min",note:"To Wuyi Square / city centre"},
+    taxi:{price:"80-140",time:"30-50min",note:"Affordable"},
+    shuttle:{price:20,time:"40-60min",note:"Multiple routes"},
+    best:"metro",tip:"Changsha's Line 6 connects directly to the airport. ¥6 to the city centre."
+  },
+  {name:"Zhengzhou Xinzheng",code:"CGO",city:"Zhengzhou",
+    metro:{line:"Chengjiao Line",price:7,time:"40-60min",note:"To Zhengzhou East / city centre"},
+    taxi:{price:"100-180",time:"35-55min",note:"Long distance to city"},
+    shuttle:{price:20,time:"40-70min",note:"Multiple routes"},
+    best:"metro",tip:"Zhengzhou East Station (a major HSR hub) is on the same metro line as the airport."
+  },
+  {name:"Ürümqi Diwopu",code:"URC",city:"Ürümqi",
+    metro:{line:"Line 1",price:5,time:"25-40min",note:"To city centre / Nanhu"},
+    taxi:{price:"40-70",time:"20-40min",note:"Affordable"},
+    shuttle:{price:15,time:"30-45min",note:"City route"},
+    best:"taxi",tip:"Ürümqi is a major hub for Central Asian flights. The airport is close to the city. In summer, sun sets past 10pm."
+  },
+  {name:"Guiyang Longdongbao",code:"KWE",city:"Guiyang",
+    metro:{line:"Line 2",price:6,time:"30-50min",note:"To city centre / Fountain area"},
+    taxi:{price:"50-90",time:"25-45min",note:"Inexpensive by big-city standards"},
+    shuttle:{price:20,time:"40-60min",note:"Multiple routes"},
+    best:"metro",tip:"Guiyang's airport is close to the city. Combined with cheap taxis, this is one of the easiest arrivals in China."
+  },
+  {name:"Nanning Wuxu",code:"NNG",city:"Nanning",
+    metro:{line:"None",price:0,time:"0",note:"No metro line directly to airport (2026)"},
+    taxi:{price:"80-130",time:"35-55min",note:"Flat rate to city centre"},
+    shuttle:{price:20,time:"40-60min",note:"Airport bus to city"},
+    best:"taxi",tip:"No metro yet. Taxi or shuttle bus are your options. Nanning is green and warm — a gateway to Guangxi and Vietnam."
   }
 ];
 
