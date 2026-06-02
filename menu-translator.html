@@ -76,6 +76,9 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .modal .m-item .m-detail .m-py { font-size:10px; color:#999; font-style:italic; }
 .modal .m-item .m-remove { background:none; border:none; color:#C85A5A; font-size:20px; cursor:pointer; padding:8px; }
 .modal .m-note { font-size:10px; color:#bbb; margin-top:12px; }
+.modal .m-warning { background:#FFF8E8; border:1px solid #F0D060; border-radius:8px; padding:10px 12px; margin-top:12px; font-size:11px; color:#8B6914; line-height:1.5; display:flex; align-items:flex-start; gap:6px; }
+.modal .m-warning .m-warn-icon { font-size:15px; flex-shrink:0; }
+.modal .m-warning strong { color:#6B4F04; }
 .modal-actions { display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
 .btn { padding:12px 24px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s; }
 .btn-primary { background:var(--color-brand); color:#fff; }
@@ -214,6 +217,10 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
   <div class="modal">
     <div class="m-title">Your Order</div>
     <div class="m-items" id="orderModalItems"></div>
+    <div class="m-warning">
+      <span class="m-warn-icon">&#x26A0;</span>
+      <span>This is a translation reference only. <strong>Ask the waiter before ordering</strong> — dishes may vary by restaurant.</span>
+    </div>
     <div class="m-note">Show this to your waiter. Point at the Chinese text for each dish.</div>
     <div class="modal-actions">
       <button class="btn btn-primary" id="printOrderBtn" onclick="printOrder()">&#x1F5A8; Print / Save PDF</button>
@@ -940,10 +947,12 @@ function printOrder() {
     + 'body{font-family:-apple-system,BlinkMacSystemFont,\'PingFang SC\',\'Microsoft YaHei\',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}'
     + '.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:32px 24px;max-width:380px;width:100%;box-shadow:0 2px 12px rgba(0,0,0,0.06);}'
     + '.brand{font-size:10px;color:#bbb;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}'
+    + '.warn{background:#FFF8E8;border:1px solid #F0D060;border-radius:8px;padding:10px;margin-top:16px;font-size:10px;color:#8B6914;text-align:center;line-height:1.5;}'
     + '.footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}</style>'
     + '</head><body><div class="card">'
     + '<div class="brand">EVENTURUS  &middot;  MENU TRANSLATOR</div>'
     + items
+    + '<div class="warn">&#x26A0; Translation reference only &mdash; <b>ask the waiter first</b> if this dish is available at this restaurant.</div>'
     + '<div class="footer">Show this waiter. Point at Chinese.</div>'
     + '</div></body></html>');
   win.document.close();
