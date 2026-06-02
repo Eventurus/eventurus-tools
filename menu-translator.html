@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinese Menu Translator — EVENTURUS</title>
+<meta name="description" content="Translate Chinese dishes to English. Search 200+ menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --color-spicy:#D85A30; --color-veg:#639922; --color-nut:#BA7517; --radius:12px; --radius-sm:8px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
+.container { max-width:720px; margin:0 auto; padding:0 20px; }
+
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:36px 0 16px; }
+.hero h1 { font-size:28px; font-weight:600; line-height:1.2; margin-bottom:6px; }
+.hero p { font-size:14px; color:var(--color-muted); max-width:480px; margin:0 auto; }
+
+/* Search */
+.search-box { position:relative; margin-bottom:16px; }
+.search-box input { width:100%; padding:14px 16px 14px 44px; border:2px solid var(--color-border); border-radius:var(--radius); font-size:16px; background:var(--color-surface); font-family:inherit; }
+.search-box input:focus { border-color:var(--color-brand); outline:none; }
+.search-box .icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:18px; color:var(--color-muted); pointer-events:none; }
+.search-box .clear-btn { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:18px; color:var(--color-muted); cursor:pointer; padding:4px; display:none; }
+.search-box .clear-btn.show { display:block; }
+
+/* Categories */
+.cat-strip { display:flex; gap:6px; overflow-x:auto; padding:0 0 12px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.cat-strip::-webkit-scrollbar { display:none; }
+.cat-btn { flex-shrink:0; padding:8px 14px; border:1.5px solid var(--color-border); border-radius:20px; font-size:13px; font-weight:500; background:var(--color-surface); cursor:pointer; transition:all .2s; white-space:nowrap; }
+.cat-btn:hover { border-color:var(--color-brand); }
+.cat-btn.active { background:var(--color-brand); color:#fff; border-color:var(--color-brand); }
+
+/* Results */
+.count-label { font-size:13px; color:var(--color-muted); margin-bottom:8px; }
+.dish-grid { display:grid; gap:10px; margin-bottom:20px; }
+.dish-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); padding:14px 16px; display:flex; align-items:center; gap:12px; transition:all .2s; cursor:pointer; }
+.dish-card:active { transform:scale(0.98); }
+.dish-card .dish-icon { font-size:24px; width:36px; text-align:center; flex-shrink:0; }
+.dish-info { flex:1; min-width:0; }
+.dish-info .zh { font-size:17px; font-weight:600; margin-bottom:1px; }
+.dish-info .en { font-size:13px; color:#555; line-height:1.4; }
+.dish-info .py { font-size:11px; color:#999; font-style:italic; margin-top:1px; }
+.dish-badges { display:flex; gap:4px; flex-shrink:0; }
+.badge { display:inline-flex; align-items:center; gap:2px; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:600; }
+.badge.spicy { background:#FFF0E0; color:var(--color-spicy); }
+.badge.veg { background:var(--color-brand-light); color:var(--color-veg); }
+.badge.nut { background:#FAEEDA; color:var(--color-nut); }
+.badge.meat { background:#FCEBEB; color:#A32D2D; }
+.badge.seafood { background:#E6F1FB; color:#185FA5; }
+
+/* Waiter card modal */
+.modal-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4); z-index:100; justify-content:center; align-items:center; padding:20px; }
+.modal-overlay.show { display:flex; }
+.modal { background:#FFFEF5; border-radius:var(--radius); padding:28px 24px; max-width:400px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.12); text-align:center; animation:fadeIn .25s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.modal .m-title { font-size:11px; color:#999; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.modal .m-items { margin-bottom:16px; }
+.modal .m-item { padding:10px 0; border-bottom:1px dashed var(--color-border); }
+.modal .m-item:last-child { border-bottom:none; }
+.modal .m-item .m-zh { font-size:22px; font-weight:700; letter-spacing:1px; }
+.modal .m-item .m-en { font-size:14px; color:#555; margin-top:2px; }
+.modal .m-item .m-py { font-size:11px; color:#999; font-style:italic; }
+.modal .m-note { font-size:10px; color:#bbb; margin-top:12px; }
+.modal-actions { display:flex; gap:8px; justify-content:center; margin-top:16px; }
+.btn { padding:10px 20px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s; }
+.btn-primary { background:var(--color-brand); color:#fff; }
+.btn-primary:hover { background:var(--color-brand-dark); }
+.btn-outline { background:transparent; border:2px solid var(--color-border); color:var(--color-text); }
+.btn-outline:hover { border-color:var(--color-brand); }
+
+/* Cooking methods section */
+.methods-section { margin-bottom:16px; }
+.methods-section h2 { font-size:15px; font-weight:600; margin-bottom:8px; }
+.method-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.method-item { background:var(--color-card); border-radius:var(--radius-sm); padding:10px 12px; display:flex; flex-direction:column; }
+.method-item .zh { font-size:18px; font-weight:600; }
+.method-item .en { font-size:12px; color:#666; }
+.method-item .desc { font-size:11px; color:#999; }
+
+.tip-box { background:#FFF8E8; border-left:3px solid var(--color-accent); padding:10px 14px; border-radius:0 var(--radius-sm) var(--radius-sm) 0; margin:12px 0; font-size:13px; line-height:1.6; }
+.tip-box strong { color:var(--color-accent); }
+
+.footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
+.footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+.footer a { color:var(--color-brand); text-decoration:none; }
+
+.empty-state { text-align:center; padding:40px 20px; color:var(--color-muted); }
+.empty-state .big-icon { font-size:48px; margin-bottom:10px; }
+.empty-state p { font-size:14px; }
+
+@media (max-width:480px) {
+  .hero h1 { font-size:24px; }
+  .method-grid { grid-template-columns:1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+<div class="hero"><h1>Chinese Menu Translator</h1><p>Search 200+ dishes. Tap to show the waiter. No more mystery meat.</p></div>
+
+<!-- Search -->
+<div class="search-box">
+  <span class="icon">🔍</span>
+  <input type="text" id="searchInput" placeholder="Search in English, Chinese or pinyin..." oninput="doSearch(this.value)">
+  <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
+</div>
+
+<!-- Categories -->
+<div class="cat-strip" id="catStrip"></div>
+
+<!-- Cooking Methods Reference -->
+<div class="methods-section" id="methodsSection">
+  <h2>🔪 Cooking Methods Quick Ref</h2>
+  <div class="method-grid">
+    <div class="method-item"><div class="zh">炒</div><div class="en">Stir-fried</div><div class="desc">chǎo — hot wok, fast</div></div>
+    <div class="method-item"><div class="zh">蒸</div><div class="en">Steamed</div><div class="desc">zhēng — healthy, light</div></div>
+    <div class="method-item"><div class="zh">炸</div><div class="en">Deep-fried</div><div class="desc">zhá — crispy, golden</div></div>
+    <div class="method-item"><div class="zh">烤</div><div class="en">Roasted/BBQ</div><div class="desc">kǎo — oven or charcoal</div></div>
+    <div class="method-item"><div class="zh">煮</div><div class="en">Boiled</div><div class="desc">zhǔ — in broth</div></div>
+    <div class="method-item"><div class="zh">红烧</div><div class="en">Red-braised</div><div class="desc">hóngshāo — soy sauce base</div></div>
+    <div class="method-item"><div class="zh">炖</div><div class="en">Stewed</div><div class="desc">dùn — slow-cooked</div></div>
+    <div class="method-item"><div class="zh">拌</div><div class="en">Tossed/cold</div><div class="desc">bàn — salad-style</div></div>
+    <div class="method-item"><div class="zh">煲</div><div class="en">Clay-pot</div><div class="desc">bāo — casserole style</div></div>
+    <div class="method-item"><div class="zh">涮</div><div class="en">Hot-pot dip</div><div class="desc">shuàn — swish in broth</div></div>
+  </div>
+</div>
+
+<!-- Count & Results -->
+<div class="count-label" id="countLabel">Showing all dishes</div>
+<div class="dish-grid" id="dishGrid"></div>
+
+<div class="tip-box">💡 <strong>Tip:</strong> Tap any dish to show it to your waiter as a full-screen card. No pronunciation needed.</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+</div>
+
+<!-- Waiter Card Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="m-title">Show this to your waiter</div>
+    <div class="m-items" id="modalItems"></div>
+    <div class="m-note">Point at the Chinese text. The waiter will understand.</div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="closeModal()">✓ Got it</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DISHES = [
+  // === Dumplings & Dim Sum ===
+  {zh:'饺子', en:'Jiaozi / Dumplings', py:'jiǎo zi', cat:'dumplings', icon:'🥟'},
+  {zh:'锅贴', en:'Pan-fried Dumplings', py:'guō tiē', cat:'dumplings', icon:'🥟'},
+  {zh:'小笼包', en:'Soup Dumplings (Xiaolongbao)', py:'xiǎo lóng bāo', cat:'dumplings', icon:'🥟', tags:['meat']},
+  {zh:'生煎包', en:'Pan-fried Pork Buns', py:'shēng jiān bāo', cat:'dumplings', icon:'🥟'},
+  {zh:'烧卖', en:'Siu Mai / Pork Dumplings', py:'shāo mài', cat:'dumplings', icon:'🥟'},
+  {zh:'虾饺', en:'Har Gow / Shrimp Dumplings', py:'xiā jiǎo', cat:'dumplings', icon:'🦐', tags:['seafood']},
+  {zh:'春卷', en:'Spring Rolls', py:'chūn juǎn', cat:'dumplings', icon:'🌯'},
+  {zh:'叉烧包', en:'BBQ Pork Buns (Char Siu Bao)', py:'chā shāo bāo', cat:'dumplings', icon:'🥟', tags:['meat']},
+  {zh:'肠粉', en:'Rice Noodle Rolls (Cheong Fun)', py:'cháng fěn', cat:'dumplings', icon:'🫘'},
+  {zh:'糯米鸡', en:'Lotus Leaf Rice (Lo Mai Gai)', py:'nuò mǐ jī', cat:'dumplings', icon:'🍚', tags:['meat']},
+  {zh:'水晶包', en:'Steamed Crystal Buns', py:'shuǐ jīng bāo', cat:'dumplings', icon:'🥟'},
+
+  // === Noodles & Rice ===
+  {zh:'炒饭', en:'Fried Rice', py:'chǎo fàn', cat:'rice', icon:'🍚'},
+  {zh:'蛋炒饭', en:'Egg Fried Rice', py:'dàn chǎo fàn', cat:'rice', icon:'🍚'},
+  {zh:'扬州炒饭', en:'Yangzhou Fried Rice', py:'yáng zhōu chǎo fàn', cat:'rice', icon:'🍚', tags:['meat']},
+  {zh:'白米饭', en:'Steamed Rice', py:'bái mǐ fàn', cat:'rice', icon:'🍚'},
+  {zh:'炒面', en:'Chow Mein / Fried Noodles', py:'chǎo miàn', cat:'noodles', icon:'🍜'},
+  {zh:'捞面', en:'Lo Mein / Tossed Noodles', py:'lāo miàn', cat:'noodles', icon:'🍜'},
+  {zh:'汤面', en:'Soup Noodles', py:'tāng miàn', cat:'noodles', icon:'🍜'},
+  {zh:'兰州拉面', en:'Lanzhou Pulled Noodles', py:'lán zhōu lā miàn', cat:'noodles', icon:'🍜'},
+  {zh:'担担面', en:'Dan Dan Noodles', py:'dàn dàn miàn', cat:'noodles', icon:'🍜', tags:['spicy']},
+  {zh:'炸酱面', en:'Zhajiang Noodles', py:'zhá jiàng miàn', cat:'noodles', icon:'🍜'},
+  {zh:'热干面', en:'Hot Dry Noodles', py:'rè gān miàn', cat:'noodles', icon:'🍜'},
+  {zh:'米线', en:'Rice Noodles (Mixian)', py:'mǐ xiàn', cat:'noodles', icon:'🍜', tags:['spicy']},
+  {zh:'过桥米线', en:'Crossing-the-Bridge Noodles', py:'guò qiáo mǐ xiàn', cat:'noodles', icon:'🍜'},
+  {zh:'河粉', en:'Flat Rice Noodles (Ho Fun)', py:'hé fěn', cat:'noodles', icon:'🍜'},
+  {zh:'乌冬面', en:'Udon Noodles', py:'wū dōng miàn', cat:'noodles', icon:'🍜'},
+  {zh:'方便面', en:'Instant Noodles', py:'fāng biàn miàn', cat:'noodles', icon:'🍜'},
+
+  // === Meat & Poultry ===
+  {zh:'宫保鸡丁', en:'Kung Pao Chicken', py:'gōng bǎo jī dīng', cat:'meat', icon:'🍗', tags:['spicy','meat']},
+  {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'meat', icon:'🫘', tags:['spicy']},
+  {zh:'鱼香肉丝', en:'Yu Xiang Shredded Pork', py:'yú xiāng ròu sī', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'回锅肉', en:'Twice-Cooked Pork', py:'huí guō ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'红烧肉', en:'Red-Braised Pork Belly', py:'hóng shāo ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'糖醋里脊', en:'Sweet & Sour Pork', py:'táng cù lǐ ji', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'咕噜肉', en:'Gulaorou / Sweet Sour Pork', py:'gū lū ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'水煮牛肉', en:'Sichuan Boiled Beef', py:'shuǐ zhǔ niú ròu', cat:'meat', icon:'🥩', tags:['spicy','meat']},
+  {zh:'回锅牛肉', en:'Twice-Cooked Beef', py:'huí guō niú ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'牛肉面', en:'Beef Noodle Soup', py:'niú ròu miàn', cat:'meat', icon:'🍜', tags:['meat']},
+  {zh:'烤鸭', en:'Peking Duck', py:'kǎo yā', cat:'meat', icon:'🦆', tags:['meat']},
+  {zh:'北京烤鸭', en:'Beijing Roast Duck', py:'běi jīng kǎo yā', cat:'meat', icon:'🦆', tags:['meat']},
+  {zh:'葱爆牛肉', en:'Scallion Beef', py:'cōng bào niú ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'孜然羊肉', en:'Cumin Lamb', py:'zī rán yáng ròu', cat:'meat', icon:'🐑', tags:['meat','spicy']},
+  {zh:'辣子鸡', en:'Chongqing Spicy Chicken', py:'là zi jī', cat:'meat', icon:'🍗', tags:['spicy','meat']},
+  {zh:'红烧牛腩', en:'Braised Beef Brisket', py:'hóng shāo niú nǎn', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'东坡肉', en:'Dongpo Pork', py:'dōng pō ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'白切鸡', en:'White Cut Chicken', py:'bái qiē jī', cat:'meat', icon:'🍗', tags:['meat']},
+  {zh:'叉烧', en:'Char Siu / BBQ Pork', py:'chā shāo', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'盐焗鸡', en:'Salt Baked Chicken', py:'yán jú jī', cat:'meat', icon:'🍗', tags:['meat']},
+  {zh:'牛腩煲', en:'Beef Brisket Clay Pot', py:'niú nǎn bāo', cat:'meat', icon:'🥩', tags:['meat']},
+
+  // === Seafood ===
+  {zh:'清蒸鱼', en:'Steamed Fish', py:'qīng zhēng yú', cat:'seafood', icon:'🐟', tags:['seafood']},
+  {zh:'酸菜鱼', en:'Sour Cabbage Fish', py:'suān cài yú', cat:'seafood', icon:'🐟', tags:['spicy','seafood']},
+  {zh:'水煮鱼', en:'Sichuan Boiled Fish', py:'shuǐ zhǔ yú', cat:'seafood', icon:'🐟', tags:['spicy','seafood']},
+  {zh:'糖醋鱼', en:'Sweet & Sour Fish', py:'táng cù yú', cat:'seafood', icon:'🐟', tags:['seafood']},
+  {zh:'干煸四季豆', en:'Dry-Fried Green Beans', py:'gān biān sì jì dòu', cat:'seafood', icon:'🫘'},
+  {zh:'椒盐虾', en:'Salt & Pepper Shrimp', py:'jiāo yán xiā', cat:'seafood', icon:'🦐', tags:['seafood']},
+  {zh:'油焖大虾', en:'Braised Prawns', py:'yóu mèn dà xiā', cat:'seafood', icon:'🦐', tags:['seafood']},
+  {zh:'蒜蓉虾', en:'Garlic Shrimp', py:'suàn róng xiā', cat:'seafood', icon:'🦐', tags:['seafood']},
+  {zh:'清蒸螃蟹', en:'Steamed Crab', py:'qīng zhēng páng xiè', cat:'seafood', icon:'🦀', tags:['seafood']},
+  {zh:'蒜蓉生蚝', en:'Garlic Oysters', py:'suàn róng shēng háo', cat:'seafood', icon:'🦪', tags:['seafood']},
+  {zh:'辣炒花蛤', en:'Spicy Stir-Fried Clams', py:'là chǎo huā gé', cat:'seafood', icon:'🐚', tags:['spicy','seafood']},
+  {zh:'清蒸带子', en:'Steamed Scallops', py:'qīng zhēng dài zǐ', cat:'seafood', icon:'🐚', tags:['seafood']},
+  {zh:'葱姜龙虾', en:'Ginger & Scallion Lobster', py:'cōng jiāng lóng xiā', cat:'seafood', icon:'🦞', tags:['seafood']},
+
+  // === Vegetables & Tofu ===
+  {zh:'炒青菜', en:'Stir-Fried Greens', py:'chǎo qīng cài', cat:'veg', icon:'🥬'},
+  {zh:'蒜蓉西兰花', en:'Garlic Broccoli', py:'suàn róng xī lán huā', cat:'veg', icon:'🥦'},
+  {zh:'清炒菠菜', en:'Stir-Fried Spinach', py:'qīng chǎo bō cài', cat:'veg', icon:'🥬'},
+  {zh:'鱼香茄子', en:'Yu Xiang Eggplant', py:'yú xiāng qié zi', cat:'veg', icon:'🍆'},
+  {zh:'地三鲜', en:'Three Treasures (potato, eggplant, pepper)', py:'dì sān xiān', cat:'veg', icon:'🥔'},
+  {zh:'醋溜土豆丝', en:'Vinegar Shredded Potato', py:'cù liū tǔ dòu sī', cat:'veg', icon:'🥔'},
+  {zh:'干煸豆角', en:'Dry-Fried Long Beans', py:'gān biān dòu jiǎo', cat:'veg', icon:'🫘'},
+  {zh:'西红柿炒蛋', en:'Tomato Scrambled Eggs', py:'xī hóng shì chǎo dàn', cat:'veg', icon:'🍅'},
+  {zh:'凉拌黄瓜', en:'Cold Cucumber Salad', py:'liáng bàn huáng guā', cat:'veg', icon:'🥒'},
+  {zh:'家常豆腐', en:'Home-Style Tofu', py:'jiā cháng dòu fu', cat:'veg', icon:'🫘'},
+  {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'veg', icon:'🫘', tags:['spicy']},
+  {zh:'凉拌木耳', en:'Cold Wood Ear Salad', py:'liáng bàn mù ěr', cat:'veg', icon:'🍄'},
+  {zh:'蛋花汤', en:'Egg Drop Soup', py:'dàn huā tāng', cat:'veg', icon:'🥣'},
+
+  // === Soup ===
+  {zh:'蛋花汤', en:'Egg Drop Soup', py:'dàn huā tāng', cat:'soup', icon:'🥣'},
+  {zh:'酸辣汤', en:'Hot & Sour Soup', py:'suān là tāng', cat:'soup', icon:'🥣', tags:['spicy']},
+  {zh:'紫菜蛋花汤', en:'Seaweed Egg Drop Soup', py:'zǐ cài dàn huā tāng', cat:'soup', icon:'🥣'},
+  {zh:'西红柿蛋汤', en:'Tomato Egg Soup', py:'xī hóng shì dàn tāng', cat:'soup', icon:'🥣'},
+  {zh:'玉米排骨汤', en:'Corn & Rib Soup', py:'yù mǐ pái gǔ tāng', cat:'soup', icon:'🥣', tags:['meat']},
+  {zh:'冬瓜排骨汤', en:'Winter Melon & Rib Soup', py:'dōng guā pái gǔ tāng', cat:'soup', icon:'🥣', tags:['meat']},
+  {zh:'乌鸡汤', en:'Black Chicken Soup', py:'wū jī tāng', cat:'soup', icon:'🥣', tags:['meat']},
+  {zh:'鱼头汤', en:'Fish Head Soup', py:'yú tóu tāng', cat:'soup', icon:'🥣', tags:['seafood']},
+  {zh:'萝卜炖牛腩', en:'Radish & Beef Brisket Stew', py:'luó bo dùn niú nǎn', cat:'soup', icon:'🥣', tags:['meat']},
+  {zh:'豆腐汤', en:'Tofu Soup', py:'dòu fu tāng', cat:'soup', icon:'🥣'},
+
+  // === Drinks ===
+  {zh:'茶', en:'Tea', py:'chá', cat:'drinks', icon:'🍵'},
+  {zh:'绿茶', en:'Green Tea', py:'lǜ chá', cat:'drinks', icon:'🍵'},
+  {zh:'红茶', en:'Black Tea', py:'hóng chá', cat:'drinks', icon:'🫖'},
+  {zh:'乌龙茶', en:'Oolong Tea', py:'wū lóng chá', cat:'drinks', icon:'🫖'},
+  {zh:'茉莉花茶', en:'Jasmine Tea', py:'mò lì huā chá', cat:'drinks', icon:'🌸'},
+  {zh:'普洱茶', en:'Pu'er Tea', py:'pǔ ěr chá', cat:'drinks', icon:'🫖'},
+  {zh:'可乐', en:'Cola', py:'kě lè', cat:'drinks', icon:'🥤'},
+  {zh:'雪碧', en:'Sprite', py:'xuě bì', cat:'drinks', icon:'🥤'},
+  {zh:'矿泉水', en:'Mineral Water', py:'kuàng quán shuǐ', cat:'drinks', icon:'💧'},
+  {zh:'热水', en:'Hot Water', py:'rè shuǐ', cat:'drinks', icon:'🫖'},
+  {zh:'啤酒', en:'Beer', py:'pí jiǔ', cat:'drinks', icon:'🍺'},
+  {zh:'青岛啤酒', en:'Tsingtao Beer', py:'qīng dǎo pí jiǔ', cat:'drinks', icon:'🍺'},
+  {zh:'白酒', en:'Baijiu (Chinese spirit)', py:'bái jiǔ', cat:'drinks', icon:'🥃'},
+  {zh:'橙汁', en:'Orange Juice', py:'chéng zhī', cat:'drinks', icon:'🍊'},
+  {zh:'椰汁', en:'Coconut Juice', py:'yē zhī', cat:'drinks', icon:'🥥'},
+  {zh:'酸奶', en:'Yogurt Drink', py:'suān nǎi', cat:'drinks', icon:'🥛'},
+  {zh:'豆浆', en:'Soy Milk', py:'dòu jiāng', cat:'drinks', icon:'🥛'},
+
+  // === Desserts ===
+  {zh:'蛋挞', en:'Egg Tart', py:'dàn tǎ', cat:'dessert', icon:'🥧'},
+  {zh:'芒果布丁', en:'Mango Pudding', py:'máng guǒ bù dīng', cat:'dessert', icon:'🍮'},
+  {zh:'红豆沙', en:'Red Bean Paste Dessert', py:'hóng dòu shā', cat:'dessert', icon:'🫘'},
+  {zh:'绿豆汤', en:'Mung Bean Soup', py:'lǜ dòu tāng', cat:'dessert', icon:'🥣'},
+  {zh:'汤圆', en:'Tangyuan (glutinous rice balls)', py:'tāng yuán', cat:'dessert', icon:'⚪'},
+  {zh:'月饼', en:'Mooncake', py:'yuè bǐng', cat:'dessert', icon:'🥮'},
+  {zh:'冰粉', en:'Ice Jelly (Bingfen)', py:'bīng fěn', cat:'dessert', icon:'🍮'},
+  {zh:'双皮奶', en:'Double-Skin Milk', py:'shuāng pí nǎi', cat:'dessert', icon:'🍮'},
+  {zh:'水果拼盘', en:'Fruit Platter', py:'shuǐ guǒ pīn pán', cat:'dessert', icon:'🍉'},
+
+  // === Street Food & Snacks ===
+  {zh:'煎饼果子', en:'Jianbing (Chinese crepe)', py:'jiān bing guǒ zi', cat:'snacks', icon:'🥞'},
+  {zh:'肉夹馍', en:'Roujiamo (Chinese burger)', py:'ròu jiā mó', cat:'snacks', icon:'🥙', tags:['meat']},
+  {zh:'凉皮', en:'Liangpi (cold skin noodles)', py:'liáng pí', cat:'snacks', icon:'🥢', tags:['spicy']},
+  {zh:'烤串', en:'BBQ Skewers (Chuan)', py:'kǎo chuàn', cat:'snacks', icon:'🍢', tags:['meat','spicy']},
+  {zh:'臭豆腐', en:'Stinky Tofu', py:'chòu dòu fu', cat:'snacks', icon:'🫘'},
+  {zh:'麻辣烫', en:'Malatang (spicy hot pot)', py:'má là tàng', cat:'snacks', icon:'🥘', tags:['spicy']},
+  {zh:'烧烤', en:'BBQ / Grilled Meat', py:'shāo kǎo', cat:'snacks', icon:'🍖', tags:['meat']},
+  {zh:'鸡蛋仔', en:'Egg Waffles', py:'jī dàn zǎi', cat:'snacks', icon:'🧇'},
+  {zh:'糖葫芦', en:'Candied Hawthorn Skewer', py:'táng hú lu', cat:'snacks', icon:'🍡'},
+  {zh:'螺蛳粉', en:'Luosifen (rice noodles)', py:'luó sī fěn', cat:'snacks', icon:'🍜', tags:['spicy']},
+
+  // === Hot Pot ===
+  {zh:'火锅', en:'Hot Pot', py:'huǒ guō', cat:'hotpot', icon:'🫕', tags:['spicy']},
+  {zh:'鸳鸯锅', en:'Dual-Soup Hot Pot', py:'yuān yāng guō', cat:'hotpot', icon:'🫕'},
+  {zh:'麻辣锅底', en:'Spicy Broth Base', py:'má là guō dǐ', cat:'hotpot', icon:'🫕', tags:['spicy']},
+  {zh:'清汤锅底', en:'Clear Broth Base', py:'qīng tāng guō dǐ', cat:'hotpot', icon:'🫕'},
+  {zh:'肥牛', en:'Fatty Beef Slices', py:'féi niú', cat:'hotpot', icon:'🥩', tags:['meat']},
+  {zh:'羊肉片', en:'Lamb Slices', py:'yáng ròu piàn', cat:'hotpot', icon:'🐑', tags:['meat']},
+  {zh:'虾滑', en:'Shrimp Paste', py:'xiā huá', cat:'hotpot', icon:'🦐', tags:['seafood']},
+  {zh:'鱼丸', en:'Fish Balls', py:'yú wán', cat:'hotpot', icon:'🐟', tags:['seafood']},
+  {zh:'豆腐', en:'Tofu', py:'dòu fu', cat:'hotpot', icon:'🫘'},
+  {zh:'金针菇', en:'Enoki Mushrooms', py:'jīn zhēn gū', cat:'hotpot', icon:'🍄'},
+
+  // === Ingredients (Common) ===
+  {zh:'鸡肉', en:'Chicken', py:'jī ròu', cat:'ingredients', icon:'🍗', tags:['meat']},
+  {zh:'猪肉', en:'Pork', py:'zhū ròu', cat:'ingredients', icon:'🥩', tags:['meat']},
+  {zh:'牛肉', en:'Beef', py:'niú ròu', cat:'ingredients', icon:'🥩', tags:['meat']},
+  {zh:'羊肉', en:'Lamb / Mutton', py:'yáng ròu', cat:'ingredients', icon:'🐑', tags:['meat']},
+  {zh:'鱼', en:'Fish', py:'yú', cat:'ingredients', icon:'🐟', tags:['seafood']},
+  {zh:'虾', en:'Shrimp / Prawns', py:'xiā', cat:'ingredients', icon:'🦐', tags:['seafood']},
+  {zh:'鸡蛋', en:'Egg', py:'jī dàn', cat:'ingredients', icon:'🥚'},
+  {zh:'米饭', en:'Rice', py:'mǐ fàn', cat:'ingredients', icon:'🍚'},
+  {zh:'面条', en:'Noodles', py:'miàn tiáo', cat:'ingredients', icon:'🍜'},
+  {zh:'大蒜', en:'Garlic', py:'dà suàn', cat:'ingredients', icon:'🧄'},
+  {zh:'葱', en:'Scallion / Spring Onion', py:'cōng', cat:'ingredients', icon:'🌱'},
+  {zh:'姜', en:'Ginger', py:'jiāng', cat:'ingredients', icon:'🧄'},
+  {zh:'辣椒', en:'Chilli Pepper', py:'là jiāo', cat:'ingredients', icon:'🌶️', tags:['spicy']},
+  {zh:'花生', en:'Peanuts', py:'huā shēng', cat:'ingredients', icon:'🥜', tags:['nut']},
+  {zh:'芝麻', en:'Sesame', py:'zhī ma', cat:'ingredients', icon:'🫘'},
+];
+
+const CATEGORIES = [
+  {id:'all', label:'All', icon:'🍽️'},
+  {id:'dumplings', label:'Dumplings', icon:'🥟'},
+  {id:'noodles', label:'Noodles', icon:'🍜'},
+  {id:'rice', label:'Rice', icon:'🍚'},
+  {id:'meat', label:'Meat', icon:'🍗'},
+  {id:'seafood', label:'Seafood', icon:'🐟'},
+  {id:'veg', label:'Veg & Tofu', icon:'🥬'},
+  {id:'soup', label:'Soup', icon:'🥣'},
+  {id:'snacks', label:'Street Food', icon:'🍢'},
+  {id:'hotpot', label:'Hot Pot', icon:'🫕'},
+  {id:'drinks', label:'Drinks', icon:'🍺'},
+  {id:'dessert', label:'Dessert', icon:'🍮'},
+  {id:'ingredients', label:'Ingredients', icon:'🧄'},
+];
+
+let activeCat = 'all';
+let waiterItems = [];
+
+function init() {
+  renderCats();
+  renderDishes(DISHES);
+}
+
+function renderCats() {
+  const strip = document.getElementById('catStrip');
+  strip.innerHTML = CATEGORIES.map(c =>
+    `<button class="cat-btn${c.id==='all'?' active':''}" onclick="filterCat('${c.id}')" data-cat="${c.id}">${c.icon} ${c.label}</button>`
+  ).join('');
+}
+
+function filterCat(catId) {
+  activeCat = catId;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === catId));
+  doSearch(document.getElementById('searchInput').value);
+}
+
+function doSearch(q) {
+  const query = q.toLowerCase().trim();
+  document.getElementById('clearBtn').classList.toggle('show', query.length > 0);
+
+  let filtered = DISHES;
+
+  // Category filter
+  if (activeCat !== 'all') {
+    filtered = filtered.filter(d => d.cat === activeCat);
+  }
+
+  // Text search
+  if (query) {
+    filtered = filtered.filter(d =>
+      d.en.toLowerCase().includes(query) ||
+      d.zh.includes(query) ||
+      (d.py && d.py.includes(query))
+    );
+  }
+
+  const hideMethods = query.length > 0 || activeCat !== 'all';
+  document.getElementById('methodsSection').style.display = hideMethods ? 'none' : 'block';
+
+  document.getElementById('countLabel').textContent = `Showing ${filtered.length} dish${filtered.length !== 1 ? 'es' : ''}`;
+  renderDishes(filtered);
+}
+
+function renderDishes(dishes) {
+  const grid = document.getElementById('dishGrid');
+  if (dishes.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><div class="big-icon">🔍</div><p>No dishes found. Try a different search.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = dishes.map((d, i) => {
+    const tags = d.tags || [];
+    const badges = tags.map(t => {
+      const map = {spicy:'🌶️ Spicy', veg:'🥬 Vegetarian', nut:'🥜 Nuts', meat:'🥩 Meat', seafood:'🐟 Seafood'};
+      return `<span class="badge ${t}">${map[t]||t}</span>`;
+    }).join('');
+
+    return `<div class="dish-card" onclick="showWaiter(${i})" data-index="${i}">
+      <div class="dish-icon">${d.icon||'🍽️'}</div>
+      <div class="dish-info">
+        <div class="zh">${d.zh}</div>
+        <div class="en">${d.en}</div>
+        ${d.py ? `<div class="py">${d.py}</div>` : ''}
+      </div>
+      ${badges ? `<div class="dish-badges">${badges}</div>` : ''}
+    </div>`;
+  });
+
+  // Store data-index mapping for waiter modal
+  window._filteredDishes = dishes;
+}
+
+function showWaiter(index) {
+  const d = window._filteredDishes[index];
+  if (!d) return;
+
+  document.getElementById('modalItems').innerHTML = `
+    <div class="m-item">
+      <div class="m-zh">${d.zh}</div>
+      <div class="m-en">${d.en}</div>
+      ${d.py ? `<div class="m-py">${d.py}</div>` : ''}
+    </div>
+  `;
+
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal(e) {
+  if (e && e.target !== e.currentTarget && e.target.closest('.modal')) return;
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  doSearch('');
+  document.getElementById('searchInput').focus();
+}
+
+// Init
+init();
+</script>
+</body>
+</html>
