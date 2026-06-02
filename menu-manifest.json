@@ -1,0 +1,10 @@
+{
+  "name": "EVENTURUS Menu Translator",
+  "short_name": "Menu Translator",
+  "description": "Translate Chinese dishes to English. Search 200+ menu items, browse by category, and show the waiter what you want.",
+  "start_url": "/eventurus-tools/menu-translator.html",
+  "display": "standalone",
+  "background_color": "#F9F9F9",
+  "theme_color": "#6B7F65",
+  "icons": [{"src":"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥟</text></svg>","sizes":"any"}]
+}
