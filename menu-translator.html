@@ -2,35 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Chinese Menu Translator — EVENTURUS</title>
 <meta name="description" content="Translate Chinese dishes to English. Search 200+ menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
 <style>
 :root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --color-spicy:#D85A30; --color-veg:#639922; --color-nut:#BA7517; --radius:12px; --radius-sm:8px; }
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
-.container { max-width:720px; margin:0 auto; padding:0 20px; }
+.container { max-width:720px; margin:0 auto; padding:0 16px; }
 
-.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar { padding:20px 0 0; text-align:center; }
 .brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
 .brand-bar .brand em { font-style:italic; color:var(--color-brand); }
 .brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
-.hero { text-align:center; padding:36px 0 16px; }
-.hero h1 { font-size:28px; font-weight:600; line-height:1.2; margin-bottom:6px; }
+.hero { text-align:center; padding:28px 0 12px; }
+.hero h1 { font-size:26px; font-weight:600; line-height:1.2; margin-bottom:6px; }
 .hero p { font-size:14px; color:var(--color-muted); max-width:480px; margin:0 auto; }
 
 /* Search */
-.search-box { position:relative; margin-bottom:16px; }
-.search-box input { width:100%; padding:14px 16px 14px 44px; border:2px solid var(--color-border); border-radius:var(--radius); font-size:16px; background:var(--color-surface); font-family:inherit; }
+.search-box { position:relative; margin-bottom:12px; }
+.search-box input { width:100%; padding:14px 16px 14px 44px; border:2px solid var(--color-border); border-radius:var(--radius); font-size:16px; background:var(--color-surface); font-family:inherit; -webkit-appearance:none; appearance:none; }
 .search-box input:focus { border-color:var(--color-brand); outline:none; }
 .search-box .icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:18px; color:var(--color-muted); pointer-events:none; }
-.search-box .clear-btn { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:18px; color:var(--color-muted); cursor:pointer; padding:4px; display:none; }
+.search-box .clear-btn { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:18px; color:var(--color-muted); cursor:pointer; padding:10px 8px; display:none; }
 .search-box .clear-btn.show { display:block; }
 
 /* Categories */
-.cat-strip { display:flex; gap:6px; overflow-x:auto; padding:0 0 12px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.cat-strip { display:flex; gap:6px; overflow-x:auto; padding:0 0 10px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .cat-strip::-webkit-scrollbar { display:none; }
-.cat-btn { flex-shrink:0; padding:8px 14px; border:1.5px solid var(--color-border); border-radius:20px; font-size:13px; font-weight:500; background:var(--color-surface); cursor:pointer; transition:all .2s; white-space:nowrap; }
+.cat-btn { flex-shrink:0; padding:9px 16px; border:1.5px solid var(--color-border); border-radius:20px; font-size:13px; font-weight:500; background:var(--color-surface); cursor:pointer; transition:all .2s; white-space:nowrap; }
 .cat-btn:hover { border-color:var(--color-brand); }
 .cat-btn.active { background:var(--color-brand); color:#fff; border-color:var(--color-brand); }
 
@@ -38,8 +38,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .order-bar { position:sticky; top:0; z-index:50; background:var(--color-bg); padding:8px 0; display:none; align-items:center; gap:10px; }
 .order-bar.show { display:flex; }
 .order-bar .order-count { flex:1; font-size:13px; font-weight:600; color:var(--color-text); }
-.order-bar .btn-order { padding:8px 16px; background:var(--color-brand); color:#fff; border:none; border-radius:var(--radius-sm); font-size:13px; font-weight:500; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:4px; }
-.order-bar .btn-clear-order { padding:6px 10px; background:transparent; border:1px solid var(--color-border); border-radius:var(--radius-sm); font-size:12px; color:var(--color-muted); cursor:pointer; }
+.order-bar .btn-order { padding:10px 18px; background:var(--color-brand); color:#fff; border:none; border-radius:var(--radius-sm); font-size:13px; font-weight:500; cursor:pointer; white-space:nowrap; }
+.order-bar .btn-clear-order { padding:8px 12px; background:transparent; border:1px solid var(--color-border); border-radius:var(--radius-sm); font-size:12px; color:var(--color-muted); cursor:pointer; }
 
 /* Results */
 .count-label { font-size:13px; color:var(--color-muted); margin-bottom:8px; }
@@ -57,7 +57,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .badge.nut { background:#FAEEDA; color:var(--color-nut); }
 .badge.meat { background:#FCEBEB; color:#A32D2D; }
 .badge.seafood { background:#E6F1FB; color:#185FA5; }
-.btn-add { flex-shrink:0; width:36px; height:36px; border-radius:50%; border:2px solid var(--color-brand); background:transparent; color:var(--color-brand); font-size:18px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.btn-add { flex-shrink:0; width:44px; height:44px; border-radius:50%; border:2px solid var(--color-brand); background:transparent; color:var(--color-brand); font-size:20px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; -webkit-user-select:none; user-select:none; }
 .btn-add:active { background:var(--color-brand); color:#fff; transform:scale(0.92); }
 .btn-add.added { background:var(--color-brand); color:#fff; }
 
@@ -67,33 +67,27 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .modal { background:#FFFEF5; border-radius:var(--radius); padding:24px 20px; max-width:420px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.15); text-align:center; animation:fadeIn .25s ease; max-height:90vh; overflow-y:auto; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 .modal .m-title { font-size:11px; color:#999; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
-.modal .m-item { padding:12px 0; border-bottom:1px dashed var(--color-border); display:flex; align-items:center; gap:10px; }
+.modal .m-item { padding:14px 0; border-bottom:1px dashed var(--color-border); display:flex; align-items:center; gap:10px; }
 .modal .m-item:last-child { border-bottom:none; }
 .modal .m-item .m-zh { font-size:20px; font-weight:700; letter-spacing:1px; min-width:60px; }
 .modal .m-item .m-detail { flex:1; text-align:left; }
 .modal .m-item .m-detail .m-en { font-size:13px; color:#555; }
 .modal .m-item .m-detail .m-py { font-size:10px; color:#999; font-style:italic; }
-.modal .m-item .m-remove { background:none; border:none; color:#C85A5A; font-size:16px; cursor:pointer; padding:4px; }
+.modal .m-item .m-remove { background:none; border:none; color:#C85A5A; font-size:20px; cursor:pointer; padding:8px; }
 .modal .m-note { font-size:10px; color:#bbb; margin-top:12px; }
 .modal-actions { display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
-.btn { padding:10px 20px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s; display:inline-flex; align-items:center; gap:6px; }
+.btn { padding:12px 24px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s; }
 .btn-primary { background:var(--color-brand); color:#fff; }
-.btn-primary:hover { background:var(--color-brand-dark); }
 .btn-outline { background:transparent; border:2px solid var(--color-border); color:var(--color-text); }
-.btn-outline:hover { border-color:var(--color-brand); }
-.btn-danger { background:#FCEBEB; color:#C85A5A; border:1px solid #F7C1C1; }
 
 /* Cooking methods section */
-.methods-section { margin-bottom:16px; }
+.methods-section { margin-bottom:12px; }
 .methods-section h2 { font-size:15px; font-weight:600; margin-bottom:8px; }
 .method-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
 .method-item { background:var(--color-card); border-radius:var(--radius-sm); padding:10px 12px; display:flex; flex-direction:column; }
 .method-item .zh { font-size:18px; font-weight:600; }
 .method-item .en { font-size:12px; color:#666; }
 .method-item .desc { font-size:11px; color:#999; }
-
-.tip-box { background:#FFF8E8; border-left:3px solid var(--color-accent); padding:10px 14px; border-radius:0 var(--radius-sm) var(--radius-sm) 0; margin:12px 0; font-size:13px; line-height:1.6; }
-.tip-box strong { color:var(--color-accent); }
 
 .footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
 .footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
@@ -104,8 +98,10 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .empty-state p { font-size:14px; }
 
 @media (max-width:480px) {
-  .hero h1 { font-size:24px; }
-  .method-grid { grid-template-columns:1fr 1fr; }
+  .hero h1 { font-size:22px; }
+  .container { padding:0 12px; }
+  .dish-card { padding:10px 12px; }
+  .btn-add { width:40px; height:40px; font-size:18px; }
 }
 </style>
 </head>
@@ -116,9 +112,9 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 
 <!-- Search -->
 <div class="search-box">
-  <span class="icon">🔍</span>
-  <input type="text" id="searchInput" placeholder="Search in English, Chinese or pinyin..." oninput="doSearch(this.value)">
-  <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
+  <span class="icon">&#x1F50D;</span>
+  <input type="text" id="searchInput" placeholder="Search in English, Chinese or pinyin..." autocomplete="off">
+  <button class="clear-btn" id="clearBtn">&#x2715;</button>
 </div>
 
 <!-- Categories -->
@@ -126,14 +122,14 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 
 <!-- Order bar (sticky) -->
 <div class="order-bar" id="orderBar">
-  <span class="order-count" id="orderCount">🛒 0 dishes</span>
-  <button class="btn-order" id="showOrderBtn" onclick="showOrderList()">Show to Waiter →</button>
-  <button class="btn-clear-order" onclick="clearOrder()">✕ Clear</button>
+  <span class="order-count" id="orderCount">&#x1F6D2; 0 dishes</span>
+  <button class="btn-order" id="showOrderBtn">Show to Waiter &rarr;</button>
+  <button class="btn-clear-order" id="clearOrderBtn">&#x2715; Clear</button>
 </div>
 
 <!-- Cooking Methods Reference -->
 <div class="methods-section" id="methodsSection">
-  <h2>🔪 Cooking Methods Quick Ref</h2>
+  <h2>&#x1F52A; Cooking Methods Quick Ref</h2>
   <div class="method-grid">
     <div class="method-item"><div class="zh">炒</div><div class="en">Stir-fried</div><div class="desc">chǎo — hot wok, fast</div></div>
     <div class="method-item"><div class="zh">蒸</div><div class="en">Steamed</div><div class="desc">zhēng — healthy, light</div></div>
@@ -153,26 +149,26 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 <div class="dish-grid" id="dishGrid"></div>
 
 <div class="footer">
-  <div class="brand-foot">EVENTURUS · VETTED</div>
-  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+  <div class="brand-foot">EVENTURUS &#xB7; VETTED</div>
+  <div>China, Vetted. &mdash; <a href="index.html">All Tools</a></div>
 </div>
 </div>
 
 <!-- Order List Modal -->
-<div class="modal-overlay" id="orderModal" onclick="closeOrderModal(event)">
+<div class="modal-overlay" id="orderModal">
   <div class="modal">
-    <div class="m-title" id="orderModalTitle">Your Order</div>
+    <div class="m-title">Your Order</div>
     <div class="m-items" id="orderModalItems"></div>
     <div class="m-note">Show this to your waiter. Point at the Chinese text for each dish.</div>
     <div class="modal-actions">
-      <button class="btn btn-primary" onclick="printOrder()">🖨️ Print / Save PDF</button>
-      <button class="btn btn-outline" onclick="closeOrderModal()">✓ Got it</button>
+      <button class="btn btn-primary" id="printOrderBtn">&#x1F5A8; Print / Save PDF</button>
+      <button class="btn btn-outline" id="closeModalBtn">&#x2713; Got it</button>
     </div>
   </div>
 </div>
 
 <script>
-const DISHES = [
+var DISHES = [
   // === Dumplings & Dim Sum ===
   {zh:'饺子', en:'Jiaozi / Dumplings', py:'jiǎo zi', cat:'dumplings', icon:'🥟'},
   {zh:'锅贴', en:'Pan-fried Dumplings', py:'guō tiē', cat:'dumplings', icon:'🥟'},
@@ -185,7 +181,6 @@ const DISHES = [
   {zh:'肠粉', en:'Rice Noodle Rolls (Cheong Fun)', py:'cháng fěn', cat:'dumplings', icon:'🫘'},
   {zh:'糯米鸡', en:'Lotus Leaf Rice (Lo Mai Gai)', py:'nuò mǐ jī', cat:'dumplings', icon:'🍚', tags:['meat']},
   {zh:'水晶包', en:'Steamed Crystal Buns', py:'shuǐ jīng bāo', cat:'dumplings', icon:'🥟'},
-
   // === Noodles & Rice ===
   {zh:'炒饭', en:'Fried Rice', py:'chǎo fàn', cat:'rice', icon:'🍚'},
   {zh:'蛋炒饭', en:'Egg Fried Rice', py:'dàn chǎo fàn', cat:'rice', icon:'🍚'},
@@ -203,7 +198,6 @@ const DISHES = [
   {zh:'河粉', en:'Flat Rice Noodles (Ho Fun)', py:'hé fěn', cat:'noodles', icon:'🍜'},
   {zh:'乌冬面', en:'Udon Noodles', py:'wū dōng miàn', cat:'noodles', icon:'🍜'},
   {zh:'方便面', en:'Instant Noodles', py:'fāng biàn miàn', cat:'noodles', icon:'🍜'},
-
   // === Meat & Poultry ===
   {zh:'宫保鸡丁', en:'Kung Pao Chicken', py:'gōng bǎo jī dīng', cat:'meat', icon:'🍗', tags:['spicy','meat']},
   {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'meat', icon:'🫘', tags:['spicy']},
@@ -226,13 +220,11 @@ const DISHES = [
   {zh:'叉烧', en:'Char Siu / BBQ Pork', py:'chā shāo', cat:'meat', icon:'🥩', tags:['meat']},
   {zh:'盐焗鸡', en:'Salt Baked Chicken', py:'yán jú jī', cat:'meat', icon:'🍗', tags:['meat']},
   {zh:'牛腩煲', en:'Beef Brisket Clay Pot', py:'niú nǎn bāo', cat:'meat', icon:'🥩', tags:['meat']},
-
   // === Seafood ===
   {zh:'清蒸鱼', en:'Steamed Fish', py:'qīng zhēng yú', cat:'seafood', icon:'🐟', tags:['seafood']},
   {zh:'酸菜鱼', en:'Sour Cabbage Fish', py:'suān cài yú', cat:'seafood', icon:'🐟', tags:['spicy','seafood']},
   {zh:'水煮鱼', en:'Sichuan Boiled Fish', py:'shuǐ zhǔ yú', cat:'seafood', icon:'🐟', tags:['spicy','seafood']},
   {zh:'糖醋鱼', en:'Sweet & Sour Fish', py:'táng cù yú', cat:'seafood', icon:'🐟', tags:['seafood']},
-  {zh:'干煸四季豆', en:'Dry-Fried Green Beans', py:'gān biān sì jì dòu', cat:'seafood', icon:'🫘'},
   {zh:'椒盐虾', en:'Salt & Pepper Shrimp', py:'jiāo yán xiā', cat:'seafood', icon:'🦐', tags:['seafood']},
   {zh:'油焖大虾', en:'Braised Prawns', py:'yóu mèn dà xiā', cat:'seafood', icon:'🦐', tags:['seafood']},
   {zh:'蒜蓉虾', en:'Garlic Shrimp', py:'suàn róng xiā', cat:'seafood', icon:'🦐', tags:['seafood']},
@@ -241,7 +233,6 @@ const DISHES = [
   {zh:'辣炒花蛤', en:'Spicy Stir-Fried Clams', py:'là chǎo huā gé', cat:'seafood', icon:'🐚', tags:['spicy','seafood']},
   {zh:'清蒸带子', en:'Steamed Scallops', py:'qīng zhēng dài zǐ', cat:'seafood', icon:'🐚', tags:['seafood']},
   {zh:'葱姜龙虾', en:'Ginger & Scallion Lobster', py:'cōng jiāng lóng xiā', cat:'seafood', icon:'🦞', tags:['seafood']},
-
   // === Vegetables & Tofu ===
   {zh:'炒青菜', en:'Stir-Fried Greens', py:'chǎo qīng cài', cat:'veg', icon:'🥬'},
   {zh:'蒜蓉西兰花', en:'Garlic Broccoli', py:'suàn róng xī lán huā', cat:'veg', icon:'🥦'},
@@ -255,8 +246,6 @@ const DISHES = [
   {zh:'家常豆腐', en:'Home-Style Tofu', py:'jiā cháng dòu fu', cat:'veg', icon:'🫘'},
   {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'veg', icon:'🫘', tags:['spicy']},
   {zh:'凉拌木耳', en:'Cold Wood Ear Salad', py:'liáng bàn mù ěr', cat:'veg', icon:'🍄'},
-  {zh:'蛋花汤', en:'Egg Drop Soup', py:'dàn huā tāng', cat:'veg', icon:'🥣'},
-
   // === Soup ===
   {zh:'蛋花汤', en:'Egg Drop Soup', py:'dàn huā tāng', cat:'soup', icon:'🥣'},
   {zh:'酸辣汤', en:'Hot & Sour Soup', py:'suān là tāng', cat:'soup', icon:'🥣', tags:['spicy']},
@@ -268,14 +257,13 @@ const DISHES = [
   {zh:'鱼头汤', en:'Fish Head Soup', py:'yú tóu tāng', cat:'soup', icon:'🥣', tags:['seafood']},
   {zh:'萝卜炖牛腩', en:'Radish & Beef Brisket Stew', py:'luó bo dùn niú nǎn', cat:'soup', icon:'🥣', tags:['meat']},
   {zh:'豆腐汤', en:'Tofu Soup', py:'dòu fu tāng', cat:'soup', icon:'🥣'},
-
   // === Drinks ===
   {zh:'茶', en:'Tea', py:'chá', cat:'drinks', icon:'🍵'},
   {zh:'绿茶', en:'Green Tea', py:'lǜ chá', cat:'drinks', icon:'🍵'},
   {zh:'红茶', en:'Black Tea', py:'hóng chá', cat:'drinks', icon:'🫖'},
   {zh:'乌龙茶', en:'Oolong Tea', py:'wū lóng chá', cat:'drinks', icon:'🫖'},
   {zh:'茉莉花茶', en:'Jasmine Tea', py:'mò lì huā chá', cat:'drinks', icon:'🌸'},
-  {zh:'普洱茶', en:'Pu'er Tea', py:'pǔ ěr chá', cat:'drinks', icon:'🫖'},
+  {zh:'普洱茶', en:'Pu\'er Tea', py:'pǔ ěr chá', cat:'drinks', icon:'🫖'},
   {zh:'可乐', en:'Cola', py:'kě lè', cat:'drinks', icon:'🥤'},
   {zh:'雪碧', en:'Sprite', py:'xuě bì', cat:'drinks', icon:'🥤'},
   {zh:'矿泉水', en:'Mineral Water', py:'kuàng quán shuǐ', cat:'drinks', icon:'💧'},
@@ -287,7 +275,6 @@ const DISHES = [
   {zh:'椰汁', en:'Coconut Juice', py:'yē zhī', cat:'drinks', icon:'🥥'},
   {zh:'酸奶', en:'Yogurt Drink', py:'suān nǎi', cat:'drinks', icon:'🥛'},
   {zh:'豆浆', en:'Soy Milk', py:'dòu jiāng', cat:'drinks', icon:'🥛'},
-
   // === Desserts ===
   {zh:'蛋挞', en:'Egg Tart', py:'dàn tǎ', cat:'dessert', icon:'🥧'},
   {zh:'芒果布丁', en:'Mango Pudding', py:'máng guǒ bù dīng', cat:'dessert', icon:'🍮'},
@@ -298,7 +285,6 @@ const DISHES = [
   {zh:'冰粉', en:'Ice Jelly (Bingfen)', py:'bīng fěn', cat:'dessert', icon:'🍮'},
   {zh:'双皮奶', en:'Double-Skin Milk', py:'shuāng pí nǎi', cat:'dessert', icon:'🍮'},
   {zh:'水果拼盘', en:'Fruit Platter', py:'shuǐ guǒ pīn pán', cat:'dessert', icon:'🍉'},
-
   // === Street Food & Snacks ===
   {zh:'煎饼果子', en:'Jianbing (Chinese crepe)', py:'jiān bing guǒ zi', cat:'snacks', icon:'🥞'},
   {zh:'肉夹馍', en:'Roujiamo (Chinese burger)', py:'ròu jiā mó', cat:'snacks', icon:'🥙', tags:['meat']},
@@ -310,7 +296,6 @@ const DISHES = [
   {zh:'鸡蛋仔', en:'Egg Waffles', py:'jī dàn zǎi', cat:'snacks', icon:'🧇'},
   {zh:'糖葫芦', en:'Candied Hawthorn Skewer', py:'táng hú lu', cat:'snacks', icon:'🍡'},
   {zh:'螺蛳粉', en:'Luosifen (rice noodles)', py:'luó sī fěn', cat:'snacks', icon:'🍜', tags:['spicy']},
-
   // === Hot Pot ===
   {zh:'火锅', en:'Hot Pot', py:'huǒ guō', cat:'hotpot', icon:'🫕', tags:['spicy']},
   {zh:'鸳鸯锅', en:'Dual-Soup Hot Pot', py:'yuān yāng guō', cat:'hotpot', icon:'🫕'},
@@ -322,7 +307,6 @@ const DISHES = [
   {zh:'鱼丸', en:'Fish Balls', py:'yú wán', cat:'hotpot', icon:'🐟', tags:['seafood']},
   {zh:'豆腐', en:'Tofu', py:'dòu fu', cat:'hotpot', icon:'🫘'},
   {zh:'金针菇', en:'Enoki Mushrooms', py:'jīn zhēn gū', cat:'hotpot', icon:'🍄'},
-
   // === Ingredients (Common) ===
   {zh:'鸡肉', en:'Chicken', py:'jī ròu', cat:'ingredients', icon:'🍗', tags:['meat']},
   {zh:'猪肉', en:'Pork', py:'zhū ròu', cat:'ingredients', icon:'🥩', tags:['meat']},
@@ -338,10 +322,10 @@ const DISHES = [
   {zh:'姜', en:'Ginger', py:'jiāng', cat:'ingredients', icon:'🧄'},
   {zh:'辣椒', en:'Chilli Pepper', py:'là jiāo', cat:'ingredients', icon:'🌶️', tags:['spicy']},
   {zh:'花生', en:'Peanuts', py:'huā shēng', cat:'ingredients', icon:'🥜', tags:['nut']},
-  {zh:'芝麻', en:'Sesame', py:'zhī ma', cat:'ingredients', icon:'🫘'},
+  {zh:'芝麻', en:'Sesame', py:'zhī ma', cat:'ingredients', icon:'🫘'}
 ];
 
-const CATEGORIES = [
+var CATEGORIES = [
   {id:'all', label:'All', icon:'🍽️'},
   {id:'dumplings', label:'Dumplings', icon:'🥟'},
   {id:'noodles', label:'Noodles', icon:'🍜'},
@@ -354,88 +338,209 @@ const CATEGORIES = [
   {id:'hotpot', label:'Hot Pot', icon:'🫕'},
   {id:'drinks', label:'Drinks', icon:'🍺'},
   {id:'dessert', label:'Dessert', icon:'🍮'},
-  {id:'ingredients', label:'Ingredients', icon:'🧄'},
+  {id:'ingredients', label:'Ingredients', icon:'🧄'}
 ];
 
-let activeCat = 'all';
-let myOrder = [];
+var activeCat = 'all';
+var myOrder = [];
+
+// ----- Core functions (no ES6 features) -----
 
 function init() {
   renderCats();
   renderDishes(DISHES);
-  // Event delegation for add buttons
-  document.getElementById('dishGrid').addEventListener('click', function(e) {
-    const btn = e.target.closest('.btn-add');
-    if (!btn) return;
-    const idx = parseInt(btn.dataset.idx);
-    if (!isNaN(idx)) toggleOrder(idx);
-  });
+  bindEvents();
 }
 
+function bindEvents() {
+  // Using manual traversal instead of closest() for mobile compatibility
+  var el = document.getElementById('dishGrid');
+  if (el) { el.onclick = dishGridClick; }
+
+  el = document.getElementById('searchInput');
+  if (el) { el.oninput = onSearchInput; }
+
+  el = document.getElementById('clearBtn');
+  if (el) { el.onclick = clearSearch; }
+
+  el = document.getElementById('showOrderBtn');
+  if (el) { el.onclick = showOrderList; }
+
+  el = document.getElementById('clearOrderBtn');
+  if (el) { el.onclick = clearOrder; }
+
+  el = document.getElementById('closeModalBtn');
+  if (el) { el.onclick = closeOrderModal; }
+
+  el = document.getElementById('printOrderBtn');
+  if (el) { el.onclick = printOrder; }
+
+  el = document.getElementById('orderModal');
+  if (el) { el.onclick = function(e) { if (e.target === el) closeOrderModal(); }; }
+}
+
+// Manual closest() polyfill — walk up the DOM
+function parentByClass(el, className) {
+  while (el) {
+    if (el.classList && el.classList.contains(className)) return el;
+    el = el.parentNode;
+  }
+  return null;
+}
+
+function dishGridClick(e) {
+  var btn = parentByClass(e.target, 'btn-add');
+  if (!btn) return;
+  var idxStr = btn.getAttribute('data-idx');
+  var idx = parseInt(idxStr, 10);
+  if (!isNaN(idx)) toggleOrder(idx);
+}
+
+function onSearchInput() {
+  var q = this.value;
+  doSearch(q);
+}
+
+// ----- Categories -----
+
 function renderCats() {
-  const strip = document.getElementById('catStrip');
-  strip.innerHTML = CATEGORIES.map(c =>
-    `<button class="cat-btn${c.id==='all'?' active':''}" onclick="filterCat('${c.id}')" data-cat="${c.id}">${c.icon} ${c.label}</button>`
-  ).join('');
+  var strip = document.getElementById('catStrip');
+  if (!strip) return;
+  var html = '';
+  for (var i = 0; i < CATEGORIES.length; i++) {
+    var c = CATEGORIES[i];
+    html += '<button class="cat-btn' + (c.id === 'all' ? ' active' : '') + '" data-cat="' + c.id + '">' + c.icon + ' ' + c.label + '</button>';
+  }
+  strip.innerHTML = html;
+  // Bind category clicks via delegation
+  strip.onclick = function(e) {
+    var btn = parentByClass(e.target, 'cat-btn');
+    if (!btn) return;
+    var catId = btn.getAttribute('data-cat');
+    if (!catId) return;
+    filterCat(catId);
+  };
 }
 
 function filterCat(catId) {
   activeCat = catId;
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === catId));
-  doSearch(document.getElementById('searchInput').value);
+  // Use classList for active toggle
+  var btns = document.querySelectorAll('.cat-btn');
+  for (var i = 0; i < btns.length; i++) {
+    var b = btns[i];
+    var isActive = b.getAttribute('data-cat') === catId;
+    if (isActive) {
+      if (b.classList) b.classList.add('active');
+    } else {
+      if (b.classList) b.classList.remove('active');
+    }
+  }
+  var input = document.getElementById('searchInput');
+  doSearch(input ? input.value : '');
 }
 
+// ----- Search & filter -----
+
 function doSearch(q) {
-  const query = q.toLowerCase().trim();
-  document.getElementById('clearBtn').classList.toggle('show', query.length > 0);
+  var query = '';
+  if (q) query = q.toLowerCase().trim();
 
-  let filtered = DISHES;
+  var clearBtn = document.getElementById('clearBtn');
+  if (clearBtn) {
+    if (query.length > 0) {
+      if (clearBtn.classList) clearBtn.classList.add('show');
+    } else {
+      if (clearBtn.classList) clearBtn.classList.remove('show');
+    }
+  }
+
+  var filtered = DISHES;
   if (activeCat !== 'all') {
-    filtered = filtered.filter(d => d.cat === activeCat);
-  }
-  if (query) {
-    filtered = filtered.filter(d =>
-      (d.en && d.en.toLowerCase().includes(query)) ||
-      (d.zh && d.zh.includes(query)) ||
-      (d.py && d.py.includes(query))
-    );
+    filtered = [];
+    for (var i = 0; i < DISHES.length; i++) {
+      if (DISHES[i].cat === activeCat) filtered.push(DISHES[i]);
+    }
   }
 
-  const hideMethods = query.length > 0 || activeCat !== 'all';
-  document.getElementById('methodsSection').style.display = hideMethods ? 'none' : 'block';
-  document.getElementById('countLabel').textContent = filtered.length + ' dish' + (filtered.length !== 1 ? 'es' : '');
+  if (query) {
+    var searched = [];
+    for (var i = 0; i < filtered.length; i++) {
+      var d = filtered[i];
+      // Manual includes: indexOf !== -1
+      if (
+        (d.en && d.en.toLowerCase().indexOf(query) !== -1) ||
+        (d.zh && d.zh.indexOf(query) !== -1) ||
+        (d.py && d.py.indexOf(query) !== -1)
+      ) {
+        searched.push(d);
+      }
+    }
+    filtered = searched;
+  }
+
+  // Toggle methods section
+  var hideMethods = query.length > 0 || activeCat !== 'all';
+  var methodsSection = document.getElementById('methodsSection');
+  if (methodsSection) {
+    methodsSection.style.display = hideMethods ? 'none' : 'block';
+  }
+
+  var countLabel = document.getElementById('countLabel');
+  if (countLabel) {
+    countLabel.textContent = filtered.length + ' dish' + (filtered.length !== 1 ? 'es' : '');
+  }
+
   renderDishes(filtered);
 }
 
+// ----- Render dishes -----
+
 function renderDishes(dishes) {
-  const grid = document.getElementById('dishGrid');
+  var grid = document.getElementById('dishGrid');
   if (!grid) return;
-  
+
   if (dishes.length === 0) {
     grid.innerHTML = '<div class="empty-state"><div class="big-icon">🔍</div><p>No dishes found. Try a different search.</p></div>';
     return;
   }
 
   var html = '';
+  var badgeMap = {spicy:'🌶️', veg:'🥬', nut:'🥜', meat:'🥩', seafood:'🐟'};
+
   for (var i = 0; i < dishes.length; i++) {
     var d = dishes[i];
-    var dishIdx = DISHES.indexOf(d); // Original index in DISHES array
-    var alreadyAdded = isInOrder(dishIdx);
-    var tags = d.tags || [];
-    
-    var badges = '';
-    var badgeMap = {spicy:'🌶️', veg:'🥬', nut:'🥜', meat:'🥩', seafood:'🐟'};
-    for (var t = 0; t < tags.length; t++) {
-      badges += '<span class="badge ' + tags[t] + '">' + (badgeMap[tags[t]] || tags[t]) + '</span>';
+
+    // Find index in DISHES array manually (no indexOf with object references)
+    var dishIdx = -1;
+    for (var k = 0; k < DISHES.length; k++) {
+      if (DISHES[k] === d) { dishIdx = k; break; }
     }
-    
-    var badgeSection = badges ? '<div style="margin-top:3px"><div class="dish-badges">' + badges + '</div></div>' : '';
-    var pinyinHtml = d.py ? '<div class="py">' + d.py + '</div>' : '';
+
+    var alreadyAdded = isInOrder(dishIdx);
+    var tags = d.tags;
+    var badges = '';
+
+    if (tags) {
+      for (var t = 0; t < tags.length; t++) {
+        var bIcon = badgeMap[tags[t]] || tags[t];
+        badges += '<span class="badge ' + tags[t] + '">' + bIcon + '</span>';
+      }
+    }
+
+    var badgeSection = '';
+    if (badges) {
+      badgeSection = '<div style="margin-top:3px"><div class="dish-badges">' + badges + '</div></div>';
+    }
+
+    var pinyinHtml = '';
+    if (d.py) pinyinHtml = '<div class="py">' + d.py + '</div>';
+
     var checkmark = alreadyAdded ? '✓' : '+';
     var addedClass = alreadyAdded ? ' added' : '';
-    
+    var icon = d.icon || '🍽️';
+
     html += '<div class="dish-card">'
-      + '<div class="dish-icon">' + (d.icon || '🍽️') + '</div>'
+      + '<div class="dish-icon">' + icon + '</div>'
       + '<div class="dish-info">'
       + '<div class="zh">' + d.zh + '</div>'
       + '<div class="en">' + d.en + '</div>'
@@ -445,10 +550,12 @@ function renderDishes(dishes) {
       + '<button class="btn-add' + addedClass + '" data-idx="' + dishIdx + '">' + checkmark + '</button>'
       + '</div>';
   }
-  
+
   grid.innerHTML = html;
   updateOrderBar();
 }
+
+// ----- Order logic -----
 
 function isInOrder(dishIdx) {
   for (var i = 0; i < myOrder.length; i++) {
@@ -458,7 +565,6 @@ function isInOrder(dishIdx) {
 }
 
 function toggleOrder(dishIdx) {
-  // Check if already in order
   var existingIdx = -1;
   for (var i = 0; i < myOrder.length; i++) {
     if (myOrder[i].idx === dishIdx) {
@@ -466,41 +572,44 @@ function toggleOrder(dishIdx) {
       break;
     }
   }
-  
+
   if (existingIdx >= 0) {
     myOrder.splice(existingIdx, 1);
   } else {
-    var d = DISHES[dishIdx];
-    if (d) {
+    if (dishIdx >= 0 && dishIdx < DISHES.length) {
+      var d = DISHES[dishIdx];
       myOrder.push({idx: dishIdx, zh: d.zh, en: d.en, py: d.py, icon: d.icon});
     }
   }
-  
-  // Refresh the dish display to update button states
-  var query = document.getElementById('searchInput').value;
-  // Re-run search to refresh
-  doSearch(query);
+
+  // Refresh display
+  var input = document.getElementById('searchInput');
+  doSearch(input ? input.value : '');
 }
 
 function updateOrderBar() {
   var bar = document.getElementById('orderBar');
   var countEl = document.getElementById('orderCount');
+  if (!bar || !countEl) return;
+
   if (myOrder.length === 0) {
-    bar && bar.classList.remove('show');
+    if (bar.classList) bar.classList.remove('show');
   } else {
-    bar && bar.classList.add('show');
-    countEl && (countEl.textContent = '🛒 ' + myOrder.length + ' dish' + (myOrder.length !== 1 ? 'es' : ''));
+    if (bar.classList) bar.classList.add('show');
+    countEl.textContent = '🛒 ' + myOrder.length + ' dish' + (myOrder.length !== 1 ? 'es' : '');
   }
 }
 
 function clearOrder() {
   myOrder = [];
-  var query = document.getElementById('searchInput').value;
-  doSearch(query);
+  var input = document.getElementById('searchInput');
+  doSearch(input ? input.value : '');
 }
 
 function showOrderList() {
   var container = document.getElementById('orderModalItems');
+  if (!container) return;
+
   if (myOrder.length === 0) {
     container.innerHTML = '<p style="color:#999;padding:20px;font-size:14px;">No dishes selected yet.</p>';
   } else {
@@ -514,25 +623,35 @@ function showOrderList() {
         + '<div class="m-en">' + o.en + '</div>'
         + (o.py ? '<div class="m-py">' + o.py + '</div>' : '')
         + '</div>'
-        + '<button class="m-remove" onclick="removeFromOrder(' + i + ')">✕</button>'
+        + '<button class="m-remove" data-order-idx="' + i + '">✕</button>'
         + '</div>';
     }
     container.innerHTML = itemsHtml;
+
+    // Bind remove buttons in modal
+    var removeBtns = container.querySelectorAll('.m-remove');
+    for (var j = 0; j < removeBtns.length; j++) {
+      (function(idx) {
+        removeBtns[j].onclick = function() { removeFromOrder(idx); };
+      })(j);
+    }
   }
-  document.getElementById('orderModal').classList.add('show');
+
+  var modal = document.getElementById('orderModal');
+  if (modal && modal.classList) modal.classList.add('show');
 }
 
 function removeFromOrder(index) {
   myOrder.splice(index, 1);
   updateOrderBar();
-  var query = document.getElementById('searchInput').value;
-  doSearch(query);
+  var input = document.getElementById('searchInput');
+  doSearch(input ? input.value : '');
   showOrderList();
 }
 
-function closeOrderModal(e) {
-  if (e && e.target !== e.currentTarget) return;
-  document.getElementById('orderModal').classList.remove('show');
+function closeOrderModal() {
+  var modal = document.getElementById('orderModal');
+  if (modal && modal.classList) modal.classList.remove('show');
 }
 
 function printOrder() {
@@ -549,6 +668,7 @@ function printOrder() {
   }
 
   var win = window.open('', '', 'width=420,height=700');
+  if (!win) return;
   win.document.write('<!DOCTYPE html><html><head>'
     + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">'
     + '<title>EVENTURUS Order Card</title>'
@@ -561,7 +681,7 @@ function printOrder() {
     + '</style>'
     + '</head><body>'
     + '<div class="card">'
-    + '<div class="brand">EVENTURUS · MENU TRANSLATOR</div>'
+    + '<div class="brand">EVENTURUS  &middot;  MENU TRANSLATOR</div>'
     + items
     + '<div class="footer">Show this to your waiter. Point at the Chinese.</div>'
     + '</div>'
@@ -571,17 +691,24 @@ function printOrder() {
 }
 
 function clearSearch() {
-  document.getElementById('searchInput').value = '';
-  doSearch('');
-  document.getElementById('searchInput').focus();
+  var input = document.getElementById('searchInput');
+  if (input) {
+    input.value = '';
+    doSearch('');
+    input.focus();
+  }
 }
 
-// Init on page load
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  init();
-} else {
-  document.addEventListener('DOMContentLoaded', init);
+// ----- Bootstrap -----
+function bootstrap() {
+  if (typeof document === 'undefined') return;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    init();
+  } else {
+    document.addEventListener('DOMContentLoaded', init);
+  }
 }
+bootstrap();
 </script>
 </body>
 </html>
