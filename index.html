@@ -1,46 +1,21 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tools — EVENTURUS · China Travel Intelligence</title>
-  <!-- Open Graph -->
-  <meta property="og:title" content="Tools — EVENTURUS · China Travel Intelligence">
-  <meta property="og:description" content="Practical tools for travelling in China. Where to go, what to do, transit matrix, visa checker, weather guide, phrase cards and more — curated by EVENTURUS.">
-  <meta property="og:url" content="https://eventurus.github.io/eventurus-tools/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EVENTURUS">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://eventurus.github.io/eventurus-tools/og-image.png">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Tools — EVENTURUS · China Travel Intelligence">
-  <meta name="twitter:description" content="Practical tools for travelling in China. Where to go, what to do, transit matrix, visa checker, weather guide, phrase cards and more — curated by EVENTURUS.">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://eventurus.github.io/eventurus-tools/">
-
-<meta name="description" content="Practical tools for travelling in China. Where to go, what to do, transit matrix, visa checker, weather guide, phrase cards and more — curated by EVENTURUS.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Practical tools for travelling in China. Transit matrix, visa checker, weather guide, phrase cards and more — curated by EVENTURUS.">
 <style>
-:root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --radius:12px; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; font-family:var(--font-sans); }
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --radius:12px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
 * { margin:0; padding:0; box-sizing:border-box; }
-:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
-
-body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;  -webkit-tap-highlight-color: transparent; }
+body { font-family:inherit; background:var(--color-bg); color:var(--color-text); line-height:1.6; font-size:16px; }
 .container { max-width:800px; margin:0 auto; padding:0 20px; }
 .brand-bar { padding:24px 0 0; text-align:center; }
-.brand-bar .brand { font-family:var(--font-serif); font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
 .brand-bar .brand em { font-style:italic; color:var(--color-brand); }
 .brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
 .hero { text-align:center; padding:48px 0 32px; }
-.hero h1 { font-family:var(--font-serif); font-size:32px; font-weight:600; line-height:1.2; margin-bottom:8px; }
+.hero h1 { font-size:32px; font-weight:600; line-height:1.2; margin-bottom:8px; }
 .hero p { font-size:15px; color:var(--color-muted); max-width:480px; margin:0 auto; }
 .tool-grid { display:grid; gap:16px; margin-bottom:40px; }
 .tool-card {
@@ -61,87 +36,20 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .tool-card .tool-info { flex:1; min-width:0; }
 .tool-card .tool-title { font-size:16px; font-weight:600; margin-bottom:3px; }
 .tool-card .tool-desc { font-size:13px; color:var(--color-muted); line-height:1.5; }
-.tool-card .arrow { font-size:18px; color:var(--color-muted); flex-shrink:0; margin-top:6px; }
+.tool-card .arrow { font-size:18px; color:var(--color-border); flex-shrink:0; margin-top:6px; }
 .sec-label { font-size:13px; font-weight:600; color:var(--color-muted); text-transform:uppercase; letter-spacing:1px; margin:8px 0 12px; padding-top:8px; }
 .site-footer { text-align:center; padding:40px 0 28px; font-size:12px; color:var(--color-muted); }
-.site-footer a { color:var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
-.site-footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
-.search-bar { margin-bottom:24px; }
-.search-bar input { width:100%; padding:14px 18px; border:2px solid var(--color-border); border-radius:10px; font-size:16px; background:var(--color-surface); color:var(--color-text); transition:border-color .2s; }
-.search-bar input:focus { border-color:var(--color-brand); outline:none; }
-.search-bar input::placeholder { color:var(--color-muted); }
-
-@media print {
-  body { background: #fff; color: #000; font-size: 12pt; }
-  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
-  a { color: #000; text-decoration: underline; }
-  .container { max-width: 100%; }
-  table { page-break-inside: avoid; }
-  h1, h2, h3 { page-break-after: avoid; }
-}
-
-/* Dark mode */
-body.dark-mode,
-a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
-.info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-surface: #1e1e1e;
-    --color-text: #e0e0e0;
-    --color-muted: #a0a0a0;
-    --color-border: #333;
-    --color-highlight: #2a2a2a;
-    --color-brand-light: #3a5a3a;
-  }
-  img { opacity: 0.85; }
-}
+.site-footer a { color:var(--color-brand); text-decoration:none; }
+.site-footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
 </style>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Tools \u2014 EVENTURUS \u00b7 China Travel Intelligence",
-  "description": "Practical tools for travelling in China. Transit matrix, visa checker, weather guide, phrase cards and more \u2014 curated by EVENTURUS.",
-  "url": "https://eventurus.github.io/eventurus-tools/",
-  "inLanguage": "en-GB",
-  "publisher": {
-    "@type": "Organization",
-    "name": "EVENTURUS",
-    "url": "https://eventurus.github.io/eventurus-tools/",
-    "description": "China travel intelligence for international visitors."
-  }
-}
-  </script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "EVENTURUS Tools",
-      "item": "https://eventurus.github.io/eventurus-tools/"
-    }
-  ]
-}
-  </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div><button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
-<a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
-<div class="container" id="main-content" style="position:relative;">
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
 <div class="hero"><h1>China travel tools</h1><p>Practical tools for the China traveller. Built by EVENTURUS.</p></div>
-<div class="search-bar">
-  <input type="text" id="toolSearch" placeholder="Search tools..." oninput="filterTools()" aria-label="Search tools">
-</div>
 <div class="tool-grid">
 
-<h2 class="sec-label">Planning &amp; Entry</h2>
+<div class="sec-label">Planning &amp; Entry</div>
 
 <a class="tool-card" href="visa-checker.html">
   <div class="icon-box rose">🛂</div>
@@ -161,31 +69,13 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <div class="arrow">→</div>
 </a>
 
-<a class="tool-card" href="visa-free-guide.html">
-  <div class="icon-box blue">🛂</div>
-  <div class="tool-info">
-    <div class="tool-title">Visa-Free Entry Guide</div>
-    <div class="tool-desc">China's visa-free policies explained: 30-day unilateral, 240-hour transit, Hainan, PRD and regional special policies. Check your country and where you can go.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="essential-apps.html">
-  <div class="icon-box purple">📲</div>
-  <div class="tool-info">
-    <div class="tool-title">Essential Apps for China</div>
-    <div class="tool-desc">Must-have apps before you go: WeChat, Alipay, Didi, Meituan, Trip.com, Amap and more. With download tips to get started.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<h2 class="sec-label">Getting Around</h2>
+<div class="sec-label">Getting Around</div>
 
 <a class="tool-card" href="transit-matrix.html">
   <div class="icon-box purple">🚄</div>
   <div class="tool-info">
     <div class="tool-title">China City Transit Matrix</div>
-    <div class="tool-desc">Compare HSR and flights between 30 cities. Times, prices and distances at a glance.</div>
+    <div class="tool-desc">Compare HSR and flights between 20 cities. Times, prices and distances at a glance.</div>
   </div>
   <div class="arrow">→</div>
 </a>
@@ -208,72 +98,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <div class="arrow">→</div>
 </a>
 
-<a class="tool-card" href="didi-guide.html">
-  <div class="icon-box amber">🚗</div>
+<a class="tool-card" href="taxi-guide.html">
+  <div class="icon-box amber">🚕</div>
   <div class="tool-info">
-    <div class="tool-title">Didi Ride-Hailing Guide</div>
-    <div class="tool-desc">How to register, book rides and communicate with drivers. Prices, ride types, and tips for using Didi as a foreigner.</div>
+    <div class="tool-title">Didi & Taxi Guide + Address Card</div>
+    <div class="tool-desc">How to use Didi, hail street taxis, and generate a printable Chinese address card for your driver.</div>
   </div>
   <div class="arrow">→</div>
 </a>
 
-<a class="tool-card" href="great-wall-guide.html">
-  <div class="icon-box gold">🏯</div>
+<div class="sec-label">Payments &amp; Connectivity</div>
+
+<a class="tool-card" href="payment-setup.html">
+  <div class="icon-box blue">💳</div>
   <div class="tool-info">
-    <div class="tool-title">Great Wall of China Guide</div>
-    <div class="tool-desc">Compare 7 sections — Badaling, Mutianyu, Simatai. Transport, tickets, best time, cable cars and toboggan.</div>
+    <div class="tool-title">WeChat Pay & Alipay Setup Guide</div>
+    <div class="tool-desc">Step-by-step guide for foreigners to set up mobile payments with a passport and foreign card.</div>
   </div>
   <div class="arrow">→</div>
 </a>
 
-<h2 class="sec-label">Discover &amp; Explore</h2>
-
-<a class="tool-card" href="must-go.html">
-  <div class="icon-box rose">🗺️</div>
-  <div class="tool-info">
-    <div class="tool-title">Where to Go in China</div>
-    <div class="tool-desc">14 destinations worth the journey — from Xiaohongshu viral spots to hidden photographer's secrets. Curated by locals.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="must-do.html">
-  <div class="icon-box purple">🎯</div>
-  <div class="tool-info">
-    <div class="tool-title">What to Do in China</div>
-    <div class="tool-desc">14 unforgettable experiences — hot pot mastery, porcelain making, desert camping, tai chi at dawn. Eat, make, move, watch, stay.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="museums-guide.html">
-  <div class="icon-box gold">🏛️</div>
-  <div class="tool-info">
-    <div class="tool-title">Museums &amp; Galleries Guide</div>
-    <div class="tool-desc">China's finest museums, filtered by city and category. 90+ venues across 20 cities with booking tips, hours, and prices.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<h2 class="sec-label">Living &amp; Staying</h2>
-
-<a class="tool-card" href="hotel-booking-guide.html">
-  <div class="icon-box slate">🛏️</div>
-  <div class="tool-info">
-    <div class="tool-title">Hotel Booking Guide</div>
-    <div class="tool-desc">How to book hotels in China: Trip.com vs local platforms, star ratings explained, check-in tips, and cancellation policies.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="packing-checklist.html">
-  <div class="icon-box teal">🎒</div>
-  <div class="tool-info">
-    <div class="tool-title">China Packing Checklist</div>
-    <div class="tool-desc">What to pack by season, what to leave at home. Documents, electronics, health items, and restricted items guide.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
+<div class="sec-label">Living &amp; Staying</div>
 
 <a class="tool-card" href="city-season.html">
   <div class="icon-box gold">🌤️</div>
@@ -289,42 +134,6 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <div class="tool-info">
     <div class="tool-title">Expat Neighbourhood Finder</div>
     <div class="tool-desc">Compare areas in Shanghai, Beijing, Shenzhen, Guangzhou and Chengdu.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="internet-guide.html">
-  <div class="icon-box teal">📶</div>
-  <div class="tool-info">
-    <div class="tool-title">Get Online in China — eSIM & SIM Guide</div>
-    <div class="tool-desc">eSIM providers, airport SIM counters, and everything you need to get connected. Covers major airports.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="payment-guide.html">
-  <div class="icon-box green">💳</div>
-  <div class="tool-info">
-    <div class="tool-title">WeChat Pay & Alipay Guide</div>
-    <div class="tool-desc">Set up mobile payments as a foreign traveller. Step-by-step instructions, card linking, and pro tips.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="dining-guide.html">
-  <div class="icon-box amber">🍜</div>
-  <div class="tool-info">
-    <div class="tool-title">Eating in China — Dining Guide</div>
-    <div class="tool-desc">QR code ordering, common dishes, dietary needs (vegetarian/halal), and dining etiquette. Navigate any restaurant with confidence.</div>
-  </div>
-  <div class="arrow">→</div>
-</a>
-
-<a class="tool-card" href="emergency-guide.html">
-  <div class="icon-box rose">🆘</div>
-  <div class="tool-info">
-    <div class="tool-title">Emergency &amp; Hospital Guide</div>
-    <div class="tool-desc">Emergency numbers, international hospitals by city, lost passport steps, pharmacy guide, and emergency phrases for foreign travellers in China.</div>
   </div>
   <div class="arrow">→</div>
 </a>
@@ -353,31 +162,5 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <div>China, Vetted. — <a href="https://eventurus.cn">eventurus.cn</a></div>
 </div>
 </div>
-<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-<script>
-function filterTools() {
-  const q = document.getElementById('toolSearch').value.toLowerCase();
-  document.querySelectorAll('.tool-card').forEach(card => {
-    const text = (card.querySelector('.tool-title').textContent + ' ' + card.querySelector('.tool-desc').textContent).toLowerCase();
-    card.style.display = text.includes(q) ? '' : 'none';
-  });
-}
-// Dark mode toggle
-document.getElementById('darkToggle').addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-});
-// Back to top
-(function() {
-  const btt = document.getElementById('backToTop');
-  if (!btt) return;
-  window.addEventListener('scroll', function() {
-    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-  });
-  btt.addEventListener('click', function() {
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-})();
-</script>
 </body>
 </html>
