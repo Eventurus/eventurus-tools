@@ -363,6 +363,13 @@ let myOrder = [];
 function init() {
   renderCats();
   renderDishes(DISHES);
+  // Event delegation for add buttons
+  document.getElementById('dishGrid').addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-add');
+    if (!btn) return;
+    const idx = parseInt(btn.dataset.idx);
+    if (!isNaN(idx)) toggleOrder(idx);
+  });
 }
 
 function renderCats() {
@@ -388,124 +395,139 @@ function doSearch(q) {
   }
   if (query) {
     filtered = filtered.filter(d =>
-      d.en.toLowerCase().includes(query) ||
-      d.zh.includes(query) ||
+      (d.en && d.en.toLowerCase().includes(query)) ||
+      (d.zh && d.zh.includes(query)) ||
       (d.py && d.py.includes(query))
     );
   }
 
   const hideMethods = query.length > 0 || activeCat !== 'all';
   document.getElementById('methodsSection').style.display = hideMethods ? 'none' : 'block';
-  document.getElementById('countLabel').textContent = `${filtered.length} dish${filtered.length !== 1 ? 'es' : ''}`;
+  document.getElementById('countLabel').textContent = filtered.length + ' dish' + (filtered.length !== 1 ? 'es' : '');
   renderDishes(filtered);
 }
 
 function renderDishes(dishes) {
   const grid = document.getElementById('dishGrid');
+  if (!grid) return;
+  
   if (dishes.length === 0) {
-    grid.innerHTML = `<div class="empty-state"><div class="big-icon">🔍</div><p>No dishes found. Try a different search.</p></div>`;
+    grid.innerHTML = '<div class="empty-state"><div class="big-icon">🔍</div><p>No dishes found. Try a different search.</p></div>';
     return;
   }
 
-  grid.innerHTML = dishes.map((d, i) => {
-    const uniqueId = d.zh + '|' + d.cat;
-    const alreadyAdded = myOrder.some(o => o.id === uniqueId);
-    const tags = d.tags || [];
-    const badges = tags.map(t => {
-      const map = {spicy:'🌶️', veg:'🥬', nut:'🥜', meat:'🥩', seafood:'🐟'};
-      return `<span class="badge ${t}">${map[t]||t}</span>`;
-    }).join('');
-
-    return `<div class="dish-card">
-      <div class="dish-icon">${d.icon||'🍽️'}</div>
-      <div class="dish-info">
-        <div class="zh">${d.zh}</div>
-        <div class="en">${d.en}</div>
-        ${d.py ? `<div class="py">${d.py}</div>` : ''}
-        ${badges ? `<div style="margin-top:3px"><div class="dish-badges">${badges}</div></div>` : ''}
-      </div>
-      <button class="btn-add${alreadyAdded?' added':''}" onclick="toggleOrder('${uniqueId}')" data-id="${uniqueId}" id="btn-${uniqueId}">${alreadyAdded ? '✓' : '+'}</button>
-    </div>`;
-  });
-
-  window._currentDishes = dishes;
+  var html = '';
+  for (var i = 0; i < dishes.length; i++) {
+    var d = dishes[i];
+    var dishIdx = DISHES.indexOf(d); // Original index in DISHES array
+    var alreadyAdded = isInOrder(dishIdx);
+    var tags = d.tags || [];
+    
+    var badges = '';
+    var badgeMap = {spicy:'🌶️', veg:'🥬', nut:'🥜', meat:'🥩', seafood:'🐟'};
+    for (var t = 0; t < tags.length; t++) {
+      badges += '<span class="badge ' + tags[t] + '">' + (badgeMap[tags[t]] || tags[t]) + '</span>';
+    }
+    
+    var badgeSection = badges ? '<div style="margin-top:3px"><div class="dish-badges">' + badges + '</div></div>' : '';
+    var pinyinHtml = d.py ? '<div class="py">' + d.py + '</div>' : '';
+    var checkmark = alreadyAdded ? '✓' : '+';
+    var addedClass = alreadyAdded ? ' added' : '';
+    
+    html += '<div class="dish-card">'
+      + '<div class="dish-icon">' + (d.icon || '🍽️') + '</div>'
+      + '<div class="dish-info">'
+      + '<div class="zh">' + d.zh + '</div>'
+      + '<div class="en">' + d.en + '</div>'
+      + pinyinHtml
+      + badgeSection
+      + '</div>'
+      + '<button class="btn-add' + addedClass + '" data-idx="' + dishIdx + '">' + checkmark + '</button>'
+      + '</div>';
+  }
+  
+  grid.innerHTML = html;
   updateOrderBar();
 }
 
-function toggleOrder(id) {
-  const idx = myOrder.findIndex(o => o.id === id);
-  if (idx >= 0) {
-    myOrder.splice(idx, 1);
-  } else {
-    // Find the dish data
-    for (const d of DISHES) {
-      const uid = d.zh + '|' + d.cat;
-      if (uid === id) {
-        myOrder.push({id: uid, zh: d.zh, en: d.en, py: d.py, icon: d.icon});
-        break;
-      }
+function isInOrder(dishIdx) {
+  for (var i = 0; i < myOrder.length; i++) {
+    if (myOrder[i].idx === dishIdx) return true;
+  }
+  return false;
+}
+
+function toggleOrder(dishIdx) {
+  // Check if already in order
+  var existingIdx = -1;
+  for (var i = 0; i < myOrder.length; i++) {
+    if (myOrder[i].idx === dishIdx) {
+      existingIdx = i;
+      break;
     }
   }
-  // Update all buttons for this dish
-  document.querySelectorAll(`[data-id="${id}"]`).forEach(btn => {
-    const added = myOrder.some(o => o.id === id);
-    btn.textContent = added ? '✓' : '+';
-    btn.classList.toggle('added', added);
-  });
-  updateOrderBar();
+  
+  if (existingIdx >= 0) {
+    myOrder.splice(existingIdx, 1);
+  } else {
+    var d = DISHES[dishIdx];
+    if (d) {
+      myOrder.push({idx: dishIdx, zh: d.zh, en: d.en, py: d.py, icon: d.icon});
+    }
+  }
+  
+  // Refresh the dish display to update button states
+  var query = document.getElementById('searchInput').value;
+  // Re-run search to refresh
+  doSearch(query);
 }
 
 function updateOrderBar() {
-  const bar = document.getElementById('orderBar');
-  const count = document.getElementById('orderCount');
-  const showBtn = document.getElementById('showOrderBtn');
+  var bar = document.getElementById('orderBar');
+  var countEl = document.getElementById('orderCount');
   if (myOrder.length === 0) {
-    bar.classList.remove('show');
+    bar && bar.classList.remove('show');
   } else {
-    bar.classList.add('show');
-    count.textContent = `🛒 ${myOrder.length} dish${myOrder.length !== 1 ? 'es' : ''}`;
+    bar && bar.classList.add('show');
+    countEl && (countEl.textContent = '🛒 ' + myOrder.length + ' dish' + (myOrder.length !== 1 ? 'es' : ''));
   }
 }
 
 function clearOrder() {
   myOrder = [];
-  document.querySelectorAll('.btn-add').forEach(btn => {
-    btn.textContent = '+';
-    btn.classList.remove('added');
-  });
-  updateOrderBar();
+  var query = document.getElementById('searchInput').value;
+  doSearch(query);
 }
 
 function showOrderList() {
-  const container = document.getElementById('orderModalItems');
+  var container = document.getElementById('orderModalItems');
   if (myOrder.length === 0) {
     container.innerHTML = '<p style="color:#999;padding:20px;font-size:14px;">No dishes selected yet.</p>';
   } else {
-    container.innerHTML = myOrder.map((o, i) => `
-      <div class="m-item">
-        <div class="m-zh">${o.icon||''} ${o.zh}</div>
-        <div class="m-detail">
-          <div class="m-en">${o.en}</div>
-          ${o.py ? `<div class="m-py">${o.py}</div>` : ''}
-        </div>
-        <button class="m-remove" onclick="removeFromOrder(${i})">✕</button>
-      </div>
-    `).join('');
+    var itemsHtml = '';
+    for (var i = 0; i < myOrder.length; i++) {
+      var o = myOrder[i];
+      var icon = o.icon || '';
+      itemsHtml += '<div class="m-item">'
+        + '<div class="m-zh">' + icon + ' ' + o.zh + '</div>'
+        + '<div class="m-detail">'
+        + '<div class="m-en">' + o.en + '</div>'
+        + (o.py ? '<div class="m-py">' + o.py + '</div>' : '')
+        + '</div>'
+        + '<button class="m-remove" onclick="removeFromOrder(' + i + ')">✕</button>'
+        + '</div>';
+    }
+    container.innerHTML = itemsHtml;
   }
   document.getElementById('orderModal').classList.add('show');
 }
 
 function removeFromOrder(index) {
-  const removed = myOrder.splice(index, 1)[0];
-  if (removed) {
-    // Update all + buttons
-    document.querySelectorAll(`[data-id="${removed.id}"]`).forEach(btn => {
-      btn.textContent = '+';
-      btn.classList.remove('added');
-    });
-  }
+  myOrder.splice(index, 1);
   updateOrderBar();
-  showOrderList(); // Refresh the modal
+  var query = document.getElementById('searchInput').value;
+  doSearch(query);
+  showOrderList();
 }
 
 function closeOrderModal(e) {
@@ -515,34 +537,37 @@ function closeOrderModal(e) {
 
 function printOrder() {
   if (myOrder.length === 0) return;
-  const items = myOrder.map(o =>
-    `<div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px dashed #ddd;">
-      <div style="font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:4px;">${o.icon||''} ${o.zh}</div>
-      <div style="font-size:14px;color:#666;">${o.en}</div>
-      ${o.py ? `<div style="font-size:11px;color:#999;font-style:italic;">${o.py}</div>` : ''}
-    </div>`
-  ).join('');
+  var items = '';
+  for (var i = 0; i < myOrder.length; i++) {
+    var o = myOrder[i];
+    var icon = o.icon || '';
+    items += '<div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px dashed #ddd;">'
+      + '<div style="font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:4px;">' + icon + ' ' + o.zh + '</div>'
+      + '<div style="font-size:14px;color:#666;">' + o.en + '</div>'
+      + (o.py ? '<div style="font-size:11px;color:#999;font-style:italic;">' + o.py + '</div>' : '')
+      + '</div>';
+  }
 
-  const win = window.open('', '', 'width=420,height=700');
-  win.document.write(`<!DOCTYPE html><html><head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>EVENTURUS Order Card</title>
-    <style>
-      *{margin:0;padding:0;box-sizing:border-box;}
-      body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-      .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:32px 24px;max-width:380px;width:100%;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-      .brand{font-size:10px;color:#bbb;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
-      .footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}
-    </style>
-  </head><body>
-    <div class="card">
-      <div class="brand">EVENTURUS · MENU TRANSLATOR</div>
-      ${items}
-      <div class="footer">Show this to your waiter. Point at the Chinese.</div>
-    </div>
-  </body></html>`);
+  var win = window.open('', '', 'width=420,height=700');
+  win.document.write('<!DOCTYPE html><html><head>'
+    + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">'
+    + '<title>EVENTURUS Order Card</title>'
+    + '<style>'
+    + '*{margin:0;padding:0;box-sizing:border-box;}'
+    + 'body{font-family:-apple-system,BlinkMacSystemFont,\'PingFang SC\',\'Microsoft YaHei\',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}'
+    + '.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:32px 24px;max-width:380px;width:100%;box-shadow:0 2px 12px rgba(0,0,0,0.06);}'
+    + '.brand{font-size:10px;color:#bbb;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}'
+    + '.footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}'
+    + '</style>'
+    + '</head><body>'
+    + '<div class="card">'
+    + '<div class="brand">EVENTURUS · MENU TRANSLATOR</div>'
+    + items
+    + '<div class="footer">Show this to your waiter. Point at the Chinese.</div>'
+    + '</div>'
+    + '</body></html>');
   win.document.close();
-  setTimeout(() => { win.focus(); win.print(); }, 300);
+  setTimeout(function() { win.focus(); win.print(); }, 300);
 }
 
 function clearSearch() {
@@ -551,8 +576,12 @@ function clearSearch() {
   document.getElementById('searchInput').focus();
 }
 
-// Init
-init();
+// Init on page load
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init);
+}
 </script>
 </body>
 </html>
