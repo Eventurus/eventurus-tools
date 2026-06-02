@@ -106,6 +106,26 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .pagination .page-btn:disabled { opacity:0.35; cursor:default; }
 .pagination .page-info { font-size:13px; color:var(--color-muted); min-width:80px; text-align:center; }
 
+/* Quick Tools section */
+.tools-section { margin-bottom:12px; border:1px solid var(--color-border); border-radius:var(--radius); overflow:hidden; }
+.tools-toggle { padding:12px 16px; background:var(--color-card); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:600; color:var(--color-text); -webkit-user-select:none; user-select:none; }
+.tools-toggle:active { background:var(--color-border); }
+.tools-body { padding:12px 16px; background:var(--color-surface); }
+.tool-label { font-size:12px; color:var(--color-muted); margin-bottom:6px; }
+.tool-row { display:flex; gap:8px; margin-bottom:8px; }
+.tool-input { flex:1; padding:10px 12px; border:1.5px solid var(--color-border); border-radius:var(--radius-sm); font-size:15px; font-family:inherit; -webkit-appearance:none; appearance:none; min-width:0; }
+.tool-input:focus { border-color:var(--color-brand); outline:none; }
+.tool-btn { padding:10px 16px; background:var(--color-brand); color:#fff; border:none; border-radius:var(--radius-sm); font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; }
+.tool-btn:active { opacity:0.85; }
+.tool-result { margin-top:6px; min-height:0; }
+.tool-result .tr-item { background:#F6F9F3; border-radius:var(--radius-sm); padding:10px 12px; margin-bottom:6px; display:flex; align-items:center; gap:10px; }
+.tool-result .tr-zh { font-size:18px; font-weight:700; min-width:60px; }
+.tool-result .tr-en { font-size:13px; color:#555; flex:1; }
+.tool-result .tr-py { font-size:10px; color:#999; font-style:italic; }
+.tool-result .tr-btn { padding:6px 14px; background:var(--color-brand); color:#fff; border:none; border-radius:14px; font-size:12px; font-weight:600; cursor:pointer; white-space:nowrap; flex-shrink:0; }
+.tool-divider { height:1px; background:var(--color-border); margin:10px 0; }
+.tool-empty { font-size:12px; color:var(--color-muted); padding:4px 0; }
+
 @media (max-width:480px) {
   .hero h1 { font-size:22px; }
   .container { padding:0 12px; }
@@ -124,6 +144,31 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
   <span class="icon">&#x1F50D;</span>
   <input type="text" id="searchInput" onkeyup="searchChanged(this)" placeholder="Search in English, Chinese or pinyin..." autocomplete="off">
   <button class="clear-btn" id="clearBtn" onclick="clearSearch()">&#x2715;</button>
+</div>
+
+<!-- Quick Tools: Translate + Identify -->
+<div class="tools-section">
+  <div class="tools-toggle" onclick="toggleTools()">
+    <span>&#x1F528; Quick Tools</span>
+    <span id="toolsArrow">&#x25BC;</span>
+  </div>
+  <div class="tools-body" id="toolsBody" style="display:none">
+    <div class="tool-label">&#x1F4DD; Type a Chinese dish name, get English translation</div>
+    <div class="tool-row">
+      <input type="text" id="translateInput" class="tool-input" placeholder="e.g. 蒜蓉西兰花 or 干锅花菜" autocomplete="off">
+      <button class="tool-btn" onclick="translateCustom()">Translate</button>
+    </div>
+    <div class="tool-result" id="translateResult"></div>
+
+    <div class="tool-divider"></div>
+
+    <div class="tool-label">&#x1F50E; Describe what you ate — find its real name</div>
+    <div class="tool-row">
+      <input type="text" id="identifyInput" class="tool-input" placeholder="e.g. spicy chicken with peanuts" autocomplete="off">
+      <button class="tool-btn" onclick="identifyDish()">Identify</button>
+    </div>
+    <div class="tool-result" id="identifyResult"></div>
+  </div>
 </div>
 
 <!-- Categories -->
@@ -356,6 +401,275 @@ var myOrder = [];
 var currentPage = 0;
 var pageSize = 30;
 var cachedFiltered = []; // keep ref for pagination
+
+// ===== Character-to-component mapping for custom translation =====
+var COMPONENTS = [
+  // Cooking methods (ordered by length to match multi-char first)
+  {zh:'红烧', en:'Red-braised', py:'hóng shāo'},
+  {zh:'干煸', en:'Dry-fried', py:'gān biān'},
+  {zh:'水煮', en:'Sichuan boiled', py:'shuǐ zhǔ'},
+  {zh:'鱼香', en:'Yu Xiang (garlic sauce)', py:'yú xiāng'},
+  {zh:'宫保', en:'Kung Pao style', py:'gōng bǎo'},
+  {zh:'糖醋', en:'Sweet & sour', py:'táng cù'},
+  {zh:'蒜蓉', en:'Garlic', py:'suàn róng'},
+  {zh:'清蒸', en:'Steamed', py:'qīng zhēng'},
+  {zh:'干锅', en:'Dry-pot', py:'gān guō'},
+  {zh:'酸菜', en:'Pickled cabbage', py:'suān cài'},
+  {zh:'椒盐', en:'Salt & pepper', py:'jiāo yán'},
+  {zh:'油焖', en:'Braised', py:'yóu mèn'},
+  {zh:'葱姜', en:'Ginger-scallion', py:'cōng jiāng'},
+  {zh:'麻辣', en:'Málà (spicy-numbing)', py:'má là'},
+  {zh:'香辣', en:'Fragrant spicy', py:'xiāng là'},
+  {zh:'孜然', en:'Cumin', py:'zī rán'},
+  {zh:'黑椒', en:'Black pepper', py:'hēi jiāo'},
+  {zh:'铁板', en:'Sizzling plate', py:'tiě bǎn'},
+  {zh:'凉拌', en:'Cold tossed', py:'liáng bàn'},
+  {zh:'清炒', en:'Stir-fried', py:'qīng chǎo'},
+  {zh:'葱爆', en:'Scallion stir-fried', py:'cōng bào'},
+  {zh:'辣炒', en:'Spicy stir-fried', py:'là chǎo'},
+  // Single-char methods
+  {zh:'炒', en:'Stir-fried', py:'chǎo'},
+  {zh:'蒸', en:'Steamed', py:'zhēng'},
+  {zh:'炸', en:'Deep-fried', py:'zhá'},
+  {zh:'烤', en:'Roasted', py:'kǎo'},
+  {zh:'煮', en:'Boiled', py:'zhǔ'},
+  {zh:'炖', en:'Stewed', py:'dùn'},
+  {zh:'拌', en:'Tossed', py:'bàn'},
+  {zh:'煲', en:'Clay-pot', py:'bāo'},
+  {zh:'涮', en:'Hot-pot', py:'shuàn'},
+  {zh:'煎', en:'Pan-fried', py:'jiān'},
+  {zh:'焖', en:'Braised', py:'mèn'},
+  // Main ingredients
+  {zh:'鸡丁', en:'Diced chicken', py:'jī dīng'},
+  {zh:'鸡翅', en:'Chicken wings', py:'jī chì'},
+  {zh:'鸡肉', en:'Chicken', py:'jī ròu'},
+  {zh:'鸡', en:'Chicken', py:'jī'},
+  {zh:'鸭', en:'Duck', py:'yā'},
+  {zh:'鱼片', en:'Fish fillet', py:'yú piàn'},
+  {zh:'鱼', en:'Fish', py:'yú'},
+  {zh:'虾仁', en:'Shrimp', py:'xiā rén'},
+  {zh:'虾', en:'Shrimp', py:'xiā'},
+  {zh:'牛肉', en:'Beef', py:'niú ròu'},
+  {zh:'牛腩', en:'Beef brisket', py:'niú nǎn'},
+  {zh:'羊肉', en:'Lamb', py:'yáng ròu'},
+  {zh:'猪肉', en:'Pork', py:'zhū ròu'},
+  {zh:'排骨', en:'Pork ribs', py:'pái gǔ'},
+  {zh:'里脊', en:'Pork tenderloin', py:'lǐ ji'},
+  {zh:'五花肉', en:'Pork belly', py:'wǔ huā ròu'},
+  {zh:'肉丝', en:'Shredded pork', py:'ròu sī'},
+  {zh:'肉', en:'Pork/meat', py:'ròu'},
+  {zh:'鸡蛋', en:'Egg', py:'jī dàn'},
+  {zh:'蛋', en:'Egg', py:'dàn'},
+  {zh:'豆腐', en:'Tofu', py:'dòu fu'},
+  {zh:'蘑菇', en:'Mushroom', py:'mó gū'},
+  {zh:'香菇', en:'Shiitake', py:'xiāng gū'},
+  {zh:'金针菇', en:'Enoki mushroom', py:'jīn zhēn gū'},
+  {zh:'木耳', en:'Wood ear fungus', py:'mù ěr'},
+  {zh:'茄子', en:'Eggplant', py:'qié zi'},
+  {zh:'土豆', en:'Potato', py:'tǔ dòu'},
+  {zh:'花菜', en:'Cauliflower', py:'huā cài'},
+  {zh:'西兰花', en:'Broccoli', py:'xī lán huā'},
+  {zh:'菠菜', en:'Spinach', py:'bō cài'},
+  {zh:'白菜', en:'Cabbage', py:'bái cài'},
+  {zh:'青菜', en:'Leafy greens', py:'qīng cài'},
+  {zh:'豆角', en:'Long beans', py:'dòu jiǎo'},
+  {zh:'四季豆', en:'Green beans', py:'sì jì dòu'},
+  {zh:'青椒', en:'Green pepper', py:'qīng jiāo'},
+  {zh:'辣椒', en:'Chillies', py:'là jiāo'},
+  {zh:'番茄', en:'Tomato', py:'fān qié'},
+  {zh:'玉米', en:'Corn', py:'yù mǐ'},
+  {zh:'黄瓜', en:'Cucumber', py:'huáng guā'},
+  {zh:'冬瓜', en:'Winter melon', py:'dōng guā'},
+  {zh:'萝卜', en:'Radish', py:'luó bo'},
+  {zh:'莲藕', en:'Lotus root', py:'lián ǒu'},
+  {zh:'笋', en:'Bamboo shoot', py:'sǔn'},
+  {zh:'洋葱', en:'Onion', py:'yáng cōng'},
+  {zh:'蒜苗', en:'Garlic sprout', py:'suàn miáo'},
+  {zh:'豆芽', en:'Bean sprouts', py:'dòu yá'},
+  {zh:'粉丝', en:'Glass noodles', py:'fěn sī'},
+  {zh:'面条', en:'Noodles', py:'miàn tiáo'},
+  {zh:'饭', en:'Rice', py:'fàn'},
+  {zh:'米饭', en:'Rice', py:'mǐ fàn'},
+  {zh:'蟹', en:'Crab', py:'xiè'},
+  {zh:'蛤', en:'Clams', py:'gé'},
+  {zh:'生蚝', en:'Oysters', py:'shēng háo'},
+  {zh:'带子', en:'Scallops', py:'dài zǐ'},
+  {zh:'龙虾', en:'Lobster', py:'lóng xiā'},
+  // Seasonings
+  {zh:'姜', en:'Ginger', py:'jiāng'},
+  {zh:'蒜', en:'Garlic', py:'suàn'},
+  {zh:'葱', en:'Scallion', py:'cōng'},
+  {zh:'辣', en:'Spicy', py:'là'},
+  {zh:'麻', en:'Sichuan pepper', py:'má'},
+  {zh:'糖', en:'Sugar', py:'táng'},
+  {zh:'醋', en:'Vinegar', py:'cù'},
+  {zh:'酱', en:'Sauce', py:'jiàng'},
+  {zh:'汤', en:'Soup', py:'tāng'},
+  {zh:'锅', en:'Hot pot', py:'guō'},
+  {zh:'花', en:'Flower', py:'huā'},
+  {zh:'干', en:'Dried', py:'gān'},
+  {zh:'鲜', en:'Fresh', py:'xiān'},
+  {zh:'脆', en:'Crispy', py:'cuì'},
+  {zh:'香', en:'Fragrant', py:'xiāng'}
+];
+
+function translateCustom() {
+  var input = document.getElementById('translateInput');
+  var result = document.getElementById('translateResult');
+  if (!input || !result) return;
+  var zh = input.value.trim();
+  if (!zh) { result.innerHTML = '<div class="tool-empty">Type a Chinese dish name above.</div>'; return; }
+
+  // Try exact match first
+  for (var i = 0; i < DISHES.length; i++) {
+    if (DISHES[i].zh === zh) {
+      result.innerHTML = renderResultItem(DISHES[i].zh, DISHES[i].en, DISHES[i].py, null);
+      return;
+    }
+  }
+
+  // Component-based translation
+  var remaining = zh;
+  var parts = [];
+  var pinyins = [];
+  var used = [];
+  // Try multi-char matches first (sorted by length desc)
+  var sorted = [];
+  for (var i = 0; i < COMPONENTS.length; i++) sorted.push(COMPONENTS[i]);
+  sorted.sort(function(a,b){ return b.zh.length - a.zh.length; });
+
+  for (var i = 0; i < sorted.length; i++) {
+    var c = sorted[i];
+    var pos = remaining.indexOf(c.zh);
+    if (pos !== -1) {
+      parts.push(c.en);
+      pinyins.push(c.py);
+      remaining = remaining.replace(c.zh, '');
+    }
+  }
+
+  // Remaining untranslated characters
+  var hasRemaining = remaining.trim().length > 0 && remaining.trim() !== zh;
+
+  var enName = '';
+  if (parts.length > 0) {
+    enName = parts.join(' ') + (hasRemaining ? ' with ' + remaining.trim() : '');
+  } else {
+    enName = zh + ' (custom — show waiter)';
+  }
+
+  var pyStr = pinyins.length > 0 ? pinyins.join(' ') : '';
+
+  // Build description text for non-exact matches
+  var desc = '';
+  if (parts.length > 0) {
+    desc = zh;
+    if (hasRemaining) desc += ' &bull; untranslated: ' + remaining.trim();
+    desc += ' &bull; Note: this is a best-guess translation';
+  }
+
+  // Store custom dish data for adding to order
+  var customId = '__custom_' + Date.now();
+  window._lastCustom = {zh: zh, en: enName, py: pyStr, icon: '&#x1F37D;', isCustom: true};
+
+  result.innerHTML = renderResultItem(zh, enName, pyStr, 'custom');
+}
+
+function renderResultItem(zh, en, py, mode) {
+  var btn = '';
+  if (mode === 'custom') {
+    btn = '<button class="tr-btn" onclick="addCustomToOrder()">+ Order</button>';
+  } else {
+    // Find dish index
+    for (var i = 0; i < DISHES.length; i++) {
+      if (DISHES[i].zh === zh) {
+        btn = '<button class="tr-btn" onclick="toggleOrder(' + i + ')">+ Order</button>';
+        break;
+      }
+    }
+  }
+  return '<div class="tr-item">'
+    + '<div class="tr-zh">' + zh + '</div>'
+    + '<div class="tr-en">' + en + '</div>'
+    + (py ? '<div class="tr-py">' + py + '</div>' : '')
+    + btn
+    + '</div>';
+}
+
+function addCustomToOrder() {
+  var d = window._lastCustom;
+  if (!d) return;
+  // Add as custom item with special marker
+  var customIdx = -(myOrder.length + 1); // negative index for custom
+  myOrder.push({idx: customIdx, zh: d.zh, en: d.en, py: d.py, icon: '&#x1F37D;', isCustom: true});
+  updateOrderBar();
+  var result = document.getElementById('translateResult');
+  if (result) result.innerHTML = renderResultItem(d.zh, d.en, d.py, 'added');
+}
+
+function identifyDish() {
+  var input = document.getElementById('identifyInput');
+  var result = document.getElementById('identifyResult');
+  if (!input || !result) return;
+  var desc = input.value.trim().toLowerCase();
+  if (!desc) { result.innerHTML = '<div class="tool-empty">Describe what you ate in English.</div>'; return; }
+
+  // Split description into keywords
+  var words = desc.split(/[\s,]+/);
+  var scored = [];
+  for (var i = 0; i < DISHES.length; i++) {
+    var d = DISHES[i];
+    var en = (d.en || '').toLowerCase();
+    var score = 0;
+    for (var w = 0; w < words.length; w++) {
+      if (!words[w]) continue;
+      if (en.indexOf(words[w]) !== -1) score += 2;
+      // Also check tags
+      if (d.tags) {
+        for (var t = 0; t < d.tags.length; t++) {
+          if (words[w].indexOf(d.tags[t]) !== -1 || d.tags[t].indexOf(words[w]) !== -1) score += 1;
+        }
+      }
+    }
+    if (score > 0) scored.push({dish: d, score: score});
+  }
+  scored.sort(function(a,b){ return b.score - a.score; });
+
+  if (scored.length === 0) {
+    result.innerHTML = '<div class="tool-empty">No matches found. Try different keywords (e.g. "spicy", "chicken", "noodles", "soup").</div>';
+    return;
+  }
+
+  var top = scored.slice(0, 5);
+  var html = '';
+  for (var i = 0; i < top.length; i++) {
+    var d = top[i].dish;
+    var dishIdx = -1;
+    for (var k = 0; k < DISHES.length; k++) {
+      if (DISHES[k] === d) { dishIdx = k; break; }
+    }
+    html += '<div class="tr-item">'
+      + '<div class="tr-zh">' + (d.icon || '🍽️') + ' ' + d.zh + '</div>'
+      + '<div class="tr-en">' + d.en + '</div>'
+      + (d.py ? '<div class="tr-py">' + d.py + '</div>' : '')
+      + '<button class="tr-btn" onclick="toggleOrder(' + dishIdx + ')">+ Order</button>'
+      + '</div>';
+  }
+  result.innerHTML = html;
+}
+
+function toggleTools() {
+  var body = document.getElementById('toolsBody');
+  var arrow = document.getElementById('toolsArrow');
+  if (!body || !arrow) return;
+  if (body.style.display === 'none') {
+    body.style.display = 'block';
+    arrow.innerHTML = '&#x25B2;';
+  } else {
+    body.style.display = 'none';
+    arrow.innerHTML = '&#x25BC;';
+  }
+}
 
 // ===== INIT: use window.onload for maximum Safari compatibility =====
 function initAll() {
