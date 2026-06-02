@@ -294,33 +294,33 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 <script>
 var DISHES = [
   // === Dumplings & Dim Sum ===
-  {zh:'饺子', en:'Jiaozi / Dumplings', py:'jiǎo zi', cat:'dumplings', icon:'🥟', popular:true, tags:['gluten']}
-  {zh:'锅贴', en:'Pan-fried Dumplings', py:'guō tiē', cat:'dumplings', icon:'🥟', popular:true, tags:['pork','gluten']}
+  {zh:'饺子', en:'Jiaozi / Dumplings', py:'jiǎo zi', cat:'dumplings', icon:'🥟', popular:true, tags:['gluten']},
+  {zh:'锅贴', en:'Pan-fried Dumplings', py:'guō tiē', cat:'dumplings', icon:'🥟', popular:true, tags:['pork','gluten']},
   {zh:'小笼包', en:'Soup Dumplings (Xiaolongbao)', py:'xiǎo lóng bāo', cat:'dumplings', icon:'🥟', tags:['meat','pork','gluten'], popular:true},
-  {zh:'生煎包', en:'Pan-fried Pork Buns', py:'shēng jiān bāo', cat:'dumplings', icon:'🥟', popular:true, tags:['pork','gluten']}
-  {zh:'烧卖', en:'Siu Mai / Pork Dumplings', py:'shāo mài', cat:'dumplings', icon:'🥟', tags:['pork','gluten']}
+  {zh:'生煎包', en:'Pan-fried Pork Buns', py:'shēng jiān bāo', cat:'dumplings', icon:'🥟', popular:true, tags:['pork','gluten']},
+  {zh:'烧卖', en:'Siu Mai / Pork Dumplings', py:'shāo mài', cat:'dumplings', icon:'🥟', tags:['pork','gluten']},
   {zh:'虾饺', en:'Har Gow / Shrimp Dumplings', py:'xiā jiǎo', cat:'dumplings', icon:'🦐', tags:['seafood','shellfish','gluten'], cuisine:'cantonese'},
-  {zh:'春卷', en:'Spring Rolls', py:'chūn juǎn', cat:'dumplings', icon:'🌯', popular:true, tags:['gluten'], cuisine:'cantonese'}
+  {zh:'春卷', en:'Spring Rolls', py:'chūn juǎn', cat:'dumplings', icon:'🌯', popular:true, tags:['gluten'], cuisine:'cantonese'},
   {zh:'叉烧包', en:'BBQ Pork Buns (Char Siu Bao)', py:'chā shāo bāo', cat:'dumplings', icon:'🥟', tags:['meat','pork','gluten'], popular:true, cuisine:'cantonese'},
   {zh:'肠粉', en:'Rice Noodle Rolls (Cheong Fun)', py:'cháng fěn', cat:'dumplings', icon:'🫘', cuisine:'cantonese'},
   {zh:'糯米鸡', en:'Lotus Leaf Rice (Lo Mai Gai)', py:'nuò mǐ jī', cat:'dumplings', icon:'🍚', tags:['meat']},
-  {zh:'水晶包', en:'Steamed Crystal Buns', py:'shuǐ jīng bāo', cat:'dumplings', icon:'🥟', tags:['gluten'], cuisine:'cantonese'}
+  {zh:'水晶包', en:'Steamed Crystal Buns', py:'shuǐ jīng bāo', cat:'dumplings', icon:'🥟', tags:['gluten'], cuisine:'cantonese'},
   // === Noodles & Rice ===
   {zh:'炒饭', en:'Fried Rice', py:'chǎo fàn', cat:'rice', icon:'🍚', popular:true},
   {zh:'蛋炒饭', en:'Egg Fried Rice', py:'dàn chǎo fàn', cat:'rice', icon:'🍚', popular:true},
   {zh:'扬州炒饭', en:'Yangzhou Fried Rice', py:'yáng zhōu chǎo fàn', cat:'rice', icon:'🍚', tags:['meat','pork'], popular:true},
   {zh:'白米饭', en:'Steamed Rice', py:'bái mǐ fàn', cat:'rice', icon:'🍚'},
-  {zh:'炒面', en:'Chow Mein / Fried Noodles', py:'chǎo miàn', cat:'noodles', icon:'🍜', popular:true, tags:['gluten']}
-  {zh:'捞面', en:'Lo Mein / Tossed Noodles', py:'lāo miàn', cat:'noodles', icon:'🍜', tags:['gluten']}
-  {zh:'汤面', en:'Soup Noodles', py:'tāng miàn', cat:'noodles', icon:'🍜', tags:['gluten']}
-  {zh:'兰州拉面', en:'Lanzhou Pulled Noodles', py:'lán zhōu lā miàn', cat:'noodles', icon:'🍜', tags:['gluten'], cuisine:'xibei'}
+  {zh:'炒面', en:'Chow Mein / Fried Noodles', py:'chǎo miàn', cat:'noodles', icon:'🍜', popular:true, tags:['gluten']},
+  {zh:'捞面', en:'Lo Mein / Tossed Noodles', py:'lāo miàn', cat:'noodles', icon:'🍜', tags:['gluten']},
+  {zh:'汤面', en:'Soup Noodles', py:'tāng miàn', cat:'noodles', icon:'🍜', tags:['gluten']},
+  {zh:'兰州拉面', en:'Lanzhou Pulled Noodles', py:'lán zhōu lā miàn', cat:'noodles', icon:'🍜', tags:['gluten'], cuisine:'xibei'},
   {zh:'担担面', en:'Dan Dan Noodles', py:'dàn dàn miàn', cat:'noodles', icon:'🍜', tags:['spicy','peanut','gluten'], popular:true, cuisine:'sichuan'},
-  {zh:'炸酱面', en:'Zhajiang Noodles', py:'zhá jiàng miàn', cat:'noodles', icon:'🍜', tags:['gluten'], cuisine:'beijing'}
-  {zh:'热干面', en:'Hot Dry Noodles', py:'rè gān miàn', cat:'noodles', icon:'🍜', tags:['gluten']}
+  {zh:'炸酱面', en:'Zhajiang Noodles', py:'zhá jiàng miàn', cat:'noodles', icon:'🍜', tags:['gluten'], cuisine:'beijing'},
+  {zh:'热干面', en:'Hot Dry Noodles', py:'rè gān miàn', cat:'noodles', icon:'🍜', tags:['gluten']},
   {zh:'米线', en:'Rice Noodles (Mixian)', py:'mǐ xiàn', cat:'noodles', icon:'🍜', tags:['spicy','gluten']},
-  {zh:'过桥米线', en:'Crossing-the-Bridge Noodles', py:'guò qiáo mǐ xiàn', cat:'noodles', icon:'🍜', tags:['gluten']}
-  {zh:'河粉', en:'Flat Rice Noodles (Ho Fun)', py:'hé fěn', cat:'noodles', icon:'🍜', tags:['gluten']}
-  {zh:'乌冬面', en:'Udon Noodles', py:'wū dōng miàn', cat:'noodles', icon:'🍜', tags:['gluten']}
+  {zh:'过桥米线', en:'Crossing-the-Bridge Noodles', py:'guò qiáo mǐ xiàn', cat:'noodles', icon:'🍜', tags:['gluten']},
+  {zh:'河粉', en:'Flat Rice Noodles (Ho Fun)', py:'hé fěn', cat:'noodles', icon:'🍜', tags:['gluten']},
+  {zh:'乌冬面', en:'Udon Noodles', py:'wū dōng miàn', cat:'noodles', icon:'🍜', tags:['gluten']},
   {zh:'方便面', en:'Instant Noodles', py:'fāng biàn miàn', cat:'noodles', icon:'🍜'},
   // === Meat & Poultry ===
   {zh:'宫保鸡丁', en:'Kung Pao Chicken', py:'gōng bǎo jī dīng', cat:'meat', icon:'🍗', tags:['spicy','meat','peanut'], popular:true, cuisine:'sichuan'},
@@ -410,7 +410,7 @@ var DISHES = [
   {zh:'双皮奶', en:'Double-Skin Milk', py:'shuāng pí nǎi', cat:'dessert', icon:'🍮', cuisine:'cantonese'},
   {zh:'水果拼盘', en:'Fruit Platter', py:'shuǐ guǒ pīn pán', cat:'dessert', icon:'🍉'},
   // === Street Food & Snacks ===
-  {zh:'煎饼果子', en:'Jianbing (Chinese crepe)', py:'jiān bing guǒ zi', cat:'snacks', icon:'🥞', popular:true, tags:['gluten']}
+  {zh:'煎饼果子', en:'Jianbing (Chinese crepe)', py:'jiān bing guǒ zi', cat:'snacks', icon:'🥞', popular:true, tags:['gluten']},
   {zh:'肉夹馍', en:'Roujiamo (Chinese burger)', py:'ròu jiā mó', cat:'snacks', icon:'🥙', tags:['meat','pork'], popular:true},
   {zh:'凉皮', en:'Liangpi (cold skin noodles)', py:'liáng pí', cat:'snacks', icon:'🥢', tags:['spicy'], popular:true},
   {zh:'烤串', en:'BBQ Skewers (Chuan)', py:'kǎo chuàn', cat:'snacks', icon:'🍢', tags:['meat','spicy'], popular:true},
