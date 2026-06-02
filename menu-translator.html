@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Chinese Menu Translator — EVENTURUS</title>
 <meta name="description" content="Translate Chinese dishes to English. Search 200+ menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <style>
 :root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --color-spicy:#D85A30; --color-veg:#639922; --color-nut:#BA7517; --radius:12px; --radius-sm:8px; }
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -113,8 +114,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 <!-- Search -->
 <div class="search-box">
   <span class="icon">&#x1F50D;</span>
-  <input type="text" id="searchInput" placeholder="Search in English, Chinese or pinyin..." autocomplete="off">
-  <button class="clear-btn" id="clearBtn">&#x2715;</button>
+  <input type="text" id="searchInput" onkeyup="searchChanged(this)" placeholder="Search in English, Chinese or pinyin..." autocomplete="off">
+  <button class="clear-btn" id="clearBtn" onclick="clearSearch()">&#x2715;</button>
 </div>
 
 <!-- Categories -->
@@ -123,8 +124,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 <!-- Order bar (sticky) -->
 <div class="order-bar" id="orderBar">
   <span class="order-count" id="orderCount">&#x1F6D2; 0 dishes</span>
-  <button class="btn-order" id="showOrderBtn">Show to Waiter &rarr;</button>
-  <button class="btn-clear-order" id="clearOrderBtn">&#x2715; Clear</button>
+  <button class="btn-order" id="showOrderBtn" onclick="showOrderList()">Show to Waiter &rarr;</button>
+  <button class="btn-clear-order" id="clearOrderBtn" onclick="clearOrder()">&#x2715; Clear</button>
 </div>
 
 <!-- Cooking Methods Reference -->
@@ -155,14 +156,14 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 </div>
 
 <!-- Order List Modal -->
-<div class="modal-overlay" id="orderModal">
+<div class="modal-overlay" id="orderModal" onclick="closeOrderModal()">
   <div class="modal">
     <div class="m-title">Your Order</div>
     <div class="m-items" id="orderModalItems"></div>
     <div class="m-note">Show this to your waiter. Point at the Chinese text for each dish.</div>
     <div class="modal-actions">
-      <button class="btn btn-primary" id="printOrderBtn">&#x1F5A8; Print / Save PDF</button>
-      <button class="btn btn-outline" id="closeModalBtn">&#x2713; Got it</button>
+      <button class="btn btn-primary" id="printOrderBtn" onclick="printOrder()">&#x1F5A8; Print / Save PDF</button>
+      <button class="btn btn-outline" id="closeModalBtn" onclick="closeOrderModal()">&#x2713; Got it</button>
     </div>
   </div>
 </div>
@@ -344,133 +345,78 @@ var CATEGORIES = [
 var activeCat = 'all';
 var myOrder = [];
 
-// ----- Core functions (no ES6 features) -----
-
-function init() {
-  renderCats();
-  renderDishes(DISHES);
-  bindEvents();
-}
-
-function bindEvents() {
-  // Using manual traversal instead of closest() for mobile compatibility
-  var el = document.getElementById('dishGrid');
-  if (el) { el.onclick = dishGridClick; }
-
-  el = document.getElementById('searchInput');
-  if (el) { el.oninput = onSearchInput; }
-
-  el = document.getElementById('clearBtn');
-  if (el) { el.onclick = clearSearch; }
-
-  el = document.getElementById('showOrderBtn');
-  if (el) { el.onclick = showOrderList; }
-
-  el = document.getElementById('clearOrderBtn');
-  if (el) { el.onclick = clearOrder; }
-
-  el = document.getElementById('closeModalBtn');
-  if (el) { el.onclick = closeOrderModal; }
-
-  el = document.getElementById('printOrderBtn');
-  if (el) { el.onclick = printOrder; }
-
-  el = document.getElementById('orderModal');
-  if (el) { el.onclick = function(e) { if (e.target === el) closeOrderModal(); }; }
-}
-
-// Manual closest() polyfill — walk up the DOM
-function parentByClass(el, className) {
-  while (el) {
-    if (el.classList && el.classList.contains(className)) return el;
-    el = el.parentNode;
+// ===== INIT: use window.onload for maximum Safari compatibility =====
+function initAll() {
+  try {
+    renderCats();
+    renderDishes(DISHES);
+  } catch(e) {
+    // fallback: try rendering again
+    setTimeout(function(){ try{renderCats();renderDishes(DISHES);}catch(e2){} }, 100);
   }
-  return null;
 }
 
-function dishGridClick(e) {
-  var btn = parentByClass(e.target, 'btn-add');
-  if (!btn) return;
-  var idxStr = btn.getAttribute('data-idx');
-  var idx = parseInt(idxStr, 10);
-  if (!isNaN(idx)) toggleOrder(idx);
+// Run as soon as possible
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  initAll();
+} else {
+  document.addEventListener('DOMContentLoaded', initAll);
+  // Safari fallback
+  window.addEventListener('load', initAll);
 }
 
-function onSearchInput() {
-  var q = this.value;
-  doSearch(q);
-}
-
-// ----- Categories -----
-
+// ===== Categories =====
 function renderCats() {
   var strip = document.getElementById('catStrip');
   if (!strip) return;
   var html = '';
   for (var i = 0; i < CATEGORIES.length; i++) {
     var c = CATEGORIES[i];
-    html += '<button class="cat-btn' + (c.id === 'all' ? ' active' : '') + '" data-cat="' + c.id + '">' + c.icon + ' ' + c.label + '</button>';
+    html += '<button class="cat-btn' + (c.id === 'all' ? ' active' : '') + '" data-cat="' + c.id + '" onclick="filterCat(\'' + c.id + '\')">' + c.icon + ' ' + c.label + '</button>';
   }
   strip.innerHTML = html;
-  // Bind category clicks via delegation
-  strip.onclick = function(e) {
-    var btn = parentByClass(e.target, 'cat-btn');
-    if (!btn) return;
-    var catId = btn.getAttribute('data-cat');
-    if (!catId) return;
-    filterCat(catId);
-  };
 }
 
 function filterCat(catId) {
   activeCat = catId;
-  // Use classList for active toggle
   var btns = document.querySelectorAll('.cat-btn');
   for (var i = 0; i < btns.length; i++) {
     var b = btns[i];
-    var isActive = b.getAttribute('data-cat') === catId;
-    if (isActive) {
-      if (b.classList) b.classList.add('active');
+    if (b.getAttribute('data-cat') === catId) {
+      b.className = 'cat-btn active';
     } else {
-      if (b.classList) b.classList.remove('active');
+      b.className = 'cat-btn';
     }
   }
-  var input = document.getElementById('searchInput');
-  doSearch(input ? input.value : '');
+  doQuery(document.getElementById('searchInput').value);
 }
 
-// ----- Search & filter -----
-
-function doSearch(q) {
-  var query = '';
-  if (q) query = q.toLowerCase().trim();
+// ===== Search =====
+function doQuery(val) {
+  var q = (val || '').toLowerCase().trim();
 
   var clearBtn = document.getElementById('clearBtn');
   if (clearBtn) {
-    if (query.length > 0) {
-      if (clearBtn.classList) clearBtn.classList.add('show');
-    } else {
-      if (clearBtn.classList) clearBtn.classList.remove('show');
-    }
+    clearBtn.style.display = q.length > 0 ? 'block' : 'none';
   }
 
-  var filtered = DISHES;
-  if (activeCat !== 'all') {
-    filtered = [];
+  var filtered = [];
+  if (activeCat === 'all') {
+    for (var i = 0; i < DISHES.length; i++) filtered.push(DISHES[i]);
+  } else {
     for (var i = 0; i < DISHES.length; i++) {
       if (DISHES[i].cat === activeCat) filtered.push(DISHES[i]);
     }
   }
 
-  if (query) {
+  if (q) {
     var searched = [];
     for (var i = 0; i < filtered.length; i++) {
       var d = filtered[i];
-      // Manual includes: indexOf !== -1
       if (
-        (d.en && d.en.toLowerCase().indexOf(query) !== -1) ||
-        (d.zh && d.zh.indexOf(query) !== -1) ||
-        (d.py && d.py.indexOf(query) !== -1)
+        (d.en && d.en.toLowerCase().indexOf(q) !== -1) ||
+        (d.zh && d.zh.indexOf(q) !== -1) ||
+        (d.py && d.py.indexOf(q) !== -1)
       ) {
         searched.push(d);
       }
@@ -478,11 +424,9 @@ function doSearch(q) {
     filtered = searched;
   }
 
-  // Toggle methods section
-  var hideMethods = query.length > 0 || activeCat !== 'all';
   var methodsSection = document.getElementById('methodsSection');
   if (methodsSection) {
-    methodsSection.style.display = hideMethods ? 'none' : 'block';
+    methodsSection.style.display = (q.length > 0 || activeCat !== 'all') ? 'none' : 'block';
   }
 
   var countLabel = document.getElementById('countLabel');
@@ -493,8 +437,7 @@ function doSearch(q) {
   renderDishes(filtered);
 }
 
-// ----- Render dishes -----
-
+// ===== Render dishes =====
 function renderDishes(dishes) {
   var grid = document.getElementById('dishGrid');
   if (!grid) return;
@@ -510,44 +453,39 @@ function renderDishes(dishes) {
   for (var i = 0; i < dishes.length; i++) {
     var d = dishes[i];
 
-    // Find index in DISHES array manually (no indexOf with object references)
+    // Find dish index in DISHES array
     var dishIdx = -1;
     for (var k = 0; k < DISHES.length; k++) {
       if (DISHES[k] === d) { dishIdx = k; break; }
     }
 
-    var alreadyAdded = isInOrder(dishIdx);
+    var alreadyAdded = false;
+    for (var oi = 0; oi < myOrder.length; oi++) {
+      if (myOrder[oi].idx === dishIdx) { alreadyAdded = true; break; }
+    }
+
     var tags = d.tags;
     var badges = '';
-
     if (tags) {
       for (var t = 0; t < tags.length; t++) {
-        var bIcon = badgeMap[tags[t]] || tags[t];
-        badges += '<span class="badge ' + tags[t] + '">' + bIcon + '</span>';
+        badges += '<span class="badge ' + tags[t] + '">' + (badgeMap[tags[t]] || tags[t]) + '</span>';
       }
     }
 
-    var badgeSection = '';
-    if (badges) {
-      badgeSection = '<div style="margin-top:3px"><div class="dish-badges">' + badges + '</div></div>';
-    }
-
-    var pinyinHtml = '';
-    if (d.py) pinyinHtml = '<div class="py">' + d.py + '</div>';
-
-    var checkmark = alreadyAdded ? '✓' : '+';
-    var addedClass = alreadyAdded ? ' added' : '';
-    var icon = d.icon || '🍽️';
+    var badgeHtml = badges ? '<div style="margin-top:3px"><div class="dish-badges">' + badges + '</div></div>' : '';
+    var pyHtml = d.py ? '<div class="py">' + d.py + '</div>' : '';
+    var btnText = alreadyAdded ? '&#10003;' : '+';
+    var btnClass = 'btn-add' + (alreadyAdded ? ' added' : '');
+    var icon = d.icon || '&#x1F37D;';
 
     html += '<div class="dish-card">'
       + '<div class="dish-icon">' + icon + '</div>'
       + '<div class="dish-info">'
       + '<div class="zh">' + d.zh + '</div>'
       + '<div class="en">' + d.en + '</div>'
-      + pinyinHtml
-      + badgeSection
+      + pyHtml + badgeHtml
       + '</div>'
-      + '<button class="btn-add' + addedClass + '" data-idx="' + dishIdx + '">' + checkmark + '</button>'
+      + '<button class="' + btnClass + '" onclick="toggleOrder(' + dishIdx + ')">' + btnText + '</button>'
       + '</div>';
   }
 
@@ -555,55 +493,34 @@ function renderDishes(dishes) {
   updateOrderBar();
 }
 
-// ----- Order logic -----
-
-function isInOrder(dishIdx) {
-  for (var i = 0; i < myOrder.length; i++) {
-    if (myOrder[i].idx === dishIdx) return true;
-  }
-  return false;
-}
-
+// ===== Order logic =====
 function toggleOrder(dishIdx) {
-  var existingIdx = -1;
+  var found = false;
   for (var i = 0; i < myOrder.length; i++) {
-    if (myOrder[i].idx === dishIdx) {
-      existingIdx = i;
-      break;
-    }
+    if (myOrder[i].idx === dishIdx) { found = true; myOrder.splice(i, 1); break; }
   }
-
-  if (existingIdx >= 0) {
-    myOrder.splice(existingIdx, 1);
-  } else {
-    if (dishIdx >= 0 && dishIdx < DISHES.length) {
-      var d = DISHES[dishIdx];
-      myOrder.push({idx: dishIdx, zh: d.zh, en: d.en, py: d.py, icon: d.icon});
-    }
+  if (!found && dishIdx >= 0 && dishIdx < DISHES.length) {
+    var d = DISHES[dishIdx];
+    myOrder.push({idx: dishIdx, zh: d.zh, en: d.en, py: d.py, icon: d.icon});
   }
-
-  // Refresh display
-  var input = document.getElementById('searchInput');
-  doSearch(input ? input.value : '');
+  doQuery(document.getElementById('searchInput').value);
 }
 
 function updateOrderBar() {
   var bar = document.getElementById('orderBar');
   var countEl = document.getElementById('orderCount');
   if (!bar || !countEl) return;
-
   if (myOrder.length === 0) {
-    if (bar.classList) bar.classList.remove('show');
+    bar.style.display = 'none';
   } else {
-    if (bar.classList) bar.classList.add('show');
-    countEl.textContent = '🛒 ' + myOrder.length + ' dish' + (myOrder.length !== 1 ? 'es' : '');
+    bar.style.display = 'flex';
+    countEl.innerHTML = '&#x1F6D2; ' + myOrder.length + ' dish' + (myOrder.length !== 1 ? 'es' : '');
   }
 }
 
 function clearOrder() {
   myOrder = [];
-  var input = document.getElementById('searchInput');
-  doSearch(input ? input.value : '');
+  doQuery(document.getElementById('searchInput').value);
 }
 
 function showOrderList() {
@@ -623,35 +540,24 @@ function showOrderList() {
         + '<div class="m-en">' + o.en + '</div>'
         + (o.py ? '<div class="m-py">' + o.py + '</div>' : '')
         + '</div>'
-        + '<button class="m-remove" data-order-idx="' + i + '">✕</button>'
+        + '<button class="m-remove" onclick="removeFromOrder(' + i + ')">&#x2715;</button>'
         + '</div>';
     }
     container.innerHTML = itemsHtml;
-
-    // Bind remove buttons in modal
-    var removeBtns = container.querySelectorAll('.m-remove');
-    for (var j = 0; j < removeBtns.length; j++) {
-      (function(idx) {
-        removeBtns[j].onclick = function() { removeFromOrder(idx); };
-      })(j);
-    }
   }
 
-  var modal = document.getElementById('orderModal');
-  if (modal && modal.classList) modal.classList.add('show');
+  document.getElementById('orderModal').style.display = 'flex';
 }
 
 function removeFromOrder(index) {
   myOrder.splice(index, 1);
   updateOrderBar();
-  var input = document.getElementById('searchInput');
-  doSearch(input ? input.value : '');
+  doQuery(document.getElementById('searchInput').value);
   showOrderList();
 }
 
 function closeOrderModal() {
-  var modal = document.getElementById('orderModal');
-  if (modal && modal.classList) modal.classList.remove('show');
+  document.getElementById('orderModal').style.display = 'none';
 }
 
 function printOrder() {
@@ -666,49 +572,37 @@ function printOrder() {
       + (o.py ? '<div style="font-size:11px;color:#999;font-style:italic;">' + o.py + '</div>' : '')
       + '</div>';
   }
-
   var win = window.open('', '', 'width=420,height=700');
   if (!win) return;
   win.document.write('<!DOCTYPE html><html><head>'
     + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">'
     + '<title>EVENTURUS Order Card</title>'
-    + '<style>'
-    + '*{margin:0;padding:0;box-sizing:border-box;}'
+    + '<style>*{margin:0;padding:0;box-sizing:border-box;}'
     + 'body{font-family:-apple-system,BlinkMacSystemFont,\'PingFang SC\',\'Microsoft YaHei\',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}'
     + '.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:32px 24px;max-width:380px;width:100%;box-shadow:0 2px 12px rgba(0,0,0,0.06);}'
     + '.brand{font-size:10px;color:#bbb;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}'
-    + '.footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}'
-    + '</style>'
-    + '</head><body>'
-    + '<div class="card">'
+    + '.footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}</style>'
+    + '</head><body><div class="card">'
     + '<div class="brand">EVENTURUS  &middot;  MENU TRANSLATOR</div>'
     + items
-    + '<div class="footer">Show this to your waiter. Point at the Chinese.</div>'
-    + '</div>'
-    + '</body></html>');
+    + '<div class="footer">Show this waiter. Point at Chinese.</div>'
+    + '</div></body></html>');
   win.document.close();
   setTimeout(function() { win.focus(); win.print(); }, 300);
+}
+
+function searchChanged(el) {
+  doQuery(el.value);
 }
 
 function clearSearch() {
   var input = document.getElementById('searchInput');
   if (input) {
     input.value = '';
-    doSearch('');
+    doQuery('');
     input.focus();
   }
 }
-
-// ----- Bootstrap -----
-function bootstrap() {
-  if (typeof document === 'undefined') return;
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    init();
-  } else {
-    document.addEventListener('DOMContentLoaded', init);
-  }
-}
-bootstrap();
 </script>
 </body>
 </html>
