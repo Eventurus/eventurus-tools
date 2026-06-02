@@ -34,43 +34,54 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .cat-btn:hover { border-color:var(--color-brand); }
 .cat-btn.active { background:var(--color-brand); color:#fff; border-color:var(--color-brand); }
 
+/* Order bar */
+.order-bar { position:sticky; top:0; z-index:50; background:var(--color-bg); padding:8px 0; display:none; align-items:center; gap:10px; }
+.order-bar.show { display:flex; }
+.order-bar .order-count { flex:1; font-size:13px; font-weight:600; color:var(--color-text); }
+.order-bar .btn-order { padding:8px 16px; background:var(--color-brand); color:#fff; border:none; border-radius:var(--radius-sm); font-size:13px; font-weight:500; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:4px; }
+.order-bar .btn-clear-order { padding:6px 10px; background:transparent; border:1px solid var(--color-border); border-radius:var(--radius-sm); font-size:12px; color:var(--color-muted); cursor:pointer; }
+
 /* Results */
 .count-label { font-size:13px; color:var(--color-muted); margin-bottom:8px; }
 .dish-grid { display:grid; gap:10px; margin-bottom:20px; }
-.dish-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); padding:14px 16px; display:flex; align-items:center; gap:12px; transition:all .2s; cursor:pointer; }
-.dish-card:active { transform:scale(0.98); }
-.dish-card .dish-icon { font-size:24px; width:36px; text-align:center; flex-shrink:0; }
+.dish-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); padding:12px 14px; display:flex; align-items:center; gap:10px; }
+.dish-card .dish-icon { font-size:22px; width:32px; text-align:center; flex-shrink:0; }
 .dish-info { flex:1; min-width:0; }
-.dish-info .zh { font-size:17px; font-weight:600; margin-bottom:1px; }
-.dish-info .en { font-size:13px; color:#555; line-height:1.4; }
-.dish-info .py { font-size:11px; color:#999; font-style:italic; margin-top:1px; }
-.dish-badges { display:flex; gap:4px; flex-shrink:0; }
-.badge { display:inline-flex; align-items:center; gap:2px; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:600; }
+.dish-info .zh { font-size:16px; font-weight:600; margin-bottom:1px; }
+.dish-info .en { font-size:12px; color:#555; line-height:1.4; }
+.dish-info .py { font-size:10px; color:#999; font-style:italic; margin-top:1px; }
+.dish-badges { display:flex; gap:3px; flex-wrap:wrap; }
+.badge { display:inline-flex; align-items:center; gap:2px; padding:2px 5px; border-radius:4px; font-size:9px; font-weight:600; }
 .badge.spicy { background:#FFF0E0; color:var(--color-spicy); }
 .badge.veg { background:var(--color-brand-light); color:var(--color-veg); }
 .badge.nut { background:#FAEEDA; color:var(--color-nut); }
 .badge.meat { background:#FCEBEB; color:#A32D2D; }
 .badge.seafood { background:#E6F1FB; color:#185FA5; }
+.btn-add { flex-shrink:0; width:36px; height:36px; border-radius:50%; border:2px solid var(--color-brand); background:transparent; color:var(--color-brand); font-size:18px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.btn-add:active { background:var(--color-brand); color:#fff; transform:scale(0.92); }
+.btn-add.added { background:var(--color-brand); color:#fff; }
 
-/* Waiter card modal */
+/* Order list modal */
 .modal-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4); z-index:100; justify-content:center; align-items:center; padding:20px; }
 .modal-overlay.show { display:flex; }
-.modal { background:#FFFEF5; border-radius:var(--radius); padding:28px 24px; max-width:400px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.12); text-align:center; animation:fadeIn .25s ease; }
+.modal { background:#FFFEF5; border-radius:var(--radius); padding:24px 20px; max-width:420px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.15); text-align:center; animation:fadeIn .25s ease; max-height:90vh; overflow-y:auto; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 .modal .m-title { font-size:11px; color:#999; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
-.modal .m-items { margin-bottom:16px; }
-.modal .m-item { padding:10px 0; border-bottom:1px dashed var(--color-border); }
+.modal .m-item { padding:12px 0; border-bottom:1px dashed var(--color-border); display:flex; align-items:center; gap:10px; }
 .modal .m-item:last-child { border-bottom:none; }
-.modal .m-item .m-zh { font-size:22px; font-weight:700; letter-spacing:1px; }
-.modal .m-item .m-en { font-size:14px; color:#555; margin-top:2px; }
-.modal .m-item .m-py { font-size:11px; color:#999; font-style:italic; }
+.modal .m-item .m-zh { font-size:20px; font-weight:700; letter-spacing:1px; min-width:60px; }
+.modal .m-item .m-detail { flex:1; text-align:left; }
+.modal .m-item .m-detail .m-en { font-size:13px; color:#555; }
+.modal .m-item .m-detail .m-py { font-size:10px; color:#999; font-style:italic; }
+.modal .m-item .m-remove { background:none; border:none; color:#C85A5A; font-size:16px; cursor:pointer; padding:4px; }
 .modal .m-note { font-size:10px; color:#bbb; margin-top:12px; }
-.modal-actions { display:flex; gap:8px; justify-content:center; margin-top:16px; }
-.btn { padding:10px 20px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s; }
+.modal-actions { display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+.btn { padding:10px 20px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; transition:all .2s; display:inline-flex; align-items:center; gap:6px; }
 .btn-primary { background:var(--color-brand); color:#fff; }
 .btn-primary:hover { background:var(--color-brand-dark); }
 .btn-outline { background:transparent; border:2px solid var(--color-border); color:var(--color-text); }
 .btn-outline:hover { border-color:var(--color-brand); }
+.btn-danger { background:#FCEBEB; color:#C85A5A; border:1px solid #F7C1C1; }
 
 /* Cooking methods section */
 .methods-section { margin-bottom:16px; }
@@ -101,7 +112,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <div class="container">
-<div class="hero"><h1>Chinese Menu Translator</h1><p>Search 200+ dishes. Tap to show the waiter. No more mystery meat.</p></div>
+<div class="hero"><h1>Chinese Menu Translator</h1><p>200+ dishes in your pocket. Browse, add to your order, then show the waiter.</p></div>
 
 <!-- Search -->
 <div class="search-box">
@@ -112,6 +123,13 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 
 <!-- Categories -->
 <div class="cat-strip" id="catStrip"></div>
+
+<!-- Order bar (sticky) -->
+<div class="order-bar" id="orderBar">
+  <span class="order-count" id="orderCount">🛒 0 dishes</span>
+  <button class="btn-order" id="showOrderBtn" onclick="showOrderList()">Show to Waiter →</button>
+  <button class="btn-clear-order" onclick="clearOrder()">✕ Clear</button>
+</div>
 
 <!-- Cooking Methods Reference -->
 <div class="methods-section" id="methodsSection">
@@ -131,10 +149,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 </div>
 
 <!-- Count & Results -->
-<div class="count-label" id="countLabel">Showing all dishes</div>
+<div class="count-label" id="countLabel">Browse or search to find dishes. Tap + to add to your order.</div>
 <div class="dish-grid" id="dishGrid"></div>
-
-<div class="tip-box">💡 <strong>Tip:</strong> Tap any dish to show it to your waiter as a full-screen card. No pronunciation needed.</div>
 
 <div class="footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
@@ -142,14 +158,15 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 </div>
 </div>
 
-<!-- Waiter Card Modal -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="m-title">Show this to your waiter</div>
-    <div class="m-items" id="modalItems"></div>
-    <div class="m-note">Point at the Chinese text. The waiter will understand.</div>
+<!-- Order List Modal -->
+<div class="modal-overlay" id="orderModal" onclick="closeOrderModal(event)">
+  <div class="modal">
+    <div class="m-title" id="orderModalTitle">Your Order</div>
+    <div class="m-items" id="orderModalItems"></div>
+    <div class="m-note">Show this to your waiter. Point at the Chinese text for each dish.</div>
     <div class="modal-actions">
-      <button class="btn btn-primary" onclick="closeModal()">✓ Got it</button>
+      <button class="btn btn-primary" onclick="printOrder()">🖨️ Print / Save PDF</button>
+      <button class="btn btn-outline" onclick="closeOrderModal()">✓ Got it</button>
     </div>
   </div>
 </div>
@@ -341,7 +358,7 @@ const CATEGORIES = [
 ];
 
 let activeCat = 'all';
-let waiterItems = [];
+let myOrder = [];
 
 function init() {
   renderCats();
@@ -366,13 +383,9 @@ function doSearch(q) {
   document.getElementById('clearBtn').classList.toggle('show', query.length > 0);
 
   let filtered = DISHES;
-
-  // Category filter
   if (activeCat !== 'all') {
     filtered = filtered.filter(d => d.cat === activeCat);
   }
-
-  // Text search
   if (query) {
     filtered = filtered.filter(d =>
       d.en.toLowerCase().includes(query) ||
@@ -383,8 +396,7 @@ function doSearch(q) {
 
   const hideMethods = query.length > 0 || activeCat !== 'all';
   document.getElementById('methodsSection').style.display = hideMethods ? 'none' : 'block';
-
-  document.getElementById('countLabel').textContent = `Showing ${filtered.length} dish${filtered.length !== 1 ? 'es' : ''}`;
+  document.getElementById('countLabel').textContent = `${filtered.length} dish${filtered.length !== 1 ? 'es' : ''}`;
   renderDishes(filtered);
 }
 
@@ -396,45 +408,141 @@ function renderDishes(dishes) {
   }
 
   grid.innerHTML = dishes.map((d, i) => {
+    const uniqueId = d.zh + '|' + d.cat;
+    const alreadyAdded = myOrder.some(o => o.id === uniqueId);
     const tags = d.tags || [];
     const badges = tags.map(t => {
-      const map = {spicy:'🌶️ Spicy', veg:'🥬 Vegetarian', nut:'🥜 Nuts', meat:'🥩 Meat', seafood:'🐟 Seafood'};
+      const map = {spicy:'🌶️', veg:'🥬', nut:'🥜', meat:'🥩', seafood:'🐟'};
       return `<span class="badge ${t}">${map[t]||t}</span>`;
     }).join('');
 
-    return `<div class="dish-card" onclick="showWaiter(${i})" data-index="${i}">
+    return `<div class="dish-card">
       <div class="dish-icon">${d.icon||'🍽️'}</div>
       <div class="dish-info">
         <div class="zh">${d.zh}</div>
         <div class="en">${d.en}</div>
         ${d.py ? `<div class="py">${d.py}</div>` : ''}
+        ${badges ? `<div style="margin-top:3px"><div class="dish-badges">${badges}</div></div>` : ''}
       </div>
-      ${badges ? `<div class="dish-badges">${badges}</div>` : ''}
+      <button class="btn-add${alreadyAdded?' added':''}" onclick="toggleOrder('${uniqueId}')" data-id="${uniqueId}" id="btn-${uniqueId}">${alreadyAdded ? '✓' : '+'}</button>
     </div>`;
   });
 
-  // Store data-index mapping for waiter modal
-  window._filteredDishes = dishes;
+  window._currentDishes = dishes;
+  updateOrderBar();
 }
 
-function showWaiter(index) {
-  const d = window._filteredDishes[index];
-  if (!d) return;
+function toggleOrder(id) {
+  const idx = myOrder.findIndex(o => o.id === id);
+  if (idx >= 0) {
+    myOrder.splice(idx, 1);
+  } else {
+    // Find the dish data
+    for (const d of DISHES) {
+      const uid = d.zh + '|' + d.cat;
+      if (uid === id) {
+        myOrder.push({id: uid, zh: d.zh, en: d.en, py: d.py, icon: d.icon});
+        break;
+      }
+    }
+  }
+  // Update all buttons for this dish
+  document.querySelectorAll(`[data-id="${id}"]`).forEach(btn => {
+    const added = myOrder.some(o => o.id === id);
+    btn.textContent = added ? '✓' : '+';
+    btn.classList.toggle('added', added);
+  });
+  updateOrderBar();
+}
 
-  document.getElementById('modalItems').innerHTML = `
-    <div class="m-item">
-      <div class="m-zh">${d.zh}</div>
-      <div class="m-en">${d.en}</div>
-      ${d.py ? `<div class="m-py">${d.py}</div>` : ''}
+function updateOrderBar() {
+  const bar = document.getElementById('orderBar');
+  const count = document.getElementById('orderCount');
+  const showBtn = document.getElementById('showOrderBtn');
+  if (myOrder.length === 0) {
+    bar.classList.remove('show');
+  } else {
+    bar.classList.add('show');
+    count.textContent = `🛒 ${myOrder.length} dish${myOrder.length !== 1 ? 'es' : ''}`;
+  }
+}
+
+function clearOrder() {
+  myOrder = [];
+  document.querySelectorAll('.btn-add').forEach(btn => {
+    btn.textContent = '+';
+    btn.classList.remove('added');
+  });
+  updateOrderBar();
+}
+
+function showOrderList() {
+  const container = document.getElementById('orderModalItems');
+  if (myOrder.length === 0) {
+    container.innerHTML = '<p style="color:#999;padding:20px;font-size:14px;">No dishes selected yet.</p>';
+  } else {
+    container.innerHTML = myOrder.map((o, i) => `
+      <div class="m-item">
+        <div class="m-zh">${o.icon||''} ${o.zh}</div>
+        <div class="m-detail">
+          <div class="m-en">${o.en}</div>
+          ${o.py ? `<div class="m-py">${o.py}</div>` : ''}
+        </div>
+        <button class="m-remove" onclick="removeFromOrder(${i})">✕</button>
+      </div>
+    `).join('');
+  }
+  document.getElementById('orderModal').classList.add('show');
+}
+
+function removeFromOrder(index) {
+  const removed = myOrder.splice(index, 1)[0];
+  if (removed) {
+    // Update all + buttons
+    document.querySelectorAll(`[data-id="${removed.id}"]`).forEach(btn => {
+      btn.textContent = '+';
+      btn.classList.remove('added');
+    });
+  }
+  updateOrderBar();
+  showOrderList(); // Refresh the modal
+}
+
+function closeOrderModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('orderModal').classList.remove('show');
+}
+
+function printOrder() {
+  if (myOrder.length === 0) return;
+  const items = myOrder.map(o =>
+    `<div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px dashed #ddd;">
+      <div style="font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:4px;">${o.icon||''} ${o.zh}</div>
+      <div style="font-size:14px;color:#666;">${o.en}</div>
+      ${o.py ? `<div style="font-size:11px;color:#999;font-style:italic;">${o.py}</div>` : ''}
+    </div>`
+  ).join('');
+
+  const win = window.open('', '', 'width=420,height=700');
+  win.document.write(`<!DOCTYPE html><html><head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>EVENTURUS Order Card</title>
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box;}
+      body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+      .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:32px 24px;max-width:380px;width:100%;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+      .brand{font-size:10px;color:#bbb;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+      .footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}
+    </style>
+  </head><body>
+    <div class="card">
+      <div class="brand">EVENTURUS · MENU TRANSLATOR</div>
+      ${items}
+      <div class="footer">Show this to your waiter. Point at the Chinese.</div>
     </div>
-  `;
-
-  document.getElementById('modalOverlay').classList.add('show');
-}
-
-function closeModal(e) {
-  if (e && e.target !== e.currentTarget && e.target.closest('.modal')) return;
-  document.getElementById('modalOverlay').classList.remove('show');
+  </body></html>`);
+  win.document.close();
+  setTimeout(() => { win.focus(); win.print(); }, 300);
 }
 
 function clearSearch() {
