@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Public Holidays — EVENTURUS</title>
+<meta name="description" content="2026–2027 Chinese public holidays calendar. Date ranges, work compensation days, and travel tips for expats.">
+<style>
+:root{--c-text:#2c2c2c;--c-muted:#888;--c-brand:#6B7F65;--c-bg:#F9F9F9;--c-surface:#fff;--c-border:#E5E5E0;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--c-bg);color:var(--c-text);font-size:16px;line-height:1.6}
+.container{max-width:720px;margin:0 auto;padding:0 20px}
+.brand-bar{padding:24px 0 0;text-align:center}
+.brand-bar .brand{font-size:18px;font-weight:500;letter-spacing:2px;color:var(--c-text);text-decoration:none}
+.brand-bar .brand em{font-style:italic;color:var(--c-brand)}
+.brand-bar .tagline{font-size:12px;color:var(--c-muted);letter-spacing:1px}
+.back-link{display:inline-block;margin:12px 0 0;font-size:13px;color:var(--c-brand);text-decoration:none}
+.back-link:hover{text-decoration:underline}
+.hero{text-align:center;padding:36px 0 20px}
+.hero h1{font-size:28px;font-weight:600;margin-bottom:4px}
+.hero p{font-size:14px;color:var(--c-muted)}
+.tips{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;font-size:14px;line-height:1.7}
+.tips strong{color:var(--c-brand)}
+.holiday-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.h-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:18px 20px;display:flex;gap:16px;align-items:flex-start}
+.h-card.upcoming{border-color:var(--c-brand);border-width:2px;background:#F7FAF4}
+.h-card .h-date{flex-shrink:0;text-align:center;min-width:72px;padding:6px 8px;border-radius:8px;background:var(--c-bg)}
+.h-card .h-date .h-month{font-size:11px;text-transform:uppercase;color:var(--c-muted);letter-spacing:1px}
+.h-card .h-date .h-day{font-size:24px;font-weight:700;color:var(--c-brand);line-height:1}
+.h-card .h-info{flex:1;min-width:0}
+.h-card .h-name{font-size:16px;font-weight:600;margin-bottom:2px}
+.h-card .h-cn{font-size:13px;color:var(--c-muted);margin-bottom:3px}
+.h-card .h-detail{font-size:13px;color:var(--c-muted);line-height:1.5}
+.h-card .h-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-top:4px;font-weight:500}
+.h-tag.upcoming{background:#EAF3DE;color:#3B6D11}
+.h-tag.past{background:#F0F0EE;color:#999}
+.h-tag.major{background:#FFF0E0;color:#A06600}
+.site-footer{text-align:center;padding:40px 0 28px;font-size:12px;color:var(--c-muted)}
+.site-footer a{color:var(--c-brand);text-decoration:none}
+.site-footer .brand-foot{font-style:italic;font-size:14px;color:var(--c-text);letter-spacing:1px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="brand-bar">
+  <a href="index.html" class="brand">EVENT<em>URUS</em></a>
+  <div class="tagline">China, Vetted.</div>
+  <a href="index.html" class="back-link">← All tools</a>
+</div>
+<div class="container">
+<div class="hero">
+  <h1>China Public Holidays</h1>
+  <p>2026–2027 calendar with work compensation days</p>
+</div>
+
+<div class="tips">
+  <strong>Travel tip:</strong> Hotels and trains book out 2–3 weeks before major holidays. For <strong>National Day</strong> and <strong>Spring Festival</strong>, book at least 4 weeks ahead. Holiday weeks also mean surcharges — Plan accordingly.
+</div>
+
+<div class="holiday-list" id="holidayList"></div>
+
+<div class="site-footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div><a href="https://eventurus.cn">eventurus.cn</a></div>
+</div>
+</div>
+
+<script>
+var today = new Date(); today.setHours(0,0,0,0);
+var holidays = [
+  {from:"2026-06-19",to:"2026-06-21",en:"Dragon Boat Festival",cn:"端午节",detail:"Fri–Sun, 3-day weekend. Zongzi season. Many hotels run Dragon Boat packages."},
+  {from:"2026-09-25",to:"2026-09-27",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Fri–Sun, 3-day weekend. Mooncakes, lanterns, and family dinners."},
+  {from:"2026-10-01",to:"2026-10-07",en:"National Day · Golden Week",cn:"国庆节 · 黄金周",detail:"Thu–Wed, 7 days off. Work 26-27 Sep (Sat-Sun) as compensation. The busiest travel week of the year — avoid major tourist sites or go remote.",major:true},
+  {from:"2027-02-15",to:"2027-02-21",en:"Spring Festival · Year of the Goat",cn:"春节 · 羊年",detail:"Mon–Sun, 7 days. Most businesses close for 3-7 days. Book trains/flights by mid-January. The world's largest human migration.",major:true},
+  {from:"2027-04-05",to:"2027-04-07",en:"Qingming Festival",cn:"清明节",detail:"Mon–Wed, 3-day weekend. Tomb-sweeping and spring outings."},
+  {from:"2027-05-01",to:"2027-05-05",en:"Labour Day",cn:"劳动节",detail:"Sat–Wed, 5 days. Work Sat 10 Apr as compensation. Peak domestic travel."},
+  {from:"2027-06-07",to:"2027-06-09",en:"Dragon Boat Festival",cn:"端午节",detail:"Mon–Wed, 3-day weekend."},
+  {from:"2027-09-24",to:"2027-09-26",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Fri–Sun, 3-day weekend."},
+  {from:"2027-10-01",to:"2027-10-07",en:"National Day · Golden Week",cn:"国庆节 · 黄金周",detail:"Fri–Thu, 7 days off. Work 18-19 Sep (Sat-Sun) as compensation.",major:true}
+];
+
+function daysUntil(d){return Math.ceil((new Date(d)-today)/86400000);}
+
+function renderCard(h,i){
+  var fromD = new Date(h.from); var toD = new Date(h.to);
+  var month = fromD.toLocaleString('en',{month:'short'});
+  var day = fromD.getDate();
+  var upcoming = i===0 || (i>0 && daysUntil(holidays[0].from)>0);
+  var cls = '';
+  if(daysUntil(h.from)<=0 && daysUntil(h.to)<0) cls=' past';
+  else if(daysUntil(h.from)<=14 && daysUntil(h.from)>=-1) cls=' upcoming';
+  var tag='';
+  if(cls===' upcoming') tag='<span class="h-tag upcoming">Upcoming</span>';
+  else if(cls===' past') tag='<span class="h-tag past">Past</span>';
+  if(h.major) tag+=' <span class="h-tag major">Major holiday</span>';
+  else if(!h.major) tag+=' <span class="h-tag" style="background:#E6F1FB;color:#185FA5">3-day weekend</span>';
+  var daysLeft = daysUntil(h.from);
+  var extra='';
+  if(daysLeft>0 && daysLeft<=14) extra='<div style="font-size:12px;color:var(--c-brand);margin-top:2px">⏳ '+daysLeft+' days away</div>';
+  return '<div class="h-card'+cls+'"><div class="h-date"><div class="h-month">'+month+'</div><div class="h-day">'+day+'</div></div><div class="h-info"><div class="h-name">'+h.en+'</div><div class="h-cn">'+h.cn+'</div><div class="h-detail">'+h.detail+'</div>'+extra+tag+'</div></div>';
+}
+
+var sorted = holidays.slice().sort(function(a,b){return new Date(a.from)-new Date(b.from);});
+document.getElementById('holidayList').innerHTML=sorted.map(function(h,i){return renderCard(h,i);}).join('');
+</script>
+</body>
+</html>
