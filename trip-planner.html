@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Planner — EVENTURUS</title>
+<meta name="description" content="Plan your China trip in 3 steps. Pick your starting city, how many days, and what you're into. We'll suggest where to go.">
+<style>
+:root{--c-text:#2c2c2c;--c-muted:#888;--c-brand:#6B7F65;--c-bg:#F9F9F9;--c-surface:#fff;--c-border:#E5E5E0;--c-gold:#CBA866;--c-amber:#B8895A;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--c-bg);color:var(--c-text);font-size:16px;line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:0 20px}
+.brand-bar{padding:24px 0 0;text-align:center}
+.brand-bar .brand{font-size:18px;font-weight:500;letter-spacing:2px;color:var(--c-text);text-decoration:none}
+.brand-bar .brand em{font-style:italic;color:var(--c-brand)}
+.brand-bar .tagline{font-size:12px;color:var(--c-muted);letter-spacing:1px}
+.back-link{display:inline-block;margin:12px 0 0;font-size:13px;color:var(--c-brand);text-decoration:none}
+.hero{text-align:center;padding:36px 0 20px}
+.hero h1{font-size:28px;font-weight:600;margin-bottom:4px}
+.hero p{font-size:14px;color:var(--c-muted)}
+.step-container{margin-bottom:28px}
+.step-label{font-size:13px;font-weight:600;color:var(--c-brand);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.step-label .num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:var(--c-brand);color:#fff;font-size:11px;margin-right:6px}
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:10px}
+.city-btn{background:var(--c-surface);border:2px solid var(--c-border);border-radius:var(--radius);padding:12px 8px;text-align:center;font-size:14px;font-weight:500;cursor:pointer;transition:all .15s}
+.city-btn:hover{border-color:var(--c-brand)}
+.city-btn.selected{border-color:var(--c-brand);background:#F0F6EC;color:var(--c-brand);font-weight:600}
+.day-grid{display:flex;gap:8px;flex-wrap:wrap}
+.day-btn{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:10px 20px;font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;min-width:60px;text-align:center}
+.day-btn:hover{border-color:var(--c-brand)}
+.day-btn.selected{border-color:var(--c-brand);background:#F0F6EC;color:var(--c-brand);font-weight:600}
+.tag-grid{display:flex;gap:8px;flex-wrap:wrap}
+.tag-btn{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:8px 16px;font-size:14px;cursor:pointer;transition:all .15s}
+.tag-btn:hover{border-color:var(--c-brand)}
+.tag-btn.selected{border-color:var(--c-brand);background:#F0F6EC;color:var(--c-brand);font-weight:600}
+.plan-btn{display:block;width:100%;padding:14px;background:var(--c-brand);color:#fff;border:none;border-radius:50px;font-size:16px;font-weight:600;cursor:pointer;margin:20px 0 32px;transition:opacity .2s}
+.plan-btn:disabled{opacity:0.4;cursor:not-allowed}
+.results-section{margin-bottom:32px}
+.results-section h2{font-size:18px;font-weight:600;margin-bottom:16px}
+.plan-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:20px;margin-bottom:12px;position:relative}
+.plan-card.best{border-color:var(--c-gold);border-width:2px;background:#FFFDF7}
+.plan-card .badge{position:absolute;top:-1px;right:16px;background:var(--c-gold);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:0 0 6px 6px;text-transform:uppercase;letter-spacing:.5px}
+.plan-card .plan-route{font-size:17px;font-weight:600;margin-bottom:6px}
+.plan-card .plan-route .arrow{color:var(--c-brand);margin:0 6px}
+.plan-card .plan-days{font-size:13px;color:var(--c-muted);margin-bottom:10px}
+.plan-card .plan-why{font-size:14px;line-height:1.6;color:var(--c-text);margin-bottom:12px}
+.plan-card .plan-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--c-muted)}
+.plan-card .plan-meta span{display:flex;align-items:center;gap:4px}
+.plan-card .plan-score{font-size:13px;margin-top:8px}
+.plan-card .plan-score .s-bar{display:inline-block;height:6px;border-radius:3px;margin-right:2px;vertical-align:middle}
+.s-bar.green{background:var(--c-brand);width:48px}
+.s-bar.amber{background:var(--c-amber);width:48px}
+.s-bar.grey{background:#ddd;width:48px}
+.site-footer{text-align:center;padding:40px 0 28px;font-size:12px;color:var(--c-muted)}
+.site-footer a{color:var(--c-brand);text-decoration:none}
+.site-footer .brand-foot{font-style:italic;font-size:14px;color:var(--c-text);letter-spacing:1px;margin-bottom:4px}
+@media(max-width:500px){.city-grid{grid-template-columns:repeat(3,1fr)}.plan-card .plan-meta{flex-direction:column;gap:4px}}
+</style>
+</head>
+<body>
+<div class="brand-bar">
+  <a href="index.html" class="brand">EVENT<em>URUS</em></a>
+  <div class="tagline">China, Vetted.</div>
+  <a href="index.html" class="back-link">← All tools</a>
+</div>
+<div class="container">
+<div class="hero">
+  <h1>Trip Planner</h1>
+  <p>Pick your starting point, how long, and what you're into. We'll suggest a route.</p>
+</div>
+
+<div class="step-container">
+  <div class="step-label"><span class="num">1</span> Where are you starting?</div>
+  <div class="city-grid" id="cityGrid"></div>
+</div>
+
+<div class="step-container">
+  <div class="step-label"><span class="num">2</span> How many days?</div>
+  <div class="day-grid" id="dayGrid"></div>
+</div>
+
+<div class="step-container">
+  <div class="step-label"><span class="num">3</span> What are you into? (pick 1–3)</div>
+  <div class="tag-grid" id="tagGrid"></div>
+</div>
+
+<button class="plan-btn" id="planBtn" disabled>Plan my trip →</button>
+
+<div class="results-section" id="resultsSection"></div>
+
+<div class="site-footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div><a href="https://eventurus.cn">eventurus.cn</a></div>
+</div>
+</div>
+
+<script>
+// === DATA ===
+var cities = [
+  {id:"sh",name:"Shanghai",cn:"上海",region:"east"},
+  {id:"bj",name:"Beijing",cn:"北京",region:"north"},
+  {id:"gz",name:"Guangzhou",cn:"广州",region:"south"},
+  {id:"sz",name:"Shenzhen",cn:"深圳",region:"south"},
+  {id:"hz",name:"Hangzhou",cn:"杭州",region:"east"},
+  {id:"nj",name:"Nanjing",cn:"南京",region:"east"},
+  {id:"cd",name:"Chengdu",cn:"成都",region:"west"},
+  {id:"cq",name:"Chongqing",cn:"重庆",region:"west"},
+];
+
+var interests = [
+  {id:"nature",label:"Nature & Scenery",emoji:"⛰️"},
+  {id:"culture",label:"Culture & History",emoji:"🏯"},
+  {id:"food",label:"Food & Drink",emoji:"🍜"},
+  {id:"wellness",label:"Wellness & Relax",emoji:"♨️"},
+  {id:"family",label:"Family Friendly",emoji:"👨‍👩‍👧"},
+  {id:"adventure",label:"Adventure & Outdoor",emoji:"🥾"},
+];
+
+var destinations = [
+  {id:"hz",name:"Hangzhou",cn:"杭州",scores:{nature:5,culture:4,food:3,wellness:4,family:3,adventure:2},seed:"West Lake, tea plantations, Lingyin Temple. Row a boat at sunrise, cycle the causeway, eat at a farm-to-table restaurant hidden in Longjing village.",time:{sh:"1h HSR",bj:"5h HSR",gz:"7h HSR",sz:"7h HSR",hz:"—",nj:"1.5h HSR",cd:"11h HSR",cq:"11h HSR"},cost:"¥400–1,200/night"},
+  {id:"nj",name:"Nanjing",cn:"南京",scores:{nature:3,culture:5,food:4,wellness:3,family:4,adventure:2},seed:"Ming dynasty walls, Dr Sun Yat-sen's mausoleum, duck blood soup. Purple Mountain in autumn is unbeatable. The Presidential Palace tells China's modern history in one walk.",time:{sh:"1.5h HSR",bj:"3.5h HSR",gz:"7h HSR",sz:"7h HSR",hz:"1.5h HSR",nj:"—",cd:"10h HSR",cq:"10h HSR"},cost:"¥300–1,000/night"},
+  {id:"suzhou",name:"Suzhou",cn:"苏州",scores:{nature:3,culture:5,food:3,wellness:4,family:3,adventure:2},seed:"Classical gardens, silk workshops, canal towns. The Humble Administrator's Garden is worth the hype. Tongli water town is 40min away and half the tourists of Zhouzhuang.",time:{sh:"30min HSR",bj:"4.5h HSR",gz:"8h HSR",sz:"8h HSR",hz:"1.5h HSR",nj:"1h HSR",cd:"12h HSR",cq:"12h HSR"},cost:"¥300–1,500/night"},
+  {id:"anji",name:"Anji",cn:"安吉",scores:{nature:5,culture:2,food:2,wellness:5,family:4,adventure:4},seed:"Bamboo Sea, mountain streams, outdoor pools. Two hours from Shanghai. Rafting in summer, private hot spring villa in winter. Dog-friendly resorts are the norm here.",time:{sh:"2.5h drive",bj:"—",gz:"—",sz:"—",hz:"1.5h drive",nj:"3h drive",cd:"—",cq:"—"},cost:"¥400–2,000/night"},
+  {id:"moganshan",name:"Moganshan",cn:"莫干山",scores:{nature:5,culture:3,food:3,wellness:5,family:4,adventure:3},seed:"Bamboo-covered hills, boutique villas, infinity pools. The original Chinese countryside escape for Shanghai expats. Go mid-week to avoid the crowds and get the upgrade.",time:{sh:"2.5h drive",bj:"—",gz:"—",sz:"—",hz:"1h drive",nj:"2h drive",cd:"—",cq:"—"},cost:"¥600–2,500/night"},
+  {id:"bjs",name:"Beijing",cn:"北京",scores:{nature:2,culture:5,food:4,wellness:2,family:4,adventure:2},seed:"Forbidden City, Great Wall (Mutianyu, not Badaling), hutong food walks. Book Forbidden City tickets 7 days ahead. The best Peking duck is at a courtyard restaurant with no English menu.",time:{sh:"4.5h HSR",bj:"—",gz:"8h HSR",sz:"8.5h HSR",hz:"5h HSR",nj:"3.5h HSR",cd:"10h HSR",cq:"11h HSR"},cost:"¥400–2,000/night"},
+  {id:"cd",name:"Chengdu",cn:"成都",scores:{nature:3,culture:4,food:5,wellness:3,family:3,adventure:3},seed:"Pandas, hotpot, teahouses. The Panda Base is a morning trip. Jinli at night for street food. Spend an afternoon doing nothing at a riverside teahouse — that's the real Chengdu.",time:{sh:"12h HSR (fly 3h)",bj:"10h HSR (fly 2.5h)",gz:"9h HSR",sz:"8h HSR",hz:"11h HSR",nj:"10h HSR",cd:"—",cq:"1.5h HSR"},cost:"¥200–1,200/night"},
+  {id:"cq",name:"Chongqing",cn:"重庆",scores:{nature:3,culture:4,food:5,wellness:2,family:2,adventure:3},seed:"The 8D city. Hotpot so spicy it resets your taste buds. Hongyadong at night looks like Spirited Away. Ride the light rail through a building in Liziba. Three days is the sweet spot.",time:{sh:"11h HSR (fly 2.5h)",bj:"11h HSR (fly 2.5h)",gz:"7h HSR",sz:"7h HSR",hz:"11h HSR",nj:"10h HSR",cd:"1.5h HSR",cq:"—"},cost:"¥150–800/night"},
+  {id:"guilin",name:"Guilin & Yangshuo",cn:"桂林阳朔",scores:{nature:5,culture:3,food:3,wellness:4,family:4,adventure:5},seed:"Karst peaks, Li River, cycling through rice paddies. Rent a bike in Yangshuo, get lost on purpose. The bamboo raft from Xingping to Nine Horse Hill is the Instagram shot you came for.",time:{sh:"9h HSR",bj:"10h HSR",gz:"2.5h HSR",sz:"3h HSR",hz:"8h HSR",nj:"9h HSR",cd:"7h HSR",cq:"5h HSR"},cost:"¥200–1,000/night"},
+  {id:"dali",name:"Dali",cn:"大理",scores:{nature:5,culture:4,food:3,wellness:5,family:3,adventure:4},seed:"Erhai Lake, Cangshan Mountain, old-town slow living. Rent an e-scooter and circle the lake. The morning market sells wild mushrooms in season. A place that rewards staying longer than you planned.",time:{sh:"fly 3.5h",bj:"fly 4h",gz:"fly 2.5h",sz:"fly 2.5h",hz:"fly 3h",nj:"fly 3.5h",cd:"fly 1.5h",cq:"fly 1.5h"},cost:"¥200–1,500/night"},
+  {id:"lijiang",name:"Lijiang & Tiger Leaping Gorge",cn:"丽江虎跳峡",scores:{nature:5,culture:4,food:3,wellness:3,family:2,adventure:5},seed:"UNESCO old town, Jade Dragon Snow Mountain, the world's deepest gorge. The Tiger Leaping Gorge hike is 2 days, jaw-dropping, and achievable for anyone reasonably fit. Go in April or October.",time:{sh:"fly 4h",bj:"fly 4h",gz:"fly 3h",sz:"fly 3h",hz:"fly 3.5h",nj:"fly 4h",cd:"fly 1.5h",cq:"fly 1.5h"},cost:"¥200–1,200/night"},
+  {id:"huangshan",name:"Huangshan & Hongcun",cn:"黄山宏村",scores:{nature:5,culture:4,food:2,wellness:3,family:3,adventure:4},seed:"Yellow Mountain at sunrise. Hongcun — the water village that inspired Crouching Tiger. Stay at a restored grain store turned boutique hotel. The mountain demands an early start; the reward is mist and granite.",time:{sh:"3h HSR",bj:"6h HSR",gz:"7h HSR",sz:"7h HSR",hz:"2h HSR",nj:"3h HSR",cd:"10h HSR",cq:"10h HSR"},cost:"¥300–1,500/night"},
+  {id:"xian",name:"Xi'an",cn:"西安",scores:{nature:2,culture:5,food:4,wellness:2,family:4,adventure:2},seed:"Terracotta Warriors, Muslim Quarter, city walls. Cycle the 14km wall at dusk. The Muslim Quarter is touristy but the lamb skewers are worth it. Two full days covers the hits.",time:{sh:"6h HSR (fly 2h)",bj:"5h HSR",gz:"8h HSR",sz:"9h HSR",hz:"7h HSR",nj:"5h HSR",cd:"4h HSR",cq:"5h HSR"},cost:"¥250–1,200/night"},
+  {id:"wuyishan",name:"Wuyishan",cn:"武夷山",scores:{nature:5,culture:4,food:3,wellness:5,family:3,adventure:4},seed:"UNESCO rock-tea mountains, river rafting, tea ceremonies. The hiking trails wind through Danxia formations. Stay at a tea estate and learn why da hong pao costs more than gold by weight.",time:{sh:"3h HSR",bj:"8h HSR",gz:"6h HSR",sz:"6h HSR",hz:"2.5h HSR",nj:"4h HSR",cd:"10h HSR",cq:"9h HSR"},cost:"¥300–1,500/night"},
+  {id:"sanya",name:"Sanya",cn:"三亚",scores:{nature:3,culture:1,food:2,wellness:4,family:5,adventure:3},seed:"China's Hawaii. Yalong Bay for swimming, Wuzhizhou for diving, duty-free shopping at Haitang Bay. Summer is half the price and half the crowd. The Pullman gives you a private pool villa at ¥999/2 nights.",time:{sh:"fly 3h",bj:"fly 4h",gz:"fly 1.5h",sz:"fly 1.5h",hz:"fly 3h",nj:"fly 3h",cd:"fly 2.5h",cq:"fly 2h"},cost:"¥300–2,500/night"},
+  {id:"xiamen",name:"Xiamen & Gulangyu",cn:"厦门鼓浪屿",scores:{nature:3,culture:3,food:4,wellness:3,family:3,adventure:2},seed:"Colonial architecture, seafood alleys, a car-free island. Gulangyu is a UNESCO piano island with European mansions. Eat satay noodles in the old town, walk the boardwalk at sunset.",time:{sh:"fly 1.5h (6h HSR)",bj:"fly 3h",gz:"fly 1h (5h HSR)",sz:"3h HSR",hz:"5h HSR",nj:"6h HSR",cd:"fly 2.5h",cq:"fly 2h"},cost:"¥300–1,200/night"},
+  {id:"zhangjiajie",name:"Zhangjiajie",cn:"张家界",scores:{nature:5,culture:2,food:2,wellness:2,family:3,adventure:5},seed:"Avatar mountains. The glass bridge. The Bailong elevator through a cliff face. This is nature showing off. Go in April or September to avoid the crowds. Tianmen Mountain in mist is a religious experience.",time:{sh:"fly 2h",bj:"fly 2.5h",gz:"fly 1.5h (6h HSR)",sz:"fly 1.5h (5h HSR)",hz:"fly 2h",nj:"fly 2h",cd:"fly 1.5h",cq:"fly 1h"},cost:"¥200–1,000/night"},
+];
+
+// === STATE ===
+var selCity=null, selDays=null, selTags=[];
+
+// === RENDER ===
+function renderCities(){
+  var html='';
+  cities.forEach(function(c){
+    html+='<div class="city-btn'+(selCity===c.id?' selected':'')+'" onclick="selectCity(\''+c.id+'\')">'+c.name+'<br><span style="font-size:11px;color:var(--c-muted)">'+c.cn+'</span></div>';
+  });
+  document.getElementById('cityGrid').innerHTML=html;
+}
+
+function renderDays(){
+  var html='';
+  for(var i=2;i<=7;i++){html+='<div class="day-btn'+(selDays===i?' selected':'')+'" onclick="selectDays('+i+')">'+i+' days</div>';}
+  document.getElementById('dayGrid').innerHTML=html;
+}
+
+function renderTags(){
+  var html='';
+  interests.forEach(function(t){
+    html+='<div class="tag-btn'+(selTags.indexOf(t.id)>=0?' selected':'')+'" onclick="selectTag(\''+t.id+'\')">'+t.emoji+' '+t.label+'</div>';
+  });
+  document.getElementById('tagGrid').innerHTML=html;
+}
+
+function selectCity(id){selCity=selCity===id?null:id;renderCities();checkReady();}
+function selectDays(n){selDays=selDays===n?null:n;renderDays();checkReady();}
+function selectTag(id){
+  var idx=selTags.indexOf(id);
+  if(idx>=0){selTags.splice(idx,1);}
+  else if(selTags.length<3){selTags.push(id);}
+  renderTags();checkReady();
+}
+
+function checkReady(){
+  var btn=document.getElementById('planBtn');
+  btn.disabled=!(selCity&&selDays&&selTags.length>0);
+}
+
+// === SCORE & PLAN ===
+function scoreDest(d,tags){
+  var total=0; tags.forEach(function(t){total+=d.scores[t]||0;});
+  var max=tags.length*5;
+  return Math.round(total/max*100);
+}
+
+function getTime(d,cityId){return d.time[cityId]||'—';}
+
+function plan(){
+  var rs=document.getElementById('resultsSection');
+  var tags=selTags, days=selDays, from=selCity;
+  if(!from||!days||!tags.length){rs.innerHTML='';return;}
+
+  // Score all destinations, exclude starting city
+  var scored=[];
+  destinations.forEach(function(d){
+    if(d.id===from)return;
+    var s=scoreDest(d,tags);
+    var time=getTime(d,from);
+    if(time==='—')return;
+    scored.push({d:d,score:s,time:time});
+  });
+  scored.sort(function(a,b){return b.score-a.score;});
+
+  // Build plans based on days
+  var plans=[];
+  if(days<=2){
+    // Single destination for short trips
+    plans=scored.slice(0,4).map(function(item,i){
+      return{route:[item.d],score:item.score,highlight:item.time,type:i===0?'best':''};
+    });
+  }else if(days<=4){
+    // Pairs for medium trips
+    var topDests=scored.slice(0,5);
+    for(var i=0;i<Math.min(topDests.length-1,6);i++){
+      for(var j=i+1;j<Math.min(topDests.length,6);j++){
+        var a=topDests[i],b=topDests[j];
+        var tt=getTime(b.d,a.d.id);
+        if(tt==='—')continue;
+        var avgScore=Math.round((a.score+b.score)/2);
+        plans.push({route:[a.d,b.d],score:avgScore,highlight:a.time+' → '+b.d.name+' ('+tt+')',type:''});
+      }
+    }
+    plans.sort(function(a,b){return b.score-a.score;});
+    plans=plans.slice(0,4);
+    if(plans.length>0)plans[0].type='best';
+  }else{
+    // 3-destination loop for longer trips
+    var topDests=scored.slice(0,4);
+    for(var i=0;i<topDests.length;i++){
+      for(var j=i+1;j<topDests.length;j++){
+        for(var k=j+1;k<topDests.length;k++){
+          var a=topDests[i],b=topDests[j],c=topDests[k];
+          var t1=getTime(b.d,a.d.id),t2=getTime(c.d,b.d.id);
+          if(t1==='—'||t2==='—')continue;
+          var avgScore=Math.round((a.score+b.score+c.score)/3);
+          plans.push({route:[a.d,b.d,c.d],score:avgScore,highlight:a.time+' → '+b.d.name+' ('+t1+') → '+c.d.name+' ('+t2+')',type:''});
+        }
+      }
+    }
+    plans.sort(function(a,b){return b.score-a.score;});
+    plans=plans.slice(0,4);
+    if(plans.length>0)plans[0].type='best';
+  }
+
+  if(plans.length===0){rs.innerHTML='<p style="color:var(--c-muted);text-align:center;padding:20px">No routes found for this combination. Try different interests or a shorter trip.</p>';return;}
+
+  var fromCity=cities.find(function(c){return c.id===from;})||{name:' Shanghai'};
+  var html='<h2>Top Routes from '+fromCity.name+' ('+days+' days)</h2>';
+  plans.forEach(function(p){
+    var routeNames=p.route.map(function(d){return '<span class="place-name" style="color:var(--c-brand);font-weight:600">'+d.name+'</span>';}).join(' <span class="arrow">→</span> ');
+    var daysEach=Math.floor(days/p.route.length);
+    var why=p.route.map(function(d){return d.seed;}).join(' ');
+    var tagsUsed=tags.map(function(t){var fi=interests.find(function(tt){return tt.id===t;});return fi?fi.label:t;}).join(', ');
+    html+='<div class="plan-card'+p.type+'">';
+    if(p.type==='best')html+='<div class="badge">Best match</div>';
+    html+='<div class="plan-route">'+routeNames+'</div>';
+    html+='<div class="plan-days">~'+daysEach+' day'+(daysEach>1?'s':'')+' each &middot; '+tagsUsed+'</div>';
+    html+='<div class="plan-why">'+why+'</div>';
+    html+='<div class="plan-meta"><span>🚄 '+p.highlight+'</span><span>🏨 '+p.route[0].cost+'</span></div>';
+    html+='<div class="plan-score">Match: <span class="s-bar green"></span>'+(p.score>=80?'<span class="s-bar green"></span>':'<span class="s-bar grey"></span>')+(p.score>=90?'<span class="s-bar green"></span>':'<span class="s-bar grey"></span>')+' '+p.score+'%</div>';
+    html+='</div>';
+  });
+  rs.innerHTML=html;
+  rs.scrollIntoView({behavior:'smooth'});
+}
+
+document.getElementById('planBtn').onclick=plan;
+renderCities();renderDays();renderTags();
+</script>
+</body>
+</html>
