@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eventurus.github.io/eventurus-tools/sitemap.xml
+Sitemap: https://eventurus.cn/sitemap.xml
