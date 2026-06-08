@@ -493,6 +493,16 @@ body {
 /* Dark mode */
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-muted: #a0a0a0;
+    --color-border: #333;
+    --color-highlight: #2a2a2a;
+    --color-brand-light: #3a5a3a;
+  }
   img { opacity: 0.85; }
 }
 </style>
@@ -540,7 +550,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 <div class="brand-bar">
   <a href="/" class="brand">EVENT<em>URUS</em></a>
-  <div class="tagline">China, Vetted.</div>
+  <div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
 </div>
 
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
@@ -638,25 +648,451 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <div>China, Vetted. &mdash; <a href="https://eventurus.cn">eventurus.cn</a></div>
 </div>
 
+<script>
+// ============================================================
+// CITY DATA
+// ============================================================
+const CITIES = [
+  { name: 'Beijing', cn: '北京', lat: 39.90, lng: 116.40 },
+  { name: 'Changchun', cn: '长春', lat: 43.88, lng: 125.32 },
+  { name: 'Changsha', cn: '长沙', lat: 28.20, lng: 112.96 },
+  { name: 'Chengdu', cn: '成都', lat: 30.57, lng: 104.07 },
+  { name: 'Chongqing', cn: '重庆', lat: 29.56, lng: 106.55 },
+  { name: 'Dalian', cn: '大连', lat: 38.91, lng: 121.62 },
+  { name: 'Fuzhou', cn: '福州', lat: 26.07, lng: 119.30 },
+  { name: 'Guangzhou', cn: '广州', lat: 23.13, lng: 113.26 },
+  { name: 'Guilin', cn: '桂林', lat: 25.27, lng: 110.29 },
+  { name: 'Guiyang', cn: '贵阳', lat: 26.65, lng: 106.63 },
+  { name: 'Hangzhou', cn: '杭州', lat: 30.27, lng: 120.15 },
+  { name: 'Harbin', cn: '哈尔滨', lat: 45.75, lng: 126.64 },
+  { name: 'Jinan', cn: '济南', lat: 36.65, lng: 116.99 },
+  { name: 'Kunming', cn: '昆明', lat: 25.04, lng: 102.69 },
+  { name: 'Lanzhou', cn: '兰州', lat: 36.06, lng: 103.82 },
+  { name: 'Lhasa', cn: '拉萨', lat: 29.65, lng: 91.17 },
+  { name: 'Lijiang', cn: '丽江', lat: 26.87, lng: 100.23 },
+  { name: 'Nanjing', cn: '南京', lat: 32.06, lng: 118.78 },
+  { name: 'Qingdao', cn: '青岛', lat: 36.07, lng: 120.38 },
+  { name: 'Sanya', cn: '三亚', lat: 18.25, lng: 109.51 },
+  { name: 'Shanghai', cn: '上海', lat: 31.23, lng: 121.47 },
+  { name: 'Shenzhen', cn: '深圳', lat: 22.54, lng: 114.06 },
+  { name: 'Suzhou', cn: '苏州', lat: 31.30, lng: 120.60 },
+  { name: 'Tianjin', cn: '天津', lat: 39.13, lng: 117.20 },
+  { name: 'Ürümqi', cn: '乌鲁木齐', lat: 43.82, lng: 87.62 },
+  { name: 'Wuhan', cn: '武汉', lat: 30.58, lng: 114.27 },
+  { name: "Xi'an", cn: '西安', lat: 34.27, lng: 108.94 },
+  { name: 'Xiamen', cn: '厦门', lat: 24.48, lng: 118.09 },
+  { name: 'Zhangjiajie', cn: '张家界', lat: 29.35, lng: 110.48 },
+  { name: 'Zhengzhou', cn: '郑州', lat: 34.75, lng: 113.63 }
+];
+const cityMap = {};
+CITIES.forEach(c => cityMap[c.name] = c);
 
+// Hubs for grid view (cities with the most data)
+const HUBS = ['Shanghai','Beijing','Guangzhou','Chengdu'];
+
+// ============================================================
+// TRANSIT DATA — key routes (manually verified)
+// Format: { from_to: { hsrTime, hsrPrice, fltTime, fltPrice, dist, recommend } }
+//   hsrTime: string, "4h30m"
+//   hsrPrice: "¥558" or null if no HSR
+//   fltTime: string
+//   fltPrice: string like "¥800-1,200"
+//   dist: number (km)
+//   recommend: 'train' | 'flight' | null
+// ============================================================
+const ROUTES = {};
+
+function addRoute(from, to, data) {
+  ROUTES[from+'_'+to] = data;
+  // Reverse route: swap times, keep prices (approximate)
+  const r = from+'_'+to;
+  const rev = to+'_'+from;
+  if (!ROUTES[rev]) {
+    ROUTES[rev] = {
+      hsrTime: data.hsrTime,
+      hsrPrice: data.hsrPrice,
+      fltTime: data.fltTime,
+      fltPrice: data.fltPrice,
+      dist: data.dist,
+      recommend: data.recommend
+    };
+  }
+}
+
+// Shanghai routes
+addRoute('Shanghai','Beijing', { hsrTime:'4h30m', hsrPrice:'¥598–800', fltTime:'2h20m', fltPrice:'¥800-1,200', dist:1318, recommend:'train' });
+addRoute('Shanghai','Nanjing', { hsrTime:'1h05m', hsrPrice:'¥135', fltTime:null, fltPrice:null, dist:295, recommend:'train' });
+addRoute('Shanghai','Hangzhou', { hsrTime:'45m', hsrPrice:'¥73', fltTime:null, fltPrice:null, dist:165, recommend:'train' });
+addRoute('Shanghai','Suzhou', { hsrTime:'30m', hsrPrice:'¥40', fltTime:null, fltPrice:null, dist:100, recommend:'train' });
+addRoute('Shanghai','Guangzhou', { hsrTime:'6h50m', hsrPrice:'¥793', fltTime:'2h30m', fltPrice:'¥600-1,000', dist:1500, recommend:'flight' });
+addRoute('Shanghai','Shenzhen', { hsrTime:'7h30m', hsrPrice:'¥820', fltTime:'2h30m', fltPrice:'¥600-1,100', dist:1500, recommend:'flight' });
+addRoute('Shanghai','Chengdu', { hsrTime:'10h30m', hsrPrice:'¥1,000', fltTime:'3h00m', fltPrice:'¥700-1,300', dist:1980, recommend:'flight' });
+addRoute('Shanghai','Xi\'an', { hsrTime:'5h30m', hsrPrice:'¥670', fltTime:'2h30m', fltPrice:'¥600-1,100', dist:1370, recommend:'train' });
+addRoute('Shanghai','Wuhan', { hsrTime:'4h30m', hsrPrice:'¥520', fltTime:'1h50m', fltPrice:'¥500-800', dist:839, recommend:'train' });
+addRoute('Shanghai','Changsha', { hsrTime:'5h00m', hsrPrice:'¥550', fltTime:'2h00m', fltPrice:'¥500-900', dist:1050, recommend:'train' });
+addRoute('Shanghai','Kunming', { hsrTime:'9h35m', hsrPrice:'¥1,150', fltTime:'3h30m', fltPrice:'¥600-1,200', dist:2100, recommend:'flight' });
+addRoute('Shanghai','Guilin', { hsrTime:'9h00m', hsrPrice:'¥800', fltTime:'2h30m', fltPrice:'¥500-900', dist:1500, recommend:'flight' });
+addRoute('Shanghai','Qingdao', { hsrTime:'5h00m', hsrPrice:'¥550', fltTime:'1h30m', fltPrice:'¥400-800', dist:814, recommend:'flight' });
+addRoute('Shanghai','Xiamen', { hsrTime:'7h00m', hsrPrice:'¥630', fltTime:'1h50m', fltPrice:'¥500-900', dist:1100, recommend:'flight' });
+addRoute('Shanghai','Harbin', { hsrTime:'10h30m', hsrPrice:'¥1,100', fltTime:'3h00m', fltPrice:'¥600-1,200', dist:2300, recommend:'flight' });
+addRoute('Shanghai','Chongqing', { hsrTime:'9h00m', hsrPrice:'¥950', fltTime:'2h45m', fltPrice:'¥500-1,100', dist:1900, recommend:'flight' });
+addRoute('Shanghai','Lhasa', { hsrTime:'—', hsrPrice:null, fltTime:'4h30m', fltPrice:'¥1,500-2,500', dist:2900, recommend:'flight' });
+
+// Beijing routes
+addRoute('Beijing','Nanjing', { hsrTime:'3h20m', hsrPrice:'¥445', fltTime:'2h00m', fltPrice:'¥500-900', dist:1020, recommend:'train' });
+addRoute('Beijing','Hangzhou', { hsrTime:'4h30m', hsrPrice:'¥540', fltTime:'2h15m', fltPrice:'¥500-1,000', dist:1280, recommend:'train' });
+addRoute('Beijing','Xi\'an', { hsrTime:'4h20m', hsrPrice:'¥515', fltTime:'2h10m', fltPrice:'¥500-1,000', dist:920, recommend:'train' });
+addRoute('Beijing','Guangzhou', { hsrTime:'8h00m', hsrPrice:'¥960', fltTime:'3h00m', fltPrice:'¥600-1,300', dist:2100, recommend:'flight' });
+addRoute('Beijing','Shenzhen', { hsrTime:'9h00m', hsrPrice:'¥1,050', fltTime:'3h00m', fltPrice:'¥600-1,300', dist:2100, recommend:'flight' });
+addRoute('Beijing','Chengdu', { hsrTime:'7h30m', hsrPrice:'¥780', fltTime:'2h50m', fltPrice:'¥600-1,200', dist:1800, recommend:'flight' });
+addRoute('Beijing','Wuhan', { hsrTime:'4h00m', hsrPrice:'¥520', fltTime:'2h15m', fltPrice:'¥500-900', dist:1200, recommend:'train' });
+addRoute('Beijing','Changsha', { hsrTime:'5h30m', hsrPrice:'¥650', fltTime:'2h30m', fltPrice:'¥500-1,000', dist:1500, recommend:'flight' });
+addRoute('Beijing','Harbin', { hsrTime:'5h00m', hsrPrice:'¥540', fltTime:'2h00m', fltPrice:'¥400-900', dist:1280, recommend:'train' });
+addRoute('Beijing','Qingdao', { hsrTime:'3h00m', hsrPrice:'¥315', fltTime:'1h30m', fltPrice:'¥400-800', dist:670, recommend:'train' });
+addRoute('Beijing','Kunming', { hsrTime:'10h30m', hsrPrice:'¥1,200', fltTime:'3h30m', fltPrice:'¥700-1,400', dist:2600, recommend:'flight' });
+addRoute('Beijing','Guilin', { hsrTime:'8h30m', hsrPrice:'¥950', fltTime:'3h00m', fltPrice:'¥600-1,100', dist:2100, recommend:'flight' });
+addRoute('Beijing','Xiamen', { hsrTime:'9h00m', hsrPrice:'¥1,000', fltTime:'3h00m', fltPrice:'¥600-1,200', dist:2100, recommend:'flight' });
+addRoute('Beijing','Lhasa', { hsrTime:'—', hsrPrice:null, fltTime:'4h00m', fltPrice:'¥1,500-3,000', dist:2600, recommend:'flight' });
+addRoute('Beijing','Chongqing', { hsrTime:'9h00m', hsrPrice:'¥950', fltTime:'2h45m', fltPrice:'¥600-1,200', dist:1900, recommend:'flight' });
+addRoute('Beijing','Suzhou', { hsrTime:'4h30m', hsrPrice:'¥520', fltTime:null, fltPrice:null, dist:1100, recommend:'train' });
+
+// Guangzhou routes
+addRoute('Guangzhou','Shenzhen', { hsrTime:'30m', hsrPrice:'¥75', fltTime:null, fltPrice:null, dist:140, recommend:'train' });
+addRoute('Guangzhou','Guilin', { hsrTime:'2h30m', hsrPrice:'¥310', fltTime:'1h10m', fltPrice:'¥400-700', dist:480, recommend:'train' });
+addRoute('Guangzhou','Changsha', { hsrTime:'2h30m', hsrPrice:'¥315', fltTime:'1h30m', fltPrice:'¥400-800', dist:650, recommend:'train' });
+addRoute('Guangzhou','Wuhan', { hsrTime:'3h30m', hsrPrice:'¥465', fltTime:'2h00m', fltPrice:'¥500-900', dist:1000, recommend:'train' });
+addRoute('Guangzhou','Chengdu', { hsrTime:'8h00m', hsrPrice:'¥820', fltTime:'2h30m', fltPrice:'¥500-1,000', dist:1500, recommend:'flight' });
+addRoute('Guangzhou','Kunming', { hsrTime:'6h30m', hsrPrice:'¥660', fltTime:'2h20m', fltPrice:'¥500-1,000', dist:1300, recommend:'train' });
+addRoute('Guangzhou','Xiamen', { hsrTime:'3h30m', hsrPrice:'¥370', fltTime:'1h30m', fltPrice:'¥400-800', dist:550, recommend:'train' });
+addRoute('Guangzhou','Nanjing', { hsrTime:'6h00m', hsrPrice:'¥700', fltTime:'2h40m', fltPrice:'¥500-900', dist:1300, recommend:'flight' });
+addRoute('Guangzhou','Hangzhou', { hsrTime:'6h00m', hsrPrice:'¥680', fltTime:'2h10m', fltPrice:'¥500-900', dist:1200, recommend:'flight' });
+
+// Chengdu routes
+addRoute('Chengdu','Chongqing', { hsrTime:'1h30m', hsrPrice:'¥155', fltTime:null, fltPrice:null, dist:280, recommend:'train' });
+addRoute('Chengdu','Xi\'an', { hsrTime:'3h30m', hsrPrice:'¥440', fltTime:'1h30m', fltPrice:'¥400-800', dist:700, recommend:'train' });
+addRoute('Chengdu','Kunming', { hsrTime:'4h30m', hsrPrice:'¥480', fltTime:'1h20m', fltPrice:'¥400-800', dist:800, recommend:'train' });
+addRoute('Chengdu','Lhasa', { hsrTime:'—', hsrPrice:null, fltTime:'2h20m', fltPrice:'¥800-1,800', dist:1300, recommend:'flight' });
+addRoute('Chengdu','Lijiang', { hsrTime:'—', hsrPrice:null, fltTime:'1h15m', fltPrice:'¥400-900', dist:500, recommend:'flight' });
+addRoute('Chengdu','Zhangjiajie', { hsrTime:'—', hsrPrice:null, fltTime:'1h40m', fltPrice:'¥400-800', dist:600, recommend:'flight' });
+addRoute('Chengdu','Guangzhou', { hsrTime:'8h00m', hsrPrice:'¥820', fltTime:'2h20m', fltPrice:'¥500-1,000', dist:1500, recommend:'flight' });
+addRoute('Chengdu','Wuhan', { hsrTime:'7h00m', hsrPrice:'¥750', fltTime:'2h10m', fltPrice:'¥500-900', dist:1130, recommend:'flight' });
+addRoute('Chengdu','Changsha', { hsrTime:'6h30m', hsrPrice:'¥680', fltTime:'2h00m', fltPrice:'¥400-800', dist:1000, recommend:'flight' });
+
+// Other key routes
+addRoute('Nanjing','Hangzhou', { hsrTime:'1h00m', hsrPrice:'¥115', fltTime:null, fltPrice:null, dist:240, recommend:'train' });
+addRoute('Nanjing','Suzhou', { hsrTime:'30m', hsrPrice:'¥50', fltTime:null, fltPrice:null, dist:85, recommend:'train' });
+addRoute('Nanjing','Wuhan', { hsrTime:'3h00m', hsrPrice:'¥350', fltTime:'1h30m', fltPrice:'¥400-700', dist:600, recommend:'train' });
+addRoute('Wuhan','Changsha', { hsrTime:'1h30m', hsrPrice:'¥200', fltTime:null, fltPrice:null, dist:350, recommend:'train' });
+addRoute('Xi\'an','Wuhan', { hsrTime:'4h00m', hsrPrice:'¥500', fltTime:'1h40m', fltPrice:'¥400-800', dist:750, recommend:'train' });
+addRoute('Xi\'an','Chongqing', { hsrTime:'5h00m', hsrPrice:'¥550', fltTime:'1h30m', fltPrice:'¥400-800', dist:650, recommend:'flight' });
+addRoute('Xi\'an','Guilin', { hsrTime:'6h00m', hsrPrice:'¥600', fltTime:'2h00m', fltPrice:'¥500-900', dist:1200, recommend:'flight' });
+addRoute('Kunming','Lijiang', { hsrTime:'3h00m', hsrPrice:'¥230', fltTime:'1h00m', fltPrice:'¥300-600', dist:500, recommend:'train' });
+addRoute('Kunming','Guilin', { hsrTime:'4h00m', hsrPrice:'¥450', fltTime:'1h30m', fltPrice:'¥400-700', dist:800, recommend:'train' });
+addRoute('Guilin','Zhangjiajie', { hsrTime:'5h00m', hsrPrice:'¥500', fltTime:null, fltPrice:null, dist:500, recommend:'train' });
+addRoute('Hangzhou','Xiamen', { hsrTime:'5h00m', hsrPrice:'¥550', fltTime:'1h45m', fltPrice:'¥500-900', dist:850, recommend:'flight' });
+addRoute('Qingdao','Beijing', { hsrTime:'3h00m', hsrPrice:'¥315', fltTime:'1h30m', fltPrice:'¥400-800', dist:670, recommend:'train' });
+addRoute('Chongqing','Guilin', { hsrTime:'4h30m', hsrPrice:'¥450', fltTime:'1h30m', fltPrice:'¥400-700', dist:560, recommend:'train' });
+addRoute('Chongqing','Xi\'an', { hsrTime:'5h00m', hsrPrice:'¥550', fltTime:'1h30m', fltPrice:'¥400-800', dist:650, recommend:'flight' });
+
+// Dalian routes
+addRoute('Dalian','Beijing', { hsrTime:'4h30m', hsrPrice:'¥261', fltTime:'1h20m', fltPrice:'¥400-900', dist:460, recommend:'flight' });
+addRoute('Dalian','Shanghai', { hsrTime:'10h', hsrPrice:'¥612', fltTime:'1h50m', fltPrice:'¥500-1,100', dist:1060, recommend:'flight' });
+addRoute('Dalian','Guangzhou', { hsrTime:'12h', hsrPrice:'¥872', fltTime:'3h20m', fltPrice:'¥700-1,500', dist:2400, recommend:'flight' });
+addRoute('Dalian','Chengdu', { hsrTime:'11h', hsrPrice:'¥776', fltTime:'3h', fltPrice:'¥600-1,300', dist:2200, recommend:'flight' });
+addRoute('Dalian','Harbin', { hsrTime:'4h30m', hsrPrice:'¥244', fltTime:'1h10m', fltPrice:'¥300-800', dist:660, recommend:'flight' });
+addRoute('Dalian','Zhengzhou', { hsrTime:'7h', hsrPrice:'¥448', fltTime:'1h50m', fltPrice:'¥400-1,000', dist:1300, recommend:'flight' });
+addRoute('Dalian','Qingdao', { hsrTime:'4h', hsrPrice:'¥240', fltTime:'1h10m', fltPrice:'¥300-600', dist:500, recommend:'train' });
+
+// Tianjin routes
+addRoute('Tianjin','Beijing', { hsrTime:'30m', hsrPrice:'¥55', fltTime:null, fltPrice:null, dist:130, recommend:'train' });
+addRoute('Tianjin','Shanghai', { hsrTime:'4h30m', hsrPrice:'¥508', fltTime:'2h', fltPrice:'¥400-900', dist:1000, recommend:'train' });
+addRoute('Tianjin','Guangzhou', { hsrTime:'9h', hsrPrice:'¥642', fltTime:'3h', fltPrice:'¥600-1,400', dist:2000, recommend:'flight' });
+addRoute('Tianjin','Chengdu', { hsrTime:'8h', hsrPrice:'¥571', fltTime:'2h50m', fltPrice:'¥500-1,200', dist:1900, recommend:'flight' });
+addRoute('Tianjin','Xi\'an', { hsrTime:'5h30m', hsrPrice:'¥371', fltTime:'1h50m', fltPrice:'¥300-800', dist:1100, recommend:'flight' });
+
+// Zhengzhou routes
+addRoute('Zhengzhou','Beijing', { hsrTime:'2h30m', hsrPrice:'¥252', fltTime:'1h30m', fltPrice:'¥300-700', dist:690, recommend:'train' });
+addRoute('Zhengzhou','Shanghai', { hsrTime:'4h', hsrPrice:'¥343', fltTime:'1h40m', fltPrice:'¥400-800', dist:820, recommend:'train' });
+addRoute('Zhengzhou','Guangzhou', { hsrTime:'5h30m', hsrPrice:'¥426', fltTime:'2h', fltPrice:'¥400-1,000', dist:1400, recommend:'train' });
+addRoute('Zhengzhou','Chengdu', { hsrTime:'5h', hsrPrice:'¥370', fltTime:'1h50m', fltPrice:'¥400-900', dist:1100, recommend:'train' });
+addRoute('Zhengzhou','Xi\'an', { hsrTime:'2h', hsrPrice:'¥187', fltTime:'1h', fltPrice:'¥200-500', dist:480, recommend:'train' });
+addRoute('Zhengzhou','Wuhan', { hsrTime:'2h', hsrPrice:'¥176', fltTime:'1h', fltPrice:'¥200-500', dist:450, recommend:'train' });
+
+// Changchun routes
+addRoute('Changchun','Harbin', { hsrTime:'1h', hsrPrice:'¥94', fltTime:'50m', fltPrice:'¥200-500', dist:260, recommend:'train' });
+addRoute('Changchun','Beijing', { hsrTime:'5h30m', hsrPrice:'¥341', fltTime:'1h40m', fltPrice:'¥400-900', dist:980, recommend:'flight' });
+addRoute('Changchun','Shanghai', { hsrTime:'11h', hsrPrice:'¥653', fltTime:'2h30m', fltPrice:'¥500-1,100', dist:1700, recommend:'flight' });
+addRoute('Changchun','Dalian', { hsrTime:'3h', hsrPrice:'¥143', fltTime:'1h', fltPrice:'¥300-600', dist:600, recommend:'train' });
+addRoute('Changchun','Guangzhou', { hsrTime:'13h', hsrPrice:'¥880', fltTime:'3h40m', fltPrice:'¥700-1,600', dist:2600, recommend:'flight' });
+
+// Jinan routes
+addRoute('Jinan','Beijing', { hsrTime:'1h30m', hsrPrice:'¥168', fltTime:'1h', fltPrice:'¥200-500', dist:400, recommend:'train' });
+addRoute('Jinan','Shanghai', { hsrTime:'3h', hsrPrice:'¥252', fltTime:'1h20m', fltPrice:'¥300-700', dist:650, recommend:'train' });
+addRoute('Jinan','Guangzhou', { hsrTime:'9h', hsrPrice:'¥680', fltTime:'2h40m', fltPrice:'¥500-1,200', dist:1800, recommend:'flight' });
+addRoute('Jinan','Nanjing', { hsrTime:'2h', hsrPrice:'¥194', fltTime:'1h10m', fltPrice:'¥300-600', dist:480, recommend:'train' });
+addRoute('Jinan','Qingdao', { hsrTime:'1h30m', hsrPrice:'¥117', fltTime:null, fltPrice:null, dist:310, recommend:'train' });
+
+// Fuzhou routes
+addRoute('Fuzhou','Shanghai', { hsrTime:'3h30m', hsrPrice:'¥258', fltTime:'1h20m', fltPrice:'¥300-700', dist:780, recommend:'train' });
+addRoute('Fuzhou','Guangzhou', { hsrTime:'4h30m', hsrPrice:'¥293', fltTime:'1h30m', fltPrice:'¥300-800', dist:820, recommend:'train' });
+addRoute('Fuzhou','Beijing', { hsrTime:'8h', hsrPrice:'¥600', fltTime:'2h30m', fltPrice:'¥500-1,100', dist:1800, recommend:'flight' });
+addRoute('Fuzhou','Chengdu', { hsrTime:'10h', hsrPrice:'¥560', fltTime:'2h40m', fltPrice:'¥500-1,200', dist:1600, recommend:'flight' });
+addRoute('Fuzhou','Xiamen', { hsrTime:'1h30m', hsrPrice:'¥88', fltTime:'50m', fltPrice:'¥200-400', dist:230, recommend:'train' });
+addRoute('Fuzhou','Shenzhen', { hsrTime:'5h', hsrPrice:'¥325', fltTime:'1h20m', fltPrice:'¥300-700', dist:820, recommend:'flight' });
+
+// Guiyang routes
+addRoute('Guiyang','Guangzhou', { hsrTime:'4h30m', hsrPrice:'¥271', fltTime:'1h30m', fltPrice:'¥300-700', dist:730, recommend:'train' });
+addRoute('Guiyang','Chengdu', { hsrTime:'3h30m', hsrPrice:'¥263', fltTime:'1h10m', fltPrice:'¥300-600', dist:640, recommend:'train' });
+addRoute('Guiyang','Beijing', { hsrTime:'8h30m', hsrPrice:'¥700', fltTime:'2h50m', fltPrice:'¥500-1,200', dist:2100, recommend:'flight' });
+addRoute('Guiyang','Shanghai', { hsrTime:'8h', hsrPrice:'¥560', fltTime:'2h30m', fltPrice:'¥400-1,000', dist:1600, recommend:'flight' });
+addRoute('Guiyang','Kunming', { hsrTime:'2h', hsrPrice:'¥165', fltTime:'1h', fltPrice:'¥200-500', dist:350, recommend:'train' });
+addRoute('Guiyang','Guilin', { hsrTime:'2h30m', hsrPrice:'¥149', fltTime:'50m', fltPrice:'¥200-500', dist:400, recommend:'train' });
+
+// Lanzhou routes
+addRoute('Lanzhou','Xi\'an', { hsrTime:'3h', hsrPrice:'¥229', fltTime:'1h10m', fltPrice:'¥300-600', dist:550, recommend:'train' });
+addRoute('Lanzhou','Beijing', { hsrTime:'8h', hsrPrice:'¥540', fltTime:'2h30m', fltPrice:'¥500-1,200', dist:1750, recommend:'flight' });
+addRoute('Lanzhou','Shanghai', { hsrTime:'11h', hsrPrice:'¥630', fltTime:'2h50m', fltPrice:'¥500-1,200', dist:1700, recommend:'flight' });
+addRoute('Lanzhou','Chengdu', { hsrTime:'6h30m', hsrPrice:'¥407', fltTime:'1h20m', fltPrice:'¥300-700', dist:700, recommend:'flight' });
+addRoute('Lanzhou','Lhasa', { hsrTime:null, hsrPrice:null, fltTime:'2h30m', fltPrice:'¥800-1,600', dist:1400, recommend:'flight' });
+
+// Sanya routes
+addRoute('Sanya','Guangzhou', { hsrTime:null, hsrPrice:null, fltTime:'1h30m', fltPrice:'¥300-800', dist:800, recommend:'flight' });
+addRoute('Sanya','Beijing', { hsrTime:null, hsrPrice:null, fltTime:'4h', fltPrice:'¥800-1,800', dist:2600, recommend:'flight' });
+addRoute('Sanya','Shanghai', { hsrTime:null, hsrPrice:null, fltTime:'3h', fltPrice:'¥600-1,400', dist:2000, recommend:'flight' });
+addRoute('Sanya','Shenzhen', { hsrTime:null, hsrPrice:null, fltTime:'1h20m', fltPrice:'¥300-700', dist:750, recommend:'flight' });
+addRoute('Sanya','Chengdu', { hsrTime:null, hsrPrice:null, fltTime:'2h30m', fltPrice:'¥500-1,200', dist:1500, recommend:'flight' });
+
+// Ürümqi routes
+addRoute('Ürümqi','Beijing', { hsrTime:null, hsrPrice:null, fltTime:'4h', fltPrice:'¥700-1,800', dist:2400, recommend:'flight' });
+addRoute('Ürümqi','Shanghai', { hsrTime:null, hsrPrice:null, fltTime:'5h', fltPrice:'¥800-2,000', dist:3200, recommend:'flight' });
+addRoute('Ürümqi','Chengdu', { hsrTime:null, hsrPrice:null, fltTime:'3h20m', fltPrice:'¥600-1,500', dist:2000, recommend:'flight' });
+addRoute('Ürümqi','Lanzhou', { hsrTime:null, hsrPrice:null, fltTime:'2h20m', fltPrice:'¥400-1,000', dist:1780, recommend:'flight' });
+addRoute('Ürümqi','Lhasa', { hsrTime:null, hsrPrice:null, fltTime:'2h40m', fltPrice:'¥500-1,200', dist:1300, recommend:'flight' });
+
+// ============================================================
+// DISTANCE CALCULATION (Haversine)
+// ============================================================
+function haversineKm(lat1, lng1, lat2, lng2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)*Math.sin(dLng/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return Math.round(R * c);
+}
+
+// ============================================================
+// UI FUNCTIONS
+// ============================================================
+let currentView = 'compare';
+let currentFrom = '';
+let currentTo = '';
+
+function populateCities() {
+  const from = document.getElementById('fromCity');
+  const to = document.getElementById('toCity');
+  CITIES.forEach(c => {
+    const opt1 = document.createElement('option');
+    opt1.value = c.name;
+    opt1.textContent = c.name + '  ' + c.cn;
+    from.appendChild(opt1.cloneNode(true));
+    to.appendChild(opt1);
+  });
+}
+
+function swapCities() {
+  const f = document.getElementById('fromCity');
+  const t = document.getElementById('toCity');
+  const tmp = f.value;
+  f.value = t.value;
+  t.value = tmp;
+  updateResults();
+}
+
+function setView(view, btn) {
+  currentView = view;
+  document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (view === 'compare') {
+    document.getElementById('compareView').classList.add('visible');
+    document.getElementById('gridView').classList.remove('visible');
+    updateResults();
+  } else {
+    document.getElementById('compareView').classList.remove('visible');
+    document.getElementById('gridView').classList.add('visible');
+    updateGrid();
+  }
+}
+
+function quickRoute(from, to) {
+  document.getElementById('fromCity').value = from;
+  document.getElementById('toCity').value = to;
+  currentView = 'compare';
+  document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('viewCompare').classList.add('active');
+  document.getElementById('compareView').classList.add('visible');
+  document.getElementById('gridView').classList.remove('visible');
+  updateResults();
+  document.getElementById('routeHeader').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ============================================================
+// UPDATE: Compare View
+// ============================================================
+function updateResults() {
+  const from = document.getElementById('fromCity').value;
+  const to = document.getElementById('toCity').value;
+
+  if (!from || !to) return;
+  if (from === to) { document.getElementById('transitCards').innerHTML = '<p style="text-align:center;color:var(--color-text-muted);padding:24px;">Same city selected. Choose two different cities.</p>'; return; }
+
+  currentFrom = from;
+  currentTo = to;
+
+  // Update header
+  document.getElementById('fromName').innerHTML = from + ' <span class="cn">' + cityMap[from].cn + '</span>';
+  document.getElementById('toName').innerHTML = to + ' <span class="cn">' + cityMap[to].cn + '</span>';
+
+  const key = from + '_' + to;
+  const revKey = to + '_' + from;
+  const data = ROUTES[key] || ROUTES[revKey];
+
+  // Distance
+  const d = data ? data.dist : haversineKm(cityMap[from].lat, cityMap[from].lng, cityMap[to].lat, cityMap[to].lng);
+  document.getElementById('distanceInfo').innerHTML = 'Distance: <strong>' + d.toLocaleString() + ' km</strong>';
+
+  const cards = document.getElementById('transitCards');
+
+  if (!data) {
+    cards.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--color-text-muted);background:var(--color-surface);border-radius:var(--radius);box-shadow:var(--shadow);"><p style="font-size:16px;font-weight:500;margin-bottom:8px;">Route data coming soon</p><p style="font-size:14px;">We\'ll add ' + from + ' to ' + to + ' data soon. Try one of the popular routes below.</p></div>';
+    return;
+  }
+
+  let html = '';
+
+  // Train card
+  if (data.hsrTime && data.hsrTime !== '—') {
+    html += '<div class="transit-card">';
+    html += '<div class="mode-icon">&#128646;</div>';
+    html += '<div class="mode-label">High-Speed Rail</div>';
+    html += '<div class="stat-row"><span class="stat-label">Duration</span><span class="stat-value highlight">' + data.hsrTime + '</span></div>';
+    html += '<div class="stat-row"><span class="stat-label">2nd class seat</span><span class="stat-value">' + data.hsrPrice + '</span></div>';
+    html += '<div class="stat-row"><span class="stat-label">Frequency</span><span class="stat-value">20-40 trains/day</span></div>';
+    if (data.recommend === 'train') html += '<div class="recommend-badge train">EVENTURUS Recommends</div>';
+    html += '</div>';
+  } else {
+    html += '<div class="transit-card" style="opacity:0.5;">';
+    html += '<div class="mode-icon">&#128646;</div>';
+    html += '<div class="mode-label">High-Speed Rail</div>';
+    html += '<div class="stat-row"><span class="stat-label">Duration</span><span class="stat-value">Not available</span></div>';
+    html += '<div class="stat-row"><span class="stat-label">Note</span><span class="stat-value">No direct HSR</span></div>';
+    html += '</div>';
+  }
+
+  // Flight card
+  if (data.fltTime) {
+    html += '<div class="transit-card">';
+    html += '<div class="mode-icon">&#9992;</div>';
+    html += '<div class="mode-label">Flight</div>';
+    html += '<div class="stat-row"><span class="stat-label">Duration</span><span class="stat-value highlight">' + data.fltTime + '</span></div>';
+    html += '<div class="stat-row"><span class="stat-label">Economy</span><span class="stat-value">' + data.fltPrice + '</span></div>';
+    html += '<div class="stat-row"><span class="stat-label">Frequency</span><span class="stat-value">5-15 flights/day</span></div>';
+    if (data.recommend === 'flight') html += '<div class="recommend-badge flight">EVENTURUS Recommends</div>';
+    html += '</div>';
+  } else {
+    html += '<div class="transit-card" style="opacity:0.5;">';
+    html += '<div class="mode-icon">&#9992;</div>';
+    html += '<div class="mode-label">Flight</div>';
+    html += '<div class="stat-row"><span class="stat-label">Duration</span><span class="stat-value">Not needed</span></div>';
+    html += '<div class="stat-row"><span class="stat-label">Note</span><span class="stat-value">HSR is fastest</span></div>';
+    html += '</div>';
+  }
+
+  cards.innerHTML = html;
+}
+
+// ============================================================
+// UPDATE: Grid View
+// ============================================================
+function updateGrid() {
+  const from = document.getElementById('fromCity').value;
+  if (!from) { document.getElementById('gridBody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--color-text-muted);">Select a departure city to see all routes.</td></tr>'; return; }
+
+  const tbody = document.getElementById('gridBody');
+  let html = '';
+
+  CITIES.forEach(city => {
+    if (city.name === from) return;
+    const key = from + '_' + city.name;
+    const revKey = city.name + '_' + from;
+    const data = ROUTES[key] || ROUTES[revKey];
+    const d = data ? data.dist : haversineKm(cityMap[from].lat, cityMap[from].lng, city.lat, city.lng);
+
+    html += '<tr>';
+    html += '<td>' + city.name + ' ' + city.cn + '</td>';
+
+    if (data && data.hsrTime && data.hsrTime !== '—') {
+      html += '<td class="t-time">' + data.hsrTime + '</td>';
+      html += '<td>' + data.hsrPrice + '</td>';
+    } else {
+      html += '<td class="t-na">—</td>';
+      html += '<td class="t-na">—</td>';
+    }
+
+    if (data && data.fltTime) {
+      html += '<td>' + data.fltTime + '</td>';
+      html += '<td>' + data.fltPrice + '</td>';
+    } else {
+      html += '<td class="t-na">—</td>';
+      html += '<td class="t-na">—</td>';
+    }
+
+    html += '<td>' + d.toLocaleString() + ' km</td>';
+
+    if (data && data.recommend) {
+      html += '<td class="t-recommend">' + (data.recommend === 'train' ? '\u2601\uFE0F Train' : '\u2708\uFE0F Fly') + '</td>';
+    } else {
+      html += '<td></td>';
+    }
+
+    html += '</tr>';
+  });
+
+  tbody.innerHTML = html;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+populateCities();
+
+// Set default: Shanghai -> Beijing
+document.getElementById('fromCity').value = 'Shanghai';
+document.getElementById('toCity').value = 'Beijing';
+updateResults();
+</script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-
+<script>
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 </footer>
 
-<script>
-(function() {
-  var btt = document.getElementById('backToTop');
-  if (btt) {
-    window.addEventListener('scroll', function() {
-      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-    btt.addEventListener('click', function() {
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  }
-})();
-</script>
 </body>
 </html>

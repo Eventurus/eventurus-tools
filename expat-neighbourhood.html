@@ -114,6 +114,16 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 /* Dark mode */
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-muted: #a0a0a0;
+    --color-border: #333;
+    --color-highlight: #2a2a2a;
+    --color-brand-light: #3a5a3a;
+  }
   img { opacity: 0.85; }
 }
 </style>
@@ -158,7 +168,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
 <div class="hero"><h1>Expat Neighbourhood Finder</h1><p>Compare areas across China's top cities. Vibe, rent, schools, and transport.</p></div>
@@ -179,25 +189,161 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 </div>
 
+<script>
+const DATA = {
+  Shanghai: [
+    {name:"Former French Concession",cn:"法租界",vibe:"Upscale / Historic",vibeClass:"vibe-upscale",
+      desc:"The most 'Shanghai' experience. Tree-lined streets, art deco buildings, boutique cafes and wine bars. The centre of expat social life.",
+      rent:"¥18,000–35,000",schools:"Excellent (Several international schools nearby)",hospitals:"Huashan, Ruijin (top-tier)",transport:"Lines 1, 7, 10, 12",
+      pros:"Beautiful streets, great restaurants, walkable",cons:"Very expensive, old apartments can be small"},
+    {name:"Jing'an",cn:"静安",vibe:"Central / Luxe",vibeClass:"vibe-upscale",
+      desc:"The heart of Shanghai. High-end malls, Jing'an Temple, and a mix of old lane houses and new high-rises. Very convenient.",
+      rent:"¥20,000–40,000",schools:"Excellent (Shanghai United, YK Pao)",hospitals:"Huashan, Jing'an District Central",transport:"Lines 2, 7, 14",
+      pros:"Ultra-convenient, best shopping",cons:"Pricey, can feel too busy"},
+    {name:"Hongqiao / Gubei",cn:"虹桥/古北",vibe:"Family / Expat Hub",vibeClass:"vibe-family",
+      desc:"The traditional expat family zone. Large apartments, Japanese and Korean restaurants, and close to Hongqiao HSR station. Very green.",
+      rent:"¥12,000–25,000",schools:"Excellent (Yew Chung, SCIS, BISS)",hospitals:"Parkside, SinoUnited",transport:"Lines 10, 15",
+      pros:"Family-friendly, more space, green",cons:"Further from downtown, less exciting"},
+    {name:"Xintiandi / Huaihai",cn:"新天地/淮海路",vibe:"Trendy / Central",vibeClass:"vibe-hip",
+      desc:"Where old Shanghai meets new. Restored shikumen lanes, flagship stores, and endless dining options. Very international.",
+      rent:"¥22,000–50,000",schools:"Good (Nearby private schools)",hospitals:"Ruijin (close)",transport:"Lines 1, 13",
+      pros:"Best dining & nightlife scene",cons:"Very expensive, touristy at weekends"},
+    {name:"Pudong (Lujiazui)",cn:"浦东/陆家嘴",vibe:"Modern / Business",vibeClass:"vibe-upscale",
+      desc:"Shanghai's financial district. Futuristic skyline, wide streets, and new-build luxury apartments with river views.",
+      rent:"¥18,000–45,000",schools:"Good (Wellington College nearby)",hospitals:"Pudong New Area People's",transport:"Lines 2, 14, 19",
+      pros:"Modern apartments, iconic views",cons:"Can feel sterile, fewer local eateries"}
+  ],
+  Beijing: [
+    {name:"Sanlitun / Chaoyang",cn:"三里屯/朝阳",vibe:"Expat Central",vibeClass:"vibe-expat",
+      desc:"Beijing's main expat zone. The Sanlitun bar street, Taikoo Li mall, embassy area. Best nightlife and international restaurants in Beijing.",
+      rent:"¥15,000–30,000",schools:"Excellent (ISB, Dulwich, British School)",hospitals:"Beijing United Family (BJU)",transport:"Lines 2, 10, Airport Express",
+      pros:"Largest expat community, great nightlife",cons:"Traffic can be terrible, expensive"},
+    {name:"Shunyi",cn:"顺义",vibe:"Family / Suburban",vibeClass:"vibe-family",
+      desc:"The expat family 'bubble'. Large villas, top international schools, and a quiet suburban lifestyle. 30-40min from city centre.",
+      rent:"¥20,000–40,000+" ,schools:"Elite (ISB, Dulwich, WAB)",hospitals:"Beijing United Shunyi",transport:"Taxi or car needed",
+      pros:"Largest living spaces, best international schools",cons:"Far from city, need car, isolated"},
+    {name:"Dongzhong / Gulou",cn:"东中/鼓楼",vibe:"Hutong / Hip",vibeClass:"vibe-hip",
+      desc:"Live in a traditional hutong (alleyway) near the Drum Tower. Rooftop bars, craft beer, and cycling. Younger expat vibe.",
+      rent:"¥10,000–20,000",schools:"Limited (Nearest international school = 30min)",hospitals:"Peking Union Medical College",transport:"Lines 2, 5, 6",
+      pros:"Authentic Beijing, lively, unique",cons:"Hutong apartments can be basic, cold in winter"},
+    {name:"CBD / Guomao",cn:"国贸",vibe:"Modern / Business",vibeClass:"vibe-upscale",
+      desc:"Beijing's financial centre. High-rise luxury apartments, direct access to the best malls and corporate offices.",
+      rent:"¥18,000–35,000",schools:"Good (Nearby private international)",hospitals:"Beijing United Family (nearby)",transport:"Lines 1, 10",
+      pros:"Modern high-rises, great transport links",cons:"Expensive, less character than hutongs"}
+  ],
+  Shenzhen: [
+    {name:"Nanshan / Houhai",cn:"南山/后海",vibe:"Trendy / Tech",vibeClass:"vibe-hip",
+      desc:"Shenzhen's innovation hub. Home to Tencent, trendy restaurants, coastal boardwalk, and the best expat scene in the city.",
+      rent:"¥8,000–20,000",schools:"Good (SIS, QSI, Shekou International)",hospitals:"Shenzhen United Family (SZU)",transport:"Lines 2, 11, 13",
+      pros:"Buzzing tech scene, coastal lifestyle",cons:"Growing pains — construction everywhere"},
+    {name:"Shekou",cn:"蛇口",vibe:"Expat Enclave",vibeClass:"vibe-expat",
+      desc:"The oldest expat community in Shenzhen. Waterfront promenade, international restaurants, and a relaxed seaside vibe.",
+      rent:"¥10,000–22,000",schools:"Excellent (Shekou International, QSI)",hospitals:"Shenzhen United Family Shekou",transport:"Lines 2, 12",
+      pros:"Mature expat community, walkable",cons:"Further from CBD, Sea World gets touristy"},
+    {name:"Futian CBD",cn:"福田CBD",vibe:"Central / Business",vibeClass:"vibe-upscale",
+      desc:"Shenzhen's political and financial centre. Modern apartments, parks, and direct metro to Hong Kong border.",
+      rent:"¥10,000–25,000",schools:"Good (Futian campus of SIS)",hospitals:"Futian District Hospital",transport:"Lines 1, 2, 3, 4, 11",
+      pros:"Best transport hub, central location",cons:"Expensive for Shenzhen"}
+  ],
+  Guangzhou: [
+    {name:"Zhujiang New Town",cn:"珠江新城",vibe:"Modern / Upscale",vibeClass:"vibe-upscale",
+      desc:"Guangzhou's answer to Shanghai's Lujiazui. Glittering skyline, luxury shopping (Taikoo Hui), and the Canton Tower views.",
+      rent:"¥12,000–28,000",schools:"Good (American International, Utahloy)",hospitals:"Guangzhou United Family",transport:"Lines 3, 5, APM",
+      pros:"Stunning skyline, best shopping in GZ",cons:"Pricey, less authentic old GZ feel"},
+    {name:"Ersha Island",cn:"二沙岛",vibe:"Quiet / Luxe",vibeClass:"vibe-quiet",
+      desc:"A quiet, green island in the Pearl River. The most exclusive residential area in Guangzhou. Home to the Guangdong Museum of Art.",
+      rent:"¥15,000–35,000",schools:"Good (Nearby private)",hospitals:"Guangdong Provincial People's",transport:"Taxi preferred",
+      pros:"Peaceful, green, extremely safe",cons:"Limited dining options, car needed"},
+    {name:"Tianhe",cn:"天河",vibe:"Central / Family",vibeClass:"vibe-family",
+      desc:"Guangzhou's main commercial district. Wide streets, big shopping malls, and a large community of long-term expat residents.",
+      rent:"¥8,000–18,000",schools:"Good (Many bilingual schools)",hospitals:"Tianhe District Hospital",transport:"Lines 1, 3",
+      pros:"Good value for space, central",cons:"Less character than old GZ areas"}
+  ],
+  Chengdu: [
+    {name:"Tongzilin (Expat Zone)",cn:"桐梓林",vibe:"Expat Central",vibeClass:"vibe-expat",
+      desc:"Chengdu's original expat enclave. Restaurants, bars, and cafes catering to international tastes. Tree-lined streets and western-style apartments.",
+      rent:"¥6,000–15,000",schools:"Good (Chengdu International, QSI)",hospitals:"Chengdu United Family",transport:"Lines 1, 9",
+      pros:"Cheapest of major city expat zones, real community",cons:"Further from city centre"},
+    {name:"Jinjiang / Chunxi",cn:"锦江/春熙",vibe:"Central / Hype",vibeClass:"vibe-hip",
+      desc:"Chengdu's downtown core. Taikoo Li Chengdu (stunning historic-retail complex), great food, and young energy.",
+      rent:"¥5,000–12,000",schools:"Limited",hospitals:"West China Hospital (top-tier)",transport:"Lines 2, 3",
+      pros:"Best location, amazing food scene",cons:"Apartments can be older, busy"},
+    {name:"Gaoxin (High-Tech)",cn:"高新",vibe:"Modern / Corporate",vibeClass:"vibe-upscale",
+      desc:"Modern new district with tech companies, clean streets, and spacious apartments. Popular with newer arrivals.",
+      rent:"¥6,000–14,000",schools:"Good (Chengdu International campus)",hospitals:"Gaoxin District Hospital",transport:"Lines 1, 5",
+      pros:"Spacious modern apartments, quiet",cons:"Less character, further from old city"}
+  ]
+};
 
+const cityNames = Object.keys(DATA);
+
+function init() {
+  const tabs = document.getElementById('cityTabs');
+  cityNames.forEach((city,i) => {
+    const btn = document.createElement('button');
+    btn.className = 'city-tab' + (i===0?' active':'');
+    btn.textContent = city;
+    btn.onclick = () => switchCity(city, btn);
+    tabs.appendChild(btn);
+  });
+  switchCity(cityNames[0], document.querySelector('.city-tab'));
+}
+
+function switchCity(city, btn) {
+  document.querySelectorAll('.city-tab').forEach(tab => tab.classList.remove('active'));
+  btn.classList.add('active');
+  const container = document.getElementById('neighbourhoodContainer');
+  const hoods = DATA[city];
+  let html = '<div class="neighbourhood-grid">';
+  hoods.forEach(h => {
+    html += `
+      <div class="nhood-card">
+        <div class="nhood-header">
+          <div><span class="nhood-name">${h.name}</span><span class="nhood-name-cn">${h.cn}</span></div>
+          <span class="nhood-vibe ${h.vibeClass}">${h.vibe}</span>
+        </div>
+        <div class="nhood-body">
+          <div class="nhood-desc">${h.desc}</div>
+          <div class="info-row"><span class="info-label">Monthly rent (2br)</span><span class="info-value">${h.rent}</span></div>
+          <div class="info-row"><span class="info-label">International schools</span><span class="info-value">${h.schools}</span></div>
+          <div class="info-row"><span class="info-label">Hospitals</span><span class="info-value">${h.hospitals}</span></div>
+          <div class="info-row"><span class="info-label">Metro lines</span><span class="info-value">${h.transport}</span></div>
+          <div class="pros-cons">
+            <div class="pros">✅ ${h.pros}</div>
+            <div class="cons">⚠️ ${h.cons}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+init();
+</script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-
+<script>
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 </footer>
 
-<script>
-(function() {
-  var btt = document.getElementById('backToTop');
-  if (btt) {
-    window.addEventListener('scroll', function() {
-      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-    btt.addEventListener('click', function() {
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  }
-})();
-</script>
 </body>
 </html>

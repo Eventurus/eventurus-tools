@@ -258,6 +258,16 @@ body {
 /* Dark mode */
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-muted: #a0a0a0;
+    --color-border: #333;
+    --color-highlight: #2a2a2a;
+    --color-brand-light: #3a5a3a;
+  }
   img { opacity: 0.85; }
 }
 </style>
@@ -305,7 +315,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 <div class="brand-bar">
   <a href="/" class="brand">EVENT<em>URUS</em></a>
-  <div class="tagline">China, Vetted.</div>
+  <div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
 </div>
 
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
@@ -341,25 +351,114 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 </div>
 
+<script>
+const CARDS = [
+  // TAXI
+  { cat:'taxi', icon:'&#128661;', zh:'请带我去这个地址。', pinyin:'Qing dai wo qu zhe ge di zhi.', en:'Please take me to this address.', note:'Show the address on your phone' },
+  { cat:'taxi', icon:'&#128661;', zh:'打表吗？', pinyin:'Da biao ma?', en:'Do you use the meter?', note:'Always ask before starting the ride' },
+  { cat:'taxi', icon:'&#128661;', zh:'我要去机场。', pinyin:'Wo yao qu ji chang.', en:'I need to go to the airport.' },
+  { cat:'taxi', icon:'&#128661;', zh:'我要去火车站。', pinyin:'Wo yao qu huo che zhan.', en:'I need to go to the train station.' },
+  { cat:'taxi', icon:'&#128661;', zh:'在这里停就可以。', pinyin:'Zai zhe li ting jiu ke yi.', en:'You can stop here.' },
+  { cat:'taxi', icon:'&#128661;', zh:'多少钱？', pinyin:'Duo shao qian?', en:'How much?', note:'Check before paying' },
 
+  // DINING
+  { cat:'dining', icon:'&#127860;', zh:'我吃素，不要肉。', pinyin:'Wo chi su, bu yao rou.', en:'I\'m vegetarian, no meat please.' },
+  { cat:'dining', icon:'&#127860;', zh:'我不吃辣。', pinyin:'Wo bu chi la.', en:'I don\'t eat spicy food.' },
+  { cat:'dining', icon:'&#127860;', zh:'我对花生过敏。', pinyin:'Wo dui hua sheng guo min.', en:'I\'m allergic to peanuts.' },
+  { cat:'dining', icon:'&#127860;', zh:'有英文菜单吗？', pinyin:'You ying wen cai dan ma?', en:'Do you have an English menu?', note:'Many tourist-friendly restaurants do' },
+  { cat:'dining', icon:'&#127860;', zh:'买单，谢谢。', pinyin:'Mai dan, xie xie.', en:'Check, please.' },
+  { cat:'dining', icon:'&#127860;', zh:'不要味精。', pinyin:'Bu yao wei jing.', en:'No MSG, please.' },
+  { cat:'dining', icon:'&#127860;', zh:'请问有什么推荐的菜？', pinyin:'Qing wen you shen me tui jian de cai?', en:'What do you recommend?' },
+  { cat:'dining', icon:'&#127860;', zh:'我要打包。', pinyin:'Wo yao da bao.', en:'I\'d like to take this to go.' },
+
+  // HOTEL
+  { cat:'hotel', icon:'&#127976;', zh:'我有预订。', pinyin:'Wo you yu ding.', en:'I have a reservation.' },
+  { cat:'hotel', icon:'&#127976;', zh:'我要办理入住。', pinyin:'Wo yao ban li ru zhu.', en:'I\'d like to check in.' },
+  { cat:'hotel', icon:'&#127976;', zh:'我的房间号是___。', pinyin:'Wo de fang jian hao shi ___.', en:'My room number is ___.' },
+  { cat:'hotel', icon:'&#127976;', zh:'有Wi-Fi吗？密码是多少？', pinyin:'You Wi-Fi ma? Mi ma shi duo shao?', en:'Is there Wi-Fi? What\'s the password?' },
+  { cat:'hotel', icon:'&#127976;', zh:'请帮我叫一辆出租车。', pinyin:'Qing bang wo jiao yi liang chu zu che.', en:'Please call a taxi for me.' },
+  { cat:'hotel', icon:'&#127976;', zh:'早餐几点开始？', pinyin:'Zao can ji dian kai shi?', en:'What time does breakfast start?' },
+  { cat:'hotel', icon:'&#127976;', zh:'我需要多一条毛巾。', pinyin:'Wo xu yao duo yi tiao mao jin.', en:'I need an extra towel.' },
+
+  // MEDICAL
+  { cat:'medical', icon:'&#127973;', zh:'我生病了。', pinyin:'Wo sheng bing le.', en:'I\'m sick.' },
+  { cat:'medical', icon:'&#127973;', zh:'带我去最近的医院。', pinyin:'Dai wo qu zui jin de yi yuan.', en:'Take me to the nearest hospital.' },
+  { cat:'medical', icon:'&#127973;', zh:'我发烧了。', pinyin:'Wo fa shao le.', en:'I have a fever.' },
+  { cat:'medical', icon:'&#127973;', zh:'我肚子疼。', pinyin:'Wo du zi teng.', en:'I have a stomach ache.' },
+  { cat:'medical', icon:'&#127973;', zh:'我需要看医生。', pinyin:'Wo xu yao kan yi sheng.', en:'I need to see a doctor.' },
+  { cat:'medical', icon:'&#127973;', zh:'这个药怎么吃？', pinyin:'Zhe ge yao zen me chi?', en:'How do I take this medicine?' },
+  { cat:'medical', icon:'&#127973;', zh:'我有保险。', pinyin:'Wo you bao xian.', en:'I have insurance.', note:'Show your insurance card' },
+
+  // SHOPPING
+  { cat:'shopping', icon:'&#128722;', zh:'这个多少钱？', pinyin:'Zhe ge duo shao qian?', en:'How much is this?' },
+  { cat:'shopping', icon:'&#128722;', zh:'太贵了，能便宜点吗？', pinyin:'Tai gui le, neng pian yi dian ma?', en:'Too expensive. Can you make it cheaper?', note:'Bargaining is common at markets' },
+  { cat:'shopping', icon:'&#128722;', zh:'可以刷卡吗？', pinyin:'Ke yi shua ka ma?', en:'Can I pay by card?' },
+  { cat:'shopping', icon:'&#128722;', zh:'我可以试穿吗？', pinyin:'Wo ke yi shi chuan ma?', en:'Can I try this on?' },
+
+  // BASIC
+  { cat:'basic', icon:'&#128172;', zh:'你好。谢谢。再见。', pinyin:'Ni hao. Xie xie. Zai jian.', en:'Hello. Thank you. Goodbye.', note:'The three most useful words' },
+  { cat:'basic', icon:'&#128172;', zh:'对不起 / 不好意思。', pinyin:'Dui bu qi / Bu hao yi si.', en:'Sorry / Excuse me.' },
+  { cat:'basic', icon:'&#128172;', zh:'厕所在哪里？', pinyin:'Ce suo zai na li?', en:'Where is the restroom?' },
+  { cat:'basic', icon:'&#128172;', zh:'我不会中文。', pinyin:'Wo bu hui zhong wen.', en:'I don\'t speak Chinese.', note:'Said with a smile, it usually helps' },
+  { cat:'basic', icon:'&#128172;', zh:'请说慢一点。', pinyin:'Qing shuo man yi dian.', en:'Please speak slower.' },
+  { cat:'basic', icon:'&#128172;', zh:'这个用中文怎么说？', pinyin:'Zhe ge yong zhong wen zen me shuo?', en:'How do you say this in Chinese?' },
+  { cat:'basic', icon:'&#128172;', zh:'我迷路了。', pinyin:'Wo mi lu le.', en:'I\'m lost.' },
+];
+
+function renderCards(filter) {
+  const grid = document.getElementById('cardGrid');
+  const filtered = filter === 'all' ? CARDS : CARDS.filter(c => c.cat === filter);
+  grid.innerHTML = filtered.map(c => `
+    <div class="phrase-card">
+      <span class="cat-tag">${c.cat}</span>
+      <div class="icon">${c.icon}</div>
+      <div class="zh">${c.zh}</div>
+      <div class="pinyin">${c.pinyin}</div>
+      <div class="en">${c.en}${c.note ? ' <em>&mdash; ' + c.note + '</em>' : ''}</div>
+    </div>
+  `).join('');
+}
+
+function filterCards(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(cat);
+}
+
+function selectAllText() {
+  // A more user-friendly approach: copy all cards text to clipboard
+  const text = CARDS.map(c => c.zh + ' (' + c.en + ')').join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.controls button:last-child');
+    btn.textContent = '&#10003; Copied!';
+    setTimeout(() => btn.textContent = '&#128203; Select all', 2000);
+  });
+}
+
+renderCards('all');
+</script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-
+<script>
+// Dark mode toggle
+document.getElementById('darkToggle').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
+});
+// Back to top
+(function() {
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 </footer>
 
-<script>
-(function() {
-  var btt = document.getElementById('backToTop');
-  if (btt) {
-    window.addEventListener('scroll', function() {
-      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-    btt.addEventListener('click', function() {
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  }
-})();
-</script>
 </body>
 </html>
