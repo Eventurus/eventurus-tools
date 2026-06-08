@@ -90,16 +90,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 .site-footer a{color:var(--c-brand);text-decoration:none}
 .site-footer .brand-foot{font-style:italic;font-size:14px;color:var(--c-text);letter-spacing:1px;margin-bottom:4px}
 @media(max-width:600px){.attr-grid{grid-template-columns:1fr}.dest-header{flex-direction:column}}
-@media (prefers-color-scheme: dark) {
-  :root { --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-bg:#121212; --color-surface:#1e1e1e; --color-border:#333; --color-brand-light:#3a5a3a; }
-  img { opacity:0.85; }
-}
 </style>
 </head>
 <body>
 <div class="brand-bar">
   <a href="index.html" class="brand">EVENT<em>URUS</em></a>
-  <div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
+  <div class="tagline">China, Vetted.</div>
   <a href="index.html" class="back-link">← All tools</a>
 </div>
 <div class="container">
@@ -455,27 +451,6 @@ renderFilters();renderResults();
 </footer>
 
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-<script>
-// Dark mode toggle
-(function() {
-  var toggle = document.getElementById('darkToggle');
-  if (!toggle) return;
-  toggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-  });
-  // Back to top
-  var btt = document.getElementById('backToTop');
-  if (btt) {
-    window.addEventListener('scroll', function() {
-      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-    btt.addEventListener('click', function() {
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  }
-})();
-</script>
 
 </body>
 </html>
