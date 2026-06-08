@@ -138,4 +138,22 @@
     <lastmod>2026-05-31</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://eventurus.cn/china-holidays.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/menu-translator.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/trip-planner.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
