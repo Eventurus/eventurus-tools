@@ -41,7 +41,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 
 .brand-bar { padding:20px 0 0; text-align:center; }
 .brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
-.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .brand em { color:var(--color-text); }
 .brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
 .hero { text-align:center; padding:28px 0 12px; }
 .hero h1 { font-size:26px; font-weight:600; line-height:1.2; margin-bottom:6px; }
@@ -193,10 +193,14 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
   .dish-card { padding:10px 12px; }
   .btn-add { width:40px; height:40px; font-size:18px; }
 }
+@media (prefers-color-scheme: dark) {
+  :root { --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-bg:#121212; --color-surface:#1e1e1e; --color-border:#333; --color-brand-light:#3a5a3a; }
+  img { opacity:0.85; }
+}
 </style>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
 <div class="container">
 <div class="hero"><h1>Chinese Menu Translator</h1><p>200+ dishes in your pocket. Browse, add to your order, then show the waiter.</p></div>
 
@@ -1146,13 +1150,44 @@ function printOrder() {
     + '.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:32px 24px;max-width:380px;width:100%;box-shadow:0 2px 12px rgba(0,0,0,0.06);}'
     + '.brand{font-size:10px;color:#bbb;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}'
     + '.warn{background:#FFF8E8;border:1px solid #F0D060;border-radius:8px;padding:10px;margin-top:16px;font-size:10px;color:#8B6914;text-align:center;line-height:1.5;}'
-    + '.footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}</style>'
+    + '.footer{font-size:9px;color:#ccc;text-align:center;margin-top:20px;}@media (prefers-color-scheme: dark) {
+  :root { --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-bg:#121212; --color-surface:#1e1e1e; --color-border:#333; --color-brand-light:#3a5a3a; }
+  img { opacity:0.85; }
+}
+</style>'
     + '</head><body><div class="card">'
     + '<div class="brand">EVENTURUS  &middot;  MENU TRANSLATOR</div>'
     + items
     + '<div class="warn">&#x26A0; Translation reference only &mdash; <b>ask the waiter first</b> if this dish is available at this restaurant.</div>'
     + '<div class="footer">Show this waiter. Point at Chinese.</div>'
-    + '</div></body></html>');
+    + '</div><footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+</footer>
+
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+<script>
+// Dark mode toggle
+(function() {
+  var toggle = document.getElementById('darkToggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  });
+  // Back to top
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+})();
+</script>
+
+</body></html>');
   win.document.close();
   setTimeout(function() { win.focus(); win.print(); }, 300);
 }
@@ -1171,5 +1206,32 @@ function clearSearch() {
 }
 </script>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('menu-sw.js');}</script>
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+</footer>
+
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+<script>
+// Dark mode toggle
+(function() {
+  var toggle = document.getElementById('darkToggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  });
+  // Back to top
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
