@@ -198,11 +198,6 @@ tr:hover td { background: #FAFAF8; }
 
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212; --color-surface: #1e1e1e; --color-text: #e0e0e0;
-    --color-muted: #a0a0a0; --color-border: #333; --color-highlight: #2a2a2a; --color-brand-light: #3a5a3a;
-  }
   .policy-card .pc-icon.green { background: #1A3A22; }
   .policy-card .pc-icon.blue { background: #1A2A4A; }
   .policy-card .pc-icon.amber { background: #3A2A10; }
@@ -265,7 +260,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 <div class="brand-bar">
   <a href="index.html" class="brand">EVENT<em>URUS</em></a>
-  <div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div>
+  <div class="tagline">China, Vetted.</div>
 </div>
 
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
@@ -670,234 +665,25 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 </div>
 
-<script>
-// Country data: flag, name, and policy eligibility
-const COUNTRIES = [
-  {n:"Albania",f:"🇦🇱",p:["mutual","transit"]},
-  {n:"Andorra",f:"🇦🇩",p:["unilateral","transit"]},
-  {n:"Antigua and Barbuda",f:"🇦🇬",p:["mutual"]},
-  {n:"Argentina",f:"🇦🇷",p:["unilateral","transit","hainan"]},
-  {n:"Armenia",f:"🇦🇲",p:["mutual"]},
-  {n:"Australia",f:"🇦🇺",p:["unilateral","transit","hainan"]},
-  {n:"Austria",f:"🇦🇹",p:["unilateral","transit","hainan"]},
-  {n:"Azerbaijan",f:"🇦🇿",p:["mutual","tourgroup"]},
-  {n:"Bahamas",f:"🇧🇸",p:["mutual"]},
-  {n:"Bahrain",f:"🇧🇭",p:["unilateral"]},
-  {n:"Barbados",f:"🇧🇧",p:["mutual"]},
-  {n:"Belarus",f:"🇧🇾",p:["mutual","transit","tourgroup"]},
-  {n:"Belgium",f:"🇧🇪",p:["unilateral","transit","hainan"]},
-  {n:"Bosnia and Herzegovina",f:"🇧🇦",p:["mutual","transit"]},
-  {n:"Brazil",f:"🇧🇷",p:["unilateral","transit","hainan"]},
-  {n:"Brunei",f:"🇧🇳",p:["unilateral","transit","hainan"]},
-  {n:"Bulgaria",f:"🇧🇬",p:["unilateral","transit","hainan"]},
-  {n:"Cambodia",f:"🇰🇭",p:["hainan","guilin","xishuangbanna"]},
-  {n:"Canada",f:"🇨🇦",p:["unilateral","transit","hainan"]},
-  {n:"Chile",f:"🇨🇱",p:["unilateral","transit","hainan"]},
-  {n:"Croatia",f:"🇭🇷",p:["unilateral","transit","hainan"]},
-  {n:"Cyprus",f:"🇨🇾",p:["unilateral","transit","hainan"]},
-  {n:"Czech Republic",f:"🇨🇿",p:["transit","hainan"]},
-  {n:"Denmark",f:"🇩🇰",p:["unilateral","transit","hainan"]},
-  {n:"Dominica",f:"🇩🇲",p:["mutual"]},
-  {n:"Ecuador",f:"🇪🇨",p:["mutual"]},
-  {n:"Estonia",f:"🇪🇪",p:["unilateral","transit","hainan"]},
-  {n:"Fiji",f:"🇫🇯",p:["mutual"]},
-  {n:"Finland",f:"🇫🇮",p:["unilateral","transit","hainan"]},
-  {n:"France",f:"🇫🇷",p:["unilateral","transit","hainan"]},
-  {n:"Georgia",f:"🇬🇪",p:["mutual","tourgroup"]},
-  {n:"Germany",f:"🇩🇪",p:["unilateral","transit","hainan"]},
-  {n:"Greece",f:"🇬🇷",p:["unilateral","transit","hainan"]},
-  {n:"Grenada",f:"🇬🇩",p:["mutual"]},
-  {n:"Hungary",f:"🇭🇺",p:["unilateral","transit","hainan"]},
-  {n:"Iceland",f:"🇮🇸",p:["unilateral","transit","hainan"]},
-  {n:"Indonesia",f:"🇮🇩",p:["transit","hainan","guilin","xishuangbanna"]},
-  {n:"Ireland",f:"🇮🇪",p:["unilateral","transit","hainan"]},
-  {n:"Italy",f:"🇮🇹",p:["unilateral","transit","hainan"]},
-  {n:"Japan",f:"🇯🇵",p:["unilateral","transit","hainan"]},
-  {n:"Kazakhstan",f:"🇰🇿",p:["mutual","hainan"]},
-  {n:"Kuwait",f:"🇰🇼",p:["unilateral"]},
-  {n:"Laos",f:"🇱🇦",p:["hainan","guilin","xishuangbanna"]},
-  {n:"Latvia",f:"🇱🇻",p:["unilateral","transit","hainan"]},
-  {n:"Liechtenstein",f:"🇱🇮",p:["unilateral","transit"]},
-  {n:"Lithuania",f:"🇱🇹",p:["transit","hainan"]},
-  {n:"Luxembourg",f:"🇱🇺",p:["unilateral","transit","hainan"]},
-  {n:"Malaysia",f:"🇲🇾",p:["unilateral","mutual","hainan","guilin","xishuangbanna"]},
-  {n:"Maldives",f:"🇲🇻",p:["mutual"]},
-  {n:"Malta",f:"🇲🇹",p:["unilateral","transit","hainan"]},
-  {n:"Mauritius",f:"🇲🇺",p:["mutual"]},
-  {n:"Mexico",f:"🇲🇽",p:["transit","hainan"]},
-  {n:"Moldova",f:"🇲🇩",p:["tourgroup"]},
-  {n:"Monaco",f:"🇲🇨",p:["unilateral","transit","hainan"]},
-  {n:"Montenegro",f:"🇲🇪",p:["unilateral","transit","hainan"]},
-  {n:"Myanmar",f:"🇲🇲",p:["hainan","guilin","xishuangbanna"]},
-  {n:"Netherlands",f:"🇳🇱",p:["unilateral","transit","hainan"]},
-  {n:"New Zealand",f:"🇳🇿",p:["unilateral","transit","hainan"]},
-  {n:"North Macedonia",f:"🇲🇰",p:["unilateral","transit","hainan"]},
-  {n:"Norway",f:"🇳🇴",p:["unilateral","transit","hainan"]},
-  {n:"Oman",f:"🇴🇲",p:["unilateral"]},
-  {n:"Peru",f:"🇵🇪",p:["unilateral"]},
-  {n:"Philippines",f:"🇵🇭",p:["hainan","guilin","xishuangbanna"]},
-  {n:"Poland",f:"🇵🇱",p:["unilateral","transit","hainan"]},
-  {n:"Portugal",f:"🇵🇹",p:["unilateral","transit","hainan"]},
-  {n:"Qatar",f:"🇶🇦",p:["mutual","transit","hainan"]},
-  {n:"Romania",f:"🇷🇴",p:["unilateral","transit","hainan"]},
-  {n:"Russia",f:"🇷🇺",p:["unilateral","transit","hainan","tourgroup"]},
-  {n:"Samoa",f:"🇼🇸",p:["mutual"]},
-  {n:"San Marino",f:"🇸🇲",p:["mutual"]},
-  {n:"Saudi Arabia",f:"🇸🇦",p:["unilateral"]},
-  {n:"Serbia",f:"🇷🇸",p:["mutual","transit"]},
-  {n:"Seychelles",f:"🇸🇨",p:["mutual"]},
-  {n:"Singapore",f:"🇸🇬",p:["mutual","transit","hainan","guilin","xishuangbanna"]},
-  {n:"Slovakia",f:"🇸🇰",p:["unilateral","transit","hainan"]},
-  {n:"Slovenia",f:"🇸🇮",p:["unilateral","transit","hainan"]},
-  {n:"Solomon Islands",f:"🇸🇧",p:["mutual"]},
-  {n:"South Korea",f:"🇰🇷",p:["unilateral","transit","hainan"]},
-  {n:"Spain",f:"🇪🇸",p:["unilateral","transit","hainan"]},
-  {n:"Sweden",f:"🇸🇪",p:["unilateral","transit","hainan"]},
-  {n:"Switzerland",f:"🇨🇭",p:["unilateral","transit","hainan"]},
-  {n:"Thailand",f:"🇹🇭",p:["mutual","hainan","guilin","xishuangbanna"]},
-  {n:"Tonga",f:"🇹🇴",p:["mutual"]},
-  {n:"Turkmenistan",f:"🇹🇲",p:["tourgroup"]},
-  {n:"Ukraine",f:"🇺🇦",p:["transit","hainan"]},
-  {n:"United Arab Emirates",f:"🇦🇪",p:["mutual","transit","hainan"]},
-  {n:"United Kingdom",f:"🇬🇧",p:["unilateral","transit","hainan"]},
-  {n:"United States",f:"🇺🇸",p:["transit","hainan"]},
-  {n:"Uruguay",f:"🇺🇾",p:["unilateral"]},
-  {n:"Uzbekistan",f:"🇺🇿",p:["mutual"]},
-  {n:"Vietnam",f:"🇻🇳",p:["hainan","guilin","xishuangbanna"]},
-].sort((a,b) => a.n.localeCompare(b.n));
 
-// Policy definitions
-const POLICIES = {
-  unilateral: {
-    name: "Unilateral Visa-Free",
-    dur: "Up to 30 days",
-    geo: "All mainland China — no restriction",
-    icon: "🛂",
-    color: "green",
-    detail: "Ordinary passports only. Tourism, business, family visits, exchanges, transit. Cannot work, study or do journalism.",
-    link: "#unilateral"
-  },
-  transit: {
-    name: "240-Hour Transit Visa-Free",
-    dur: "Up to 10 days (240 hours)",
-    geo: "Restricted to designated region of entry port (e.g. Beijing → Beijing-Tianjin-Hebei, Shanghai → Shanghai-Jiangsu-Zhejiang)",
-    icon: "✈️",
-    color: "blue",
-    detail: "Must hold confirmed onward ticket to a third country (not origin). 65 ports across 24 regions. Cannot work or study.",
-    link: "#transit"
-  },
-  mutual: {
-    name: "Mutual Visa Exemption",
-    dur: "Up to 30 days (90 days per 180-day period)",
-    geo: "All mainland China — no restriction",
-    icon: "🤝",
-    color: "purple",
-    detail: "Reciprocal agreement. Max 90 days cumulative in any 180-day period. Ordinary passports only.",
-    link: "#mutual"
-  },
-  hainan: {
-    name: "Hainan Visa-Free",
-    dur: "Up to 30 days",
-    geo: "Hainan Province only — cannot leave the island",
-    icon: "🏝️",
-    color: "amber",
-    detail: "Must fly directly to Hainan. Individual travellers allowed. Tourism, business, medical, exhibitions.",
-    link: "#hainan"
-  },
-  guilin: {
-    name: "Guilin 144h (ASEAN Tour Group)",
-    dur: "Up to 6 days (144 hours)",
-    geo: "Guilin administrative area, Guangxi",
-    icon: "🌿",
-    color: "amber",
-    detail: "Tour group of 2+ people, organised by Guilin travel agency. Enter/exit via Guilin airport.",
-    link: "#prd"
-  },
-  xishuangbanna: {
-    name: "Xishuangbanna 144h (ASEAN Tour Group)",
-    dur: "Up to 6 days (144 hours)",
-    geo: "Xishuangbanna Dai Autonomous Prefecture, Yunnan",
-    icon: "🌴",
-    color: "amber",
-    detail: "Tour group of 2+ people. Entry via Xishuangbanna Gasa Airport or Mohan port.",
-    link: "#prd"
-  },
-  tourgroup: {
-    name: "Tour Group Visa-Free (CIS)",
-    dur: "Up to 30 days",
-    geo: "All mainland China — no restriction",
-    icon: "👥",
-    color: "slate",
-    detail: "Tour group of minimum 5 people. Organised by designated travel agency.",
-    link: "#prd"
-  }
-};
-
-const select = document.getElementById('countrySelect');
-const result = document.getElementById('finderResult');
-const resultHeader = document.getElementById('resultHeader');
-const resultPolicies = document.getElementById('resultPolicies');
-
-// Populate select with country options
-COUNTRIES.forEach((c, i) => {
-  const opt = document.createElement('option');
-  opt.value = i;
-  opt.textContent = c.f + ' ' + c.n;
-  select.appendChild(opt);
-});
-
-select.addEventListener('change', function() {
-  const idx = parseInt(this.value);
-  if (isNaN(idx)) { result.classList.remove('visible'); return; }
-  selectCountry(COUNTRIES[idx]);
-});
-
-function selectCountry(country) {
-  const policies = country.p.map(pid => POLICIES[pid]).filter(Boolean);
-  if (policies.length === 0) {
-    resultHeader.innerHTML = '<span class="rh-flag">' + country.f + '</span><span class="rh-country">' + country.n + '</span><div class="rh-summary">No visa-free policies currently apply. A standard visa is required.</div>';
-    resultPolicies.innerHTML = '<div class="no-result">Citizens of ' + country.n + ' currently need a visa to enter China. Check with the nearest Chinese embassy for the latest information.</div>';
-    result.classList.add('visible');
-    return;
-  }
-  const bestDur = policies.some(p => p.dur.includes('30 days')) ? '30 days' : policies[0].dur;
-  resultHeader.innerHTML = '<span class="rh-flag">' + country.f + '</span><span class="rh-country">' + country.n + '</span><div class="rh-summary">' + policies.length + ' visa-free option' + (policies.length > 1 ? 's' : '') + ' &bull; Longest stay: ' + bestDur + '</div>';
-  resultPolicies.innerHTML = policies.map(p => {
-    return '<a href="' + p.link + '" class="result-policy" style="text-decoration:none;color:inherit;">' +
-      '<div class="rp-icon ' + p.color + '">' + p.icon + '</div>' +
-      '<div class="rp-info">' +
-        '<div class="rp-name">' + p.name + '</div>' +
-        '<div class="rp-dur">' + p.dur + '</div>' +
-        '<div class="rp-geo"><strong>Where:</strong> ' + p.geo + '</div>' +
-        '<div class="rp-geo" style="margin-top:4px;">' + p.detail + '</div>' +
-      '</div>' +
-    '</a>';
-  }).join('');
-  result.classList.add('visible');
-}
-</script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-<script>
-// Dark mode toggle
-document.getElementById('darkToggle').addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
-});
-// Back to top
-(function() {
-  const btt = document.getElementById('backToTop');
-  if (!btt) return;
-  window.addEventListener('scroll', function() {
-    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-  });
-  btt.addEventListener('click', function() {
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-})();
-</script>
+
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 </footer>
 
+<script>
+(function() {
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+})();
+</script>
 </body>
 </html>

@@ -76,11 +76,6 @@ tr:hover td { background:#FAFAF8; }
 .footer { text-align:center; padding:40px 0 32px; font-size:12px; color:var(--color-muted); }
 .footer .brand-foot { font-family:var(--font-serif); font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
 .footer a { color:var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
-body.dark-mode,
-body.dark-mode,
-
-@media print {
-  body { background: #fff; color: #000; font-size: 12pt; }
   .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
   a { color: #000; text-decoration: underline; }
   .container { max-width: 100%; }
@@ -90,8 +85,6 @@ body.dark-mode,
 
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
-@media (prefers-color-scheme: dark) {
-  :root { --color-bg:#121212; --color-surface:#1e1e1e; --color-text:#e0e0e0; --color-muted:#a0a0a0; --color-border:#333; --color-highlight:#2a2a2a; --color-brand-light:#3a5a3a; }
   .warning-box { background:#3A2A10; border-color:#5A4020; }
   .warning-box strong { color:#D0A040; }
   tr:hover td { background:#222; }
@@ -192,7 +185,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
 
@@ -493,26 +486,22 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 </div>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-<script>
-// Dark mode toggle
-document.getElementById('darkToggle').addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
-});
-// Back to top
-(function() {
-  const btt = document.getElementById('backToTop');
-  if (!btt) return;
-  window.addEventListener('scroll', function() {
-    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-  });
-  btt.addEventListener('click', function() {
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-})();
-</script>
+
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 </footer>
+<script>
+(function() {
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+})();
+</script>
 </body>
 </html>

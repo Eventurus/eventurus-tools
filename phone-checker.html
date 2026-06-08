@@ -88,16 +88,6 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 /* Dark mode */
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-surface: #1e1e1e;
-    --color-text: #e0e0e0;
-    --color-muted: #a0a0a0;
-    --color-border: #333;
-    --color-highlight: #2a2a2a;
-    --color-brand-light: #3a5a3a;
-  }
   img { opacity: 0.85; }
 }
 </style>
@@ -142,7 +132,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </script>
 </head>
 <body>
-<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.<button id="darkToggle" aria-label="Toggle dark mode" style="position:absolute;right:24px;top:24px;background:none;border:1px solid var(--color-border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px;color:var(--color-text);z-index:10;">🌙</button></div></div>
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
 <div class="hero"><h1>Will My Phone Work in China?</h1><p>Select your phone model and origin to check network compatibility.</p></div>
@@ -220,255 +210,25 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 </div>
 
-<script>
-const PHONES = {
-  apple: {
-    name: 'Apple / iPhone',
-    models: [
-      {id:'iphone16pm',name:'iPhone 16 Pro Max'},
-      {id:'iphone16p',name:'iPhone 16 Pro'},
-      {id:'iphone16',name:'iPhone 16'},
-      {id:'iphone16e',name:'iPhone 16e'},
-      {id:'iphone15pm',name:'iPhone 15 Pro Max'},
-      {id:'iphone15p',name:'iPhone 15 Pro'},
-      {id:'iphone15',name:'iPhone 15'},
-      {id:'iphone14pm',name:'iPhone 14 Pro Max'},
-      {id:'iphone14p',name:'iPhone 14 Pro'},
-      {id:'iphone14',name:'iPhone 14'},
-      {id:'iphone13pm',name:'iPhone 13 Pro Max'},
-      {id:'iphone13',name:'iPhone 13'},
-      {id:'iphone12pm',name:'iPhone 12 Pro Max'},
-      {id:'iphone12',name:'iPhone 12'},
-      {id:'iphone11',name:'iPhone 11 series'},
-      {id:'iphonese3',name:'iPhone SE (3rd gen)'},
-      {id:'iphonese2',name:'iPhone SE (2nd gen)'}
-    ]
-  },
-  samsung: {
-    name: 'Samsung',
-    models: [
-      {id:'s25u',name:'Galaxy S25 Ultra'},
-      {id:'s25p',name:'Galaxy S25+'},
-      {id:'s25',name:'Galaxy S25'},
-      {id:'s24u',name:'Galaxy S24 Ultra'},
-      {id:'s24',name:'Galaxy S24 / S24+'},
-      {id:'s23u',name:'Galaxy S23 Ultra'},
-      {id:'s23',name:'Galaxy S23 / S23+'},
-      {id:'zf6',name:'Galaxy Z Fold 6'},
-      {id:'zf5',name:'Galaxy Z Flip 5'},
-      {id:'a55',name:'Galaxy A55'},
-      {id:'a35',name:'Galaxy A35'},
-      {id:'a15',name:'Galaxy A15'}
-    ]
-  },
-  google: {
-    name: 'Google / Pixel',
-    models: [
-      {id:'p9p',name:'Pixel 9 Pro / XL'},
-      {id:'p9',name:'Pixel 9'},
-      {id:'p8p',name:'Pixel 8 Pro'},
-      {id:'p8',name:'Pixel 8'},
-      {id:'p7p',name:'Pixel 7 Pro'},
-      {id:'p7',name:'Pixel 7'},
-      {id:'p6p',name:'Pixel 6 Pro'},
-      {id:'p6',name:'Pixel 6'},
-      {id:'p5',name:'Pixel 5'}
-    ]
-  },
-  huawei: {
-    name: 'Huawei',
-    models: [
-      {id:'p70u',name:'Pura 70 Ultra'},
-      {id:'p70p',name:'Pura 70 Pro'},
-      {id:'p60p',name:'P60 Pro'},
-      {id:'mate60p',name:'Mate 60 Pro'},
-      {id:'mate60',name:'Mate 60'},
-      {id:'mate50p',name:'Mate 50 Pro'},
-      {id:'p50p',name:'P50 Pro'},
-      {id:'nova12u',name:'Nova 12 Ultra'}
-    ]
-  },
-  xiaomi: { name: 'Xiaomi / Redmi', models: [
-    {id:'x15u',name:'Xiaomi 15 Ultra'},{id:'x15',name:'Xiaomi 15'},{id:'x14u',name:'Xiaomi 14 Ultra'},
-    {id:'x14',name:'Xiaomi 14'},{id:'x13u',name:'Xiaomi 13 Ultra'},{id:'rnote14p',name:'Redmi Note 14 Pro+'},
-    {id:'rnote13',name:'Redmi Note 13 series'}
-  ]},
-  oneplus: { name: 'OnePlus', models: [
-    {id:'op13',name:'OnePlus 13'},{id:'op12',name:'OnePlus 12'},{id:'op11',name:'OnePlus 11'},
-    {id:'opace3',name:'OnePlus Ace 3'},{id:'opn30',name:'OnePlus Nord N30'}
-  ]},
-  oppo: { name: 'OPPO', models: [
-    {id:'ofnx3',name:'Find X8 Pro'},{id:'ofnx7u',name:'Find X7 Ultra'},{id:'ofnx7',name:'Find X7'},
-    {id:'ren13p',name:'Reno 13 Pro'},{id:'ren12',name:'Reno 12'}
-  ]},
-  vivo: { name: 'vivo', models: [
-    {id:'vx200p',name:'X200 Pro'},{id:'vx200',name:'X200'},{id:'vx100p',name:'X100 Pro'},
-    {id:'vx100',name:'X100'},{id:'viQOO13',name:'iQOO 13'}
-  ]},
-  sony: { name: 'Sony', models: [
-    {id:'x1vi',name:'Xperia 1 VI'},{id:'x1v',name:'Xperia 1 V'},{id:'x5v',name:'Xperia 5 V'}
-  ]},
-  nokia: { name: 'Nokia', models: [
-    {id:'g22',name:'G22'},{id:'x30',name:'X30 5G'},{id:'g60',name:'G60 5G'}
-  ]},
-  motorola: { name: 'Motorola', models: [
-    {id:'e50u',name:'Edge 50 Ultra'},{id:'e50p',name:'Edge 50 Pro'},{id:'e40',name:'Edge 40'},
-    {id:'motoG84',name:'Moto G84'}
-  ]},
-  other: { name: 'Other Brand', models: [{id:'generic',name:'My phone is not listed'}] }
-};
 
-function onBrandChange() {
-  const brand = document.getElementById('brandSelect').value;
-  const modelSel = document.getElementById('modelSelect');
-  const modelGroup = document.getElementById('modelGroup');
-  const originGroup = document.getElementById('originGroup');
-  document.getElementById('resultBox').classList.remove('show');
-
-  if (!brand) { modelGroup.style.display='none'; originGroup.style.display='none'; return; }
-
-  const phone = PHONES[brand];
-  modelSel.innerHTML = '<option value="">— Select model —</option>' +
-    phone.models.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
-  modelGroup.style.display='block';
-  originGroup.style.display='none';
-}
-
-function onModelChange() {
-  const model = document.getElementById('modelSelect').value;
-  document.getElementById('originGroup').style.display = model ? 'block' : 'none';
-  document.getElementById('resultBox').classList.remove('show');
-}
-
-function checkPhone() {
-  const brand = document.getElementById('brandSelect').value;
-  const model = document.getElementById('modelSelect').value;
-  const origin = document.getElementById('originSelect').value;
-  if (!brand || !model || !origin) return;
-
-  let compatible4g = true, compatible5g = true;
-  let missing4g = [], missing5g = [];
-  let note = '';
-
-  // Detection logic
-  if (origin === 'us' && brand === 'apple' && model.startsWith('iphone')) {
-    const modelNum = parseInt(model.replace(/[^0-9]/g,''));
-    const isPro = model.includes('p') && !model.includes('e');
-    compatible4g = true; compatible5g = true;
-    if (!model.includes('se')) { note = 'US iPhone 14/15/16 models have eSIM only (no physical SIM tray). Use eSIM (Airalo/Holafly) or buy a China eSIM.'; }
-    else { note = 'iPhone SE has physical SIM tray! You can use airport SIM directly.'; }
-  }
-  else if (origin === 'us' && brand === 'samsung') {
-    compatible4g = true; compatible5g = model.includes('s2') || model.includes('zf') || model.includes('a');
-    if (!compatible5g) missing5g = ['n78', 'n79'];
-    note = 'US Samsung models may lack mmWave-specific bands but 5G sub-6 should work.';
-  }
-  else if (origin === 'us') {
-    compatible4g = true; compatible5g = false;
-    missing5g = ['n78', 'n79'];
-    note = 'US carrier-locked phones (AT&T/Verizon/T-Mobile) may not work with Chinese SIMs. Check unlock status before you travel.';
-  }
-  else if (origin === 'eu' || origin === 'uk') {
-    compatible4g = true; compatible5g = true;
-    note = 'European models usually have excellent China compatibility. Physical SIM is present.';
-  }
-  else if (origin === 'jp') {
-    compatible4g = true; compatible5g = true;
-    note = 'Japanese phones generally work well. Some older models may have shutter sound that cannot be disabled.';
-  }
-  else if (origin === 'kr') {
-    compatible4g = true; compatible5g = true;
-    note = 'Korean phones work well. Note that some Samsung models may show 'KT' or 'SKT' branding — still fine.';
-  }
-  else if (origin === 'sg') {
-    compatible4g = true; compatible5g = model.startsWith('iphone') || model.includes('s2') || model.includes('zf')
-      || model.includes('p9') || model.includes('p8');
-    note = 'Southeast Asian models generally have good compatibility. Check 5G bands for non-flagship models.';
-  }
-  else if (origin === 'cn') {
-    compatible4g = true; compatible5g = true;
-    note = '✓ Chinese-made models with Chinese firmware are fully compatible. For Apple: China iPhone 14/15/16 have dual SIM (no eSIM).';
-  }
-  else if (origin === 'au') {
-    compatible4g = true; compatible5g = true;
-    note = 'Australian/NZ phones work well. Same frequency bands as Europe/Asia.';
-  }
-  else {
-    compatible4g = true; compatible5g = brand === 'apple' || brand === 'samsung' || brand === 'google';
-    note = 'Most modern phones should work for 4G. 5G may vary — test with a local SIM at airport.';
-  }
-
-  // Additional model-specific checks
-  if (brand === 'google' && origin !== 'us') {
-    compatible5g = model.includes('p9') || model.includes('p8') || model.includes('p7');
-    note = 'Pixel phones work well internationally. Carrier unlocking is standard.';
-  }
-
-  // Render
-  const icon = document.getElementById('resultIcon');
-  const title = document.getElementById('resultTitle');
-  const sub = document.getElementById('resultSub');
-  const list = document.getElementById('bandList');
-  const rec = document.getElementById('recommendBox');
-
-  if (compatible4g) {
-    icon.textContent = '✅';
-    title.textContent = 'Your phone will work in China';
-    sub.textContent = `${PHONES[brand].name} · ${PHONES[brand].models.find(m=>m.id===model)?.name || ''} (${origin.toUpperCase()})`;
-  } else {
-    icon.textContent = '⚠️';
-    title.textContent = 'Your phone may have issues';
-    sub.textContent = 'Check the details below before travelling.';
-  }
-
-  const bands4g = [
-    {band:'Band 1 (2100)',compat:compatible4g?'✓ Coverts most of China':'⚠ May not work'},
-    {band:'Band 3 (1800)',compat:compatible4g?'✓ Primary LTE band':'⚠ Missing'},
-    {band:'Band 8 (900)',compat:compatible4g?'✓ Rural coverage':'⚠ Missing'},
-    {band:'Band 40 (2300)',compat:compatible4g?'✓ China Mobile primary':'⚠ Check compatibility'},
-    {band:'Band 41 (2600)',compat:compatible4g?'✓ 4G+ / LTE-A':'⚠ May not work'}
-  ];
-
-  const bands5g = [
-    {band:'n41 (2500)',compat:compatible5g?'✓ China Mobile 5G':'✗ Not supported'},
-    {band:'n78 (3500)',compat:compatible5g?'✓ Main 5G band':'✗ Not supported'},
-    {band:'n79 (4700)',compat:compatible5g?'✓ China Unicom 5G':'✗ Not supported'}
-  ];
-
-  list.innerHTML = `
-    <li style="font-weight:600;font-size:13px;color:var(--color-muted);border-bottom:2px solid var(--color-border);">4G Bands</li>
-    ${bands4g.map(b => `<li><span class="band-label">${b.band}</span><span class="band-value ${b.compat.startsWith('✓')?'band-compat':'band-incompat'}">${b.compat}</span></li>`).join('')}
-    <li style="font-weight:600;font-size:13px;color:var(--color-muted);border-bottom:2px solid var(--color-border);margin-top:8px;">5G Bands</li>
-    ${bands5g.map(b => `<li><span class="band-label">${b.band}</span><span class="band-value ${b.compat.startsWith('✓')?'band-compat':'band-incompat'}">${b.compat}</span></li>`).join('')}
-  `;
-
-  rec.innerHTML = `<strong>Our recommendation:</strong><br>${note}`;
-
-  document.getElementById('resultBox').classList.add('show');
-}
-</script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
-<script>
-// Dark mode toggle
-document.getElementById('darkToggle').addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '\u2600\ufe0f' : '\U0001f319';
-});
-// Back to top
-(function() {
-  const btt = document.getElementById('backToTop');
-  if (!btt) return;
-  window.addEventListener('scroll', function() {
-    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
-  });
-  btt.addEventListener('click', function() {
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-})();
-</script>
+
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 </footer>
 
+<script>
+(function() {
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+})();
+</script>
 </body>
 </html>
