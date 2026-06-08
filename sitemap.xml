@@ -115,12 +115,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/accommodation-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://eventurus.cn/hotel-booking-guide.html</loc>
     <changefreq>monthly</changefreq>
     <lastmod>2026-05-31</lastmod>
