@@ -662,54 +662,9 @@ function quickFill(pickup, dest, destZh, note) {
   updateCard();
 }
 
-// ===== Auto-translate: English → Chinese dictionary =====
-// Curated dictionary of common expat destinations (pickup + destination + instructions)
-const TRANSLATE_DB = {
-  const pickup = document.getElementById('previewPickup').textContent;
-  const destEn = document.getElementById('previewDestEn').textContent;
-  const destZh = document.getElementById('previewDestZh').textContent;
-  const note = document.getElementById('previewNote').textContent.replace('📌 ','');
 
-  const printWin = window.open('', '', 'width=480,height=800');
-  printWin.document.write(`
-    <!DOCTYPE html><html><head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVENTURUS Address Card</title>
-    <style>
-      *{margin:0;padding:0;box-sizing:border-box;}
-      body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-      .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:36px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-      .brand{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
-      .label{font-size:11px;color:#aaa;margin-bottom:4px;}
-      .pickup{font-size:14px;font-weight:500;margin-bottom:6px;color:#666;}
-      .arrow{font-size:18px;color:#5A6E55;margin:8px 0;}
-      .dest-label{font-size:11px;color:#aaa;margin-bottom:4px;}
-      .dest-en{font-size:15px;font-weight:500;margin-bottom:4px;}
-      .dest-zh{font-size:26px;font-weight:700;letter-spacing:2px;margin:8px 0 12px;}
-      .note{font-size:11px;color:#999;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}
-      .footer{font-size:9px;color:#ccc;margin-top:20px;letter-spacing:1px;}
-      hr{border:none;border-top:1px dashed #eee;margin:16px 0;}
-      .scan-note{font-size:10px;color:#bbb;}
-    </style>
-    </head><body>
-    <div class="card">
-      <div class="brand">EVENTURUS · CHINA TRAVEL TOOL</div>
-      <div class="label">FROM</div>
-      <div class="pickup">${pickup}</div>
-      <div class="arrow">▼</div>
-      <div class="label">TO</div>
-      <div class="dest-en">${destEn}</div>
-      <div class="dest-zh">${destZh}</div>
-      ${note ? `<div class="note">📌 ${note}</div>` : ''}
-      <hr>
-      <div class="scan-note">Show this card to your driver. No need to speak.</div>
-      <div class="footer">EVENTURUS · VETTED</div>
-    </div>
-    </body></html>
-  `);
-  printWin.document.close();
-  setTimeout(() => { printWin.focus(); printWin.print(); }, 300);
 // ===== Auto-translate: English → Chinese dictionary =====
+const TRANSLATE_DB = {
   // Airports
   'pudong airport': '上海浦东国际机场', 'pvg': '上海浦东国际机场', 'shanghai pudong airport': '上海浦东国际机场',
   'hongqiao airport': '上海虹桥国际机场', 'sha': '上海虹桥国际机场', 'shanghai hongqiao airport': '上海虹桥国际机场',
@@ -733,10 +688,10 @@ const TRANSLATE_DB = {
 
   // Shanghai landmarks & areas
   'the bund': '外滩', 'waitan': '外滩', 'bund': '外滩',
-  'jing\'an temple': '静安寺', 'jingan temple': '静安寺', "jing'an temple": '静安寺',
-  'jing\'an': '静安区', 'jingan': '静安区',
+  "jing'an temple": '静安寺', 'jingan temple': '静安寺',
+  "jing'an": '静安区', 'jingan': '静安区',
   'nanjing road': '南京路', 'nanjing rd': '南京路', 'nanjing east road': '南京东路', 'nanjing west road': '南京西路',
-  'people\'s square': '人民广场', 'peoples square': '人民广场',
+  "people's square": '人民广场', 'peoples square': '人民广场',
   'huaihai road': '淮海路', 'huaihai lu': '淮海中路',
   'xintiandi': '新天地',
   'french concession': '法租界', 'former french concession': '原法租界',
@@ -789,7 +744,6 @@ const TRANSLATE_DB = {
   'beijing road': '北京路', 'beijing road guangzhou': '北京路',
   'shenzhen bay': '深圳湾', 'shenzhen civic center': '市民中心',
   'oct harbor': '欢乐海岸',
-  'lan kwai fong shenzhen': '兰桂坊深圳',
 
   // Chengdu
   'chunxi road': '春熙路', 'taikoo li chengdu': '成都太古里', 'sino-ocean taikoo li': '太古里',
@@ -807,9 +761,9 @@ const TRANSLATE_DB = {
 
   // Xi'an
   'terracotta army': '兵马俑', 'terra-cotta warriors': '秦始皇兵马俑',
-  'city wall xi\'an': '西安城墙', 'xi\'an city wall': '西安城墙',
+  "city wall xi'an": '西安城墙', "xi'an city wall": '西安城墙',
   'muslim quarter': '回民街', 'muslim street': '回民街',
-  'bell tower xi\'an': '西安钟楼', 'drum tower xi\'an': '西安鼓楼',
+  "bell tower xi'an": '西安钟楼', "drum tower xi'an": '西安鼓楼',
 
   // Chongqing
   'hongya cave': '洪崖洞',
@@ -825,7 +779,7 @@ const TRANSLATE_DB = {
   'central street harbin': '中央大街', 'st. sophia cathedral': '圣索菲亚教堂',
   'ice and snow world': '冰雪大世界',
 
-  // Universal / useful terms
+  // Universal terms (pickup + destination + special instructions)
   'international airport': '国际机场', 'airport terminal 1': '1号航站楼', 'airport terminal 2': '2号航站楼', 'terminal 3': 'T3航站楼',
   'train station': '火车站', 'railway station': '火车站',
   'hotel': '酒店', 'hotel lobby': '酒店大堂', 'hotel entrance': '酒店入口',
@@ -839,53 +793,19 @@ const TRANSLATE_DB = {
   'starbucks': '星巴克',
 }
 
-}
-
 function printCard() {
   const pickup = document.getElementById('previewPickup').textContent;
   const pickupZh = document.getElementById('previewPickupZh').textContent;
   const destEn = document.getElementById('previewDestEn').textContent;
   const destZh = document.getElementById('previewDestZh').textContent;
-  const noteRaw = document.getElementById('previewNote').textContent.replace('📌 ','');
+  const noteRaw = document.getElementById('previewNote').textContent.replace(/📌 /g,'');
 
-  const printWin = window.open('', '', 'width=480,height=800');
-  printWin.document.write(`
-    <!DOCTYPE html><html><head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVENTURUS Address Card</title>
-    <style>
-      *{margin:0;padding:0;box-sizing:border-box;}
-      body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-      .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:36px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-      .brand{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
-      .label{font-size:11px;color:#aaa;margin-bottom:4px;}
-      .pickup{font-size:14px;font-weight:500;margin-bottom:4px;color:#666;}
-      .pickup-zh{font-size:18px;font-weight:700;margin-bottom:8px;}
-      .arrow{font-size:18px;color:#5A6E55;margin:8px 0;}
-      .dest-label{font-size:11px;color:#aaa;margin-bottom:4px;}
-      .dest-en{font-size:15px;font-weight:500;margin-bottom:4px;}
-      .dest-zh{font-size:26px;font-weight:700;letter-spacing:2px;margin:8px 0 12px;}
-      .note{font-size:11px;color:#999;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}
-      .footer{font-size:9px;color:#ccc;margin-top:20px;letter-spacing:1px;}
-      hr{border:none;border-top:1px dashed #eee;margin:16px 0;}
-      .scan-note{font-size:10px;color:#bbb;}
-    </style>
-    </head><body>
-    <div class="card">
-      <div class="brand">EVENTURUS · CHINA TRAVEL TOOL</div>
-      <div class="label">FROM</div>
-      <div class="pickup">${pickup}</div>
-      ${pickupZh ? `<div class="pickup-zh">${pickupZh}</div>` : ''}
-      <div class="arrow">▼</div>
-      <div class="label">TO</div>
-      <div class="dest-en">${destEn}</div>
-      <div class="dest-zh">${destZh}</div>
-      ${noteRaw ? `<div class="note">📌 ${noteRaw}</div>` : ''}
-      <hr>
-      <div class="scan-note">Show this card to your driver. No need to speak.</div>
-      <div class="footer">EVENTURUS · VETTED</div>
-    </div>
-    </body></html>
+  var printWin = window.open('', '', 'width=480,height=800');
+  printWin.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EVENTURUS Address Card</title><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:36px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}.brand{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}.label{font-size:11px;color:#aaa;margin-bottom:4px;}.pickup{font-size:14px;font-weight:500;margin-bottom:4px;color:#666;}.pickup-zh{font-size:18px;font-weight:700;margin-bottom:8px;}.arrow{font-size:18px;color:#5A6E55;margin:8px 0;}.dest-label{font-size:11px;color:#aaa;margin-bottom:4px;}.dest-en{font-size:15px;font-weight:500;margin-bottom:4px;}.dest-zh{font-size:26px;font-weight:700;letter-spacing:2px;margin:8px 0 12px;}.note{font-size:11px;color:#999;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}.footer{font-size:9px;color:#ccc;margin-top:20px;letter-spacing:1px;}hr{border:none;border-top:1px dashed #eee;margin:16px 0;}.scan-note{font-size:10px;color:#bbb;}</style></head><body><div class="card"><div class="brand">EVENTURUS · CHINA TRAVEL TOOL</div><div class="label">FROM</div><div class="pickup">'+pickup+'</div>'+(pickupZh?'<div class="pickup-zh">'+pickupZh+'</div>':'')+'<div class="arrow">▼</div><div class="label">TO</div><div class="dest-en">'+destEn+'</div><div class="dest-zh">'+destZh+'</div>'+(noteRaw?'<div class="note">📌 '+noteRaw+'</div>':'')+'<hr><div class="scan-note">Show this card to your driver. No need to speak.</div><div class="footer">EVENTURUS · VETTED</div></div></body></html>');
+  printWin.document.close();
+  setTimeout(function(){ printWin.focus(); printWin.print(); },300);
+}
+updateCard();
 </script>
 </body>
 </html>
