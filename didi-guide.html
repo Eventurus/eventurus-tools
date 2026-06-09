@@ -98,7 +98,8 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .address-card.has-address { border-style:solid; border-color:var(--color-brand); background:var(--color-surface); }
 .address-card .card-title { font-size:13px; color:var(--color-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
 .address-card .pickup-label, .address-card .dest-label { font-size:11px; color:var(--color-muted); margin-bottom:2px; }
-.address-card .pickup-addr { font-size:15px; font-weight:600; color:var(--color-text); margin-bottom:12px; }
+.address-card .pickup-addr { font-size:15px; font-weight:600; color:var(--color-text); margin-bottom:4px; }
+.address-card .pickup-addr-zh { font-size:18px; font-weight:700; letter-spacing:1px; margin-bottom:16px; }
 .address-card .arrow-down { font-size:20px; color:var(--color-brand); margin-bottom:8px; }
 .address-card .dest-addr { font-size:18px; font-weight:700; color:var(--color-text); margin-bottom:4px; }
 .address-card .dest-addr-zh { font-size:24px; font-weight:700; color:var(--color-text); letter-spacing:1px; margin-bottom:8px; }
@@ -489,23 +490,19 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     <p>Fill in your pickup and destination, then show the card to your driver &mdash; no talking needed. Print it or save it as a PDF before you head out.</p>
     <div class="input-group">
       <label>Your current location / pickup point</label>
-      <input type="text" id="pickupInput" placeholder="e.g. The Bund, Shanghai" oninput="updateCard()">
+      <input type="text" id="pickupInput" placeholder="e.g. The Bund, Shanghai">
     </div>
     <div class="input-group">
       <label>Your destination</label>
-      <textarea id="destInput" placeholder="e.g. 199 Nanjing Rd, Jing'an Temple area, or a hotel / restaurant name" oninput="updateCard()"></textarea>
+      <textarea id="destInput" placeholder="e.g. 199 Nanjing Rd, Jing'an Temple area, or a hotel / restaurant name"></textarea>
     </div>
     <div class="input-group">
-      <label>Destination in Chinese <span style="font-weight:400;color:var(--color-brand);cursor:pointer;" onclick="autoTranslate()">⟳ Auto-translate</span></label>
-      <input type="text" id="destZhInput" placeholder="中文地址（选填，或点击上方自动翻译）" oninput="updateCard()">
+      <label>Special instructions <span style="font-weight:400;color:#999;font-size:12px;">(will be translated)</span></label>
+      <input type="text" id="noteInput" placeholder="e.g. Gate 3, back entrance, meet at lobby">
     </div>
     <div class="translate-status" id="translateStatus" style="display:none;font-size:12px;color:var(--color-brand);margin-top:-10px;margin-bottom:4px;padding-left:2px;"></div>
-    <div class="input-group">
-      <label>Special instructions (optional)</label>
-      <input type="text" id="noteInput" placeholder="e.g. Gate 3, back entrance, meet at lobby" oninput="updateCard()">
-    </div>
     <div class="card-actions">
-      <button class="btn btn-primary" onclick="updateCard()">⟳ Preview card</button>
+      <button class="btn btn-primary" onclick="autoTranslate()">⟳ Auto-Translate</button>
       <button class="btn btn-outline" onclick="printCard()">🖨️ Print / Save PDF</button>
     </div>
   </div>
@@ -514,6 +511,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     <div class="card-title">Show this to your driver</div>
     <div class="pickup-label">FROM</div>
     <div class="pickup-addr" id="previewPickup">—</div>
+    <div class="pickup-addr-zh" id="previewPickupZh"></div>
     <div class="arrow-down">▼</div>
     <div class="dest-label">TO</div>
     <div class="dest-addr" id="previewDestEn">—</div>
@@ -565,34 +563,108 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 })();
 </script>
 <script>
-// Address card generator (merged verbatim from taxi-guide; print colour aligned to brand #5A6E55)
+// Address card generator
 function updateCard() {
-  const pickup = document.getElementById('pickupInput').value || '—';
-  const dest = document.getElementById('destInput').value || '—';
-  const destZh = document.getElementById('destZhInput').value || '';
+  const pickup = document.getElementById('pickupInput').value || '';
+  const dest = document.getElementById('destInput').value || '';
   const note = document.getElementById('noteInput').value || '';
 
-  document.getElementById('previewPickup').textContent = pickup;
-  document.getElementById('previewDestEn').textContent = dest;
-  document.getElementById('previewDestZh').textContent = destZh || dest;
+  // Only update English fields — Chinese is set by autoTranslate()
+  document.getElementById('previewPickup').textContent = pickup || '—';
+  document.getElementById('previewDestEn').textContent = dest || '—';
   document.getElementById('previewNote').textContent = note ? '📌 ' + note : '';
 
   const card = document.getElementById('cardPreview');
-  if (dest && dest !== '—') card.classList.add('has-address');
+  if (dest) card.classList.add('has-address');
   else card.classList.remove('has-address');
 }
 
+// Translate a single text string → Chinese (dictionary first, then API)
+function translateText(text, statusEl) {
+  return new Promise((resolve) => {
+    if (!text || !text.trim()) { resolve(''); return; }
+
+    const key = text.toLowerCase().trim().replace(/\s+/g, ' ').replace(/[.,]/g, '');
+
+    // 1) Exact match in dictionary
+    if (TRANSLATE_DB[key]) { resolve(TRANSLATE_DB[key]); return; }
+
+    // 2) Partial / contains match — find longest matching key
+    let bestMatch = '', bestKey = '';
+    for (const k of Object.keys(TRANSLATE_DB)) {
+      if ((key.includes(k) || k.includes(key)) && k.length > bestKey.length) {
+        bestKey = k; bestMatch = TRANSLATE_DB[k];
+      }
+    }
+    if (bestMatch) { resolve(bestMatch); return; }
+
+    // 3) Fallback: MyMemory Translation API
+    fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=en|zh-CN')
+      .then(r => r.json())
+      .then(data => {
+        if (data.responseStatus === 200 && data.responseData.translatedText) {
+          resolve(data.responseData.translatedText);
+        } else {
+          resolve('');
+        }
+      })
+      .catch(() => resolve(''));
+  });
+}
+
+// Auto-translate: pickup + destination + special instructions all at once
+async function autoTranslate() {
+  const pickupInput = document.getElementById('pickupInput').value;
+  const destInput = document.getElementById('destInput').value;
+  const noteInput = document.getElementById('noteInput').value;
+  const status = document.getElementById('translateStatus');
+
+  if (!pickupInput && !destInput && !noteInput) return;
+
+  status.style.display = 'block';
+  status.textContent = '⟳ Translating...';
+
+  // Run all three translations in parallel
+  const [pickupZh, destZh, noteZh] = await Promise.all([
+    translateText(pickupInput),
+    translateText(destInput),
+    translateText(noteInput)
+  ]);
+
+  // Write results to card preview
+  document.getElementById('previewPickupZh').textContent = pickupZh ? pickupZh : '';
+  document.getElementById('previewDestZh').textContent = destZh ? destZh : (destInput || '—');
+
+  // Update note with translated version shown below original
+  const noteEl = document.getElementById('previewNote');
+  noteEl.textContent = noteInput ? ('📌 ' + noteInput + (noteZh ? '\n' + noteZh : '')) : '';
+
+  status.style.display = 'none';
+
+  // Ensure card shows active state
+  const card = document.getElementById('cardPreview');
+  card.classList.add('has-address');
+}
+
 function quickFill(pickup, dest, destZh, note) {
-  if (document.getElementById('pickupInput').value === '') {
+  if (!document.getElementById('pickupInput').value) {
     document.getElementById('pickupInput').value = pickup || 'My current location';
   }
   document.getElementById('destInput').value = dest;
-  document.getElementById('destZhInput').value = destZh;
   document.getElementById('noteInput').value = note || '';
+  // Pre-fill Chinese translations if provided by quick button
+  if (destZh) document.getElementById('previewDestZh').textContent = destZh;
+  if (pickup) {
+    translateText(pickup).then(zh => {
+      if (zh) document.getElementById('previewPickupZh').textContent = zh;
+    });
+  }
   updateCard();
 }
 
-function printCard() {
+// ===== Auto-translate: English → Chinese dictionary =====
+// Curated dictionary of common expat destinations (pickup + destination + instructions)
+const TRANSLATE_DB = {
   const pickup = document.getElementById('previewPickup').textContent;
   const destEn = document.getElementById('previewDestEn').textContent;
   const destZh = document.getElementById('previewDestZh').textContent;
@@ -637,11 +709,7 @@ function printCard() {
   `);
   printWin.document.close();
   setTimeout(() => { printWin.focus(); printWin.print(); }, 300);
-}
-
-// ===== Auto-translate: English destination → Chinese =====
-// Curated dictionary of common expat destinations
-const TRANSLATE_DB = {
+// ===== Auto-translate: English → Chinese dictionary =====
   // Airports
   'pudong airport': '上海浦东国际机场', 'pvg': '上海浦东国际机场', 'shanghai pudong airport': '上海浦东国际机场',
   'hongqiao airport': '上海虹桥国际机场', 'sha': '上海虹桥国际机场', 'shanghai hongqiao airport': '上海虹桥国际机场',
@@ -771,61 +839,53 @@ const TRANSLATE_DB = {
   'starbucks': '星巴克',
 }
 
-function autoTranslate() {
-  const destInput = document.getElementById('destInput')
-  const zhInput = document.getElementById('destZhInput')
-  const status = document.getElementById('translateStatus')
-
-  const text = (destInput.value || '').trim()
-  if (!text) { status.style.display = 'none'; return }
-
-  status.style.display = 'block'
-  status.textContent = '⏳ Looking up...'
-
-  const key = text.toLowerCase().replace(/\s+/g, ' ').replace(/[.,]/g, '')
-
-  // 1) Exact match
-  if (TRANSLATE_DB[key]) {
-    zhInput.value = TRANSLATE_DB[key]
-    status.textContent = ''
-    updateCard()
-    return
-  }
-
-  // 2) Partial / contains match — find the longest matching key
-  let bestMatch = ''
-  let bestKey = ''
-  for (const k of Object.keys(TRANSLATE_DB)) {
-    if ((key.includes(k) || k.includes(key)) && k.length > bestKey.length) {
-      bestKey = k
-      bestMatch = TRANSLATE_DB[k]
-    }
-  }
-  if (bestMatch) {
-    zhInput.value = bestMatch
-    status.textContent = '✓ Matched from "' + bestKey + '"'
-    updateCard()
-    return
-  }
-
-  // 3) Fallback: free MyMemory Translation API
-  status.textContent = '⟳ Translating via API...'
-  fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=en|zh-CN')
-    .then(r => r.json())
-    .then(data => {
-      if (data.responseStatus === 200 && data.responseData.translatedText) {
-        zhInput.value = data.responseData.translatedText
-        status.textContent = '✓ Translated'
-      } else {
-        status.textContent = '✗ No result found. Try typing the Chinese name.'
-      }
-      updateCard()
-    })
-    .catch(() => {
-      status.textContent = '✗ Translation failed. Please enter Chinese manually.'
-    })
 }
-updateCard();
+
+function printCard() {
+  const pickup = document.getElementById('previewPickup').textContent;
+  const pickupZh = document.getElementById('previewPickupZh').textContent;
+  const destEn = document.getElementById('previewDestEn').textContent;
+  const destZh = document.getElementById('previewDestZh').textContent;
+  const noteRaw = document.getElementById('previewNote').textContent.replace('📌 ','');
+
+  const printWin = window.open('', '', 'width=480,height=800');
+  printWin.document.write(`
+    <!DOCTYPE html><html><head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTURUS Address Card</title>
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box;}
+      body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+      .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:36px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+      .brand{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+      .label{font-size:11px;color:#aaa;margin-bottom:4px;}
+      .pickup{font-size:14px;font-weight:500;margin-bottom:4px;color:#666;}
+      .pickup-zh{font-size:18px;font-weight:700;margin-bottom:8px;}
+      .arrow{font-size:18px;color:#5A6E55;margin:8px 0;}
+      .dest-label{font-size:11px;color:#aaa;margin-bottom:4px;}
+      .dest-en{font-size:15px;font-weight:500;margin-bottom:4px;}
+      .dest-zh{font-size:26px;font-weight:700;letter-spacing:2px;margin:8px 0 12px;}
+      .note{font-size:11px;color:#999;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}
+      .footer{font-size:9px;color:#ccc;margin-top:20px;letter-spacing:1px;}
+      hr{border:none;border-top:1px dashed #eee;margin:16px 0;}
+      .scan-note{font-size:10px;color:#bbb;}
+    </style>
+    </head><body>
+    <div class="card">
+      <div class="brand">EVENTURUS · CHINA TRAVEL TOOL</div>
+      <div class="label">FROM</div>
+      <div class="pickup">${pickup}</div>
+      ${pickupZh ? `<div class="pickup-zh">${pickupZh}</div>` : ''}
+      <div class="arrow">▼</div>
+      <div class="label">TO</div>
+      <div class="dest-en">${destEn}</div>
+      <div class="dest-zh">${destZh}</div>
+      ${noteRaw ? `<div class="note">📌 ${noteRaw}</div>` : ''}
+      <hr>
+      <div class="scan-note">Show this card to your driver. No need to speak.</div>
+      <div class="footer">EVENTURUS · VETTED</div>
+    </div>
+    </body></html>
 </script>
 </body>
 </html>
