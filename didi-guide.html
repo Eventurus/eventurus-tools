@@ -202,7 +202,6 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   ]
 }
   </script>
-<script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
 </head>
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
@@ -497,9 +496,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
       <textarea id="destInput" placeholder="e.g. 199 Nanjing Rd, Jing'an Temple area, or a hotel / restaurant name" oninput="updateCard()"></textarea>
     </div>
     <div class="input-group">
-      <label>Destination in Chinese (if you know it)</label>
-      <input type="text" id="destZhInput" placeholder="中文地址（选填）" oninput="updateCard()">
+      <label>Destination in Chinese <span style="font-weight:400;color:var(--color-brand);cursor:pointer;" onclick="autoTranslate()">⟳ Auto-translate</span></label>
+      <input type="text" id="destZhInput" placeholder="中文地址（选填，或点击上方自动翻译）" oninput="updateCard()">
     </div>
+    <div class="translate-status" id="translateStatus" style="display:none;font-size:12px;color:var(--color-brand);margin-top:-10px;margin-bottom:4px;padding-left:2px;"></div>
     <div class="input-group">
       <label>Special instructions (optional)</label>
       <input type="text" id="noteInput" placeholder="e.g. Gate 3, back entrance, meet at lobby" oninput="updateCard()">
@@ -548,11 +548,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="cross-link"><p>Related: <a href="payment-guide.html">WeChat Pay & Alipay Guide</a> · <a href="transit-matrix.html">China City Transit Matrix</a></p></div>
 
 </div>
-<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
-<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
-<span style="margin:0 8px;color:#d0d0d0;">·</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="https://beian.mps.gov.cn/img/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
-</footer>
+
 </div>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
 <script>
@@ -643,7 +639,192 @@ function printCard() {
   setTimeout(() => { printWin.focus(); printWin.print(); }, 300);
 }
 
-// Init
+// ===== Auto-translate: English destination → Chinese =====
+// Curated dictionary of common expat destinations
+const TRANSLATE_DB = {
+  // Airports
+  'pudong airport': '上海浦东国际机场', 'pvg': '上海浦东国际机场', 'shanghai pudong airport': '上海浦东国际机场',
+  'hongqiao airport': '上海虹桥国际机场', 'sha': '上海虹桥国际机场', 'shanghai hongqiao airport': '上海虹桥国际机场',
+  'beijing capital airport': '北京首都国际机场', 'pek': '北京首都国际机场', 'capital airport': '北京首都国际机场',
+  'beijing daxing airport': '北京大兴国际机场', 'pkx': '北京大兴国际机场', 'daxing airport': '北京大兴国际机场',
+  'guangzhou baiyun airport': '广州白云国际机场', 'can': '广州白云国际机场', 'baiyun airport': '广州白云国际机场',
+  'shenzhen baoan airport': '深圳宝安国际机场', 'szx': '深圳宝安国际机场', 'baoan airport': '深圳宝安国际机场',
+  'chengdu tianfu airport': '成都天府国际机场', 'tianfu airport': '成都天府国际机场',
+  'chengdu shuangliu airport': '成都双流国际机场', 'shuangliu airport': '成都双流国际机场',
+  'hangzhou xiaoshan airport': '杭州萧山国际机场', 'xiaoshan airport': '杭州萧山国际机场',
+
+  // Railway stations
+  'shanghai station': '上海站', 'shanghai railway station': '上海站',
+  'shanghai hongqiao station': '上海虹桥站', 'hongqiao station': '上海虹桥站', 'hongqiao railway station': '上海虹桥站',
+  'shanghai south station': '上海南站',
+  'beijing station': '北京站', 'beijing railway station': '北京站',
+  'beijing south station': '北京南站', 'beijing nan': '北京南站',
+  'beijing west station': '北京西站',
+  'guangzhou south station': '广州南站', 'guangzhou nan': '广州南站',
+  'shenzhen north station': '深圳北站',
+
+  // Shanghai landmarks & areas
+  'the bund': '外滩', 'waitan': '外滩', 'bund': '外滩',
+  'jing\'an temple': '静安寺', 'jingan temple': '静安寺', "jing'an temple": '静安寺',
+  'jing\'an': '静安区', 'jingan': '静安区',
+  'nanjing road': '南京路', 'nanjing rd': '南京路', 'nanjing east road': '南京东路', 'nanjing west road': '南京西路',
+  'people\'s square': '人民广场', 'peoples square': '人民广场',
+  'huaihai road': '淮海路', 'huaihai lu': '淮海中路',
+  'xintiandi': '新天地',
+  'french concession': '法租界', 'former french concession': '原法租界',
+  'tianzifang': '田子坊',
+  'yuyuan garden': '豫园', 'yuyuan': '豫园', 'city god temple': '城隍庙',
+  'lujiazui': '陆家嘴', 'oriental pearl tower': '东方明珠塔', 'pearl tower': '东方明珠塔',
+  'shanghai tower': '上海中心大厦', 'swfc': '环球金融中心', 'world financial center': '环球金融中心',
+  'jin mao tower': '金茂大厦', 'jinmao tower': '金茂大厦',
+  'the portman ritz-carlton': '波特曼丽思卡尔顿酒店', 'portman hotel': '波特曼丽思卡尔顿酒店',
+  'fairmont peace hotel': '和平饭店', 'peace hotel': '和平饭店',
+  'peninsula shanghai': '半岛酒店', 'peninsula hotel': '半岛酒店',
+  'waldorf astoria': '华尔道夫酒店', 'waldorf': '华尔道夫酒店',
+  'banyan tree': '悦榕庄', 'banyan tree on the bund': '外滩悦榕庄',
+  'middle house': '镛舍', 'the middle house': '镛舍',
+  'edition shanghai': '艾迪逊酒店', 'edition hotel': '艾迪逊酒店',
+  'capella shanghai': '嘉佩乐酒店', 'capella hotel': '嘉佩乐酒店',
+  'wanda reign': '万达瑞华', 'wanda reign on the bund': '外滩万达瑞华',
+  'puli hotel': '璞丽酒店', 'the puli': '璞丽酒店',
+  'a sense of place': '阿纳迪酒店',
+  'xuhui': '徐汇区', 'xuhui district': '徐汇区',
+  'putuo': '普陀区', 'putuo district': '普陀区',
+  'huangpu': '黄浦区', 'huangpu district': '黄浦区',
+  'yangpu': '杨浦区', 'yangpu district': '杨浦区',
+  'minhang': '闵行区', 'minhang district': '闵行区',
+  'pudong': '浦东新区', 'pudong new area': '浦东新区', 'lujiazui area': '陆家嘴金融区',
+  'disneyland': '上海迪士尼乐园', 'shanghai disney': '上海迪士尼乐园',
+  'west bund': '西岸', 'west bund museum': '西岸美术馆',
+
+  // Beijing landmarks & areas
+  'forbidden city': '故宫', 'palace museum': '故宫博物院', 'forbidden palace': '故宫',
+  'great wall': '长城', 'mutianyu great wall': '慕田峪长城', 'badaling great wall': '八达岭长城',
+  'temple of heaven': '天坛', 'tiantan': '天坛',
+  'summer palace': '颐和园',
+  'tiananmen square': '天安门广场',
+  'sanlitun': '三里屯',
+  '798 art zone': '798艺术区', '798': '798艺术区',
+  'wangfujing': '王府井', 'wangfujing street': '王府井大街',
+  'nanluoguxiang': '南锣鼓巷', 'nanluogu': '南锣鼓巷',
+  'chaoyang': '朝阳区', 'chaoyang district': '朝阳区',
+  'dongcheng': '东城区', 'dongcheng district': '东城区',
+  'xicheng': '西城区', 'xicheng district': '西城区',
+  'haidian': '海淀区', 'haidian district': '海淀区',
+  'china world trade center': '国贸中心', 'cwtc': '国贸中心', 'guomao': '国贸',
+  'park hyatt beijing': '北京柏悦酒店', 'rosewood beijing': '北京瑰丽酒店',
+  'aman summer palace': '北京安缦颐和', 'aman beijing': '北京安缦',
+
+  // Guangzhou / Shenzhen
+  'canton tower': '广州塔', 'guangzhou tower': '广州塔', 'xiaomanyao': '小蛮腰',
+  'shamian island': '沙面岛', 'shamian': '沙面岛',
+  'beijing road': '北京路', 'beijing road guangzhou': '北京路',
+  'shenzhen bay': '深圳湾', 'shenzhen civic center': '市民中心',
+  'oct harbor': '欢乐海岸',
+  'lan kwai fong shenzhen': '兰桂坊深圳',
+
+  // Chengdu
+  'chunxi road': '春熙路', 'taikoo li chengdu': '成都太古里', 'sino-ocean taikoo li': '太古里',
+  'giant panda breeding base': '大熊猫繁育研究基地', 'panda base': '熊猫基地',
+  'jinli street': '锦里古街', 'jinli': '锦里',
+  'kuanzhai alley': '宽窄巷子', 'kuan zhai xiangzi': '宽窄巷子',
+  'temple of marquis': '武侯祠', 'wuhou shrine': '武侯祠',
+  'the temple house': '博舍', 'temple house chengdu': '博舍',
+
+  // Hangzhou
+  'west lake': '西湖', 'xihu': '西湖',
+  'lingyin temple': '灵隐寺',
+  'hefang street': '河坊街',
+  'breeze village': '天目里',
+
+  // Xi'an
+  'terracotta army': '兵马俑', 'terra-cotta warriors': '秦始皇兵马俑',
+  'city wall xi\'an': '西安城墙', 'xi\'an city wall': '西安城墙',
+  'muslim quarter': '回民街', 'muslim street': '回民街',
+  'bell tower xi\'an': '西安钟楼', 'drum tower xi\'an': '西安鼓楼',
+
+  // Chongqing
+  'hongya cave': '洪崖洞',
+  'liberation monument': '解放碑', 'jiefangbei': '解放碑',
+  'ciqikou': '磁器口',
+
+  // Nanjing
+  'confucius temple nanjing': '夫子庙', 'qinhuai river': '秦淮河',
+  'sun yat-sen mausoleum': '中山陵', 'xinjiekou': '新街口',
+  'president palace': '总统府', 'nanjing presidential palace': '总统府',
+
+  // Harbin
+  'central street harbin': '中央大街', 'st. sophia cathedral': '圣索菲亚教堂',
+  'ice and snow world': '冰雪大世界',
+
+  // Universal / useful terms
+  'international airport': '国际机场', 'airport terminal 1': '1号航站楼', 'airport terminal 2': '2号航站楼', 'terminal 3': 'T3航站楼',
+  'train station': '火车站', 'railway station': '火车站',
+  'hotel': '酒店', 'hotel lobby': '酒店大堂', 'hotel entrance': '酒店入口',
+  'restaurant': '餐厅', 'entrance': '入口', 'exit': '出口', 'gate': '门',
+  'back entrance': '后门', 'front door': '正门', 'main entrance': '正门',
+  'lobby': '大堂', 'reception': '前台', 'check-in desk': '前台接待处',
+  'hospital': '医院', 'clinic': '诊所', 'pharmacy': '药店',
+  'shopping mall': '购物中心', 'mall': '商场', 'department store': '百货公司',
+  'metro station': '地铁站', 'subway station': '地铁站', 'underground station': '地铁站',
+  'bus stop': '公交车站', 'taxi stand': '出租车上客点',
+  'starbucks': '星巴克',
+}
+
+function autoTranslate() {
+  const destInput = document.getElementById('destInput')
+  const zhInput = document.getElementById('destZhInput')
+  const status = document.getElementById('translateStatus')
+
+  const text = (destInput.value || '').trim()
+  if (!text) { status.style.display = 'none'; return }
+
+  status.style.display = 'block'
+  status.textContent = '⏳ Looking up...'
+
+  const key = text.toLowerCase().replace(/\s+/g, ' ').replace(/[.,]/g, '')
+
+  // 1) Exact match
+  if (TRANSLATE_DB[key]) {
+    zhInput.value = TRANSLATE_DB[key]
+    status.textContent = ''
+    updateCard()
+    return
+  }
+
+  // 2) Partial / contains match — find the longest matching key
+  let bestMatch = ''
+  let bestKey = ''
+  for (const k of Object.keys(TRANSLATE_DB)) {
+    if ((key.includes(k) || k.includes(key)) && k.length > bestKey.length) {
+      bestKey = k
+      bestMatch = TRANSLATE_DB[k]
+    }
+  }
+  if (bestMatch) {
+    zhInput.value = bestMatch
+    status.textContent = '✓ Matched from "' + bestKey + '"'
+    updateCard()
+    return
+  }
+
+  // 3) Fallback: free MyMemory Translation API
+  status.textContent = '⟳ Translating via API...'
+  fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=en|zh-CN')
+    .then(r => r.json())
+    .then(data => {
+      if (data.responseStatus === 200 && data.responseData.translatedText) {
+        zhInput.value = data.responseData.translatedText
+        status.textContent = '✓ Translated'
+      } else {
+        status.textContent = '✗ No result found. Try typing the Chinese name.'
+      }
+      updateCard()
+    })
+    .catch(() => {
+      status.textContent = '✗ Translation failed. Please enter Chinese manually.'
+    })
+}
 updateCard();
 </script>
 </body>
