@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinese Hospital Guide — EVENTURUS</title>
+<meta name="description" content="Comprehensive guide to China's hospital system for foreign travellers. Hospital tiers explained, top hospitals by city and specialty, how to book appointments, step-by-step visit guide, costs, and pharmacy tips.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Chinese Hospital Guide — EVENTURUS">
+<meta property="og:description" content="Comprehensive guide to China's hospital system for foreign travellers. Hospital tiers, top specialists by city, booking guide, visit walkthrough, and pricing.">
+<meta property="og:url" content="https://eventurus.cn/hospital-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EVENTURUS">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://eventurus.cn/og-hospital-guide.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chinese Hospital Guide — EVENTURUS">
+<meta name="twitter:description" content="Comprehensive guide to China's hospital system for foreign travellers. Hospital tiers, top specialists by city, booking guide, visit walkthrough, and pricing.">
+<meta name="twitter:image" content="https://eventurus.cn/og-hospital-guide.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://eventurus.cn/hospital-guide.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text: #2c2c2c;
+  --color-muted: #676760;
+  --color-brand: #5A6E55;
+  --color-brand-light: #E3EFD5;
+  --color-brand-dark: #4A5C46;
+  --color-bg: #F9F9F9;
+  --color-surface: #fff;
+  --color-border: #E5E5E0;
+  --color-highlight: #F1EFE8;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, Helvetica, Arial, sans-serif;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
+
+body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;  -webkit-tap-highlight-color: transparent; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+.brand-bar { padding: 24px 0 0; text-align: center; }
+.brand-bar .brand { font-size: 18px; font-weight: 500; letter-spacing: 2px; color: var(--color-text); text-decoration: none; }
+.brand-bar .brand em {font-style:normal; color:var(--color-text); }
+.brand-bar .tagline { font-size: 12px; color: var(--color-muted); letter-spacing: 1px; margin-top: 2px; }
+.hero { text-align: center; padding: 48px 0 24px; }
+.hero h1 { font-size: 34px; font-weight: 500; line-height: 1.25; margin-bottom: 12px; }
+.hero p { font-size: 15px; color: var(--color-muted); max-width: 520px; margin: 0 auto; }
+.section { padding: 24px 0; }
+.section h2 { font-size: 26px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+.section .sub { font-size: 13px; color: var(--color-muted); margin-bottom: 20px; }
+.section p { font-size: 15px; color: var(--color-text); margin-bottom: 14px; line-height: 1.7; }
+.section h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; margin-top: 20px; }
+
+/* Cards */
+.info-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px;
+}
+.info-card h3 { font-size: 17px; font-weight: 600; margin-top: 0; margin-bottom: 12px; }
+.info-card h3 .emoji { margin-right: 8px; }
+.info-card p, .info-card li { font-size: 14px; line-height: 1.6; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card li { padding: 6px 0; border-bottom: 1px solid #F0F0EE; display: flex; align-items: flex-start; gap: 8px; }
+.info-card li:last-child { border-bottom: none; }
+.info-card li .bullet { color: var(--color-brand); flex-shrink: 0; }
+
+/* Hospital card (special) */
+.hosp-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow); padding: 22px 24px; margin-bottom: 14px;
+}
+.hosp-card .hc-name { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+.hosp-card .hc-cn { font-size: 13px; color: var(--color-muted); margin-bottom: 8px; }
+.hosp-card .hc-tier { display: inline-block; background: #F5E8D5; border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 600; color: #8A6A3A; margin-bottom: 10px; }
+.hosp-card .hc-tier.intl { background: #EAF3DE; color: #3B6D11; }
+.hosp-card .hc-info { font-size: 13px; line-height: 1.6; color: var(--color-text); }
+.hosp-card .hc-info strong { display: inline-block; min-width: 80px; color: var(--color-brand-dark); }
+.hosp-card .hc-spec { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+.hosp-card .hc-spec span { background: var(--color-highlight); border-radius: 6px; padding: 3px 10px; font-size: 12px; color: var(--color-text); }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: 13px; }
+th { padding: 10px 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-muted); border-bottom: 2px solid var(--color-border); text-align: left; background: var(--color-highlight); }
+td { padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #FAFAF8; }
+.td-brand { font-weight: 600; color: var(--color-brand); }
+
+/* Highlight boxes */
+.highlight-box {
+  background: var(--color-brand-light); border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6;
+}
+.highlight-box strong { color: #3B6D11; }
+.warning-box {
+  background: #FFF0E0; border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6; border: 1px solid #FFE0B0;
+}
+.warning-box strong { color: #A06600; }
+.info-box {
+  background: #E6F1FB; border-radius: var(--radius); padding: 16px 20px; margin: 16px 0;
+  font-size: 13px; line-height: 1.6; border: 1px solid #CDE0F5;
+}
+.info-box strong { color: #185FA5; }
+
+/* Steps */
+.steps { counter-reset: step; list-style: none; padding: 0; }
+.steps li { counter-increment: step; padding: 10px 0 10px 40px; position: relative; font-size: 14px; line-height: 1.6; border-bottom: 1px solid #F0F0EE; }
+.steps li:last-child { border-bottom: none; }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: 10px; width: 26px; height: 26px; border-radius: 50%; background: var(--color-brand-light); color: var(--color-brand-dark); font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.steps li strong { color: var(--color-text); }
+
+/* Phrase */
+.phrase-card {
+  background: var(--color-surface); border-radius: var(--radius); border: 1px solid var(--color-border);
+  padding: 16px 20px; margin-bottom: 10px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+}
+.phrase-card .pc-en { font-size: 14px; font-weight: 500; color: var(--color-text); }
+.phrase-card .pc-cn { font-size: 16px; color: var(--color-brand); font-weight: 600; text-align: right; }
+.phrase-card .pc-pinyin { font-size: 12px; color: var(--color-muted); text-align: right; font-style: italic; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--color-border); padding: 16px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--color-text); }
+.faq-a { font-size: 14px; color: var(--color-muted); line-height: 1.6; }
+
+/* Price grid */
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+@media (max-width: 500px) { .price-grid { grid-template-columns: 1fr; } }
+.price-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 14px 16px; }
+.price-item .pi-label { font-size: 12px; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.price-item .pi-val { font-size: 18px; font-weight: 600; color: var(--color-brand-dark); }
+
+/* Footer */
+.footer { text-align: center; padding: 32px 0 24px; font-size: 12px; color: var(--color-muted); }
+.footer a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.footer .brand-foot { font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
+
+.cross-link { text-align: center; padding: 4px 0; font-size: 13px; color: var(--color-muted); }
+.cross-link a { color: var(--color-brand); text-decoration: none; font-weight: 500; }
+.cross-link a:hover { text-decoration: underline; }
+
+.divider { text-align: center; padding: 8px 0; color: var(--color-border); font-size: 14px; }
+
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
+  a { color: #000; text-decoration: underline; }
+  .container { max-width: 100%; }
+  table { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
+  .warning-box { background: #2a1a0a; border-color: #4a3a1a; }
+  .warning-box strong { color: #D4A040; }
+  .info-box { background: #0a1a2a; border-color: #1a3a5a; }
+  .info-box strong { color: #60A0D0; }
+  .highlight-box { background: #2a3a2a; }
+  .highlight-box strong { color: #7AA84C; }
+  tr:hover td { background: #1a1a1a; }
+}
+</style>
+<script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+</head>
+<body>
+
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
+<div class="container" id="main-content" style="position:relative;">
+
+<div class="hero">
+  <h1>Chinese Hospital Guide</h1>
+  <p>Everything you need to know about China's hospital system. Tiers explained, top specialists in 12 cities, how to book and navigate a visit, what it costs, and what to expect.</p>
+</div>
+<!-- ══════════ Section 3: Hospital System Explained ══════════ -->
+<div class="section">
+  <h2>Understanding Chinese Hospitals</h2>
+  <p class="sub">The Chinese hospital system is unlike anything most Western travellers have encountered. Understanding the tiers is the key to navigating it efficiently.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">🏥</span> The Three-Tier System</h3>
+    <p>Chinese public hospitals are graded into three tiers by the National Health Commission, with subdivisions A (甲) / B (乙) / C (丙) within each tier. This grading reflects bed count, equipment level, staff qualifications, teaching status, and clinical capacity.</p>
+
+    <div class="table-wrap" style="margin-top:14px;">
+      <table>
+        <thead><tr><th>Tier</th><th>Name (中文)</th><th>What It Means</th><th>Foreigner-Friendly?</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="td-brand">Grade III-A<br>(三甲)</td>
+            <td>三级甲等</td>
+            <td>The highest level. University-affiliated teaching hospitals, 500+ beds, advanced equipment (MRI, CT, PET), specialist departments covering 20+ fields. These are China's best hospitals — comparable to major university hospitals in the West. <strong>This is where you want to go for anything serious.</strong></td>
+            <td>Limited — some have international/VIP departments with English service, but main outpatient halls are entirely Chinese.</td>
+          </tr>
+          <tr>
+            <td>Grade III-B<br>(三乙)</td>
+            <td>三级乙等</td>
+            <td>Still tertiary care but slightly below 三甲. Good city-level hospitals. Usually have fewer research credentials. May lack certain super-specialist departments.</td>
+            <td>Very limited English. Go to international department if one exists, or bring a local contact.</td>
+          </tr>
+          <tr>
+            <td>Grade II<br>(二级)</td>
+            <td>二级甲等/乙等</td>
+            <td>District and county hospitals. 100–499 beds. Capable of basic surgery, internal medicine, paediatrics, and obstetrics. Suitable for routine care and minor emergencies in smaller cities.</td>
+            <td>Almost no English. Bring a translation app and expect longer waits for complex care.</td>
+          </tr>
+          <tr>
+            <td>Grade I</td>
+            <td>一级</td>
+            <td>Community-level clinics (&lt;100 beds). GP-equivalent level. Vaccinations, basic check-ups, minor wound dressing. Not suitable for emergencies.</td>
+            <td>For minor issues — bandage changes, cold medication. Very cheap (¥10–30).</td>
+          </tr>
+          <tr>
+            <td style="background:#EAF3DE;font-weight:600;color:#3B6D11;">International / Private</td>
+            <td>国际/私立医院</td>
+            <td>Operated outside the public tier system. English-speaking staff, Western-trained doctors, direct insurance billing, appointment-based. Examples: United Family (OAG), Jiahui, ParkwayHealth, Raffles.</td>
+            <td style="background:#EAF3DE;">Fully foreigner-friendly. This is your default choice if your insurance covers it or you can afford out-of-pocket.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>🏥 The golden rule:</strong> For anything serious (suspected fracture, chest pain, high fever not responding to medication, head injury, severe allergic reaction) → go directly to a <strong>三甲 hospital emergency department</strong> or the nearest <strong>international hospital</strong>. For minor issues (cold, sprain, rash) → international hospital outpatient, or a Grade II hospital if you have local help.
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📍</span> Public vs International: Which Should You Choose?</h3>
+    <div class="table-wrap" style="margin-top:14px;">
+      <table>
+        <thead><tr><th>Factor</th><th>Public 三甲 (VIP Dept)</th><th>International Hospital</th></tr></thead>
+        <tbody>
+          <tr><td class="td-brand">English support</td><td>Partial — VIP dept has some English; main halls have none</td><td>Full — all staff speak English</td></tr>
+          <tr><td class="td-brand">Waiting time</td><td>VIP: 30–60 min. General: 2–6 hours</td><td>15–30 min (appointment-based)</td></tr>
+          <tr><td class="td-brand">Consultation cost</td><td>VIP: ¥200–800. General: ¥10–500</td><td>¥600–1,500 (initial)</td></tr>
+          <tr><td class="td-brand">Clinical quality</td><td>Generally excellent — top specialists</td><td>Good to excellent — Western-trained, smaller scope</td></tr>
+          <tr><td class="td-brand">Insurance direct billing</td><td>Rarely — pay first, claim later</td><td>Yes — most major international insurers</td></tr>
+          <tr><td class="td-brand">Emergency capability</td><td>Full — all specialties, ICU, surgery</td><td>Limited — stabilise and transfer for major trauma/surgery</td></tr>
+          <tr><td class="td-brand">Pharmacy</td><td>On-site, mostly Chinese generics</td><td>On-site, some imported medications</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--color-muted);margin-top:8px;">Bottom line: for a broken arm, go to international. For a heart attack, go to the nearest 三甲 ER. For cancer treatment, a public 三甲 VIP department gives you the best specialists with the shortest wait.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🩺</span> Types of Hospital by Function</h3>
+    <ul>
+      <li><span class="bullet">🏥</span> <strong>General Hospital (综合医院)</strong> — All departments. Most 三甲 hospitals are general hospitals. Your first stop for undiagnosed problems.</li>
+      <li><span class="bullet">🎯</span> <strong>Specialist Hospital (专科医院)</strong> — Single specialty focus. Often the best in the country for that field. Examples: Fuwai (cardiology), Tiantan (neurosurgery), Zhongshan Ophthalmic (eyes).</li>
+      <li><span class="bullet">🧬</span> <strong>Teaching Hospital (教学医院)</strong> — Affiliated with a medical university. Trains residents and students. You might be seen by a resident under attending supervision. Typically the highest research level.</li>
+      <li><span class="bullet">👶</span> <strong>Children's Hospital (儿童医院)</strong> — Paediatrics only. For patients under 14 (some up to 18). If your child needs care, go here, not a general hospital.</li>
+      <li><span class="bullet">🩻</span> <strong>Traditional Chinese Medicine Hospital (中医院)</strong> — Integrates TCM with Western medicine. Acupuncture, herbal medicine, tuina massage alongside modern diagnostics. Worth visiting for chronic pain, digestive issues, or general wellness.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ══════════ Section 4: Top Hospitals by City ══════════ -->
+<div class="section">
+  <h2>Top Hospitals by City &amp; Specialty</h2>
+  <p class="sub">A curated directory for 12 major inbound tourism cities. Each hospital is listed with its tier, famous departments, English availability, and what to know before you go.</p>
+
+  <!-- BEIJING -->
+  <h3>Beijing 北京</h3>
+  <div class="hosp-card">
+    <div class="hc-name">Peking Union Medical College Hospital (PUMCH)</div>
+    <div class="hc-cn">北京协和医院 — Běijīng Xiéhé Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Rank #1</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Endocrinology (national centre), Obstetrics &amp; Gynaecology, Rheumatology &amp; Immunology, General Surgery<p style="margin-top:6px;">China's most prestigious hospital, founded by the Rockefeller Foundation in 1921. The internal medicine department is widely considered the best in the country. The International Medical Service (IMS) on the 5th floor of the outpatient building has English-speaking staff. This is where diplomats and expat executives go.</p>
+    </div>
+    <div class="hc-spec"><span>Endocrinology</span><span>Obstetrics</span><span>Rheumatology</span><span>General Surgery</span><span>Internal Medicine</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">PLA General Hospital (301 Hospital)</div>
+    <div class="hc-cn">中国人民解放军总医院 — Sānyāoyī Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Rank ~#3</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Orthopaedics (world-class joint replacement), ENT, Nephrology, Hepatobiliary Surgery<p style="margin-top:6px;">China's top military hospital — treats senior government officials and military personnel but is open to the public. The orthopaedics department is arguably the best in Asia. Huge 4,000-bed campus in Haidian. The International Medical Centre (separate building) offers English services. Slightly less foreigner-focused than PUMCH but equal or better clinical quality in surgical specialties.</p>
+    </div>
+    <div class="hc-spec"><span>Orthopaedics</span><span>ENT</span><span>Nephrology</span><span>Hepatobiliary</span><span>Military Medicine</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Beijing Tiantan Hospital</div>
+    <div class="hc-cn">北京天坛医院 — Běijīng Tiāntán Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Neurosurgery Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Neurosurgery (world-class, largest neurosurgery centre globally), Neurology, Neuroradiology<p style="margin-top:6px;">The largest neurosurgery centre in the world by surgical volume. If you have a brain or spine issue, this is the hospital to come to — anywhere in Asia. The neurosurgery department performs over 15,000 operations per year. English is limited in the main hospital — bring a Chinese-speaking contact. The new campus in Fengtai district (relocated 2019) has modern facilities.</p>
+    </div>
+    <div class="hc-spec"><span>Neurosurgery</span><span>Neurology</span><span>Stroke Centre</span><span>Neuroradiology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Fuwai Hospital (CAMS)</div>
+    <div class="hc-cn">阜外医院 — Fùwài Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Cardiovascular Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Cardiology, Cardiac Surgery, Vascular Surgery<p style="margin-top:6px;">The undisputed leader in cardiovascular medicine in China. Performs more cardiac surgeries annually than any hospital in the world. If you are having a heart attack in Beijing, this is where you want to be taken (call 120 and insist). The International Medical Service provides English support for outpatients.</p>
+    </div>
+    <div class="hc-spec"><span>Cardiology</span><span>Cardiac Surgery</span><span>Vascular Surgery</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Beijing Jishuitan Hospital</div>
+    <div class="hc-cn">北京积水潭医院 — Běijīng Jīshuǐtán Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Orthopaedics &amp; Burns Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Orthopaedics (trauma, hand surgery), Burns &amp; Plastic Surgery, Sports Medicine<p style="margin-top:6px;">If you break a bone, tear a ligament, or suffer a burn in Beijing, come here. The hand surgery department is world-famous — pioneered replantation techniques. The burns unit is the national referral centre. Two campuses: Xinjiekou (main) and Huilongguan.</p>
+    </div>
+    <div class="hc-spec"><span>Trauma Orthopaedics</span><span>Hand Surgery</span><span>Burns</span><span>Sports Medicine</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Peking University First Hospital (PKUFH)</div>
+    <div class="hc-cn">北京大学第一医院 — Běijīng Dàxué Dì-1 Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Urology &amp; Nephrology Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Urology (#1 in China), Nephrology (#1 in China), Paediatric Neurology, Infectious Disease, Dermatology<p style="margin-top:6px;">The urology department is indisputably #1 in China and among the world's best — pioneered prostate surgery techniques now adopted globally. Nephrology is equally dominant; the renal pathology service is a national reference centre. Located near Beihai Park in central Beijing, this hospital has an unusually strong international reputation among its core specialties. The VIP clinic has some English-speaking staff, but general outpatient is Chinese-only.</p>
+    </div>
+    <div class="hc-spec"><span>Urology</span><span>Nephrology</span><span>Paediatric Neurology</span><span>Infectious Disease</span><span>Dermatology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Peking University People's Hospital (PKUPH)</div>
+    <div class="hc-cn">北京大学人民医院 — Běijīng Dàxué Rénmín Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Haematology &amp; Rheumatology Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Haematology (bone marrow transplant leader), Rheumatology &amp; Immunology, Hepatobiliary Surgery, Gynaecology<p style="margin-top:6px;">The haematology department performs the highest volume of haploidentical bone marrow transplants globally. The rheumatology department is the national training centre for autoimmune disease management. Located in Xicheng district near Financial Street. Has a dedicated International Medical Services programme with English-speaking coordinators.</p>
+    </div>
+    <div class="hc-spec"><span>Haematology</span><span>BMT</span><span>Rheumatology</span><span>Hepatobiliary</span><span>Gynaecology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Beijing Tongren Hospital</div>
+    <div class="hc-cn">首都医科大学附属北京同仁医院 — Běijīng Tóngrén Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Ophthalmology &amp; ENT Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Ophthalmology (#1 in China alongside Zhongshan Ophthalmic), Otolaryngology / ENT (#1 in China), Head &amp; Neck Surgery<p style="margin-top:6px;">Tongren's ophthalmology and ENT departments are both ranked #1 nationally. If you have an eye or ear/nose/throat problem in Beijing, this is where the locals will tell you to go — not PUMCH. The hospital treats over 10,000 outpatients daily across eye and ENT clinics. The VIP International Centre has English-speaking ophthalmologists. Located near the Temple of Heaven in Dongcheng.</p>
+    </div>
+    <div class="hc-spec"><span>Ophthalmology</span><span>ENT</span><span>Head &amp; Neck Surgery</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Beijing Anzhen Hospital</div>
+    <div class="hc-cn">首都医科大学附属北京安贞医院 — Běijīng Anzhēn Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Cardiopulmonary Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Cardiology &amp; Cardiac Surgery (top-3 nationally with Fuwai), Vascular Surgery, Respiratory Medicine, Thoracic Surgery<p style="margin-top:6px;">If Fuwai is fully booked (common), Anzhen is Beijing's equally respected cardiopulmonary alternative. Performs over 8,000 cardiac surgeries annually — the treatment of congenital heart disease and aortic dissection here are internationally cited. Located in Chaoyang district. The International Medical Centre accepts foreign patients.</p>
+    </div>
+    <div class="hc-spec"><span>Cardiology</span><span>Cardiac Surgery</span><span>Vascular Surgery</span><span>Respiratory</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Beijing Children's Hospital (Capital Medical University)</div>
+    <div class="hc-cn">首都医科大学附属北京儿童医院 — Běijīng Értóng Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Paediatrics Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Paediatrics (all subspecialties), Neonatology, Paediatric Surgery, Haematology-Oncology (paediatric), Respiratory Medicine (paediatric)<p style="margin-top:6px;">China's largest and most prestigious children's hospital. If your child needs specialist care in Beijing, this is the destination. The neonatal intensive care unit is one of the best-equipped in Asia. The hospital treats children up to age 18. Very crowded — VIP appointment essential. English is limited outside the International Department. Located near Fuxingmen in Xicheng.</p>
+    </div>
+    <div class="hc-spec"><span>Paediatrics</span><span>Neonatology</span><span>Paediatric Surgery</span><span>Paediatric Haematology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Beijing Cancer Hospital (Peking University)</div>
+    <div class="hc-cn">北京大学肿瘤医院 — Běijīng Zhǒngliú Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Oncology Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Medical Oncology, Radiation Oncology, Surgical Oncology, Gastrointestinal Cancer (world-class), Breast Cancer<p style="margin-top:6px;">One of China's two premier cancer centres (with Fudan Shanghai Cancer Centre). The gastrointestinal oncology department is a global leader in gastric cancer research — China accounts for nearly half of the world's gastric cancer cases, so the clinical volume and expertise are unmatched. For any cancer diagnosis in Beijing, this is the default referral centre. Multidisciplinary tumour boards include surgeons, radiation oncologists, and medical oncologists in one consultation.</p>
+    </div>
+    <div class="hc-spec"><span>Oncology</span><span>Radiation Oncology</span><span>GI Cancer</span><span>Breast Cancer</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">United Family Hospital (OAG) — Beijing</div>
+    <div class="hc-cn">北京和睦家医院 — Běijīng Hémùjiā Yīyuàn</div>
+    <div class="hc-tier intl">International / Private · JCI-Accredited</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Family Medicine, Obstetrics &amp; Gynaecology, Paediatrics, Internal Medicine, Emergency<p style="margin-top:6px;">Beijing's default international hospital. English-speaking throughout, direct-bills most international insurers. Good for: routine care, paediatric visits, minor emergencies, obstetrics, health check-ups. Not ideal for: major trauma, complex neurosurgery, advanced cardiac surgery — they will stabilise and transfer to PUMCH or 301.</p>
+    </div>
+    <div class="hc-spec"><span>Family Medicine</span><span>Paediatrics</span><span>Obstetrics</span><span>Emergency</span></div>
+  </div>
+
+  <!-- SHANGHAI -->
+  <h3 style="margin-top:32px;">Shanghai 上海</h3>
+  <div class="hosp-card">
+    <div class="hc-name">Huashan Hospital (Fudan University)</div>
+    <div class="hc-cn">复旦大学附属华山医院 — Huàshān Yīyuàn</div>
+    <div class="hc-tier">三甲 · Shanghai Rank #1~2</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Neurosurgery (world-class), Dermatology (#1 in China), Hand Surgery (world-class), Infectious Disease, Rehabilitation<p style="margin-top:6px;">Huashan's neurosurgery department pioneered many techniques used globally. The hand surgery department was established in 1960 as China's first — if you have a hand injury in Shanghai, this is your destination. The dermatology department is the best in China and receives patients from across Asia. The International Medical Centre (IMC) on the 8th floor provides English services and fast-track appointments.</p>
+    </div>
+    <div class="hc-spec"><span>Neurosurgery</span><span>Dermatology</span><span>Hand Surgery</span><span>Infectious Disease</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Ruijin Hospital (Shanghai Jiao Tong University)</div>
+    <div class="hc-cn">上海交通大学附属瑞金医院 — Ruìjīn Yīyuàn</div>
+    <div class="hc-tier">三甲 · Shanghai Rank #1~2</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Haematology (APL treatment — world pioneer), Endocrinology, Burns &amp; Critical Care, Pancreatic Surgery<p style="margin-top:6px;">Ruijin's haematology department is legendary — the world-standard treatment for acute promyelocytic leukaemia (APL) was developed here by Dr Wang Zhenyi. The burns department is the Shanghai regional centre. The International Medical Centre provides English services. Located in the former French Concession — convenient for many expats.</p>
+    </div>
+    <div class="hc-spec"><span>Haematology</span><span>Endocrinology</span><span>Burns</span><span>Pancreatic Surgery</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Zhongshan Hospital (Fudan University)</div>
+    <div class="hc-cn">复旦大学附属中山医院 — Zhōngshān Yīyuàn</div>
+    <div class="hc-tier">三甲 · Shanghai Rank ~#3</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Cardiology &amp; Cardiac Surgery, Liver Tumour (hepatobiliary — world-class), Thoracic Surgery, Gastroenterology<p style="margin-top:6px;">Zhongshan's liver cancer centre is one of the world's busiest and most cited. The hospital is named after Sun Yat-sen and carries his legacy of excellence. The cardiovascular department performs thousands of complex interventions annually. The International VIP Clinic provides English support for outpatients.</p>
+    </div>
+    <div class="hc-spec"><span>Cardiology</span><span>Liver Tumour</span><span>Thoracic Surgery</span><span>Gastroenterology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Shanghai Ninth People's Hospital</div>
+    <div class="hc-cn">上海第九人民医院 — Shànghǎi Dìjiǔ Rénmín Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Plastic Surgery &amp; Dentistry Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Plastic &amp; Reconstructive Surgery, Oral &amp; Maxillofacial Surgery, Dentistry, Ophthalmology<p style="margin-top:6px;">If you have a facial injury, dental emergency, or need reconstructive surgery in China, this is the national reference centre. The dental implant centre is among the busiest globally. The plastic surgery department handles complex craniofacial reconstruction as well as cosmetic procedures. English is limited — bring a local contact or use the international department at a general hospital for referrals.</p>
+    </div>
+    <div class="hc-spec"><span>Plastic Surgery</span><span>Dentistry</span><span>Maxillofacial</span><span>Ophthalmology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">United Family Hospital (OAG) — Shanghai</div>
+    <div class="hc-cn">上海和睦家医院 — Shànghǎi Hémùjiā Yīyuàn</div>
+    <div class="hc-tier intl">International / Private · JCI-Accredited</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Family Medicine, Paediatrics, Obstetrics, Emergency (24h), Sports Medicine<p style="margin-top:6px;">Shanghai's primary international hospital. Multiple locations: Changning (main, 24h ER), Pudong (specialist clinics), Jing'an (dental). English-speaking. Direct-bills all major insurers. Good for: everything routine, minor emergencies, paediatric, prenatal. For major trauma or complex surgery, you will be referred to Huashan or Ruijin.</p>
+    </div>
+    <div class="hc-spec"><span>Family Medicine</span><span>Paediatrics</span><span>Obstetrics</span><span>Sports Medicine</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Renji Hospital (Shanghai Jiao Tong University)</div>
+    <div class="hc-cn">上海交通大学附属仁济医院 — Rénjì Yīyuàn</div>
+    <div class="hc-tier">三甲 · Shanghai Rank ~#4</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Gastroenterology &amp; Digestive Endoscopy (national centre), Rheumatology &amp; Immunology, Urology, Obstetrics<p style="margin-top:6px;">Founded in 1844 as the first Western hospital in Shanghai. The gastroenterology department is one of China's strongest — the GI endoscopy centre performs over 100,000 procedures annually. The rheumatology department is the Shanghai regional centre. Located in Pudong (main campus) and Huangpu. The International Medical Centre in Pudong provides English services and is less crowded than Huashan/Ruijin.</p>
+    </div>
+    <div class="hc-spec"><span>Gastroenterology</span><span>Endoscopy</span><span>Rheumatology</span><span>Urology</span><span>Obstetrics</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Changhai Hospital (Naval Medical University)</div>
+    <div class="hc-cn">海军军医大学长海医院 — Chánghǎi Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Urology &amp; Burns Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Urology (top-3 nationally), Burns &amp; Plastic Surgery, Pancreatic Surgery, Interventional Radiology<p style="margin-top:6px;">One of China's oldest modern hospitals (founded 1866 as the Shanghai Hospital for Seamen). Urology is the standout department — the prostate cancer centre is nationally famous. The burns unit is one of China's three national burn centres. Located in Yangpu near Wujiaochang. Less foreigner-friendly than Huashan or Ruijin — the VIP department exists but English capability is more limited.</p>
+    </div>
+    <div class="hc-spec"><span>Urology</span><span>Burns</span><span>Pancreatic Surgery</span><span>Interventional Radiology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Fudan University Shanghai Cancer Centre</div>
+    <div class="hc-cn">复旦大学附属肿瘤医院 — Shànghǎi Zhǒngliú Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Oncology Centre (tied #1 with Beijing Cancer)</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Medical Oncology, Radiation Oncology, Breast Cancer Surgery (#1 in China), Head &amp; Neck Oncology, Thoracic Oncology<p style="margin-top:6px;">Tied with Beijing Cancer Hospital as China's best cancer centre. Breast cancer outcomes here are benchmarked against the best Western centres. The radiation oncology department has the latest proton therapy centre (opened 2024). The hospital's integrated approach — surgeons, medical oncologists, and radiation oncologists co-managing every case — mirrors MD Anderson or Memorial Sloan Kettering. The International Medical Centre has English-speaking oncologists.</p>
+    </div>
+    <div class="hc-spec"><span>Oncology</span><span>Breast Cancer</span><span>Radiation</span><span>Head &amp; Neck</span><span>Thoracic</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Shanghai Sixth People's Hospital</div>
+    <div class="hc-cn">上海第六人民医院 — Shànghǎi Dìliù Rénmín Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Orthopaedics &amp; Microsurgery Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Orthopaedic Surgery (world-class limb replantation), Microsurgery, Endocrinology (diabetes centre), Ultrasound Diagnosis<p style="margin-top:6px;">World-famous for performing the first successful severed limb replantation in 1963. The orthopaedic trauma department remains a global leader — surgeons come from abroad to train here. If you break a bone in Shanghai, this hospital or Jishuitan (Beijing) are the two names you need to know. The endocrinology department has Asia's largest diabetes centre. Located in Xuhui near Shanghai Stadium.</p>
+    </div>
+    <div class="hc-spec"><span>Orthopaedics</span><span>Microsurgery</span><span>Endocrinology</span><span>Ultrasound</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Shanghai Children's Medical Centre (SCMC)</div>
+    <div class="hc-cn">上海儿童医学中心 — Shànghǎi Értóng Yīxué Zhōngxīn</div>
+    <div class="hc-tier">三甲 · National Paediatrics Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Paediatric Cardiology &amp; Cardiac Surgery (#1 in China), Paediatric Haematology-Oncology, Neonatology, Paediatric Surgery<p style="margin-top:6px;">Affiliated with Shanghai Jiao Tong University and originally established with Project HOPE (USA). The paediatric cardiac surgery programme is the largest and best in China — children with congenital heart disease are flown here from across the country. The hospital has a more international orientation than most Chinese children's hospitals, with English-speaking paediatricians in several departments. Located in Pudong near Lujiazui.</p>
+    </div>
+    <div class="hc-spec"><span>Paediatric Cardiology</span><span>Paediatric Cardiac Surgery</span><span>Haematology</span><span>Neonatology</span></div>
+  </div>
+
+  <!-- GUANGZHOU -->
+  <h3 style="margin-top:32px;">Guangzhou 广州</h3>
+  <div class="hosp-card">
+    <div class="hc-name">First Affiliated Hospital of Sun Yat-sen University</div>
+    <div class="hc-cn">中山大学附属第一医院 — Zhōngshān Dàxué Fùshǔ Dì-1 Yīyuàn</div>
+    <div class="hc-tier">三甲 · South China Rank #1</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Nephrology (world-class), General Surgery, Organ Transplantation, Obstetrics &amp; Gynaecology, Urology<p style="margin-top:6px;">South China's most comprehensive and prestigious hospital. The nephrology department is one of the best in the world — patients fly in from across Asia. The organ transplant programme (kidney, liver) is among China's largest. The International Medical Centre has English-speaking staff and a separate fast-track pathway.</p>
+    </div>
+    <div class="hc-spec"><span>Nephrology</span><span>Transplant</span><span>General Surgery</span><span>Obstetrics</span><span>Urology</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Zhongshan Ophthalmic Centre (Sun Yat-sen University)</div>
+    <div class="hc-cn">中山大学中山眼科中心 — Zhōngshān Yǎnkē Zhōngxīn</div>
+    <div class="hc-tier">三甲 · National Ophthalmology Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Ophthalmology (all subspecialties — world top-5 centre), Cataract Surgery, Retinal Disease, Corneal Transplant, Glaucoma<p style="margin-top:6px;">One of the top five eye hospitals in the world by research output and surgical volume. If you have a serious eye problem anywhere in southern China — retinal detachment, corneal injury, complex cataract — come here. English is limited but the quality of care is world-class. Expect long queues for general clinic; VIP appointments are faster.</p>
+    </div>
+    <div class="hc-spec"><span>Ophthalmology</span><span>Cataract</span><span>Retina</span><span>Cornea</span><span>Glaucoma</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Nanfang Hospital (Southern Medical University)</div>
+    <div class="hc-cn">南方医科大学南方医院 — Nánfāng Yīyuàn</div>
+    <div class="hc-tier">三甲 · South China Rank #2~3</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Haematology (bone marrow transplant pioneer), Gastroenterology &amp; Digestive Endoscopy, Nephrology, Infectious Disease (Hepatitis)<p style="margin-top:6px;">Formerly the First Military Medical University hospital, now civilian. The haematology department is the strongest in southern China for complex blood disorders — the BMT programme is one of the oldest and most experienced in the country. The digestive endoscopy centre is nationally recognised for endoscopic submucosal dissection. Located in Baiyun district near the university campus. The International Medical Centre has English-speaking staff and is significantly less crowded than Sun Yat-sen 1st.</p>
+    </div>
+    <div class="hc-spec"><span>Haematology</span><span>Gastroenterology</span><span>Nephrology</span><span>Hepatitis</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Sun Yat-sen University Cancer Centre (SYSUCC)</div>
+    <div class="hc-cn">中山大学肿瘤防治中心 — Zhōngshān Zhǒngliú Fángzhì Zhōngxīn</div>
+    <div class="hc-tier">三甲 · National Oncology Centre (top-3 nationally)</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Nasopharyngeal Carcinoma (world #1 — the global reference centre), Hepatobiliary Oncology, Colorectal Cancer, Medical Oncology, Radiation Oncology<p style="margin-top:6px;">The undisputed global leader in nasopharyngeal carcinoma (NPC) — a cancer common in southern China and Southeast Asia. The treatment protocols developed here are used worldwide. The centre treats over 120,000 cancer patients annually. For any cancer diagnosis in southern China, this is the default referral alongside Shanghai and Beijing cancer centres. The International Medical Service has English-speaking oncologists who can communicate treatment plans bilingually.</p>
+    </div>
+    <div class="hc-spec"><span>NPC (World #1)</span><span>Hepatobiliary</span><span>Colorectal</span><span>Radiation</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Guangdong Provincial People's Hospital (GDPH)</div>
+    <div class="hc-cn">广东省人民医院 — Guǎngdōng Shěng Rénmín Yīyuàn</div>
+    <div class="hc-tier">三甲 · Guangdong top-3</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Cardiology &amp; Cardiac Surgery (top-5 nationally), Thoracic Surgery, Respiratory Medicine, Geriatrics<p style="margin-top:6px;">Guangzhou's strongest cardiac centre — the cardiovascular surgery department performs complex congenital heart repairs that rival Beijing and Shanghai centres. Located in Yuexiu district near the city centre. The hospital has dedicated foreign patient liaison staff and the VIP International Medical Centre provides English services. For heart or lung issues in Guangzhou, this hospital competes directly with Sun Yat-sen 1st for top quality.</p>
+    </div>
+    <div class="hc-spec"><span>Cardiology</span><span>Cardiac Surgery</span><span>Thoracic Surgery</span><span>Respiratory</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">First Affiliated Hospital of Guangzhou Medical University</div>
+    <div class="hc-cn">广州医科大学附属第一医院 — Guǎngyī Yuàn</div>
+    <div class="hc-tier">三甲 · National Respiratory Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Respiratory Medicine (#1 in China — home of Dr Zhong Nanshan), Thoracic Surgery, Critical Care Medicine, Allergy &amp; Immunology<p style="margin-top:6px;">This is the hospital of Dr Zhong Nanshan — China's most famous doctor, who led the national response to SARS (2003) and COVID-19 (2020). The respiratory medicine department is the undisputed #1 in China. The National Clinical Research Centre for Respiratory Disease is based here. If you have a serious respiratory condition in southern China, this is where the experts are. The International Medical Centre accepts foreign patients. Located in Yuexiu near the Pearl River.</p>
+    </div>
+    <div class="hc-spec"><span>Respiratory (#1 China)</span><span>Thoracic Surgery</span><span>Critical Care</span><span>Allergy</span></div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hc-name">Guangzhou Women and Children's Medical Centre</div>
+    <div class="hc-cn">广州市妇女儿童医疗中心 — Guǎngzhōu Fùnǚ Értóng Yīliáo Zhōngxīn</div>
+    <div class="hc-tier">三甲 · South China Paediatrics &amp; Obstetrics Centre</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Paediatrics (all subspecialties, south China's largest), Obstetrics, Neonatology, Paediatric Surgery, Paediatric Cardiology<p style="margin-top:6px;">Southern China's premier women's and children's hospital serving over 5 million outpatient visits annually across four campuses. The paediatric intensive care unit is the busiest south of Shanghai. The neonatal department has among the highest survival rates for extremely preterm infants in China. The main Zhujiang New Town campus has the strongest English capability in the three central Guangzhou campuses. International insurance direct-billing available at the VIP clinic.</p>
+    </div>
+    <div class="hc-spec"><span>Paediatrics</span><span>Obstetrics</span><span>Neonatology</span><span>Paediatric Surgery</span><span>PICU</span></div>
+  </div>
+
+  <!-- SHENZHEN -->
+  <h3 style="margin-top:32px;">Shenzhen 深圳</h3>
+  <div class="hosp-card">
+    <div class="hc-name">University of Hong Kong — Shenzhen Hospital (HKU-SZH)</div>
+    <div class="hc-cn">香港大学深圳医院 — Xiānggǎng Dàxué Shēnzhèn Yīyuàn</div>
+    <div class="hc-tier intl">三甲 · International Standard</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Family Medicine, Internal Medicine, General Surgery, Obstetrics &amp; Gynaecology<p style="margin-top:6px;">Shenzhen's most foreigner-friendly public hospital. Operated by HKU with significant English-speaking staff, Hong Kong-trained doctors, and international-standard protocols. Uses an appointment-based system (no chaotic queues). The International Medical Centre (IMC) provides dedicated English service. Direct-bills some international insurers. For complex subspecialty cases, they can refer to HKU Queen Mary Hospital in Hong Kong.</p>
+    </div>
+    <div class="hc-spec"><span>Family Medicine</span><span>Internal Medicine</span><span>Obstetrics</span><span>General Surgery</span></div>
+  </div>
+
+  <!-- CHENGDU -->
+  <h3 style="margin-top:32px;">Chengdu 成都</h3>
+  <div class="hosp-card">
+    <div class="hc-name">West China Hospital (Sichuan University)</div>
+    <div class="hc-cn">四川大学华西医院 — Huáxī Yīyuàn</div>
+    <div class="hc-tier">三甲 · National Rank #2 (often battles PUMCH for #1)</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Anaesthesiology (#1 in China), Stomatology/Dentistry (#1 in China), Psychiatry (top-3), Respiratory Medicine, Evidence-Based Medicine<p style="margin-top:6px;">The largest single-campus hospital in the world by clinical capacity (4,300+ beds). If you are in western China and have a serious medical problem, Huaxi is the undisputed destination. The stomatology/dentistry department is the best in the country — patients fly in from across Asia. The International Medical Centre provides English services. Located in the city centre near Jinli Ancient Street.</p>
+    </div>
+    <div class="hc-spec"><span>Anaesthesiology</span><span>Dentistry</span><span>Psychiatry</span><span>Respiratory</span><span>EBM</span></div>
+  </div>
+
+  <!-- XI'AN -->
+  <h3 style="margin-top:32px;">Xi'an 西安</h3>
+  <div class="hosp-card">
+    <div class="hc-name">Xijing Hospital (Air Force Medical University)</div>
+    <div class="hc-cn">第四军医大学西京医院 — Xījīng Yīyuàn</div>
+    <div class="hc-tier">三甲 · Northwest China Rank #1</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Gastroenterology &amp; Digestive Surgery (endoscopy leader), Orthopaedics, Cardiology, Burns<p style="margin-top:6px;">The premier hospital in northwest China performing over 18,000 gastrointestinal endoscopies annually — a pioneer in endoscopic submucosal dissection techniques now used worldwide. This is the hospital to visit in Xi'an for any serious condition. English is very limited in the main hospital; the VIP department has some English capability.</p>
+    </div>
+    <div class="hc-spec"><span>Gastroenterology</span><span>Digestive Endoscopy</span><span>Orthopaedics</span><span>Cardiology</span></div>
+  </div>
+
+  <!-- HANGZHOU -->
+  <h3 style="margin-top:32px;">Hangzhou 杭州</h3>
+  <div class="hosp-card">
+    <div class="hc-name">First Affiliated Hospital of Zhejiang University</div>
+    <div class="hc-cn">浙江大学附属第一医院 — Zhèyī Yīyuàn</div>
+    <div class="hc-tier">三甲 · Zhejiang Rank #1</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Infectious Disease (national centre), Hepatobiliary &amp; Pancreatic Surgery, Organ Transplantation, Haematology<p style="margin-top:6px;">Led China's COVID-19 response nationally through director Li Lanjuan. The infectious disease department is a national-level centre with strong international collaborations. The liver transplant programme is one of the busiest in China. The International Healthcare Centre provides English services for outpatients.</p>
+    </div>
+    <div class="hc-spec"><span>Infectious Disease</span><span>Hepatobiliary</span><span>Transplant</span><span>Haematology</span></div>
+  </div>
+
+  <!-- NANJING -->
+  <h3 style="margin-top:32px;">Nanjing 南京</h3>
+  <div class="hosp-card">
+    <div class="hc-name">Nanjing Drum Tower Hospital (NJU Medical School)</div>
+    <div class="hc-cn">南京鼓楼医院 — Nánjīng Gǔlóu Yīyuàn</div>
+    <div class="hc-tier">三甲 · Jiangsu Rank #1~2</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Rheumatology &amp; Immunology, Obstetrics, Spine Surgery, Gastroenterology<p style="margin-top:6px;">Founded by Canadian missionaries in 1892 and now affiliated with Nanjing University. One of China's oldest Western-medicine hospitals with a modern high-rise campus. The rheumatology department is the Jiangsu province referral centre. Has a foreign affairs office that can arrange English-speaking consultations.</p>
+    </div>
+    <div class="hc-spec"><span>Rheumatology</span><span>Obstetrics</span><span>Spine Surgery</span><span>Gastroenterology</span></div>
+  </div>
+
+  <!-- CHONGQING -->
+  <h3 style="margin-top:32px;">Chongqing 重庆</h3>
+  <div class="hosp-card">
+    <div class="hc-name">First Affiliated Hospital of Chongqing Medical University</div>
+    <div class="hc-cn">重庆医科大学附属第一医院 — Chóngqìng Yīkēdà Fù-1 Yuàn</div>
+    <div class="hc-tier">三甲 · Southwest China Rank top-5</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Obstetrics &amp; Gynaecology, Neurology, Respiratory Medicine, Emergency Medicine<p style="margin-top:6px;">The largest hospital in Chongqing with over 3,200 beds. The emergency department is well-equipped for trauma (mountain city with frequent accidents). For serious conditions in Chongqing, this is the correct hospital. English is very limited — strongly recommend bringing a local contact or using the expat liaison service.</p>
+    </div>
+    <div class="hc-spec"><span>Obstetrics</span><span>Neurology</span><span>Respiratory</span><span>Emergency</span></div>
+  </div>
+
+  <!-- KUNMING -->
+  <h3 style="margin-top:32px;">Kunming 昆明</h3>
+  <div class="hosp-card">
+    <div class="hc-name">First Affiliated Hospital of Kunming Medical University</div>
+    <div class="hc-cn">昆明医科大学第一附属医院 — Kūnyī Fù-1 Yuàn</div>
+    <div class="hc-tier">三甲 · Yunnan Rank #1</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Dermatology (altitude-related conditions), Respiratory Medicine, Tropical Medicine, Paediatrics<p style="margin-top:6px;">Yunnan's leading hospital. Uniquely positioned near Southeast Asia — treats altitude sickness, tropical diseases, and conditions from the Mekong region. The dermatology department specialises in UV-related conditions (Kunming is at 1,890m elevation with strong sun). The International Outpatient Clinic has some English-speaking staff, but capability is limited — bring the WeChat translation function.</p>
+    </div>
+    <div class="hc-spec"><span>Dermatology</span><span>Respiratory</span><span>Tropical Medicine</span><span>Paediatrics</span></div>
+  </div>
+
+  <!-- XIAMEN -->
+  <h3 style="margin-top:32px;">Xiamen 厦门</h3>
+  <div class="hosp-card">
+    <div class="hc-name">Zhongshan Hospital Xiamen (Xiamen University)</div>
+    <div class="hc-cn">厦门大学附属中山医院 — Xiàmén Zhōngshān Yīyuàn</div>
+    <div class="hc-tier">三甲 · Fujian Rank top-3</div>
+    <div class="hc-info">
+      <strong>Specialties:</strong> Cardiology, Gastroenterology, General Surgery, Rehabilitation<p style="margin-top:6px;">Xiamen's busiest general hospital near the city centre. Good for routine care and non-complex emergencies. For serious conditions requiring super-specialist care, patients are often transferred to Shanghai (Ruijin/Zhongshan) or Guangzhou (Sun Yat-sen 1st). Xiamen United Family Hospital (opened 2025 in Siming district) is a better option for English-speaking visitors seeking routine care.</p>
+    </div>
+    <div class="hc-spec"><span>Cardiology</span><span>Gastroenterology</span><span>General Surgery</span><span>Rehabilitation</span></div>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ══════════ Section 5: How to Book ══════════ -->
+<div class="section">
+  <h2>How to Book an Appointment</h2>
+  <p class="sub">The Chinese hospital appointment system is digital-first and can be baffling. Here are the methods, ranked from easiest (for a foreigner) to hardest.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> Method 1: International Hospital — Call or App</h3>
+    <p><strong>Easiest option. 5 minutes.</strong> United Family, Jiahui, ParkwayHealth, and Raffles all accept phone bookings in English. You call, they give you a slot (often same-day or next-day), you turn up with your passport and insurance card. No WeChat, no mini-program, no Chinese required. This is the default method for foreign visitors and the entire reason international hospitals exist.</p>
+    <p style="margin-top:8px;"><strong>United Family 24h booking:</strong> Beijing 010-5927-7120 · Shanghai 021-2216-3999 · Guangzhou 020-8710-6060<br>
+    <strong>Jiahui Health Shanghai:</strong> 021-5339-6618<br>
+    <strong>Raffles Medical:</strong> Beijing 010-6462-9112 · Shanghai 021-6391-0128</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> Method 2: VIP / International Department — Phone + WeChat</h3>
+    <p><strong>Moderate. 15 minutes.</strong> All major 三甲 hospitals have a VIP / International Medical Department (国际医疗部 or 特需门诊). These operate as a separate booking system from the main hospital. You call their direct line (find it on the hospital website), book an English-speaking slot, and arrive at a designated VIP entrance. Wait times: typically 1–3 days for a specialist. This gives you access to China's best doctors with an English-speaking buffer layer.</p>
+    <p style="margin-top:8px;"><strong>Key numbers:</strong><br>
+    PUMCH International: 010-6915-6699 · Huashan IMC: 021-6248-9999 ext 8001<br>
+    Ruijin IMC: 021-6437-0045 ext 668101 · West China IMD: 028-8542-3888</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">📱</span> Method 3: WeChat Mini-Program — General Public Route</h3>
+    <p><strong>Hard without Chinese. 30+ minutes.</strong> Chinese residents book all public hospital appointments through WeChat mini-programs. The flow: search the hospital's mini-program → select department → select doctor → select time slot → enter ID number → confirm. For a foreigner: you need a Chinese phone number (to receive the verification code) and your passport number. Most interfaces are Chinese-only.</p>
+    <ol class="steps" style="margin-top:10px;">
+      <li>Open WeChat, tap Discover → Mini Programs, search the hospital name in Chinese (e.g. "北京协和医院")</li>
+      <li>Register an account: enter your passport number (护照号码) and Chinese phone number, then the SMS code</li>
+      <li>Navigate to 预约挂号 (appointment registration), select a department (科室), then a doctor and time</li>
+      <li>Pay the registration fee (typically ¥10–500 via WeChat Pay)</li>
+      <li>Arrive 30 minutes early. Bring your passport. Go to the registration desk to verify your ID before proceeding.</li>
+    </ol>
+    <div class="highlight-box"><strong>💡 Alternative:</strong> Third-party platforms like <strong>好大夫在线</strong> (Haodaifu, haodf.com) and <strong>微医</strong> (WeDoctor, guahao.com) aggregate appointments across multiple hospitals and have partial English interfaces. Haodaifu is particularly useful — it lists doctors by specialty and patient reviews, and some profiles have English descriptions.</div>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🚶</span> Method 4: Walk-In Registration (挂号) — Last Resort</h3>
+    <p><strong>Not recommended unless it is an emergency.</strong> Public hospitals reserve a small number of same-day walk-in slots, but they are released at 07:00–07:30 and disappear within minutes. The process: queue at the registration window at 06:00, show your passport, tell the clerk the department you need, pay the registration fee (cash or WeChat Pay), get a paper ticket with a queue number, then wait. This is how locals did it before apps — it is still chaotic, crowded, and entirely in Chinese. Only attempt this if you have a local guide and no other option. For a true emergency: just go to the ER (急诊) — no appointment needed.</p>
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ══════════ Section 6: Hospital Visit Step by Step ══════════ -->
+<div class="section">
+  <h2>Hospital Visit: Step by Step</h2>
+  <p class="sub">What actually happens when you walk into a Chinese hospital. Knowing the flow in advance removes 80% of the stress.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">✅</span> Step 1: Registration (挂号 — Guàhào)</h3>
+    <p>If you booked via app: go to the self-service kiosk (自助机) or registration counter with your passport. Scan the QR code from your booking confirmation, or show the staff your passport and booking reference. They print a registration ticket with your queue number and the consultation room number.</p>
+    <p style="margin-top:6px;">If you are walking in: queue at the registration window. Say the department name (内科 nèikē = internal medicine, 外科 wàikē = surgery, 骨科 gǔkē = orthopaedics). They will give you a ticket. Pay immediately — cash, WeChat Pay, or Alipay.</p>
+    <p style="margin-top:6px;">For ER: go directly to the emergency registration window (急诊挂号). No appointment needed. You will be triaged — patients are coded red/yellow/green by severity.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">⏳</span> Step 2: Waiting (候诊 — Hòuzhěn)</h3>
+    <p>Your registration ticket has a queue number. Find your department's waiting area — look for electronic screens displaying current queue numbers. When your number appears, go to the indicated room. Expected wait: VIP department 15–45 min, general outpatient 40 min–3 hours, specialist (专家号) 1–6 hours.</p>
+    <p style="margin-top:6px;">Pro tip: arrive 30 minutes before your appointment slot. Chinese hospitals often call patients before their scheduled time if earlier slots are empty. The waiting area will be crowded — this is normal. Bring a book and water.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🩺</span> Step 3: Consultation (看诊 — Kànzhěn)</h3>
+    <p>The actual consultation is usually brief — 5 to 15 minutes. The doctor will ask about your symptoms, may do a physical examination, and will write orders for tests or prescribe medication. Everything happens fast. Have your key information ready:</p>
+    <ul>
+      <li><span class="bullet">✓</span> When symptoms started (give exact dates)</li>
+      <li><span class="bullet">✓</span> Any medications you are taking (bring the packaging)</li>
+      <li><span class="bullet">✓</span> Known allergies (written in Chinese — ask your hotel concierge beforehand)</li>
+      <li><span class="bullet">✓</span> Previous test results and imaging if relevant</li>
+    </ul>
+    <p style="margin-top:8px;">Doctors in public hospitals may speak limited English. If you are in an international/VIP department, English should be fine. Otherwise, have WeChat's built-in translation (scan-to-translate) ready on your phone. Show the translated text to the doctor — it works surprisingly well for basic communication.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">💳</span> Step 4: Payment (缴费 — Jiǎofèi)</h3>
+    <p>After the consultation, you must pay before any tests or medication. The doctor gives you a payment slip — take it to the payment counter (缴费处). Present the slip, pay via WeChat/Alipay (fastest) or cash. You receive a stamped receipt. This pay-before-service model is the single biggest cultural difference from Western hospitals — do not proceed to the lab or pharmacy without the paid receipt.</p>
+    <p style="margin-top:6px;">Costs at this stage: doctor's fee already paid at registration. Tests and medications are paid separately now. A typical outpatient visit with blood test + chest X-ray + basic medication will run ¥300–800 at a public hospital, ¥1,500–3,500 at an international hospital.</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🔬</span> Step 5: Tests &amp; Examinations (检查 — Jiǎnchá)</h3>
+    <p>Take your paid receipt to the lab (化验室) or imaging department (影像科). For blood tests: they draw blood, give you a collection slip with a time to return for results (typically 30 min–2 hours for routine tests, same day for most imaging). For X-ray/CT/MRI: you queue at the imaging department. Change into a gown if required. Results are typically available within 1–2 hours. Return to the consultation room with your results — your original queue number gives you the right to be seen again without re-registering (回诊, huízhěn).</p>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">💊</span> Step 6: Pharmacy (取药 — Qǔyào)</h3>
+    <p>If the doctor prescribed medication: take the paid prescription receipt to the pharmacy (药房). Hand it in at the window. Wait for your name/number on the screen. Collect your medication. The pharmacist may give brief instructions in Chinese — ask for written instructions if you need them. All medication packaging has Chinese labels with dosage instructions. Use WeChat scan-translate to read them, or ask the international department nurse to annotate in English before you leave.</p>
+  </div>
+
+  <div class="highlight-box" style="margin-top:16px;">
+    <strong>📋 Full visit checklist:</strong> Passport · Insurance card · Payment method (WeChat/Alipay/cash) · List of current medications · Known allergies written in Chinese · Phone with WeChat translate · Small amount of cash (¥200–500) for vending machines and incidentals · Power bank (you may be there for hours) · Mask (some hospital departments still require them)
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ══════════ Section 7: What It Costs ══════════ -->
+<div class="section">
+  <h2>What It Costs</h2>
+  <p class="sub">Actual price ranges based on 2026 data. All prices in RMB. Multiply by ~0.14 for USD, ~0.11 for GBP, ~0.13 for EUR.</p>
+
+  <h3>Outpatient Visit</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Public 三甲 (General)</th><th>Public 三甲 (VIP)</th><th>International Hospital</th></tr></thead>
+      <tbody>
+        <tr><td class="td-brand">Registration — General</td><td>¥10–50</td><td>—</td><td>—</td></tr>
+        <tr><td class="td-brand">Registration — Consultant (主任医师)</td><td>¥30–100</td><td>¥200–500</td><td>—</td></tr>
+        <tr><td class="td-brand">Registration — Top Specialist (知名专家)</td><td>¥100–500</td><td>¥500–800</td><td>—</td></tr>
+        <tr><td class="td-brand">Initial consultation fee</td><td>—</td><td>—</td><td>¥600–1,500</td></tr>
+        <tr><td class="td-brand">Follow-up consultation</td><td>—</td><td>—</td><td>¥400–800</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Common Tests &amp; Imaging</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Test</th><th>Public 三甲</th><th>International Hospital</th></tr></thead>
+      <tbody>
+        <tr><td class="td-brand">Routine blood test (血常规)</td><td>¥20–60</td><td>¥200–400</td></tr>
+        <tr><td class="td-brand">Comprehensive blood panel (生化全套)</td><td>¥150–400</td><td>¥800–1,500</td></tr>
+        <tr><td class="td-brand">Chest X-ray</td><td>¥80–150</td><td>¥500–800</td></tr>
+        <tr><td class="td-brand">Limb X-ray (e.g. ankle)</td><td>¥80–120</td><td>¥400–700</td></tr>
+        <tr><td class="td-brand">CT scan (single region)</td><td>¥250–500</td><td>¥1,200–2,500</td></tr>
+        <tr><td class="td-brand">MRI (single region)</td><td>¥600–1,200</td><td>¥3,000–6,000</td></tr>
+        <tr><td class="td-brand">Ultrasound (abdominal)</td><td>¥100–300</td><td>¥800–1,500</td></tr>
+        <tr><td class="td-brand">ECG (心电图)</td><td>¥20–50</td><td>¥300–600</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Emergency Room</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Public 三甲 ER</th><th>International Hospital ER</th></tr></thead>
+      <tbody>
+        <tr><td class="td-brand">Registration</td><td>¥20–100</td><td>¥800–1,500</td></tr>
+        <tr><td class="td-brand">Basic treatment (stitches, IV, observation)</td><td>¥300–2,000</td><td>¥2,000–6,000</td></tr>
+        <tr><td class="td-brand">Complex treatment (fracture reduction, laceration repair)</td><td>¥500–4,000</td><td>¥4,000–15,000</td></tr>
+        <tr><td class="td-brand">Observation bed (per night)</td><td>¥80–200</td><td>¥1,500–3,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Inpatient (Hospital Stay)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Public 三甲 · Standard</th><th>Public 三甲 · VIP Ward</th><th>International Hospital</th></tr></thead>
+      <tbody>
+        <tr><td class="td-brand">Room (per night)</td><td>¥50–300<br>(3–6 bed ward)</td><td>¥500–1,500<br>(private room)</td><td>¥2,000–5,000<br>(private room)</td></tr>
+        <tr><td class="td-brand">ICU (per night)</td><td>¥3,000–8,000</td><td>—</td><td>—</td></tr>
+        <tr><td class="td-brand">Appendectomy (total)</td><td>¥5,000–15,000</td><td>¥15,000–30,000</td><td>¥30,000–80,000</td></tr>
+        <tr><td class="td-brand">Hip replacement (total)</td><td>¥30,000–60,000</td><td>¥60,000–120,000</td><td>¥120,000–250,000</td></tr>
+        <tr><td class="td-brand">Normal delivery (total)</td><td>¥5,000–10,000</td><td>¥15,000–40,000</td><td>¥40,000–80,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Common Medications (outpatient pharmacy)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Medication</th><th>Public Hospital Pharmacy</th><th>International Hospital</th></tr></thead>
+      <tbody>
+        <tr><td class="td-brand">Paracetamol (course)</td><td>¥3–15</td><td>¥50–100</td></tr>
+        <tr><td class="td-brand">Antibiotics (7-day course, e.g. amoxicillin)</td><td>¥20–80</td><td>¥200–400</td></tr>
+        <tr><td class="td-brand">Antihistamine (loratadine, 10 tablets)</td><td>¥10–30</td><td>¥80–150</td></tr>
+        <tr><td class="td-brand">Oral rehydration salts (pack)</td><td>¥3–10</td><td>¥30–50</td></tr>
+        <tr><td class="td-brand">Imported medication equivalent</td><td>—</td><td>2–4× public price</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ Deposit requirement:</strong> Chinese public hospitals require a cash deposit <strong>before</strong> admission. Emergency room: ¥3,000–10,000. Surgery: ¥10,000–50,000 (varies by procedure). This is not negotiable. The deposit is applied to your final bill and any remainder is refunded. International hospitals typically require insurance pre-authorisation or a credit card hold instead. Always carry a credit card with sufficient limit when travelling in China.
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+
+<!-- ══════════ Section 8: Pharmacies ══════════ -->
+<div class="section">
+  <h2>Pharmacies &amp; Over-the-Counter Medications</h2>
+  <p class="sub">Pharmacies (药店, yàodiàn) are everywhere in Chinese cities. Green cross sign, typical hours 08:00–22:00. Some chains operate 24-hour locations — look for 24小时 (èrshísì xiǎoshí) on the sign.</p>
+
+  <div class="info-card">
+    <h3><span class="emoji">💊</span> What you can buy without a prescription</h3>
+    <ul>
+      <li><span class="bullet">✓</span> <strong>Basic first aid:</strong> Plasters/bandaids (创可贴), disinfectant/iodine (碘伏 diǎnfú), sterile gauze (纱布), surgical masks</li>
+      <li><span class="bullet">✓</span> <strong>Pain &amp; fever:</strong> Paracetamol (对乙酰氨基酚 duìyǐxiān'ānjīfēn), Ibuprofen (布洛芬 bùluòfēn)</li>
+      <li><span class="bullet">✓</span> <strong>Digestive:</strong> Antacids, activated charcoal, oral rehydration salts (口服补液盐 kǒufú bǔyè yán), loperamide (洛哌丁胺) for diarrhoea</li>
+      <li><span class="bullet">✓</span> <strong>Allergy:</strong> Loratadine (氯雷他定 lǜléitādìng), cetirizine (西替利嗪 xītìlìqín)</li>
+      <li><span class="bullet">✓</span> <strong>Travel:</strong> Motion sickness tablets (晕车药 yùnchēyào), insect repellent, sunscreen</li>
+      <li><span class="bullet">✓</span> <strong>Wound care:</strong> Antibiotic ointment (百多邦 Bǎiduōbāng / mupirocin), burn cream</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3><span class="emoji">🔴</span> What requires a prescription (处方药 chǔfāngyào)</h3>
+    <p>These require a doctor's prescription from a licensed Chinese hospital. You cannot buy them at a pharmacy without one, even if they are OTC in your home country.</p>
+    <ul>
+      <li><span class="bullet">✗</span> <strong>Antibiotics</strong> — all types, including common ones like amoxicillin. Strictly prescription-only.</li>
+      <li><span class="bullet">✗</span> <strong>Strong painkillers</strong> — codeine, tramadol, morphine, oxycodone. Tightly controlled.</li>
+      <li><span class="bullet">✗</span> <strong>Psychiatric medications</strong> — antidepressants, anxiolytics, antipsychotics.</li>
+      <li><span class="bullet">✗</span> <strong>Controlled substances</strong> — pseudoephedrine products, certain cough syrups, sedatives.</li>
+      <li><span class="bullet">✗</span> <strong>Hormonal medications</strong> — oral contraceptives (some brands), thyroid medication, steroids.</li>
+    </ul>
+  </div>
+
+  <div class="info-box">
+    <strong>💡 Smart pharmacy strategy:</strong> Show the pharmacist the <em>Chinese name</em> of the medication on your phone — not the English name. They will not recognise "ibuprofen" but will instantly know 布洛芬. Major chains: <strong>大参林</strong> (Da Shen Lin) and <strong>老百姓</strong> (Lao Bai Xing) in the south, <strong>国大药房</strong> (Guoda) nationwide. Near embassies in Beijing (Chaoyang) and Shanghai (Jing'an), some pharmacies stock imported medications (e.g. Nurofen, Tylenol, Claritin) at 2–3× the price of Chinese equivalents. The generic Chinese versions are chemically identical and far cheaper.
+  </div>
+</div>
+
+<div class="divider">&bull; &bull; &bull;</div>
+<div class="divider">&bull; &bull; &bull;</div>
+<!-- ══════════ Section 11: FAQ ══════════ -->
+<div class="section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Is 120 (ambulance) free in China?</div>
+    <div class="faq-a">No. Ambulance services are not free. Expect ¥100–300 for the call-out plus ¥5–10 per kilometre. Payment is collected at the hospital, not by paramedics. Most travel insurance policies reimburse ambulance costs. In a genuine emergency, call 120 without hesitation — the cost is secondary to your health.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I use my home country health insurance in China?</div>
+    <div class="faq-a">Almost certainly not. Standard health insurance from the UK (NHS), US (employer plans), EU (EHIC/GHIC), and Australia (Medicare) does not cover treatment in China. You need dedicated travel insurance or an international health plan. United Family, Jiahui, and Raffles direct-bill major international insurers (Allianz, AXA, Cigna, Bupa, Aetna) — call your insurer to confirm China coverage before travelling.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What if I need surgery — how safe are Chinese hospitals?</div>
+    <div class="faq-a">Grade III-A teaching hospitals in major cities operate at international standards for surgery. Hospitals like PUMCH, Huashan, and West China have outcomes comparable to top Western teaching hospitals for their core specialties. The key difference is the patient experience: wards may be multi-bed, nurses do not provide the same level of bedside care as in the West (family members are expected to assist), and language barriers exist outside VIP departments. For a planned procedure, use the VIP/international department. For emergency surgery at a public hospital — the surgical quality is excellent; the communication will be challenging without a local contact.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I bring my regular prescription medication into China?</div>
+    <div class="faq-a">Yes — bring enough for your entire trip plus a 2–3 week reserve. Carry medications in original packaging with a doctor's letter (English + Chinese translation). Some medications available OTC in other countries (codeine, certain antidepressants, ADHD stimulants) are controlled substances in China — contact the Chinese embassy in your country before travelling if you take any controlled medication. For insulin and related supplies: these are widely available in Chinese pharmacies with a prescription but brand names may differ — bring your own supplies.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How do I get my medical records and test results?</div>
+    <div class="faq-a">Ask for a printed copy of your medical record (病历 bìnglì) and test results (化验单 huàyàndān) before leaving the hospital. 三甲 hospitals can provide a summary in English upon request at the medical records office (病案室 bìng'ànshì) — this takes 1–3 working days and costs ¥50–200. International hospitals provide English records automatically. Always get a formal invoice (发票 fāpiào) for insurance claims — the receipt from the payment counter is not sufficient for insurance.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What if I am injured in a smaller city without an international hospital?</div>
+    <div class="faq-a">Go to the largest public hospital in that city (typically called 人民医院 — People's Hospital). Ask for the VIP/international department. Even in Tier-2 and Tier-3 cities, many hospitals now have a dedicated foreign patient liaison or can connect to a remote telephone interpreter service. For serious injuries, the hospital will stabilise you and can arrange transfer to the nearest 三甲 centre. If you are anywhere near a major city (within 2 hours), consider hiring a driver or Didi to go directly to the recommended hospital for that city (see the hospital directory above).</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Are Traditional Chinese Medicine (TCM) treatments safe and effective?</div>
+    <div class="faq-a">TCM practised in licensed Chinese hospitals is government-regulated and generally safe when administered by qualified professionals. Acupuncture is widely used for pain management and has a good safety record. Herbal medicines should be approached with caution — they can interact with Western medications and some products have been found to contain undeclared pharmaceutical ingredients. The safest approach: use TCM at a hospital-affiliated TCM department (e.g. the TCM department at PUMCH or Huashan), not at independent clinics, and always tell the TCM doctor about all Western medications you are taking.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Do Chinese hospitals accept blood donations? Is the blood supply safe?</div>
+    <div class="faq-a">China's blood supply is regulated by the Ministry of Health and all donated blood is screened for HIV, hepatitis B/C, and syphilis. Blood banks at 三甲 hospitals follow national standards comparable to international protocols. You cannot donate blood as a foreign tourist (temporary visitors are ineligible). For blood transfusions in a hospital setting: the blood supply within China's top-tier hospitals is considered safe. If you have specific concerns, international hospitals can arrange directed donations and expedited screening.</div>
+  </div>
+</div>
+
+<div class="cross-link">
+  <p>Need emergency numbers? → <a href="emergency-guide.html">Emergency Guide</a></p>
+</div>
+<div class="cross-link">
+  <p>Need to get to a hospital fast? → <a href="didi-guide.html">Didi Ride-Hailing Guide</a></p>
+</div>
+<div class="cross-link">
+  <p>Hospital phrases in printable format → <a href="chinese-cards.html">Chinese To-Go Cards</a></p>
+</div>
+<div class="footer">
+  <div class="brand-foot">EVENTURUS &middot; VETTED</div>
+  <div>China, Vetted. &mdash; <a href="index.html">All Tools</a></div>
+<div class="cross-link"><p>Related: <a href="essential-apps.html">Essential Apps for China</a> · <a href="dining-guide.html">Eating in China Guide</a></p></div>
+
+</div>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Chinese Hospital Guide — EVENTURUS",
+  "description": "Comprehensive guide to China's hospital system for foreign travellers. Hospital tiers explained, top hospitals by city and specialty, how to book appointments, step-by-step visit guide, costs, and pharmacy tips.",
+  "url": "https://eventurus.cn/emergency-guide.html",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EVENTURUS",
+    "url": "https://eventurus.cn/",
+    "description": "China travel intelligence for international visitors."
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 120 (ambulance) free in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ambulance services are not free. Expect ¥100–300 for the call-out plus ¥5–10 per kilometre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my home country health insurance in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost certainly not. Standard health insurance from the UK, US, EU, and Australia does not cover treatment in China. You need dedicated travel insurance or an international health plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need surgery — how safe are Chinese hospitals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grade III-A teaching hospitals in major cities operate at international standards for surgery. Surgical quality is excellent but patient experience differs — use VIP/international departments when possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I bring my regular prescription medication into China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — bring enough for your entire trip plus 2–3 weeks reserve. Carry medications in original packaging with a doctor's letter. Some medications are controlled substances in China."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get my medical records and test results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask for printed copies before leaving the hospital. Grade III-A hospitals can provide English summaries within 1–3 working days. International hospitals provide English records automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I am injured in a smaller city without an international hospital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Go to the largest public hospital and ask for the international department. Even in smaller cities, many hospitals have a foreign patient liaison or telephone interpreter service."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Traditional Chinese Medicine treatments safe and effective?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TCM in licensed Chinese hospitals is government-regulated and generally safe. Acupuncture is widely used for pain management. Use hospital-affiliated TCM departments, not independent clinics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Chinese hospitals accept blood donations and is the blood supply safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "China's blood supply is government-regulated. All donated blood is screened for HIV, hepatitis B/C, and syphilis. Blood banks at top-tier hospitals follow international protocols."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EVENTURUS Tools",
+      "item": "https://eventurus.cn/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Chinese Hospital Guide",
+      "item": "https://eventurus.cn/hospital-guide.html"
+    }
+  ]
+}
+</script>
+
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+<span style="margin:0 8px;color:#d0d0d0;">·</span>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="https://beian.mps.gov.cn/img/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+</footer>
+
+</body>
+</html>

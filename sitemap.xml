@@ -105,7 +105,13 @@
   <url>
     <loc>https://eventurus.cn/emergency-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/hospital-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-13</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
