@@ -106,6 +106,65 @@ ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:
 
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 
+/* ── Mobile table optimisation ── */
+@media (max-width: 600px) {
+  .table-wrap { -webkit-overflow-scrolling: touch; }
+  table { font-size: 12px; }
+  th, td { padding: 8px 10px; }
+  th { font-size: 10px; }
+
+  /* Platform comparison: stack into cards */
+  .table-wrap.platform-table table,
+  .table-wrap.platform-table thead,
+  .table-wrap.platform-table tbody,
+  .table-wrap.platform-table th,
+  .table-wrap.platform-table td,
+  .table-wrap.platform-table tr {
+    display: block;
+  }
+  .table-wrap.platform-table thead { display: none; }
+  .table-wrap.platform-table td {
+    position: relative;
+    padding-left: 50%;
+    border-bottom: 1px solid #F0F0EE;
+    min-height: 32px;
+  }
+  .table-wrap.platform-table td:last-child { border-bottom: none; }
+  .table-wrap.platform-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    width: 45%;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .table-wrap.platform-table tr {
+    margin-bottom: 12px;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+  }
+  .table-wrap.platform-table tr:last-child { margin-bottom: 0; }
+  .table-wrap.platform-table .td-brand {
+    font-size: 15px;
+    padding: 12px 12px 8px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .table-wrap.platform-table .td-brand::before { content: none; }
+
+  /* Force table-wrap to not clip border-radius */
+  .table-wrap.platform-table {
+    overflow-x: visible;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
 @media print {
   body { background: #fff; color: #000; font-size: 12pt; }
   .brand-bar, .footer, .cross-link, #backToTop { display: none; }
@@ -132,6 +191,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   ol.steps li { border-color:#2A2A2A; }
   .info-card li { border-color:#2A2A2A; }
   img { opacity:.85; }
+  @media (max-width: 600px) {
+    .table-wrap.platform-table td { border-color: #2A2A2A; }
+    .table-wrap.platform-table .td-brand { border-color: #333; }
+  }
 }
 </style>
 
@@ -273,15 +336,15 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     </div>
   </div>
 
-  <div class="table-wrap">
+  <div class="table-wrap platform-table">
     <table>
       <thead>
         <tr><th>Platform</th><th>Best For</th><th>Price</th><th>Shipping Speed</th><th>Foreigner-Friendly</th><th>Returns</th></tr>
       </thead>
       <tbody>
-        <tr><td class="td-brand">Taobao</td><td>Clothes, home, variety</td><td>Low to mid</td><td>2–5 days</td><td>Manual verification</td><td>7-day policy</td></tr>
-        <tr><td class="td-brand">JD</td><td>Electronics, brands</td><td>Mid to high</td><td>1–2 days</td><td>Smoothest process</td><td>7-day policy</td></tr>
-        <tr><td class="td-brand">Pinduoduo</td><td>Basics, snacks</td><td>Very low</td><td>3–7 days</td><td>Manual verification</td><td>7-day policy</td></tr>
+        <tr><td class="td-brand">Taobao</td><td data-label="Best For">Clothes, home, variety</td><td data-label="Price">Low to mid</td><td data-label="Shipping">2–5 days</td><td data-label="Foreigner-Friendly">Manual verification</td><td data-label="Returns">7-day policy</td></tr>
+        <tr><td class="td-brand">JD</td><td data-label="Best For">Electronics, brands</td><td data-label="Price">Mid to high</td><td data-label="Shipping">1–2 days</td><td data-label="Foreigner-Friendly">Smoothest process</td><td data-label="Returns">7-day policy</td></tr>
+        <tr><td class="td-brand">Pinduoduo</td><td data-label="Best For">Basics, snacks</td><td data-label="Price">Very low</td><td data-label="Shipping">3–7 days</td><td data-label="Foreigner-Friendly">Manual verification</td><td data-label="Returns">7-day policy</td></tr>
       </tbody>
     </table>
   </div>
