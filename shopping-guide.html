@@ -106,38 +106,33 @@ ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:
 
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 
-/* ── Mobile: wide tables stack as cards ── */
-@media (max-width: 600px) {
-  .mobile-stack-table { overflow-x: visible; box-shadow: none; border-radius: 0; }
-  .mobile-stack-table table { display: block; }
-  .mobile-stack-table thead { display: none !important; }
-  .mobile-stack-table tbody { display: block; }
-  .mobile-stack-table tr {
-    display: block;
-    margin-bottom: 12px;
-    border-radius: var(--radius);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-  .mobile-stack-table tr:last-child { margin-bottom: 0; }
-  .mobile-stack-table td {
-    display: block;
-    padding: 8px 12px;
-    border-bottom: 1px solid #F0F0EE;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  .mobile-stack-table td:last-child { border-bottom: none; }
-  .mobile-stack-table .td-brand {
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px 12px 6px;
-    color: var(--color-brand);
-    border-bottom: 1px solid var(--color-border);
-  }
-  .mobile-stack-table .td-cn { font-size: 14px; }
+/* ── Responsive comparison cards (replaces wide tables) ── */
+.comp-cards { margin:16px 0; }
+.comp-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); overflow:hidden; }
+.comp-card + .comp-card { margin-top:12px; }
+.comp-head { display:grid; grid-template-columns:1.2fr 1fr 0.9fr 0.9fr 1fr 0.9fr; padding:10px 14px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; color:var(--color-muted); border-bottom:2px solid var(--color-border); background:var(--color-highlight); }
+.comp-row { display:grid; grid-template-columns:1.2fr 1fr 0.9fr 0.9fr 1fr 0.9fr; }
+.comp-row > div { padding:10px 14px; border-bottom:1px solid var(--color-border); font-size:13px; line-height:1.5; }
+.comp-row > div:last-child { border-bottom:none; }
+.comp-row .cc-brand { font-weight:600; color:var(--color-brand); }
+
+.search-cards { margin:16px 0; }
+.search-card { display:grid; grid-template-columns:1.4fr 1fr 1fr; background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); overflow:hidden; margin-bottom:8px; }
+.search-card:last-child { margin-bottom:0; }
+.search-card > div { padding:10px 14px; border-bottom:1px solid #F0F0EE; font-size:13px; line-height:1.5; }
+.search-card > div:first-child { font-weight:600; color:var(--color-brand); border-left:none; }
+.search-card > div:nth-child(2) { font-weight:500; font-size:12px; }
+
+@media (max-width: 680px) {
+  .comp-head, .comp-row { grid-template-columns:1fr; gap:0; }
+  .comp-head div, .comp-row > div { padding:8px 12px; border-radius:0; border-bottom:1px solid #F0F0EE; }
+  .comp-head { display:none !important; }
+  .comp-card + .comp-card { margin-top:12px; }
+  .comp-row > div:last-child { border-bottom:none; }
+  .comp-row .cc-brand { font-size:15px; font-weight:600; padding:10px 12px 6px; border-bottom:1px solid var(--color-border); }
+  .search-card { grid-template-columns:1fr; gap:0; margin-bottom:12px; border-radius:var(--radius); overflow:hidden; }
+  .search-card > div { padding:8px 12px; border-bottom:1px solid #F0F0EE; }
+  .search-card > div:last-child { border-bottom:none; }
 }
 
 @media print {
@@ -165,11 +160,11 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   .step-num { background:#2A3A22; color:#7BA078; }
   ol.steps li { border-color:#2A2A2A; }
   .info-card li { border-color:#2A2A2A; }
+  .comp-card, .search-card { border-color:#333; }
+  .comp-head { background:#2A2A2A; }
+  .comp-row > div { border-color:#2A2A2A; }
+  .search-card > div { border-color:#2A2A2A; }
   img { opacity:.85; }
-  @media (max-width: 600px) {
-    .mobile-stack-table td { border-color: #2A2A2A; }
-    .mobile-stack-table .td-brand { border-color: #333; }
-  }
 }
 </style>
 
@@ -311,17 +306,19 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     </div>
   </div>
 
-  <div class="table-wrap mobile-stack-table">
-    <table>
-      <thead>
-        <tr><th>Platform</th><th>Best For</th><th>Price</th><th>Shipping Speed</th><th>Foreigner-Friendly</th><th>Returns</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="td-brand">Taobao</td><td data-label="Best For">Clothes, home, variety</td><td data-label="Price">Low to mid</td><td data-label="Shipping">2–5 days</td><td data-label="Foreigner-Friendly">Manual verification</td><td data-label="Returns">7-day policy</td></tr>
-        <tr><td class="td-brand">JD</td><td data-label="Best For">Electronics, brands</td><td data-label="Price">Mid to high</td><td data-label="Shipping">1–2 days</td><td data-label="Foreigner-Friendly">Smoothest process</td><td data-label="Returns">7-day policy</td></tr>
-        <tr><td class="td-brand">Pinduoduo</td><td data-label="Best For">Basics, snacks</td><td data-label="Price">Very low</td><td data-label="Shipping">3–7 days</td><td data-label="Foreigner-Friendly">Manual verification</td><td data-label="Returns">7-day policy</td></tr>
-      </tbody>
-    </table>
+  <div class="comp-cards">
+    <div class="comp-card">
+      <div class="comp-head"><div>Platform</div><div>Best For</div><div>Price</div><div>Shipping Speed</div><div>Foreigner-Friendly</div><div>Returns</div></div>
+      <div class="comp-row">
+        <div class="cc-brand">Taobao</div><div>Clothes, home, variety</div><div>Low to mid</div><div>2–5 days</div><div>Manual verification</div><div>7-day policy</div>
+      </div>
+      <div class="comp-row">
+        <div class="cc-brand">JD</div><div>Electronics, brands</div><div>Mid to high</div><div>1–2 days</div><div>Smoothest process</div><div>7-day policy</div>
+      </div>
+      <div class="comp-row">
+        <div class="cc-brand">Pinduoduo</div><div>Basics, snacks</div><div>Very low</div><div>3–7 days</div><div>Manual verification</div><div>7-day policy</div>
+      </div>
+    </div>
   </div>
 
   <div class="info-card">
@@ -413,27 +410,22 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </div>
 
   <div class="sec-label">Common search terms</div>
-  <div class="table-wrap mobile-stack-table">
-    <table>
-      <thead><tr><th>English</th><th>Chinese</th><th>Pinyin</th></tr></thead>
-      <tbody>
-        <tr><td class="td-brand">Men's / Women's clothes</td><td class="td-cn">男装 / 女装</td><td>nán zhuāng / nǚ zhuāng</td></tr>
-        <tr><td class="td-brand">Shoes</td><td class="td-cn">鞋子</td><td>xié zi</td></tr>
-        <tr><td class="td-brand">Phone case</td><td class="td-cn">手机壳</td><td>shǒu jī ké</td></tr>
-        <tr><td class="td-brand">Charger / cable</td><td class="td-cn">充电器 / 数据线</td><td>chōng diàn qì / shù jù xiàn</td></tr>
-        <tr><td class="td-brand">Backpack</td><td class="td-cn">背包</td><td>bēi bāo</td></tr>
-        <tr><td class="td-brand">Kitchenware</td><td class="td-cn">厨房用品</td><td>chú fáng yòng pǐn</td></tr>
-        <tr><td class="td-brand">Bedsheets / bedding</td><td class="td-cn">床单 / 床上用品</td><td>chuáng dān / chuáng shàng yòng pǐn</td></tr>
-        <tr><td class="td-brand">Curtains</td><td class="td-cn">窗帘</td><td>chuāng lián</td></tr>
-        <tr><td class="td-brand">Desk lamp</td><td class="td-cn">台灯</td><td>tái dēng</td></tr>
-        <tr><td class="td-brand">Snacks / food</td><td class="td-cn">零食 / 食品</td><td>líng shí / shí pǐn</td></tr>
-        <tr><td class="td-brand">Pet supplies</td><td class="td-cn">宠物用品</td><td>chǒng wù yòng pǐn</td></tr>
-        <tr><td class="td-brand">Makeup / skincare</td><td class="td-cn">化妆品 / 护肤品</td><td>huà zhuāng pǐn / hù fū pǐn</td></tr>
-        <tr><td class="td-brand">Furniture</td><td class="td-cn">家具</td><td>jiā jù</td></tr>
-        <tr><td class="td-brand">Toys</td><td class="td-cn">玩具</td><td>wán jù</td></tr>
-        <tr><td class="td-brand">Stationery</td><td class="td-cn">文具</td><td>wén jù</td></tr>
-      </tbody>
-    </table>
+  <div class="search-cards">
+    <div class="search-card"><div>Men's / Women's clothes</div><div class="td-cn">男装 / 女装</div><div>nán zhuāng / nǚ zhuāng</div></div>
+    <div class="search-card"><div>Shoes</div><div class="td-cn">鞋子</div><div>xié zi</div></div>
+    <div class="search-card"><div>Phone case</div><div class="td-cn">手机壳</div><div>shǒu jī ké</div></div>
+    <div class="search-card"><div>Charger / cable</div><div class="td-cn">充电器 / 数据线</div><div>chōng diàn qì / shù jù xiàn</div></div>
+    <div class="search-card"><div>Backpack</div><div class="td-cn">背包</div><div>bēi bāo</div></div>
+    <div class="search-card"><div>Kitchenware</div><div class="td-cn">厨房用品</div><div>chú fáng yòng pǐn</div></div>
+    <div class="search-card"><div>Bedsheets / bedding</div><div class="td-cn">床单 / 床上用品</div><div>chuáng dān / chuáng shàng yòng pǐn</div></div>
+    <div class="search-card"><div>Curtains</div><div class="td-cn">窗帘</div><div>chuāng lián</div></div>
+    <div class="search-card"><div>Desk lamp</div><div class="td-cn">台灯</div><div>tái dēng</div></div>
+    <div class="search-card"><div>Snacks / food</div><div class="td-cn">零食 / 食品</div><div>líng shí / shí pǐn</div></div>
+    <div class="search-card"><div>Pet supplies</div><div class="td-cn">宠物用品</div><div>chǒng wù yòng pǐn</div></div>
+    <div class="search-card"><div>Makeup / skincare</div><div class="td-cn">化妆品 / 护肤品</div><div>huà zhuāng pǐn / hù fū pǐn</div></div>
+    <div class="search-card"><div>Furniture</div><div class="td-cn">家具</div><div>jiā jù</div></div>
+    <div class="search-card"><div>Toys</div><div class="td-cn">玩具</div><div>wán jù</div></div>
+    <div class="search-card"><div>Stationery</div><div class="td-cn">文具</div><div>wén jù</div></div>
   </div>
 </div>
 
