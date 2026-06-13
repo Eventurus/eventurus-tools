@@ -106,16 +106,14 @@ ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:
 
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 
-/* ── Mobile: all tables stack vertically, no horizontal scroll ── */
+/* ── Mobile: wide tables stack as cards ── */
 @media (max-width: 600px) {
-  .table-wrap {
-    overflow-x: visible;
-    box-shadow: none;
-    border-radius: 0;
-  }
-  table, thead, tbody, th, td, tr { display: block; }
-  thead { display: none; }
-  tr {
+  .mobile-stack-table { overflow-x: visible; box-shadow: none; border-radius: 0; }
+  .mobile-stack-table table { display: block; }
+  .mobile-stack-table thead { display: none !important; }
+  .mobile-stack-table tbody { display: block; }
+  .mobile-stack-table tr {
+    display: block;
     margin-bottom: 12px;
     border-radius: var(--radius);
     background: var(--color-surface);
@@ -123,22 +121,23 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     box-shadow: var(--shadow);
     overflow: hidden;
   }
-  tr:last-child { margin-bottom: 0; }
-  td {
+  .mobile-stack-table tr:last-child { margin-bottom: 0; }
+  .mobile-stack-table td {
+    display: block;
     padding: 8px 12px;
     border-bottom: 1px solid #F0F0EE;
     font-size: 13px;
     line-height: 1.5;
   }
-  td:last-child { border-bottom: none; }
-  td.td-brand {
+  .mobile-stack-table td:last-child { border-bottom: none; }
+  .mobile-stack-table .td-brand {
     font-size: 15px;
     font-weight: 600;
     padding: 10px 12px 6px;
     color: var(--color-brand);
     border-bottom: 1px solid var(--color-border);
   }
-  td.td-cn { font-size: 14px; }
+  .mobile-stack-table .td-cn { font-size: 14px; }
 }
 
 @media print {
@@ -168,8 +167,8 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   .info-card li { border-color:#2A2A2A; }
   img { opacity:.85; }
   @media (max-width: 600px) {
-    td { border-color: #2A2A2A; }
-    td.td-brand { border-color: #333; }
+    .mobile-stack-table td { border-color: #2A2A2A; }
+    .mobile-stack-table .td-brand { border-color: #333; }
   }
 }
 </style>
@@ -312,7 +311,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     </div>
   </div>
 
-  <div class="table-wrap platform-table">
+  <div class="table-wrap mobile-stack-table">
     <table>
       <thead>
         <tr><th>Platform</th><th>Best For</th><th>Price</th><th>Shipping Speed</th><th>Foreigner-Friendly</th><th>Returns</th></tr>
@@ -414,7 +413,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </div>
 
   <div class="sec-label">Common search terms</div>
-  <div class="table-wrap">
+  <div class="table-wrap mobile-stack-table">
     <table>
       <thead><tr><th>English</th><th>Chinese</th><th>Pinyin</th></tr></thead>
       <tbody>
