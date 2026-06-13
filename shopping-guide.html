@@ -33,7 +33,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
 
-body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color: transparent; }
+body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color: transparent; overflow-x:hidden; }
 .container { max-width:720px; margin:0 auto; padding:0 20px; }
 .brand-bar { padding:24px 0 0; text-align:center; }
 .brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
@@ -91,9 +91,24 @@ tr:hover td { background:#FAFAF8; }
 .platform-card .pc-best { font-size:12px; color:var(--color-muted); margin-top:8px; padding-top:8px; border-top:1px solid #F0F0EE; }
 
 ol.steps { counter-reset:step; list-style:none; padding:0; margin-top:8px; }
-ol.steps li { counter-increment:step; padding:10px 0 10px 40px; position:relative; font-size:14px; line-height:1.6; border-bottom:1px solid #F0F0EE; min-height:32px; list-style:none; }
+ol.steps li { counter-increment:step; padding:10px 0 10px 40px; position:relative; font-size:14px; line-height:1.6; border-bottom:1px solid #F0F0EE; min-height:32px; list-style:none; word-break:break-word; overflow-wrap:break-word; }
 ol.steps li:last-child { border-bottom:none; }
-ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:26px; border-radius:50%; background:var(--color-brand-light); color:#3B6D11; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:26px; border-radius:50%; background:var(--color-brand-light); color:#3B6D11; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+/* ── Accordion / Toggle ── */
+.accordion { margin-top:8px; }
+.acc-item { border-bottom:1px solid #F0F0EE; }
+.acc-item:last-child { border-bottom:none; }
+.acc-header { display:flex; align-items:center; gap:10px; padding:12px 0; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; font-size:14px; font-weight:600; color:var(--color-text); transition:color .2s; }
+.acc-header:hover { color:var(--color-brand); }
+.acc-header .acc-icon { flex-shrink:0; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; transition:background .2s, color .2s; }
+.acc-header .acc-num { background:var(--color-brand-light); color:#3B6D11; }
+.acc-header .acc-check { background:var(--color-brand); color:#fff; font-size:13px; }
+.acc-header .acc-arrow { margin-left:auto; flex-shrink:0; width:18px; height:18px; border-radius:50%; background:#F0F0EE; color:var(--color-muted); display:flex; align-items:center; justify-content:center; font-size:10px; transition:transform .25s ease, background .2s, color .2s; }
+.acc-item.active > .acc-header .acc-arrow { transform:rotate(180deg); background:var(--color-brand-light); color:var(--color-brand-dark); }
+.acc-body { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; padding:0 0 0 36px; font-size:13px; line-height:1.65; color:var(--color-text); }
+.acc-item.active .acc-body { max-height:300px; padding:0 0 12px 36px; }
+.acc-body p { margin:0; }
 
 .sec-label { font-size:11px; font-weight:600; color:var(--color-muted); text-transform:uppercase; letter-spacing:1px; margin:16px 0 8px; }
 
@@ -106,33 +121,18 @@ ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:
 
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 
-/* ── Responsive comparison cards (replaces wide tables) ── */
-.comp-cards { margin:16px 0; }
-.comp-card { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); overflow:hidden; }
-.comp-card + .comp-card { margin-top:12px; }
-.comp-head { display:grid; grid-template-columns:1.2fr 1fr 0.9fr 0.9fr 1fr 0.9fr; padding:10px 14px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; color:var(--color-muted); border-bottom:2px solid var(--color-border); background:var(--color-highlight); }
-.comp-row { display:grid; grid-template-columns:1.2fr 1fr 0.9fr 0.9fr 1fr 0.9fr; }
-.comp-row > div { padding:10px 14px; border-bottom:1px solid var(--color-border); font-size:13px; line-height:1.5; }
-.comp-row > div:last-child { border-bottom:none; }
-.comp-row .cc-brand { font-weight:600; color:var(--color-brand); }
-
-.search-cards { margin:16px 0; }
-.search-card { display:grid; grid-template-columns:1.4fr 1fr 1fr; background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); box-shadow:var(--shadow); overflow:hidden; margin-bottom:8px; }
-.search-card:last-child { margin-bottom:0; }
-.search-card > div { padding:10px 14px; border-bottom:1px solid #F0F0EE; font-size:13px; line-height:1.5; }
-.search-card > div:first-child { font-weight:600; color:var(--color-brand); border-left:none; }
-.search-card > div:nth-child(2) { font-weight:500; font-size:12px; }
-
+/* ── Mobile fixes ── */
 @media (max-width: 680px) {
-  .comp-head, .comp-row { grid-template-columns:1fr; gap:0; }
-  .comp-head div, .comp-row > div { padding:8px 12px; border-radius:0; border-bottom:1px solid #F0F0EE; }
-  .comp-head { display:none !important; }
-  .comp-card + .comp-card { margin-top:12px; }
-  .comp-row > div:last-child { border-bottom:none; }
-  .comp-row .cc-brand { font-size:15px; font-weight:600; padding:10px 12px 6px; border-bottom:1px solid var(--color-border); }
-  .search-card { grid-template-columns:1fr; gap:0; margin-bottom:12px; border-radius:var(--radius); overflow:hidden; }
-  .search-card > div { padding:8px 12px; border-bottom:1px solid #F0F0EE; }
-  .search-card > div:last-child { border-bottom:none; }
+  .container { padding:0 16px; overflow-x: hidden; }
+  .info-card, .warning-box, .highlight-box { word-break: break-word; overflow-wrap: break-word; }
+  ol.steps li { padding:10px 0 10px 36px; font-size:13px; }
+  ol.steps li strong { display: inline-block; }
+  .table-wrap { border-radius: 0; box-shadow: none; }
+  .acc-header { padding:14px 0; font-size:13px; gap:8px; }
+  .acc-header .acc-icon { width:22px; height:22px; font-size:11px; }
+  .acc-header .acc-arrow { width:16px; height:16px; font-size:9px; }
+  .acc-body { padding-left:30px; font-size:12.5px; }
+  .acc-item.active .acc-body { padding-left:30px; }
 }
 
 @media print {
@@ -160,10 +160,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   .step-num { background:#2A3A22; color:#7BA078; }
   ol.steps li { border-color:#2A2A2A; }
   .info-card li { border-color:#2A2A2A; }
-  .comp-card, .search-card { border-color:#333; }
-  .comp-head { background:#2A2A2A; }
-  .comp-row > div { border-color:#2A2A2A; }
-  .search-card > div { border-color:#2A2A2A; }
+  .acc-item { border-color:#2A2A2A; }
+  .acc-header .acc-num { background:#2A3A22; color:#7BA078; }
+  .acc-header .acc-arrow { background:#333; color:#999; }
+  .acc-item.active > .acc-header .acc-arrow { background:#2A3A22; color:#7BA078; }
   img { opacity:.85; }
 }
 </style>
@@ -306,19 +306,17 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     </div>
   </div>
 
-  <div class="comp-cards">
-    <div class="comp-card">
-      <div class="comp-head"><div>Platform</div><div>Best For</div><div>Price</div><div>Shipping Speed</div><div>Foreigner-Friendly</div><div>Returns</div></div>
-      <div class="comp-row">
-        <div class="cc-brand">Taobao</div><div>Clothes, home, variety</div><div>Low to mid</div><div>2–5 days</div><div>Manual verification</div><div>7-day policy</div>
-      </div>
-      <div class="comp-row">
-        <div class="cc-brand">JD</div><div>Electronics, brands</div><div>Mid to high</div><div>1–2 days</div><div>Smoothest process</div><div>7-day policy</div>
-      </div>
-      <div class="comp-row">
-        <div class="cc-brand">Pinduoduo</div><div>Basics, snacks</div><div>Very low</div><div>3–7 days</div><div>Manual verification</div><div>7-day policy</div>
-      </div>
-    </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Best For</th><th>Price</th><th>Shipping Speed</th><th>Foreigner-Friendly</th><th>Returns</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-brand">Taobao</td><td>Clothes, home, variety</td><td>Low to mid</td><td>2–5 days</td><td>Manual verification</td><td>7-day policy</td></tr>
+        <tr><td class="td-brand">JD</td><td>Electronics, brands</td><td>Mid to high</td><td>1–2 days</td><td>Smoothest process</td><td>7-day policy</td></tr>
+        <tr><td class="td-brand">Pinduoduo</td><td>Basics, snacks</td><td>Very low</td><td>3–7 days</td><td>Manual verification</td><td>7-day policy</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="info-card">
@@ -355,14 +353,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
   <div class="info-card">
     <h3>Step-by-step registration</h3>
-    <ol class="steps">
-      <li><div class="step-num">1</div> <strong>Download the app.</strong> Search <strong>淘宝</strong> (Taobao), <strong>京东</strong> (JD), or <strong>拼多多</strong> (Pinduoduo) in your phone's app store. All three are on iOS and Android.</li>
-      <li><div class="step-num">2</div> <strong>Tap 注册 (Register).</strong> This is usually on the first screen. Enter your Chinese phone number, then enter the SMS verification code you receive.</li>
-      <li><div class="step-num">3</div> <strong>Set a password.</strong> 6 to 20 characters, must include letters and numbers. Write it down.</li>
-      <li><div class="step-num">4</div> <strong>Real-name verification (实名认证):</strong> Go to <strong>我的</strong> (My/Me) &#8594; <strong>设置</strong> (Settings) &#8594; <strong>账户与安全</strong> (Account Security) &#8594; <strong>实名认证</strong> (Real-Name Verification).</li>
-      <li><div class="step-num">5</div> <strong>Select 护照 (Passport).</strong> Upload a clear photo of your passport photo page. Some platforms also ask for a selfie holding your passport.</li>
-      <li><div class="step-num">6</div> <strong>Wait for approval.</strong> Usually takes 1 to 24 hours. You will receive an SMS when approved.</li>
-    </ol>
+    <div class="accordion" id="reg-accordion">
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-num">1</span><span>Download the app</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Search <strong>淘宝</strong> (Taobao), <strong>京东</strong> (JD), or <strong>拼多多</strong> (Pinduoduo) in your phone's app store. All three are on iOS and Android.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-num">2</span><span>Tap 注册 (Register)</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>This is usually on the first screen. Enter your Chinese phone number, then enter the SMS verification code you receive.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-num">3</span><span>Set a password</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>6 to 20 characters, must include letters and numbers. Write it down.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-num">4</span><span>Real-name verification</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Go to <strong>我的</strong> (My/Me) &#8594; <strong>设置</strong> (Settings) &#8594; <strong>账户与安全</strong> (Account Security) &#8594; <strong>实名认证</strong> (Real-Name Verification).</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-num">5</span><span>Select 护照 (Passport)</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Upload a clear photo of your passport photo page. Some platforms also ask for a selfie holding your passport.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-num">6</span><span>Wait for approval</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Usually takes 1 to 24 hours. You will receive an SMS when approved.</p></div>
+      </div>
+    </div>
 
     <div class="highlight-box" style="margin-top:12px;">
       <strong>Tip:</strong> JD has the smoothest foreigner verification process and rarely rejects foreign passports. Taobao occasionally flags foreign documents — if you are rejected, try again the next day or use the Alipay mini-program version of Taobao, which sometimes processes verification differently.
@@ -410,22 +426,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </div>
 
   <div class="sec-label">Common search terms</div>
-  <div class="search-cards">
-    <div class="search-card"><div>Men's / Women's clothes</div><div class="td-cn">男装 / 女装</div><div>nán zhuāng / nǚ zhuāng</div></div>
-    <div class="search-card"><div>Shoes</div><div class="td-cn">鞋子</div><div>xié zi</div></div>
-    <div class="search-card"><div>Phone case</div><div class="td-cn">手机壳</div><div>shǒu jī ké</div></div>
-    <div class="search-card"><div>Charger / cable</div><div class="td-cn">充电器 / 数据线</div><div>chōng diàn qì / shù jù xiàn</div></div>
-    <div class="search-card"><div>Backpack</div><div class="td-cn">背包</div><div>bēi bāo</div></div>
-    <div class="search-card"><div>Kitchenware</div><div class="td-cn">厨房用品</div><div>chú fáng yòng pǐn</div></div>
-    <div class="search-card"><div>Bedsheets / bedding</div><div class="td-cn">床单 / 床上用品</div><div>chuáng dān / chuáng shàng yòng pǐn</div></div>
-    <div class="search-card"><div>Curtains</div><div class="td-cn">窗帘</div><div>chuāng lián</div></div>
-    <div class="search-card"><div>Desk lamp</div><div class="td-cn">台灯</div><div>tái dēng</div></div>
-    <div class="search-card"><div>Snacks / food</div><div class="td-cn">零食 / 食品</div><div>líng shí / shí pǐn</div></div>
-    <div class="search-card"><div>Pet supplies</div><div class="td-cn">宠物用品</div><div>chǒng wù yòng pǐn</div></div>
-    <div class="search-card"><div>Makeup / skincare</div><div class="td-cn">化妆品 / 护肤品</div><div>huà zhuāng pǐn / hù fū pǐn</div></div>
-    <div class="search-card"><div>Furniture</div><div class="td-cn">家具</div><div>jiā jù</div></div>
-    <div class="search-card"><div>Toys</div><div class="td-cn">玩具</div><div>wán jù</div></div>
-    <div class="search-card"><div>Stationery</div><div class="td-cn">文具</div><div>wén jù</div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>English</th><th>Chinese</th><th>Pinyin</th></tr></thead>
+      <tbody>
+        <tr><td class="td-brand">Men's / Women's clothes</td><td class="td-cn">男装 / 女装</td><td>nán zhuāng / nǚ zhuāng</td></tr>
+        <tr><td class="td-brand">Shoes</td><td class="td-cn">鞋子</td><td>xié zi</td></tr>
+        <tr><td class="td-brand">Phone case</td><td class="td-cn">手机壳</td><td>shǒu jī ké</td></tr>
+        <tr><td class="td-brand">Charger / cable</td><td class="td-cn">充电器 / 数据线</td><td>chōng diàn qì / shù jù xiàn</td></tr>
+        <tr><td class="td-brand">Backpack</td><td class="td-cn">背包</td><td>bēi bāo</td></tr>
+        <tr><td class="td-brand">Kitchenware</td><td class="td-cn">厨房用品</td><td>chú fáng yòng pǐn</td></tr>
+        <tr><td class="td-brand">Bedsheets / bedding</td><td class="td-cn">床单 / 床上用品</td><td>chuáng dān / chuáng shàng yòng pǐn</td></tr>
+        <tr><td class="td-brand">Curtains</td><td class="td-cn">窗帘</td><td>chuāng lián</td></tr>
+        <tr><td class="td-brand">Desk lamp</td><td class="td-cn">台灯</td><td>tái dēng</td></tr>
+        <tr><td class="td-brand">Snacks / food</td><td class="td-cn">零食 / 食品</td><td>líng shí / shí pǐn</td></tr>
+        <tr><td class="td-brand">Pet supplies</td><td class="td-cn">宠物用品</td><td>chǒng wù yòng pǐn</td></tr>
+        <tr><td class="td-brand">Makeup / skincare</td><td class="td-cn">化妆品 / 护肤品</td><td>huà zhuāng pǐn / hù fū pǐn</td></tr>
+        <tr><td class="td-brand">Furniture</td><td class="td-cn">家具</td><td>jiā jù</td></tr>
+        <tr><td class="td-brand">Toys</td><td class="td-cn">玩具</td><td>wán jù</td></tr>
+        <tr><td class="td-brand">Stationery</td><td class="td-cn">文具</td><td>wén jù</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -438,14 +459,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
   <div class="info-card">
     <h3>How to read a product page</h3>
-    <ul>
-      <li><span class="bullet">&#10003;</span> <strong>Price:</strong> The first number you see is the listed price — usually the cheapest variant. The actual price changes when you select a <strong>颜色分类</strong> (colour/type) or <strong>规格</strong> (specification). A phone case might show &yen;5, but when you select "iPhone 16 Pro" it becomes &yen;25.</li>
-      <li><span class="bullet">&#10003;</span> <strong>Sales volume:</strong> <strong>月销</strong> = monthly sales. <strong>累计销量</strong> = total sales since listing. Higher numbers = more reliable.</li>
-      <li><span class="bullet">&#10003;</span> <strong>Seller rating:</strong> Look for crown (皇冠) or diamond (钻石) badges — these indicate high-volume, established sellers. <strong>天猫</strong> (Tmall) sellers on Taobao are verified businesses with stricter quality controls. JD sellers with the <strong>京东自营</strong> (JD Self-Operated) badge are the most trustworthy.</li>
-      <li><span class="bullet">&#10003;</span> <strong>Reviews (评价):</strong> Filter by <strong>有图</strong> (with photos) to see real customer shots. These are the most honest representation of what you will receive. Ignore reviews with only text — the photos tell the real story.</li>
-      <li><span class="bullet">&#10003;</span> <strong>Shipping:</strong> <strong>运费</strong> = shipping fee. Most items ship free (包邮). Look for <strong>24h/48h</strong> dispatch tags — these sellers ship within 24 or 48 hours of your order.</li>
-      <li><span class="bullet">&#10003;</span> <strong>Location (发货地):</strong> Where the seller dispatches from. Closer to you = faster delivery. Guangdong and Zhejiang are the two major manufacturing and shipping hubs.</li>
-    </ul>
+    <div class="accordion" id="product-accordion">
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Price</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>The first number you see is the listed price — usually the cheapest variant. The actual price changes when you select a <strong>颜色分类</strong> (colour/type) or <strong>规格</strong> (specification). A phone case might show &yen;5, but when you select "iPhone 16 Pro" it becomes &yen;25.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Sales volume</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p><strong>月销</strong> = monthly sales. <strong>累计销量</strong> = total sales since listing. Higher numbers = more reliable.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Seller rating</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Look for crown (皇冠) or diamond (钻石) badges — these indicate high-volume, established sellers. <strong>天猫</strong> (Tmall) sellers on Taobao are verified businesses with stricter quality controls. JD sellers with the <strong>京东自营</strong> (JD Self-Operated) badge are the most trustworthy.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Reviews (评价)</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Filter by <strong>有图</strong> (with photos) to see real customer shots. These are the most honest representation of what you will receive. Ignore reviews with only text — the photos tell the real story.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Shipping</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p><strong>运费</strong> = shipping fee. Most items ship free (包邮). Look for <strong>24h/48h</strong> dispatch tags — these sellers ship within 24 or 48 hours of your order.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Location (发货地)</span><span class="acc-arrow">&#8964;</span></div>
+        <div class="acc-body"><p>Where the seller dispatches from. Closer to you = faster delivery. Guangdong and Zhejiang are the two major manufacturing and shipping hubs.</p></div>
+      </div>
+    </div>
   </div>
 
   <div class="highlight-box">
@@ -677,6 +716,18 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   window.addEventListener('scroll', toggle, {passive: true});
   btn.addEventListener('click', function() { window.scrollTo({top: 0, behavior: 'smooth'}); });
   toggle();
+
+  /* Accordion toggle */
+  document.querySelectorAll('.acc-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isActive = item.classList.contains('active');
+      /* Optional: close siblings in same accordion */
+      var siblings = item.parentElement.querySelectorAll('.acc-item');
+      siblings.forEach(function(s) { s.classList.remove('active'); });
+      if (!isActive) item.classList.add('active');
+    });
+  });
 })();
 </script>
 
