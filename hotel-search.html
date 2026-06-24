@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Search — EVENTURUS</title>
+<meta name="description" content="Search hotel rates across China. Curated by EVENTURUS.">
+<style>
+:root {
+  --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#5A6E55;
+  --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0;
+  --color-accent:#6B7F65; --radius:12px;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); line-height:1.6; font-size:16px; }
+
+.container { max-width:680px; margin:0 auto; padding:0 20px; }
+
+/* Header */
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-family:var(--font-serif); font-size:18px; font-weight:500; letter-spacing:2px; }
+.brand-bar .tagline { font-size:11px; color:var(--color-muted); letter-spacing:1.5px; margin-top:2px; text-transform:uppercase; }
+
+/* Hero */
+.hero { text-align:center; padding:36px 0 24px; }
+.hero h1 { font-family:var(--font-serif); font-size:28px; font-weight:400; line-height:1.3; margin-bottom:6px; }
+.hero p { font-size:14px; color:var(--color-muted); }
+
+/* Search form */
+.search-form {
+  background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius);
+  padding:20px; margin-bottom:24px;
+}
+.form-row { display:flex; gap:12px; flex-wrap:wrap; }
+.form-group { flex:1; min-width:140px; }
+.form-group label { display:block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--color-muted); margin-bottom:4px; }
+.form-group input, .form-group select {
+  width:100%; padding:10px 12px; border:1px solid var(--color-border); border-radius:8px;
+  font-family:inherit; font-size:14px; color:var(--color-text); background:var(--color-surface);
+  transition:border-color .2s;
+}
+.form-group input:focus, .form-group select:focus { outline:none; border-color:var(--color-brand); }
+.search-btn {
+  width:100%; margin-top:14px; padding:12px; background:var(--color-brand); color:#fff;
+  border:none; border-radius:8px; font-family:inherit; font-size:14px; font-weight:600;
+  letter-spacing:0.5px; cursor:pointer; transition:background .2s;
+}
+.search-btn:hover { background:var(--color-accent); }
+.search-btn:disabled { background:var(--color-border); cursor:not-allowed; }
+
+/* Preset tags */
+.presets { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+.preset-chip {
+  font-size:12px; padding:5px 12px; border:1px solid var(--color-border); border-radius:20px;
+  background:var(--color-surface); color:var(--color-muted); cursor:pointer; transition:all .2s;
+}
+.preset-chip:hover, .preset-chip.active { border-color:var(--color-brand); color:var(--color-brand); background:#EAF3DE; }
+
+/* Results */
+.results-header { font-size:13px; color:var(--color-muted); margin-bottom:12px; }
+.hotel-card {
+  background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius);
+  padding:16px; margin-bottom:12px; display:flex; gap:14px; transition:box-shadow .2s;
+}
+.hotel-card:hover { box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.hotel-card .thumb { width:80px; height:80px; border-radius:8px; object-fit:cover; flex-shrink:0; background:var(--color-bg); }
+.hotel-card .info { flex:1; min-width:0; }
+.hotel-card .name { font-size:15px; font-weight:600; margin-bottom:2px; }
+.hotel-card .name-en { font-size:11px; color:var(--color-muted); margin-bottom:4px; }
+.hotel-card .meta { display:flex; gap:10px; flex-wrap:wrap; font-size:12px; color:var(--color-muted); margin-bottom:6px; }
+.hotel-card .tag { font-size:10px; padding:2px 7px; border-radius:4px; background:#EAF3DE; color:var(--color-brand); }
+.hotel-card .stars { color:#CBA866; font-size:12px; }
+.hotel-card .price-row { display:flex; justify-content:space-between; align-items:flex-end; margin-top:6px; }
+.hotel-card .price { font-family:var(--font-serif); font-size:20px; font-weight:500; color:var(--color-text); }
+.hotel-card .price-unit { font-size:12px; color:var(--color-muted); font-family:var(--font-sans); }
+.hotel-card .book-btn {
+  font-size:12px; padding:7px 14px; background:var(--color-brand); color:#fff;
+  border:none; border-radius:6px; cursor:pointer; font-family:inherit; font-weight:500;
+  white-space:nowrap; transition:background .2s;
+}
+.hotel-card .book-btn:hover { background:var(--color-accent); }
+
+/* Loading */
+.loading { text-align:center; padding:40px 0; color:var(--color-muted); font-size:14px; }
+.loading .spinner {
+  width:28px; height:28px; border:3px solid var(--color-border); border-top-color:var(--color-brand);
+  border-radius:50%; margin:0 auto 10px; animation:spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* Empty state */
+.empty { text-align:center; padding:48px 20px; color:var(--color-muted); }
+.empty .icon { font-size:32px; margin-bottom:8px; opacity:0.4; }
+
+/* WeCom modal */
+.modal-overlay {
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:100;
+  align-items:center; justify-content:center;
+}
+.modal-overlay.show { display:flex; }
+.modal {
+  background:var(--color-surface); border-radius:16px; padding:32px 28px;
+  max-width:360px; width:90%; text-align:center;
+}
+.modal h3 { font-family:var(--font-serif); font-size:20px; font-weight:500; margin-bottom:6px; }
+.modal p { font-size:14px; color:var(--color-muted); margin-bottom:16px; line-height:1.6; }
+.modal .hotel-name { font-weight:600; color:var(--color-text); }
+.modal .wecom-cta {
+  display:inline-block; background:var(--color-brand); color:#fff; text-decoration:none;
+  padding:12px 28px; border-radius:8px; font-size:14px; font-weight:600; margin-top:8px;
+}
+.modal .close-btn {
+  position:absolute; top:12px; right:16px; background:none; border:none;
+  font-size:20px; color:var(--color-muted); cursor:pointer;
+}
+
+/* Footer */
+.footer { text-align:center; padding:32px 0 24px; border-top:1px solid var(--color-border); margin-top:40px; }
+.footer p { font-size:12px; color:var(--color-muted); line-height:1.8; }
+.footer .signature { font-family:var(--font-serif); font-style:italic; font-size:13px; color:var(--color-text); margin-bottom:4px; }
+
+/* Responsive */
+@media (max-width:520px) {
+  .hero h1 { font-size:22px; }
+  .form-row { flex-direction:column; }
+  .form-group { min-width:100%; }
+  .hotel-card { flex-direction:column; }
+  .hotel-card .thumb { width:100%; height:160px; }
+}
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  <div class="brand">EVENTURUS</div>
+  <div class="tagline">China, Vetted</div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>Hotel Rate Search</h1>
+    <p>Check live rates across China. Curated stays, real prices.</p>
+  </div>
+
+  <!-- Search form -->
+  <form class="search-form" id="searchForm">
+    <div class="form-row">
+      <div class="form-group" style="flex:2">
+        <label>Destination</label>
+        <input type="text" id="destination" placeholder="Qiandao Lake, Hangzhou, Sanya..." value="">
+      </div>
+      <div class="form-group">
+        <label>Check-in</label>
+        <input type="date" id="checkin">
+      </div>
+      <div class="form-group">
+        <label>Check-out</label>
+        <input type="date" id="checkout">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Adults</label>
+        <select id="adults">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Children</label>
+        <select id="children">
+          <option value="0" selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Rooms</label>
+        <select id="rooms">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="search-btn" id="searchBtn">Search Hotels</button>
+  </form>
+
+  <!-- Preset chips -->
+  <div class="presets" id="presets">
+    <span class="preset-chip" data-place="qiandao lake">Qiandao Lake</span>
+    <span class="preset-chip" data-place="hangzhou">Hangzhou</span>
+    <span class="preset-chip" data-place="mogan mountain">Mogan Mountain</span>
+    <span class="preset-chip" data-place="sanya">Sanya</span>
+    <span class="preset-chip" data-place="anji">Anji</span>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+    <div class="empty">
+      <div class="icon">&#128269;</div>
+      <p>Search a destination to see live rates.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- WeCom booking modal -->
+<div class="modal-overlay" id="wecomModal">
+  <div class="modal" style="position:relative;">
+    <button class="close-btn" onclick="closeModal()">&times;</button>
+    <h3>Book via Eventurus</h3>
+    <p>We handle the booking for you in your language.<br>
+    Message us on WeCom with your dates and we will confirm availability within the hour.</p>
+    <p style="font-size:13px; color:var(--color-text);">Hotel: <span class="hotel-name" id="modalHotelName"></span></p>
+    <a href="#" class="wecom-cta" id="wecomLink">Open WeCom</a>
+  </div>
+</div>
+
+<div class="footer">
+  <p class="signature">EVENTURUS &middot; Vetted</p>
+  <p>Rates sourced from RollingGo. We show, never announce.</p>
+</div>
+
+<script>
+var MOCK_RESULTS = {
+  "qiandao lake": [
+    { name:"Sheraton Qiandao Lake Resort", nameEn:"Green Town Sheraton", stars:5, price:855, tags:["Outdoor Pool","Resort","Indoor Pool"], address:"Qiandao Lake Town" },
+    { name:"Crowne Plaza Qiandao Lake", nameEn:"IHG Crowne Plaza", stars:5, price:562, tags:["Indoor Pool","Resort","SPA"], address:"Xin'an River" },
+    { name:"SSAW Boutique Hotel Qiandao Lake", nameEn:"SSAW Hotels", stars:4, price:466, tags:["Outdoor Pool","Kids Pool","Value"], address:"Nan Jing Road" },
+    { name:"Rezen Select Qiandao Lake", nameEn:"Rezen Hotels", stars:4, price:238, tags:["Kids Club","Value"], address:"Nan Jing Road" },
+    { name:"Lijing Resort Qiandao Lake", nameEn:"Lijing Hotels", stars:3, price:184, tags:["Value"], address:"Yangguang Road" }
+  ],
+  "hangzhou": [
+    { name:"Jiuli Yunsong Resort", nameEn:"Pins De La Brume", stars:5, price:1288, tags:["Premium","Lingyin Temple"], address:"Lingyin Road" },
+    { name:"Banyan Tree Hangzhou", nameEn:"Banyan Tree", stars:5, price:2200, tags:["Resort","Premium"], address:"Xixi Wetland" }
+  ],
+  "mogan mountain": [
+    { name:"Dusit Thani Mogan Mountain", nameEn:"Dusit Thani", stars:5, price:850, tags:["Outdoor Pool","Resort","Family"], address:"Win Valley, Deqing" }
+  ],
+  "sanya": [
+    { name:"Atlantis Sanya", nameEn:"Atlantis", stars:5, price:1588, tags:["Outdoor Pool","Private Beach","Family","Theme Park"], address:"Haitang Bay" }
+  ],
+  "anji": [
+    { name:"Anji Cloud Grassland Resort", nameEn:"Cloud Grassland", stars:4, price:599, tags:["Resort","Outdoor Pool"], address:"Anji" }
+  ]
+};
+
+var form = document.getElementById('searchForm');
+var resultsDiv = document.getElementById('results');
+var searchBtn = document.getElementById('searchBtn');
+
+// Default dates: next Friday to Sunday
+(function setDefaultDates(){
+  var today = new Date();
+  var day = today.getDay();
+  var friday = new Date(today);
+  friday.setDate(today.getDate() + ((5 - day + 7) % 7 || 7));
+  var sunday = new Date(friday);
+  sunday.setDate(friday.getDate() + 2);
+  document.getElementById('checkin').value = friday.toISOString().split('T')[0];
+  document.getElementById('checkout').value = sunday.toISOString().split('T')[0];
+})();
+
+function renderResults(hotels) {
+  if (!hotels || hotels.length === 0) {
+    resultsDiv.innerHTML = '<div class="empty"><p>No hotels found. Try another destination.</p></div>';
+    return;
+  }
+  var html = '<div class="results-header">' + hotels.length + ' hotels found &middot; rates per night from</div>';
+  for (var i = 0; i < hotels.length; i++) {
+    var h = hotels[i];
+    var stars = h.stars ? '<span class="stars">' + Array(h.stars + 1).join('\u2605') + '</span>' : '';
+    var tagsHtml = '';
+    for (var j = 0; j < h.tags.length; j++) {
+      tagsHtml += '<span class="tag">' + h.tags[j] + '</span>';
+    }
+    html += '<div class="hotel-card">' +
+      '<div class="thumb" style="display:flex;align-items:center;justify-content:center;color:var(--color-muted);font-size:28px;">&#127976;</div>' +
+      '<div class="info">' +
+        '<div class="name">' + h.name + '</div>' +
+        '<div class="name-en">' + h.nameEn + '</div>' +
+        '<div class="meta">' + stars + '<span>' + (h.address || '') + '</span></div>' +
+        '<div class="meta">' + tagsHtml + '</div>' +
+        '<div class="price-row">' +
+          '<div><span class="price">\u00a5' + h.price + '</span><span class="price-unit"> / night from</span></div>' +
+          '<button class="book-btn" onclick="openModal(this)" data-hotel="' + h.name.replace(/"/g, '&quot;') + '">Book via WeCom</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  resultsDiv.innerHTML = html;
+}
+
+function doSearch(dest) {
+  searchBtn.disabled = true;
+  searchBtn.textContent = 'Searching...';
+  resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Searching live rates...</div>';
+
+  setTimeout(function() {
+    var key = dest.toLowerCase().trim();
+    var hotels = MOCK_RESULTS[key];
+    if (!hotels) {
+      // Fallback for any destination
+      hotels = [
+        { name: dest + ' Resort', nameEn: 'Selected Property', stars: 4, price: 599, tags: ['Resort', 'Outdoor Pool'], address: dest }
+      ];
+    }
+    renderResults(hotels);
+    searchBtn.disabled = false;
+    searchBtn.textContent = 'Search Hotels';
+  }, 600);
+}
+
+// Search on submit
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  var dest = document.getElementById('destination').value.trim();
+  if (!dest) { alert('Please enter a destination.'); return; }
+  doSearch(dest);
+});
+
+// Preset chips
+var chips = document.querySelectorAll('.preset-chip');
+for (var i = 0; i < chips.length; i++) {
+  chips[i].addEventListener('click', function() {
+    document.getElementById('destination').value = this.dataset.place;
+    for (var j = 0; j < chips.length; j++) chips[j].classList.remove('active');
+    this.classList.add('active');
+    doSearch(this.dataset.place);
+  });
+}
+
+// Auto-load Qiandao Lake on page load
+document.getElementById('destination').value = 'qiandao lake';
+doSearch('qiandao lake');
+
+// WeCom modal
+function openModal(btn) {
+  var hotelName = btn.getAttribute('data-hotel');
+  document.getElementById('modalHotelName').textContent = hotelName;
+  document.getElementById('wecomModal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('wecomModal').classList.remove('show');
+}
+
+document.getElementById('wecomModal').addEventListener('click', function(e) {
+  if (e.target === document.getElementById('wecomModal')) closeModal();
+});
+</script>
+
+</body>
+</html>
