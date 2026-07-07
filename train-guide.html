@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>China High-Speed Train Seat Guide — EVENTURUS</title>
+<title>China High-Speed Train Seat Guide · EVENTURUS</title>
   <!-- Open Graph -->
-  <meta property="og:title" content="China High-Speed Train Seat Guide — EVENTURUS">
-  <meta property="og:description" content="Compare China high-speed rail seat classes: 2nd class, 1st class, business class and sleeper. Seat diagrams, photos, prices and comfort levels explained.">
+  <meta property="og:title" content="China High-Speed Train Seat Guide · EVENTURUS">
+  <meta property="og:description" content="Compare China train seat classes &amp; sleepers: 2nd class, 1st class, business class, hard sleeper, soft sleeper, and HSR sleeper. Diagrams, photos, prices and comfort levels explained.">
   <meta property="og:url" content="https://eventurus.cn/train-guide.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
@@ -18,13 +18,13 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="China High-Speed Train Seat Guide — EVENTURUS">
-  <meta name="twitter:description" content="Compare China high-speed rail seat classes: 2nd class, 1st class, business class and sleeper. Seat diagrams, photos, prices and comfort levels explained.">
+  <meta name="twitter:title" content="China High-Speed Train Seat Guide · EVENTURUS">
+  <meta name="twitter:description" content="Compare China train seat classes &amp; sleepers: 2nd class, 1st class, business class, hard sleeper, soft sleeper, and HSR sleeper.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://eventurus.cn/train-guide.html">
 
-<meta name="description" content="Compare China high-speed rail seat classes: 2nd class, 1st class, business class and sleeper. Seat diagrams, photos, prices and comfort levels explained.">
+<meta name="description" content="Compare China train seat classes &amp; sleepers: 2nd class, 1st class, business class, hard sleeper, soft sleeper, and HSR sleeper. Diagrams, photos, prices and comfort levels explained.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
   --color-brand: #5A6E55;
   --color-brand-light: #E3EFD5;
   --color-brand-mid: #8A9E80;
-  --color-bg: #F9F9F9;
+  --color-bg: #f9f8f6;
   --color-surface: #ffffff;
   --color-border: #E5E5E0;
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -68,7 +68,7 @@ img { max-width: 100%; height: auto; }
 
 /* Hero */
 .hero { text-align: center; padding: 40px 0 24px; }
-.hero h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin-bottom: 8px; }
+.hero h1 { font-family: var(--font-serif); font-size: 32px; font-weight: 600; line-height: 1.2; margin-bottom: 8px; }
 .hero p { font-size: 15px; color: var(--color-text-muted); max-width: 500px; margin: 0 auto; }
 
 /* Intro note */
@@ -102,7 +102,7 @@ img { max-width: 100%; height: auto; }
   cursor: pointer;
   user-select: none;
 }
-.class-card-header .class-rank { font-size: 26px; font-weight: 600; }
+.class-card-header .class-rank { font-family: var(--font-serif); font-size: 26px; font-weight: 600; }
 .class-card-header .class-price { text-align: right; }
 .class-card-header .class-price .price-range { font-size: 18px; font-weight: 600; }
 .class-card-header .class-price .price-label { font-size: 12px; color: var(--color-text-muted); }
@@ -170,6 +170,7 @@ img { max-width: 100%; height: auto; }
 /* Comparison table */
 .compare-section { margin-top: 40px; }
 .compare-section h2 {
+  font-family: var(--font-serif);
   font-size: 24px;
   font-weight: 600;
   text-align: center;
@@ -207,12 +208,12 @@ img { max-width: 100%; height: auto; }
 
 /* Tips */
 .tips-section {
-  background: #EAF3DE;
+  background: var(--color-brand-light);
   border-radius: 12px;
   padding: 24px;
   margin: 32px 0;
 }
-.tips-section h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; color: #3B6D11; }
+.tips-section h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--color-brand); }
 .tips-section li {
   margin-bottom: 8px;
   font-size: 14px;
@@ -223,7 +224,23 @@ img { max-width: 100%; height: auto; }
 /* Footer */
 .site-footer { text-align: center; padding: 32px 0 28px; font-size: 12px; color: var(--color-text-muted); }
 .site-footer a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
-.site-footer .brand-foot { font-style: italic; font-size: 14px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
+.site-footer .brand-foot { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--color-text); letter-spacing: 1px; margin-bottom: 4px; }
+
+/* Warning / notice box */
+.warning-box {
+  background: #FAF3E3;
+  border: 1px solid #EAD9B5;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+.warning-box strong { color: #7A5B1E; }
+
+/* Table swipe hint (mobile) */
+.table-hint { display: none; font-size: 12px; color: var(--color-text-muted); text-align: center; margin: -16px 0 20px; }
 
 /* Route helper */
 .route-helper {
@@ -234,7 +251,7 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   text-align: center;
 }
-.route-helper h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+.route-helper h3 { font-family: var(--font-serif); font-size: 18px; font-weight: 600; margin-bottom: 12px; }
 .route-helper p { font-size: 14px; color: var(--color-text-muted); margin-bottom: 12px; }
 .route-helper a { color: var(--color-brand); text-decoration: underline; font-weight: 500; }
 
@@ -245,21 +262,39 @@ img { max-width: 100%; height: auto; }
 .class-1 .rating-bar-fill { background: #378ADD; width: 70%; }
 .class-biz .class-card-header { background: #EAF3DE; }
 .class-biz .rating-bar-fill { background: #639922; width: 95%; }
-.class-sleeper .class-card-header { background: #FAEEDA; }
-.class-sleeper .rating-bar-fill { background: #BA7517; width: 65%; }
+.class-hard .class-card-header { background: #EBE5D8; }
+.class-hard .rating-bar-fill { background: #8B7355; width: 35%; }
+.class-soft .class-card-header { background: #FAEEDA; }
+.class-soft .rating-bar-fill { background: #BA7517; width: 60%; }
+.class-hsr .class-card-header { background: #F5F0E8; }
+.class-hsr .rating-bar-fill { background: #8B6914; width: 80%; }
 
 @media print {
   body { background: #fff; color: #000; font-size: 12pt; }
-  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
+  .brand-bar, .site-footer, footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
   a { color: #000; text-decoration: underline; }
   .container { max-width: 100%; }
   table { page-break-inside: avoid; }
   h1, h2, h3 { page-break-after: avoid; }
 }
 
-/* Dark mode */
 a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
 .info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 480px) {
+  .hero { padding: 32px 0 20px; }
+  .hero h1 { font-size: 25px; }
+  .class-card-header { padding: 16px 18px; gap: 10px; }
+  .class-card-header .class-rank { font-size: 21px; }
+  .class-card-header .class-price .price-range { font-size: 15px; }
+  .class-card-body { padding: 0 18px 18px; gap: 16px; }
+  .intro-note, .warning-box { padding: 16px 18px; font-size: 13px; }
+  .tips-section { padding: 20px 18px; }
+  .compare-table { font-size: 13px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+  .table-hint { display: block; }
+  #backToTop { bottom: 20px; right: 16px; }
+}
 </style>
 
   <!-- Structured Data -->
@@ -267,8 +302,8 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "China High-Speed Train Seat Guide \u2014 EVENTURUS",
-  "description": "Compare China high-speed rail seat classes: 2nd class, 1st class, business class and sleeper. Seat diagrams, photos, prices and comfort levels explained.",
+  "name": "China High-Speed Train Seat Guide \u00b7 EVENTURUS",
+  "description": "Compare China train seat classes and sleepers: 2nd class, 1st class, business class, hard sleeper, soft sleeper, and HSR sleeper. Diagrams, photos, prices and comfort levels explained.",
   "url": "https://eventurus.cn/train-guide.html",
   "inLanguage": "en-GB",
   "publisher": {
@@ -318,11 +353,11 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 
 <div class="intro-note">
-  <strong>Good to know:</strong> All high-speed train seats face forward. Trains are very punctual. Boarding gates close 3-5 minutes before departure. Your foreign passport works at the自助 kiosk at most major stations.
+  <strong>Good to know:</strong> All high-speed train seats face forward. Trains are very punctual. Boarding gates close 3-5 minutes before departure. Tickets are electronic. Your foreign passport works at staffed check-in gates, and a growing number of major stations have passport-reading automatic gates.
 </div>
 
 <div class="warning-box" style="margin-top:0;">
-  <strong>📈 Price update — May 2026:</strong> Several major high-speed routes saw fare adjustments from 26 May 2026, most notably Beijing–Shanghai with a ~20% increase. Second-class on this route now ranges from <strong>¥598 to ¥800</strong> (was ¥553–667). Check <a href="transit-matrix.html" style="color:var(--color-brand);">Transit Matrix</a> for current route-specific pricing.
+  <strong>Price update, May 2026:</strong> From 26 May 2026 the published fare ceiling on the Beijing&ndash;Shanghai line rose by 20%. Fares you actually pay were unchanged at launch; second class on this route currently runs about <strong>&yen;576&ndash;673</strong> depending on the train, with the new ceiling near &yen;800 for peak departures. Off-peak and slower services still carry discounts. Check the <a href="transit-matrix.html" style="color:var(--color-brand);">Transit Matrix</a> for route-specific pricing.
 </div>
 
 <!-- ===================== 2ND CLASS ===================== -->
@@ -407,10 +442,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
           <text x="260" y="268" text-anchor="middle" font-size="13" font-weight="600" fill="#4A5E44">3 + 2 LAYOUT  ·  5 SEATS PER ROW</text>
         </svg>
       </div>
-      <div class="cabin-photo">
-        <img src="images/second_class_seat.jpg" alt="2nd class cabin interior" loading="lazy">
-      </div>
-      <div class="caption">Actual 2nd class cabin — adequate for shorter journeys</div>
+      <figure class="cabin-photo" style="margin:10px 0 0;">
+        <img src="images/second_class_seat.jpg" alt="2nd class cabin interior" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption class="caption">The 2nd class cabin. Adequate for shorter journeys</figcaption>
+      </figure>
     </div>
     <div>
       <ul class="spec-list">
@@ -502,10 +537,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
           <text x="260" y="268" text-anchor="middle" font-size="13" font-weight="600" fill="#2A5580">2 + 2 LAYOUT  ·  NO MIDDLE SEATS  ·  ALL WINDOW OR AISLE</text>
         </svg>
       </div>
-      <div class="cabin-photo">
-        <img src="images/first_class_seat.jpg" alt="1st class cabin interior" loading="lazy">
-      </div>
-      <div class="caption">1st class — wider seats, more legroom, fewer people</div>
+      <figure class="cabin-photo" style="margin:10px 0 0;">
+        <img src="images/first_class_seat.jpg" alt="1st class cabin interior" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption class="caption">1st class. Wider seats, more legroom, fewer people</figcaption>
+      </figure>
     </div>
     <div>
       <ul class="spec-list">
@@ -589,10 +624,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
           <text x="260" y="268" text-anchor="middle" font-size="13" font-weight="600" fill="#3D5E34">2 + 1 LAYOUT  ·  LIE-FLAT SEATS  ·  MEAL &amp; LOUNGE INCLUDED</text>
         </svg>
       </div>
-      <div class="cabin-photo">
-        <img src="images/business_class_seat.jpg" alt="Business class cabin" loading="lazy">
-      </div>
-      <div class="caption">Business class — lie-flat seats and lounge access at major stations</div>
+      <figure class="cabin-photo" style="margin:10px 0 0;">
+        <img src="images/business_class_seat.jpg" alt="Business class cabin" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption class="caption">Business class. Lie-flat seats and lounge access at major stations</figcaption>
+      </figure>
     </div>
     <div>
       <ul class="spec-list">
@@ -613,86 +648,246 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </div>
 </div>
 
-<!-- ===================== SLEEPER ===================== -->
-<div class="class-card class-sleeper">
+<!-- ===================== HARD SLEEPER ===================== -->
+<div class="class-card class-hard">
   <div class="class-card-header" onclick="toggleCard(this)">
     <div>
-      <div class="class-rank">Sleeper</div>
-      <div style="font-size:13px;color:var(--color-text-muted);">动卧/软卧 · Overnight</div>
+      <div class="class-rank">Hard Sleeper</div>
+      <div style="font-size:13px;color:var(--color-text-muted);">硬卧 · Budget Overnight</div>
     </div>
     <div class="class-price">
-      <div class="price-range">¥400 – ¥1,200+</div>
-      <div class="price-label">~2x 2nd class price</div>
+      <div class="price-range">¥100 – ¥400</div>
+      <div class="price-label">~0.5x 2nd class price</div>
     </div>
   </div>
   <div class="class-card-body">
     <div>
       <div class="seat-visual">
-        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="sleeper compartment layout 4-berth">
+        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="hard sleeper open bay, two facing stacks of three bunks, no door">
           <defs>
-            <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#B8895A"/><stop offset="100%" stop-color="#9A7044"/></linearGradient>
+            <linearGradient id="ghard" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B7355"/><stop offset="100%" stop-color="#6B5A42"/></linearGradient>
           </defs>
-          <text x="260" y="28" text-anchor="middle" font-size="12" fill="#888780" letter-spacing="2">COMPARTMENT LAYOUT · SIDE VIEW</text>
-          <!-- Main compartment -->
-          <rect x="15" y="38" width="490" height="250" rx="10" fill="#F5F5F0" stroke="#E0E0D8" stroke-width="1"/>
-          <!-- Compartment walls -->
-          <rect x="15" y="38" width="8" height="250" rx="3" fill="#D3C9B8"/>
-          <rect x="497" y="38" width="8" height="250" rx="3" fill="#D3C9B8"/>
-          <!-- Left upper bunk -->
-          <rect x="35" y="50" width="215" height="75" rx="8" fill="url(#g4)" opacity="0.8"/>
-          <text x="142" y="80" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.6">UPPER BUNK · 上铺</text>
-          <text x="142" y="100" text-anchor="middle" font-size="12" fill="#fff" opacity="0.5">~70 cm wide · reading light</text>
-          <!-- Left lower bunk -->
-          <rect x="35" y="140" width="215" height="85" rx="8" fill="url(#g4)" opacity="0.9"/>
-          <text x="142" y="170" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.6">LOWER BUNK · 下铺</text>
-          <text x="142" y="190" text-anchor="middle" font-size="12" fill="#fff" opacity="0.5">~70 cm wide · power outlet</text>
-          <text x="142" y="205" text-anchor="middle" font-size="11" fill="#fff" opacity="0.4">more headroom than upper</text>
-          <!-- Ladder between bunks -->
-          <line x1="30" y1="50" x2="30" y2="225" stroke="#D3C9B8" stroke-width="2"/>
-          <line x1="28" y1="70" x2="32" y2="70" stroke="#D3C9B8" stroke-width="2"/>
-          <line x1="28" y1="90" x2="32" y2="90" stroke="#D3C9B8" stroke-width="2"/>
-          <line x1="28" y1="110" x2="32" y2="110" stroke="#D3C9B8" stroke-width="2"/>
-          <line x1="28" y1="130" x2="32" y2="130" stroke="#D3C9B8" stroke-width="2"/>
-          <text x="24" y="142" text-anchor="end" font-size="9" fill="#D3C9B8">ladder</text>
-          <!-- Center area - aisle + table -->
-          <rect x="255" y="50" width="30" height="235" rx="4" fill="none" stroke="#DDD" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="270" y="140" text-anchor="middle" font-size="11" font-weight="600" fill="#B5B5AD">AISLE</text>
-          <!-- Folding table -->
-          <rect x="300" y="145" width="40" height="7" rx="2" fill="#D3C9B8"/>
-          <text x="320" y="158" text-anchor="middle" font-size="9" fill="#D3C9B8">table</text>
-          <!-- Right upper & lower - opposite side -->
-          <rect x="340" y="50" width="75" height="75" rx="8" fill="url(#g4)" opacity="0.7"/>
-          <text x="377" y="80" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" opacity="0.6">UPPER</text>
-          <text x="377" y="100" text-anchor="middle" font-size="10" fill="#fff" opacity="0.4">上铺</text>
-          <rect x="340" y="140" width="75" height="85" rx="8" fill="url(#g4)" opacity="0.8"/>
-          <text x="377" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" opacity="0.6">LOWER</text>
-          <text x="377" y="190" text-anchor="middle" font-size="10" fill="#fff" opacity="0.4">下铺</text>
-          <!-- Opposite side indicator -->
-          <rect x="430" y="50" width="65" height="175" rx="6" fill="#F5F0E5" stroke="#E8E0D0" stroke-width="1"/>
-          <text x="462" y="145" text-anchor="middle" font-size="11" fill="#C0B8A0" writing-mode="tb">OPPOSITE BUNKS</text>
-          <!-- Bottom label -->
-          <text x="260" y="270" text-anchor="middle" font-size="13" font-weight="600" fill="#9A7044">4-BERTH COMPARTMENT  ·  PRIVACY CURTAIN  ·  SAVES A HOTEL NIGHT</text>
+          <text x="260" y="24" text-anchor="middle" font-size="12" fill="#888780" letter-spacing="2">ONE OPEN BAY &#183; SIX BUNKS</text>
+          <rect x="10" y="34" width="500" height="258" rx="10" fill="#F5F5F0" stroke="#E0E0D8" stroke-width="1"/>
+          <!-- window on the end wall of the bay -->
+          <rect x="30" y="44" width="460" height="5" rx="2" fill="#D6E8F5" stroke="#A0C4E4" stroke-width="0.5"/>
+          <text x="260" y="60" text-anchor="middle" font-size="9" fill="#A0C4E4">WINDOW &#183; END OF BAY</text>
+          <!-- left stack: three bunks -->
+          <rect x="30" y="68" width="200" height="54" rx="7" fill="url(#ghard)" opacity="0.80"/>
+          <text x="130" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" opacity="0.75">UPPER &#183; &#19978;&#38138;</text>
+          <text x="130" y="107" text-anchor="middle" font-size="10" fill="#fff" opacity="0.5">tight headroom &#183; no curtain</text>
+          <rect x="30" y="130" width="200" height="54" rx="7" fill="url(#ghard)" opacity="0.88"/>
+          <text x="130" y="152" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" opacity="0.75">MIDDLE &#183; &#20013;&#38138;</text>
+          <text x="130" y="169" text-anchor="middle" font-size="10" fill="#fff" opacity="0.5">crawl-in only</text>
+          <rect x="30" y="192" width="200" height="54" rx="7" fill="url(#ghard)" opacity="0.95"/>
+          <text x="130" y="214" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" opacity="0.75">LOWER &#183; &#19979;&#38138;</text>
+          <text x="130" y="231" text-anchor="middle" font-size="10" fill="#fff" opacity="0.5">~60 cm &#183; doubles as day seat</text>
+          <!-- gap between the two facing stacks -->
+          <rect x="240" y="68" width="40" height="178" rx="5" fill="none" stroke="#DDD" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="260" y="160" text-anchor="middle" font-size="10" font-weight="600" fill="#B5B5AD" writing-mode="tb" letter-spacing="2">GAP</text>
+          <!-- right stack: three bunks, facing the left stack -->
+          <rect x="290" y="68" width="200" height="54" rx="7" fill="url(#ghard)" opacity="0.80"/>
+          <text x="390" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" opacity="0.75">UPPER &#183; &#19978;&#38138;</text>
+          <text x="390" y="107" text-anchor="middle" font-size="10" fill="#fff" opacity="0.5">tight headroom &#183; no curtain</text>
+          <rect x="290" y="130" width="200" height="54" rx="7" fill="url(#ghard)" opacity="0.88"/>
+          <text x="390" y="152" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" opacity="0.75">MIDDLE &#183; &#20013;&#38138;</text>
+          <text x="390" y="169" text-anchor="middle" font-size="10" fill="#fff" opacity="0.5">crawl-in only</text>
+          <rect x="290" y="192" width="200" height="54" rx="7" fill="url(#ghard)" opacity="0.95"/>
+          <text x="390" y="214" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" opacity="0.75">LOWER &#183; &#19979;&#38138;</text>
+          <text x="390" y="231" text-anchor="middle" font-size="10" fill="#fff" opacity="0.5">~60 cm &#183; doubles as day seat</text>
+          <!-- open side: no door, bay opens onto the shared corridor -->
+          <line x1="80" y1="256" x2="440" y2="256" stroke="#C0B8A0" stroke-width="2" stroke-dasharray="6,5"/>
+          <text x="260" y="271" text-anchor="middle" font-size="9" fill="#C0B8A0" letter-spacing="1">NO DOOR &#183; OPEN TO SHARED CORRIDOR</text>
+          <text x="260" y="286" text-anchor="middle" font-size="12" font-weight="600" fill="#6B5A42">6 BEDS &#183; NO PRIVACY &#183; CHEAPEST OVERNIGHT</text>
         </svg>
       </div>
-      <div class="cabin-photo">
-        <img src="images/sleeper_compartment.jpg" alt="Sleeper cabin interior" loading="lazy">
-      </div>
-      <div class="caption">Soft sleeper — four-bed compartment with curtain privacy</div>
+      <figure class="cabin-photo" style="margin:10px 0 0;">
+        <img src="images/hard_sleeper.jpg" alt="Hard sleeper cabin interior" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption class="caption">Hard sleeper. Six bunks open to a shared corridor, no privacy</figcaption>
+      </figure>
     </div>
     <div>
       <ul class="spec-list">
-        <li><span class="spec-label">Layout</span><span class="spec-value">4-berth compartment</span></li>
-        <li><span class="spec-label">Bed width</span><span class="spec-value">~70 cm / 28 in</span></li>
-        <li><span class="spec-label">Privacy</span><span class="spec-value">Curtain in soft sleeper</span></li>
-        <li><span class="spec-label">Power outlet</span><span class="spec-value">In each compartment</span></li>
-        <li><span class="spec-label">Best for</span><span class="spec-value">Overnight routes (8h+)</span></li>
+        <li><span class="spec-label">Layout</span><span class="spec-value">6-berth open-plan</span></li>
+        <li><span class="spec-label">Bed width</span><span class="spec-value">~60 cm / 24 in</span></li>
+        <li><span class="spec-label">Privacy</span><span class="spec-value">None (open to corridor)</span></li>
+        <li><span class="spec-label">Power outlet</span><span class="spec-value">Rare, communal at ends</span></li>
+        <li><span class="spec-label">Luggage</span><span class="spec-value">Under bottom bunk</span></li>
       </ul>
       <div class="rating-bar-wrap">
         <div class="rating-bar-label">Comfort</div>
         <div class="rating-bar"><div class="rating-bar-fill"></div></div>
       </div>
       <div style="margin-top:12px;font-size:13px;color:var(--color-text-muted);">
-        <strong>Best for:</strong> long overnight routes (Beijing–Shenzhen, Shanghai–Chengdu). Saves a night of hotel cost.
+        <strong>Best for:</strong> backpackers, ultra-budget travel, one-off overnight trips where price is the priority. Runs on regular trains (K/T/Z).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SOFT SLEEPER ===================== -->
+<div class="class-card class-soft">
+  <div class="class-card-header" onclick="toggleCard(this)">
+    <div>
+      <div class="class-rank">Soft Sleeper</div>
+      <div style="font-size:13px;color:var(--color-text-muted);">软卧 · Comfort Overnight</div>
+    </div>
+    <div class="class-price">
+      <div class="price-range">¥200 – ¥800</div>
+      <div class="price-label">~1x 2nd class price</div>
+    </div>
+  </div>
+  <div class="class-card-body">
+    <div>
+      <div class="seat-visual">
+        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="soft sleeper compartment, two facing stacks of two bunks, lockable door">
+          <defs>
+            <linearGradient id="gsoft" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#BA7517"/><stop offset="100%" stop-color="#8B5910"/></linearGradient>
+          </defs>
+          <text x="260" y="24" text-anchor="middle" font-size="12" fill="#888780" letter-spacing="2">COMPARTMENT &#183; VIEW FROM THE DOOR</text>
+          <rect x="10" y="34" width="500" height="258" rx="10" fill="#F5F5F0" stroke="#E0E0D8" stroke-width="1"/>
+          <!-- window on the far wall -->
+          <rect x="30" y="44" width="460" height="5" rx="2" fill="#D6E8F5" stroke="#A0C4E4" stroke-width="0.5"/>
+          <text x="260" y="60" text-anchor="middle" font-size="9" fill="#A0C4E4">WINDOW &#183; FAR WALL</text>
+          <!-- left stack: upper + lower -->
+          <rect x="30" y="70" width="205" height="80" rx="8" fill="url(#gsoft)" opacity="0.80"/>
+          <text x="132" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">UPPER &#183; &#19978;&#38138;</text>
+          <text x="132" y="118" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~70 cm &#183; reading light</text>
+          <text x="132" y="134" text-anchor="middle" font-size="10" fill="#fff" opacity="0.4">privacy curtain</text>
+          <rect x="30" y="162" width="205" height="80" rx="8" fill="url(#gsoft)" opacity="0.90"/>
+          <text x="132" y="192" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">LOWER &#183; &#19979;&#38138;</text>
+          <text x="132" y="210" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~70 cm &#183; power outlet</text>
+          <text x="132" y="226" text-anchor="middle" font-size="10" fill="#fff" opacity="0.4">doubles as day seat</text>
+          <!-- floor space and table between the stacks -->
+          <rect x="243" y="70" width="34" height="172" rx="5" fill="none" stroke="#DDD" stroke-width="1" stroke-dasharray="4,3"/>
+          <rect x="248" y="146" width="24" height="6" rx="2" fill="#D3C9B8"/>
+          <text x="260" y="165" text-anchor="middle" font-size="8" fill="#C0B8A0">table</text>
+          <!-- right stack: upper + lower, facing the left stack -->
+          <rect x="285" y="70" width="205" height="80" rx="8" fill="url(#gsoft)" opacity="0.80"/>
+          <text x="387" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">UPPER &#183; &#19978;&#38138;</text>
+          <text x="387" y="118" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~70 cm &#183; reading light</text>
+          <text x="387" y="134" text-anchor="middle" font-size="10" fill="#fff" opacity="0.4">privacy curtain</text>
+          <rect x="285" y="162" width="205" height="80" rx="8" fill="url(#gsoft)" opacity="0.90"/>
+          <text x="387" y="192" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">LOWER &#183; &#19979;&#38138;</text>
+          <text x="387" y="210" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~70 cm &#183; power outlet</text>
+          <text x="387" y="226" text-anchor="middle" font-size="10" fill="#fff" opacity="0.4">doubles as day seat</text>
+          <!-- sliding lockable door behind the viewer -->
+          <rect x="185" y="252" width="150" height="5" rx="2" fill="#8B5910" opacity="0.6"/>
+          <text x="260" y="271" text-anchor="middle" font-size="9" fill="#8B5910" letter-spacing="1">SLIDING DOOR &#183; LOCKS FROM INSIDE</text>
+          <text x="260" y="286" text-anchor="middle" font-size="12" font-weight="600" fill="#8B5910">4 BEDS &#183; LOCKABLE DOOR &#183; POWER IN ROOM</text>
+        </svg>
+      </div>
+      <figure class="cabin-photo" style="margin:10px 0 0;">
+        <img src="images/soft_sleeper.jpg" alt="Soft sleeper compartment interior" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption class="caption">Soft sleeper. A four-bed compartment with a lockable door</figcaption>
+      </figure>
+    </div>
+    <div>
+      <ul class="spec-list">
+        <li><span class="spec-label">Layout</span><span class="spec-value">4-berth compartment</span></li>
+        <li><span class="spec-label">Bed width</span><span class="spec-value">~70 cm / 28 in</span></li>
+        <li><span class="spec-label">Privacy</span><span class="spec-value">Lockable door + curtain</span></li>
+        <li><span class="spec-label">Power outlet</span><span class="spec-value">In each compartment</span></li>
+        <li><span class="spec-label">Luggage</span><span class="spec-value">Under bottom bunk</span></li>
+      </ul>
+      <div class="rating-bar-wrap">
+        <div class="rating-bar-label">Comfort</div>
+        <div class="rating-bar"><div class="rating-bar-fill"></div></div>
+      </div>
+      <div style="margin-top:12px;font-size:13px;color:var(--color-text-muted);">
+        <strong>Best for:</strong> comfortable overnight on regular trains (K/T/Z). Good for couples or small groups. Buy all 4 bunks for a private cabin.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HSR SLEEPER ===================== -->
+<div class="class-card class-hsr">
+  <div class="class-card-header" onclick="toggleCard(this)">
+    <div>
+      <div class="class-rank">HSR Sleeper</div>
+      <div style="font-size:13px;color:var(--color-text-muted);">动卧 · High-Speed Overnight</div>
+    </div>
+    <div class="class-price">
+      <div class="price-range">¥400 – ¥1,400+</div>
+      <div class="price-label">~2x 2nd class price</div>
+    </div>
+  </div>
+  <div class="class-card-body">
+    <div>
+      <div class="seat-visual">
+        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HSR sleeper compartment layout 4-berth high-speed">
+          <defs>
+            <linearGradient id="ghsr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B6914"/><stop offset="100%" stop-color="#6B5010"/></linearGradient>
+          </defs>
+          <text x="260" y="24" text-anchor="middle" font-size="12" fill="#888780" letter-spacing="2">HIGH-SPEED COMPARTMENT · TOP VIEW</text>
+          <rect x="10" y="34" width="500" height="258" rx="10" fill="#F5F5F0" stroke="#E0E0D8" stroke-width="1"/>
+          <!-- Speed indicator -->
+          <text x="60" y="54" text-anchor="start" font-size="10" fill="#8B6914" font-weight="600">▶ 250 km/h</text>
+          <!-- Top wall / window -->
+          <rect x="10" y="58" width="500" height="4" rx="2" fill="#D6E8F5" stroke="#A0C4E4" stroke-width="0.5"/>
+          <text x="260" y="54" text-anchor="middle" font-size="9" fill="#A0C4E4">WINDOW</text>
+          <!-- Berth 1 - upper left -->
+          <rect x="64" y="66" width="120" height="80" rx="8" fill="url(#ghsr)" opacity="0.80"/>
+          <text x="124" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">UPPER · 上铺</text>
+          <text x="124" y="118" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~75 cm · USB</text>
+          <text x="124" y="134" text-anchor="middle" font-size="10" fill="#fff" opacity="0.35">curtain · reading light</text>
+          <!-- Berth 2 - lower left -->
+          <rect x="64" y="152" width="120" height="80" rx="8" fill="url(#ghsr)" opacity="0.90"/>
+          <text x="124" y="186" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">LOWER · 下铺</text>
+          <text x="124" y="204" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~80 cm · headroom</text>
+          <text x="124" y="220" text-anchor="middle" font-size="10" fill="#fff" opacity="0.35">doubles as day seat</text>
+          <!-- Ladder between bunks on left -->
+          <rect x="184" y="78" width="3" height="142" rx="1" fill="#D3C9B8"/>
+          <line x1="182" y1="90" x2="186" y2="90" stroke="#D3C9B8" stroke-width="2"/>
+          <line x1="182" y1="110" x2="186" y2="110" stroke="#D3C9B8" stroke-width="2"/>
+          <line x1="182" y1="130" x2="186" y2="130" stroke="#D3C9B8" stroke-width="2"/>
+          <line x1="182" y1="150" x2="186" y2="150" stroke="#D3C9B8" stroke-width="2"/>
+          <!-- Center aisle -->
+          <rect x="192" y="66" width="68" height="166" rx="6" fill="none" stroke="#DDD" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="226" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#B5B5AD" letter-spacing="3">AISLE</text>
+          <!-- Berth 3 - upper right -->
+          <rect x="266" y="66" width="120" height="80" rx="8" fill="url(#ghsr)" opacity="0.80"/>
+          <text x="326" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">UPPER · 上铺</text>
+          <text x="326" y="118" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~75 cm · USB</text>
+          <text x="326" y="134" text-anchor="middle" font-size="10" fill="#fff" opacity="0.35">curtain · reading light</text>
+          <!-- Berth 4 - lower right -->
+          <rect x="266" y="152" width="120" height="80" rx="8" fill="url(#ghsr)" opacity="0.90"/>
+          <text x="326" y="186" text-anchor="middle" font-size="14" font-weight="600" fill="#fff" opacity="0.7">LOWER · 下铺</text>
+          <text x="326" y="204" text-anchor="middle" font-size="11" fill="#fff" opacity="0.5">~80 cm · headroom</text>
+          <text x="326" y="220" text-anchor="middle" font-size="10" fill="#fff" opacity="0.35">doubles as day seat</text>
+          <!-- Right ladder -->
+          <rect x="386" y="78" width="3" height="142" rx="1" fill="#D3C9B8"/>
+          <line x1="385" y1="90" x2="389" y2="90" stroke="#D3C9B8" stroke-width="2"/>
+          <line x1="385" y1="110" x2="389" y2="110" stroke="#D3C9B8" stroke-width="2"/>
+          <line x1="385" y1="130" x2="389" y2="130" stroke="#D3C9B8" stroke-width="2"/>
+          <line x1="385" y1="150" x2="389" y2="150" stroke="#D3C9B8" stroke-width="2"/>
+          <!-- Bottom wall -->
+          <rect x="10" y="240" width="500" height="4" rx="2" fill="#D3C9B8" stroke="#C0B8A0" stroke-width="0.5"/>
+          <text x="260" y="252" text-anchor="middle" font-size="9" fill="#C0B8A0">COMPARTMENT DOOR</text>
+          <!-- Bottom label -->
+          <text x="260" y="278" text-anchor="middle" font-size="12" font-weight="600" fill="#6B5010">4 BEDS · 250 KM/H · USB AT EVERY BED</text>
+        </svg>
+      </div>
+      <figure class="cabin-photo" style="margin:10px 0 0;">
+        <img src="images/hsr_sleeper.jpg" alt="HSR sleeper compartment interior" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption class="caption">HSR sleeper. A modern compartment on a high-speed D train, 250 km/h overnight</figcaption>
+      </figure>
+    </div>
+    <div>
+      <ul class="spec-list">
+        <li><span class="spec-label">Layout</span><span class="spec-value">4-berth HSR compartment</span></li>
+        <li><span class="spec-label">Bed width</span><span class="spec-value">~75-80 cm / 30 in</span></li>
+        <li><span class="spec-label">Privacy</span><span class="spec-value">Curtain per berth</span></li>
+        <li><span class="spec-label">Power outlet</span><span class="spec-value">USB + socket at each bed</span></li>
+        <li><span class="spec-label">Speed</span><span class="spec-value">250 km/h on D trains</span></li>
+      </ul>
+      <div class="rating-bar-wrap">
+        <div class="rating-bar-label">Comfort</div>
+        <div class="rating-bar"><div class="rating-bar-fill"></div></div>
+      </div>
+      <div style="margin-top:12px;font-size:13px;color:var(--color-text-muted);">
+        <strong>Best for:</strong> high-speed overnight routes (Beijing–Shanghai, Beijing–Shenzhen). Departs in the evening, arrives the next morning in around 11 to 12 hours. Cleaner and quieter than a regular sleeper, and the ticket doubles as a hotel night.
       </div>
     </div>
   </div>
@@ -704,30 +899,34 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <div class="table-wrap">
     <table class="compare-table">
       <thead>
-        <tr><th>Feature</th><th>2nd Class</th><th>1st Class</th><th>Business</th><th>Sleeper</th></tr>
+        <tr><th>Feature</th><th>2nd Cls</th><th>1st Cls</th><th>Biz</th><th>Hard Slp</th><th>Soft Slp</th><th>HSR Slp</th></tr>
       </thead>
       <tbody>
-        <tr><td>Seat width</td><td>43 cm</td><td>53 cm</td><td>65 cm</td><td>70 cm (bed)</td></tr>
-        <tr><td>Recline</td><td>5-10°</td><td>20-30°</td><td>180° (flat)</td><td>Flat bed</td></tr>
-        <tr><td>Power outlet</td><td>At base</td><td>Between seats</td><td>At armrest</td><td>In room</td></tr>
-        <tr><td>Wi-Fi</td><td>Pilot routes</td><td>Pilot routes</td><td>Pilot routes</td><td>Rare</td></tr>
-        <tr><td>Meal included</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔ (varies)</td></tr>
-        <tr><td>Lounge access</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td><td class="cross">✘</td></tr>
-        <tr><td>Price factor</td><td>1× (base)</td><td>~1.7×</td><td>~3×</td><td>~2×</td></tr>
+        <tr><td>Width</td><td>43 cm</td><td>53 cm</td><td>65 cm</td><td>60 cm</td><td>70 cm</td><td>80 cm</td></tr>
+        <tr><td>Recline</td><td>5-10°</td><td>20-30°</td><td>180° flat</td><td>Flat bed</td><td>Flat bed</td><td>Flat bed</td></tr>
+        <tr><td>Power</td><td>Seat base</td><td>Between seats</td><td>Armrest</td><td>Communal</td><td>In room</td><td>USB+Socket</td></tr>
+        <tr><td>Wi-Fi</td><td>Fuxing trains</td><td>Fuxing trains</td><td>Fuxing trains</td><td>Rare</td><td>Rare</td><td>Fuxing trains</td></tr>
+        <tr><td>Meal</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+        <tr><td>Lounge</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td><td class="cross">✘</td><td class="cross">✘</td><td class="cross">✘</td></tr>
+        <tr><td>Privacy</td><td>None</td><td>None</td><td>Semi-private</td><td>None</td><td>Lockable door</td><td>Curtain</td></tr>
+        <tr><td>Train type</td><td>G/D</td><td>G/D</td><td>G/D</td><td>K/T/Z</td><td>K/T/Z</td><td>D</td></tr>
+        <tr><td>Price ×</td><td>1× (base)</td><td>~1.7×</td><td>~3×</td><td>~0.5×</td><td>~1×</td><td>~2×</td></tr>
       </tbody>
     </table>
   </div>
+  <div class="table-hint">Swipe sideways to see all classes</div>
 </div>
 
 <!-- ===================== TIPS ===================== -->
 <div class="tips-section">
   <h3>EVENTURUS tips for booking</h3>
   <ol>
-    <li><strong>Book early.</strong> High-speed rail tickets go on sale 14 days ahead. For Golden Week or Chinese New Year, book the moment they release.</li>
+    <li><strong>Book early.</strong> Tickets go on sale 15 days ahead, counting the day of travel. For Golden Week or Chinese New Year, book the moment they release.</li>
     <li><strong>Use Trip.com or the 12306 app</strong> in English. Both accept foreign passports.</li>
     <li><strong>Choose window seats (A or F)</strong> for the best views. A = window on the 3-seat side, F = window on the 2-seat side.</li>
     <li><strong>1st class is the sweet spot</strong> for trips over 3 hours. Only 1.7× the cost but significantly more comfortable.</li>
     <li><strong>Business class is worth it</strong> for routes like Shanghai–Beijing (4.5h) if you want to sleep or work in peace.</li>
+    <li><strong>Choose your sleeper wisely.</strong> <em>Hard sleeper</em> (硬卧) is open-plan with 6 bunks, best left to backpackers. <em>Soft sleeper</em> (软卧) has a lockable 4-berth cabin; buy all 4 bunks for a private room. <em>HSR sleeper</em> (动卧) runs at 250 km/h on D trains, covering Beijing–Shanghai overnight in around 12 hours, with USB at every bed.</li>
     <li><strong>Bring snacks.</strong> Food carts come through but selection is limited. Pack snacks and a drink.</li>
   </ol>
 </div>
@@ -742,7 +941,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="cross-link"><p>Related: <a href="transit-matrix.html">Transit Matrix</a> · <a href="didi-guide.html">Didi Guide</a></p></div>
 <div class="site-footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
-  <div>China, Vetted. — <a href="https://eventurus.cn">eventurus.cn</a></div>
+  <div>China, Vetted. · <a href="https://eventurus.cn">eventurus.cn</a></div>
 </div>
 
 </div>
@@ -750,8 +949,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <script>
 function toggleCard(header) {
   const body = header.nextElementSibling;
-  body.style.display = body.style.display === 'none' ? 'grid' : 'none';
+  const open = body.style.display !== 'none';
+  body.style.display = open ? 'none' : 'grid';
+  header.setAttribute('aria-expanded', String(!open));
 }
+document.addEventListener('DOMContentLoaded', function () {
+document.querySelectorAll('.class-card-header').forEach(function (h) {
+  h.setAttribute('role', 'button');
+  h.setAttribute('tabindex', '0');
+  h.setAttribute('aria-expanded', 'true');
+  h.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(h); }
+  });
+});
+var topBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', function () {
+  topBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+}, { passive: true });
+topBtn.addEventListener('click', function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+});
 </script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
 
