@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Didi & Taxi Guide + Address Card — EVENTURUS</title>
+<meta name="description" content="How to take a taxi or use Didi in China. Free printable Chinese address card to show your driver. Made for travellers by EVENTURUS.">
+<style>
+:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --radius:12px; --radius-sm:8px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
+.container { max-width:720px; margin:0 auto; padding:0 20px; }
+
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em { font-style:italic; color:var(--color-brand); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:36px 0 20px; }
+.hero h1 { font-size:28px; font-weight:600; line-height:1.2; margin-bottom:8px; }
+.hero p { font-size:15px; color:var(--color-muted); max-width:520px; margin:0 auto; }
+
+/* Sections */
+.section { background:var(--color-surface); border-radius:var(--radius); border:1px solid var(--color-border); padding:24px 20px; margin-bottom:16px; }
+.section h2 { font-size:17px; font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.section h2 .badge { font-size:11px; font-weight:500; background:var(--color-brand); color:#fff; padding:2px 8px; border-radius:4px; }
+.section p, .section li { font-size:14px; color:#555; line-height:1.7; margin-bottom:6px; }
+.section ul { padding-left:20px; }
+.section li { margin-bottom:4px; }
+
+/* Step cards */
+.step { display:flex; gap:14px; margin:16px 0; }
+.step-num { width:32px; height:32px; min-width:32px; border-radius:50%; background:var(--color-brand); color:#fff; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; }
+.step-content { flex:1; }
+.step-content h3 { font-size:15px; font-weight:600; margin-bottom:4px; }
+.step-content p { font-size:13px; color:#666; margin:0; }
+
+/* Address Card Generator */
+.address-card { background:var(--color-card); border:2px dashed var(--color-border); border-radius:var(--radius); padding:24px; margin:16px 0; text-align:center; transition:all .3s; }
+.address-card.has-address { border-style:solid; border-color:var(--color-brand); background:#fff; }
+.address-card .card-title { font-size:13px; color:var(--color-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.address-card .pickup-label { font-size:11px; color:#999; margin-bottom:2px; }
+.address-card .pickup-addr { font-size:15px; font-weight:600; color:var(--color-text); margin-bottom:12px; }
+.address-card .arrow-down { font-size:20px; color:var(--color-brand); margin-bottom:8px; }
+.address-card .dest-label { font-size:11px; color:#999; margin-bottom:2px; }
+.address-card .dest-addr { font-size:18px; font-weight:700; color:var(--color-text); margin-bottom:4px; }
+.address-card .dest-addr-zh { font-size:24px; font-weight:700; color:var(--color-text); letter-spacing:1px; margin-bottom:8px; }
+.address-card .card-note { font-size:11px; color:var(--color-muted); margin-top:8px; }
+.card-actions { display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
+
+/* Form */
+.input-group { margin-bottom:14px; }
+.input-group label { display:block; font-size:13px; font-weight:600; color:var(--color-muted); margin-bottom:4px; }
+.input-group input, .input-group textarea, .input-group select { width:100%; padding:12px 14px; border:2px solid var(--color-border); border-radius:var(--radius-sm); font-size:15px; background:var(--color-surface); font-family:inherit; }
+.input-group input:focus, .input-group textarea:focus { border-color:var(--color-brand); outline:none; }
+.input-group textarea { min-height:60px; resize:vertical; }
+
+.btn { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border:none; border-radius:var(--radius-sm); font-size:14px; font-weight:500; cursor:pointer; text-decoration:none; transition:all .2s; }
+.btn-primary { background:var(--color-brand); color:#fff; }
+.btn-primary:hover { background:var(--color-brand-dark); }
+.btn-outline { background:transparent; border:2px solid var(--color-border); color:var(--color-text); }
+.btn-outline:hover { border-color:var(--color-brand); }
+
+/* Download card modal style */
+.print-card { background:#FFFEF5; border:1px solid var(--color-border); padding:32px 24px; border-radius:var(--radius); max-width:400px; margin:0 auto; }
+.print-card .pc-title { font-size:12px; color:#999; text-align:center; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.print-card .pc-pickup { font-size:13px; color:#666; margin-bottom:4px; }
+.print-card .pc-pickup-addr { font-size:15px; font-weight:500; margin-bottom:16px; padding-bottom:12px; border-bottom:1px dashed var(--color-border); }
+.print-card .pc-dest { font-size:13px; color:#666; margin-bottom:4px; }
+.print-card .pc-dest-addr { font-size:22px; font-weight:700; margin-bottom:4px; }
+.print-card .pc-dest-zh { font-size:28px; font-weight:700; color:var(--color-text); letter-spacing:2px; margin-bottom:12px; }
+.print-card .pc-note { font-size:11px; color:#999; text-align:center; margin-top:12px; }
+
+/* Pricing table */
+.price-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; }
+.price-table th { text-align:left; font-weight:600; color:var(--color-muted); font-size:12px; padding:8px 0 4px; border-bottom:1px solid var(--color-border); }
+.price-table td { padding:8px 0; border-bottom:1px solid var(--color-border); }
+.price-table tr:last-child td { border-bottom:none; }
+.price-table .city { font-weight:500; }
+.price-table .price { color:var(--color-muted); }
+.price-table .note { font-size:11px; color:#999; }
+
+.phrase-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; }
+.phrase-item { background:var(--color-brand-light); border-radius:var(--radius-sm); padding:10px; }
+.phrase-item .en { font-size:13px; font-weight:500; }
+.phrase-item .zh { font-size:16px; font-weight:600; color:var(--color-text); margin-top:2px; }
+.phrase-item .py { font-size:11px; color:var(--color-muted); font-style:italic; }
+
+.tip-box { background:#FFF8E8; border-left:3px solid var(--color-accent); padding:12px 16px; border-radius:0 var(--radius-sm) var(--radius-sm) 0; margin:12px 0; font-size:13px; line-height:1.6; }
+.warn-box { background:#FCEBEB; border-left:3px solid #C85A5A; padding:12px 16px; border-radius:0 var(--radius-sm) var(--radius-sm) 0; margin:12px 0; font-size:13px; line-height:1.6; }
+
+.footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
+.footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+.footer a { color:var(--color-brand); text-decoration:none; }
+
+.tab-bar { display:flex; gap:4px; background:var(--color-bg); border-radius:var(--radius-sm); padding:4px; margin-bottom:20px; }
+.tab-btn { flex:1; text-align:center; padding:10px; font-size:13px; font-weight:500; border:none; background:transparent; border-radius:6px; cursor:pointer; color:var(--color-muted); transition:all .2s; }
+.tab-btn.active { background:var(--color-surface); color:var(--color-text); box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+@media print { .no-print { display:none !important; } }
+@media (max-width:480px) {
+  .phrase-grid { grid-template-columns:1fr; }
+  .hero h1 { font-size:24px; }
+  .address-card { padding:16px; }
+  .print-card { padding:20px 16px; }
+  .print-card .pc-dest-zh { font-size:24px; }
+}
+</style>
+</head>
+<body>
+<div class="brand-bar no-print"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<div class="container">
+<div class="hero no-print"><h1>Didi & Taxi Guide</h1><p>Everything you need to get around China by car. Plus a printable Chinese address card for your driver.</p></div>
+
+<!-- Tab: Guide / Address Card -->
+<div class="tab-bar no-print" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('guide')">🚕 Guide</button>
+  <button class="tab-btn" onclick="switchTab('card')">🃏 Address Card</button>
+</div>
+
+<!-- Tab 1: Guide -->
+<div class="tab-content active" id="tab-guide">
+
+<div class="section">
+<h2>🚕 Two Ways to Get a Ride</h2>
+<p><strong>Option A: Didi (滴滴)</strong> — China's Uber. Works in every city. The app has an English version. Pay with Alipay, WeChat, or cash.</p>
+<p><strong>Option B: Street Taxi</strong> — Flag one down anywhere. Cheap and reliable. Best to have your destination written in Chinese.</p>
+<div class="tip-box">💡 <strong>Pro tip:</strong> Use Didi whenever possible. It shows the price upfront, avoids language issues, and you don't need to negotiate.</div>
+</div>
+
+<div class="section">
+<h2>📱 How to Set Up Didi</h2>
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content"><h3>Download the App</h3><p>Search "DiDi Rider" in the App Store or get it from <strong>didi.com</strong>. The app is in English when your phone is set to English.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content"><h3>Register with Your Phone</h3><p>Use your international number or a Chinese SIM. It will send an SMS to verify.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content"><h3>Add a Payment Method</h3><p>Alipay (easiest for foreigners), WeChat Pay, or add an international credit card (Visa/Mastercard). Alternatively, select "Cash" — pay the driver directly.</p></div>
+</div>
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-content"><h3>Book Your Ride</h3><p>Enter your destination in English or Chinese. Choose Express (快车, cheapest), Taxi (出租车, standard), or Premier (专车, premium). Confirm and wait.</p></div>
+</div>
+<div class="warn-box">⚠️ <strong>Tip for international numbers:</strong> If you can't receive the SMS verification, buy a Chinese SIM card at the airport. China Mobile, China Unicom, and China Telecom all sell visitor SIMs.</div>
+</div>
+
+<div class="section">
+<h2>💵 Estimated Fares <span class="badge" style="font-size:11px;font-weight:500;background:var(--color-muted);color:#fff;padding:2px 8px;border-radius:4px;margin-left:6px;">10 km ride</span></h2>
+<table class="price-table">
+  <tr><th>City</th><th>Taxi</th><th>Didi Express</th><th>Didi Premier</th></tr>
+  <tr><td class="city">Beijing</td><td class="price">¥40–55</td><td class="price">¥35–50</td><td class="price">¥65–85</td></tr>
+  <tr><td class="city">Shanghai</td><td class="price">¥40–55</td><td class="price">¥35–50</td><td class="price">¥65–85</td></tr>
+  <tr><td class="city">Guangzhou</td><td class="price">¥35–50</td><td class="price">¥30–45</td><td class="price">¥55–75</td></tr>
+  <tr><td class="city">Chengdu</td><td class="price">¥30–45</td><td class="price">¥25–40</td><td class="price">¥50–65</td></tr>
+  <tr><td class="city">Hangzhou</td><td class="price">¥35–50</td><td class="price">¥30–45</td><td class="price">¥55–75</td></tr>
+  <tr><td class="city">Shenzhen</td><td class="price">¥40–55</td><td class="price">¥35–50</td><td class="price">¥65–85</td></tr>
+  <tr><td colspan="4" class="note">Prices in CNY (¥). Actual fares vary by time, traffic and surge pricing.</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>💬 Useful Phrases for the Car</h2>
+<div class="phrase-grid">
+  <div class="phrase-item"><div class="en">Hello / Please</div><div class="zh">你好 / 请</div><div class="py">nǐ hǎo / qǐng</div></div>
+  <div class="phrase-item"><div class="en">Go to this address</div><div class="zh">去这个地址</div><div class="py">qù zhè ge dì zhǐ</div></div>
+  <div class="phrase-item"><div class="en">How much?</div><div class="zh">多少钱？</div><div class="py">duō shǎo qián?</div></div>
+  <div class="phrase-item"><div class="en">Stop here, please</div><div class="zh">在这里停</div><div class="py">zài zhè lǐ tíng</div></div>
+  <div class="phrase-item"><div class="en">Left / Right / Straight</div><div class="zh">左转 / 右转 / 直走</div><div class="py">zuǒ zhuǎn / yòu zhuǎn / zhí zǒu</div></div>
+  <div class="phrase-item"><div class="en">Thank you</div><div class="zh">谢谢</div><div class="py">xiè xie</div></div>
+  <div class="phrase-item"><div class="en">Airport, please</div><div class="zh">去机场</div><div class="py">qù jī chǎng</div></div>
+  <div class="phrase-item"><div class="en">Hotel, please</div><div class="zh">去酒店</div><div class="py">qù jiǔ diàn</div></div>
+</div>
+<div class="tip-box">💡 When hailing a street taxi, show your destination on your phone screen. Most drivers will nod and go.</div>
+</div>
+
+<div class="section">
+<h2>✅ Do's & Don'ts</h2>
+<ul>
+  <li><strong>Do</strong> use Didi in the rain — street taxis are hard to flag when it's wet</li>
+  <li><strong>Do</strong> have small bills (¥10, ¥20) — drivers sometimes don't have change</li>
+  <li><strong>Do</strong> buckle up — it's the law, and cameras check</li>
+  <li><strong>Don't</strong> expect the driver to speak English — have your address written down</li>
+  <li><strong>Don't</strong> panic if the driver picks up other passengers on a street taxi — it's normal for shared rides</li>
+  <li><strong>Don't</strong> leave luggage in the boot (trunk) without checking — remind the driver</li>
+</ul>
+</div>
+
+</div>
+
+<!-- Tab 2: Address Card Generator -->
+<div class="tab-content" id="tab-card">
+
+<div class="section no-print">
+<h2>🃏 Chinese Address Card</h2>
+<p>Fill in your pickup and destination. We'll generate a Chinese card you can show your taxi driver — no talking needed.</p>
+
+<div class="input-group">
+  <label>Your current location / pickup point</label>
+  <input type="text" id="pickupInput" placeholder="e.g. The Bund, Shanghai" oninput="updateCard()">
+</div>
+<div class="input-group">
+  <label>Your destination</label>
+  <textarea id="destInput" placeholder="e.g. 199 Nanjing Rd, Jing'an Temple area, or a hotel/restaurant name" oninput="updateCard()"></textarea>
+</div>
+<div class="input-group">
+  <label>Destination in Chinese (if you know it)</label>
+  <input type="text" id="destZhInput" placeholder="中文地址（选填）" oninput="updateCard()">
+</div>
+<div class="input-group">
+  <label>Special instructions (optional)</label>
+  <input type="text" id="noteInput" placeholder="e.g. Gate 3, back entrance, meet at lobby" oninput="updateCard()">
+</div>
+
+<div class="card-actions" style="margin:16px 0 0;">
+  <button class="btn btn-primary" onclick="updateCard()">⟳ Preview Card</button>
+  <button class="btn btn-outline" onclick="printCard()">🖨️ Print / Save PDF</button>
+</div>
+</div>
+
+<!-- Live Card Preview -->
+<div class="address-card" id="cardPreview">
+  <div class="card-title">Show this to your driver</div>
+  <div class="pickup-label">FROM</div>
+  <div class="pickup-addr" id="previewPickup">—</div>
+  <div class="arrow-down">▼</div>
+  <div class="dest-label">TO</div>
+  <div class="dest-addr" id="previewDestEn">—</div>
+  <div class="dest-addr-zh" id="previewDestZh">—</div>
+  <div class="card-note" id="previewNote"></div>
+</div>
+
+<div class="section no-print">
+<h2>📌 Quick Addresses</h2>
+<p style="font-size:13px;color:#666;">Tap a common destination to auto-fill the card.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+  <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;" onclick="quickFill('','Shanghai Pudong Airport (PVG)','上海浦东国际机场','Terminal 1 Departures')">PVG Airport</button>
+  <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;" onclick="quickFill('','Shanghai Hongqiao Airport (SHA)','上海虹桥国际机场','')">SHA Airport</button>
+  <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;" onclick="quickFill('','Beijing Capital Airport (PEK)','北京首都国际机场','Terminal 3')">PEK Airport</button>
+  <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;" onclick="quickFill('','Shanghai Railway Station','上海站','')">Shanghai Station</button>
+  <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;" onclick="quickFill('','Hongqiao Railway Station','上海虹桥站','')">Hongqiao Station</button>
+  <button class="btn btn-outline" style="font-size:12px;padding:6px 12px;" onclick="quickFill('','The Bund, Shanghai','外滩','')">The Bund</button>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+</div>
+</div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelector(`.tab-btn[onclick*="'${name}'"]`).classList.add('active');
+}
+
+function updateCard() {
+  const pickup = document.getElementById('pickupInput').value || '—';
+  const dest = document.getElementById('destInput').value || '—';
+  const destZh = document.getElementById('destZhInput').value || '';
+  const note = document.getElementById('noteInput').value || '';
+
+  document.getElementById('previewPickup').textContent = pickup;
+  document.getElementById('previewDestEn').textContent = dest;
+  document.getElementById('previewDestZh').textContent = destZh || dest;
+  document.getElementById('previewNote').textContent = note ? '📌 ' + note : '';
+
+  const card = document.getElementById('cardPreview');
+  if (dest && dest !== '—') card.classList.add('has-address');
+  else card.classList.remove('has-address');
+}
+
+function quickFill(pickup, dest, destZh, note) {
+  if (document.getElementById('pickupInput').value === '') {
+    document.getElementById('pickupInput').value = pickup || 'My current location';
+  }
+  document.getElementById('destInput').value = dest;
+  document.getElementById('destZhInput').value = destZh;
+  document.getElementById('noteInput').value = note || '';
+  updateCard();
+}
+
+function printCard() {
+  const pickup = document.getElementById('previewPickup').textContent;
+  const destEn = document.getElementById('previewDestEn').textContent;
+  const destZh = document.getElementById('previewDestZh').textContent;
+  const note = document.getElementById('previewNote').textContent.replace('📌 ','');
+
+  const printWin = window.open('', '', 'width=480,height=800');
+  printWin.document.write(`
+    <!DOCTYPE html><html><head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTURUS Address Card</title>
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box;}
+      body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+      .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:36px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+      .brand{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+      .label{font-size:11px;color:#aaa;margin-bottom:4px;}
+      .pickup{font-size:14px;font-weight:500;margin-bottom:6px;color:#666;}
+      .arrow{font-size:18px;color:#6B7F65;margin:8px 0;}
+      .dest-label{font-size:11px;color:#aaa;margin-bottom:4px;}
+      .dest-en{font-size:15px;font-weight:500;margin-bottom:4px;}
+      .dest-zh{font-size:26px;font-weight:700;letter-spacing:2px;margin:8px 0 12px;}
+      .note{font-size:11px;color:#999;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}
+      .footer{font-size:9px;color:#ccc;margin-top:20px;letter-spacing:1px;}
+      hr{border:none;border-top:1px dashed #eee;margin:16px 0;}
+      .scan-note{font-size:10px;color:#bbb;}
+    </style>
+    </head><body>
+    <div class="card">
+      <div class="brand">EVENTURUS · CHINA TRAVEL TOOL</div>
+      <div class="label">FROM</div>
+      <div class="pickup">${pickup}</div>
+      <div class="arrow">▼</div>
+      <div class="label">TO</div>
+      <div class="dest-en">${destEn}</div>
+      <div class="dest-zh">${destZh}</div>
+      ${note ? `<div class="note">📌 ${note}</div>` : ''}
+      <hr>
+      <div class="scan-note">Show this card to your driver. No need to speak.</div>
+      <div class="footer">EVENTURUS · VETTED</div>
+    </div>
+    </body></html>
+  `);
+  printWin.document.close();
+  setTimeout(() => { printWin.focus(); printWin.print(); }, 300);
+}
+
+// Init
+updateCard();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# WeChat credentials — never commit
+**/wechat_config.json
+**/wechat_token_cache.json
