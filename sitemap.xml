@@ -1,177 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://eventurus.cn/</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/visa-checker.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/entry-requirements.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/visa-free-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/essential-apps.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/transit-matrix.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/train-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://eventurus.cn/airport-transport.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/china-holidays.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/chinese-cards.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/city-season.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/didi-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/city-season.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/internet-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/payment-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/dining-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/chinese-cards.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/museums-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/emergency-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/hospital-guide.html</loc>
+    <loc>https://eventurus.cn/entry-requirements.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-13</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/shopping-guide.html</loc>
+    <loc>https://eventurus.cn/essential-apps.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/food-delivery-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/great-wall-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/packing-checklist.html</loc>
+    <loc>https://eventurus.cn/hospital-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/must-go.html</loc>
+    <loc>https://eventurus.cn/hotel-search.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/must-do.html</loc>
+    <loc>https://eventurus.cn/</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-05-31</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-08-08</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/china-holidays.html</loc>
+    <loc>https://eventurus.cn/internet-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/menu-translator.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eventurus.cn/trip-planner.html</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/metro-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eventurus.cn/train-booking-guide.html</loc>
+    <loc>https://eventurus.cn/museums-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/must-do.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/must-go.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/packing-checklist.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/payment-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/payment-setup.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/pharmacy-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/shopping-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/taxi-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/train-booking-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/train-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/transit-matrix.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/trip-planner.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/visa-checker.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/visa-free-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
