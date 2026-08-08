@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>China Public Holidays — EVENTURUS</title>
-<meta name="description" content="2026–2027 Chinese public holidays calendar. Date ranges, work compensation days, and travel tips for expats.">
+<meta name="description" content="China public holiday planning calendar through 2029, with the official 2026 schedule and verified festival dates for 2027 to 2029.">
   <!-- Open Graph -->
   <meta property="og:title" content="China Public Holidays — EVENTURUS">
-  <meta property="og:description" content="Complete list of China public holidays with dates and notes for travellers.">
+  <meta property="og:description" content="China public holiday planning calendar through 2029, with the official 2026 schedule and verified festival dates for 2027 to 2029.">
   <meta property="og:url" content="https://eventurus.cn/china-holidays.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
@@ -23,7 +23,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="China Public Holidays — EVENTURUS">
-  <meta name="twitter:description" content="Complete list of China public holidays with dates and notes for travellers.">
+  <meta name="twitter:description" content="China public holiday planning calendar through 2029, with the official 2026 schedule and verified festival dates for 2027 to 2029.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://eventurus.cn/china-holidays.html">
@@ -44,6 +44,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 .hero p{font-size:14px;color:var(--c-muted)}
 .tips{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;font-size:14px;line-height:1.7}
 .tips strong{color:var(--c-brand)}
+.tips a{color:var(--c-brand);font-weight:600}
+.calendar-note{background:#F3F6F1;border-left:4px solid var(--c-brand);border-radius:0 var(--radius) var(--radius) 0;padding:14px 16px;margin-bottom:18px;font-size:13px;line-height:1.65;color:#5f665d}
+.calendar-note strong{color:var(--c-text)}
+.calendar-note a{color:var(--c-brand);font-weight:600}
+.year-filter{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none}
+.year-filter::-webkit-scrollbar{display:none}
+.year-btn{flex:1;min-width:76px;min-height:42px;border:1px solid var(--c-border);border-radius:9px;background:var(--c-surface);color:var(--c-text);font:inherit;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer}
+.year-btn:hover,.year-btn:focus-visible{border-color:var(--c-brand);color:var(--c-brand);outline:none}
+.year-btn.active{border-color:var(--c-brand);background:var(--c-brand);color:#f8faf7}
 .holiday-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
 .h-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius);padding:18px 20px;display:flex;gap:16px;align-items:flex-start}
 .h-card.upcoming{border-color:var(--c-brand);border-width:2px;background:#F7FAF4}
@@ -58,11 +67,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 .h-tag.upcoming{background:#EAF3DE;color:#3B6D11}
 .h-tag.past{background:#F0F0EE;color:#999}
 .h-tag.major{background:#FFF0E0;color:#A06600}
+.h-tag.official{background:#EAF3DE;color:#3B6D11}
+.h-tag.planning{background:#E6F1FB;color:#185FA5}
 .site-footer{text-align:center;padding:40px 0 28px;font-size:12px;color:var(--c-muted)}
 .site-footer a{color:var(--c-brand);text-decoration:none}
 .site-footer .brand-foot{font-style:italic;font-size:14px;color:var(--c-text);letter-spacing:1px;margin-bottom:4px}
 </style>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<link rel="stylesheet" href="assets/contact/contact-widget.css">
 </head>
 <body>
 <div class="brand-bar">
@@ -73,12 +85,18 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 <div class="container">
 <div class="hero">
   <h1>China Public Holidays</h1>
-  <p>2026–2027 calendar with work compensation days</p>
+  <p>Official 2026 schedule and planning dates through 2029</p>
 </div>
 
 <div class="tips">
-  <strong>Travel tip:</strong> Hotels and trains book out 2–3 weeks before major holidays. For <strong>National Day</strong> and <strong>Spring Festival</strong>, book at least 4 weeks ahead. Holiday weeks also mean surcharges — Plan accordingly.
+  <strong>Travel tip:</strong> Hotels and trains book out 2-3 weeks before major holidays. For <strong>National Day</strong> and <strong>Spring Festival</strong>, book at least 4 weeks ahead. Holiday periods can also mean higher rates, so plan early.
 </div>
+
+<div class="calendar-note">
+  <strong>Accuracy note:</strong> The 2026 ranges and make-up working days follow the <a href="https://www.beijing.gov.cn/cs/gncs/zcwj/202603/t20260327_4568275.html" target="_blank" rel="noopener noreferrer">official State Council schedule</a>. For 2027-2029, only the festival dates are shown. Official leave periods and make-up working days have not been announced as of 22 July 2026. Lunar festival dates were checked against the <a href="https://www.hko.gov.hk/en/gts/time/conversion.htm" target="_blank" rel="noopener noreferrer">Hong Kong Observatory calendar</a>.
+</div>
+
+<div class="year-filter" id="yearFilter" aria-label="Choose calendar year"></div>
 
 <div class="holiday-list" id="holidayList"></div>
 
@@ -91,40 +109,86 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 <script>
 var today = new Date(); today.setHours(0,0,0,0);
 var holidays = [
-  {from:"2026-06-19",to:"2026-06-21",en:"Dragon Boat Festival",cn:"端午节",detail:"Fri–Sun, 3-day weekend. Zongzi season. Many hotels run Dragon Boat packages."},
-  {from:"2026-09-25",to:"2026-09-27",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Fri–Sun, 3-day weekend. Mooncakes, lanterns, and family dinners."},
-  {from:"2026-10-01",to:"2026-10-07",en:"National Day · Golden Week",cn:"国庆节 · 黄金周",detail:"Thu–Wed, 7 days off. Work 26-27 Sep (Sat-Sun) as compensation. The busiest travel week of the year — avoid major tourist sites or go remote.",major:true},
-  {from:"2027-02-15",to:"2027-02-21",en:"Spring Festival · Year of the Goat",cn:"春节 · 羊年",detail:"Mon–Sun, 7 days. Most businesses close for 3-7 days. Book trains/flights by mid-January. The world's largest human migration. ⚠️ Projected — official dates confirmed ~Nov 2026 by State Council.",major:true},
-  {from:"2027-04-05",to:"2027-04-07",en:"Qingming Festival",cn:"清明节",detail:"Mon–Wed, 3-day weekend. Tomb-sweeping and spring outings. ⚠️ Projected — official dates confirmed ~Nov 2026 by State Council."},
-  {from:"2027-05-01",to:"2027-05-05",en:"Labour Day",cn:"劳动节",detail:"Sat–Wed, 5 days. Work Sat 10 Apr as compensation. Peak domestic travel. ⚠️ Projected — official dates confirmed ~Nov 2026 by State Council."},
-  {from:"2027-06-07",to:"2027-06-09",en:"Dragon Boat Festival",cn:"端午节",detail:"Mon–Wed, 3-day weekend. ⚠️ Projected — official dates confirmed ~Nov 2026 by State Council."},
-  {from:"2027-09-24",to:"2027-09-26",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Fri–Sun, 3-day weekend. ⚠️ Projected — official dates confirmed ~Nov 2026 by State Council."},
-  {from:"2027-10-01",to:"2027-10-07",en:"National Day · Golden Week",cn:"国庆节 · 黄金周",detail:"Fri–Thu, 7 days off. Work 18-19 Sep (Sat-Sun) as compensation. ⚠️ Projected — official dates confirmed ~Nov 2026 by State Council.",major:true}
+  {year:2026,from:"2026-01-01",to:"2026-01-03",en:"New Year's Day",cn:"元旦",detail:"Thu-Sat, 3 days off. Work Sun 4 Jan as a make-up working day.",official:true},
+  {year:2026,from:"2026-02-15",to:"2026-02-23",en:"Spring Festival",cn:"春节",detail:"Sun-Mon, 9 days off. Work Sat 14 Feb and Sat 28 Feb as make-up working days.",official:true,major:true},
+  {year:2026,from:"2026-04-04",to:"2026-04-06",en:"Qingming Festival",cn:"清明节",detail:"Sat-Mon, 3 days off. No make-up working day.",official:true},
+  {year:2026,from:"2026-05-01",to:"2026-05-05",en:"Labour Day",cn:"劳动节",detail:"Fri-Tue, 5 days off. Work Sat 9 May as a make-up working day.",official:true},
+  {year:2026,from:"2026-06-19",to:"2026-06-21",en:"Dragon Boat Festival",cn:"端午节",detail:"Fri-Sun, 3 days off. No make-up working day.",official:true},
+  {year:2026,from:"2026-09-25",to:"2026-09-27",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Fri-Sun, 3 days off. No make-up working day.",official:true},
+  {year:2026,from:"2026-10-01",to:"2026-10-07",en:"National Day · Golden Week",cn:"国庆节 · 黄金周",detail:"Thu-Wed, 7 days off. Work Sun 20 Sep and Sat 10 Oct as make-up working days.",official:true,major:true},
+
+  {year:2027,from:"2027-01-01",to:"2027-01-01",en:"New Year's Day",cn:"元旦",detail:"Festival date: Fri 1 Jan. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2027,from:"2027-02-07",to:"2027-02-07",en:"Spring Festival · Year of the Goat",cn:"春节 · 羊年",detail:"Lunar New Year's Day: Sun 7 Feb. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
+  {year:2027,from:"2027-04-05",to:"2027-04-05",en:"Qingming Festival",cn:"清明节",detail:"Festival date: Mon 5 Apr. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2027,from:"2027-05-01",to:"2027-05-01",en:"Labour Day",cn:"劳动节",detail:"Festival date: Sat 1 May. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2027,from:"2027-06-09",to:"2027-06-09",en:"Dragon Boat Festival",cn:"端午节",detail:"Festival date: Wed 9 Jun. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2027,from:"2027-09-15",to:"2027-09-15",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Festival date: Wed 15 Sep. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2027,from:"2027-10-01",to:"2027-10-01",en:"National Day",cn:"国庆节",detail:"Festival date: Fri 1 Oct. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
+
+  {year:2028,from:"2028-01-01",to:"2028-01-01",en:"New Year's Day",cn:"元旦",detail:"Festival date: Sat 1 Jan. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2028,from:"2028-01-26",to:"2028-01-26",en:"Spring Festival · Year of the Monkey",cn:"春节 · 猴年",detail:"Lunar New Year's Day: Wed 26 Jan. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
+  {year:2028,from:"2028-04-04",to:"2028-04-04",en:"Qingming Festival",cn:"清明节",detail:"Festival date: Tue 4 Apr. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2028,from:"2028-05-01",to:"2028-05-01",en:"Labour Day",cn:"劳动节",detail:"Festival date: Mon 1 May. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2028,from:"2028-05-28",to:"2028-05-28",en:"Dragon Boat Festival",cn:"端午节",detail:"Festival date: Sun 28 May. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2028,from:"2028-10-03",to:"2028-10-03",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Festival date: Tue 3 Oct. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2028,from:"2028-10-01",to:"2028-10-01",en:"National Day",cn:"国庆节",detail:"Festival date: Sun 1 Oct. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
+
+  {year:2029,from:"2029-01-01",to:"2029-01-01",en:"New Year's Day",cn:"元旦",detail:"Festival date: Mon 1 Jan. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2029,from:"2029-02-13",to:"2029-02-13",en:"Spring Festival · Year of the Rooster",cn:"春节 · 鸡年",detail:"Lunar New Year's Day: Tue 13 Feb. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
+  {year:2029,from:"2029-04-04",to:"2029-04-04",en:"Qingming Festival",cn:"清明节",detail:"Festival date: Wed 4 Apr. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2029,from:"2029-05-01",to:"2029-05-01",en:"Labour Day",cn:"劳动节",detail:"Festival date: Tue 1 May. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2029,from:"2029-06-16",to:"2029-06-16",en:"Dragon Boat Festival",cn:"端午节",detail:"Festival date: Sat 16 Jun. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2029,from:"2029-09-22",to:"2029-09-22",en:"Mid-Autumn Festival",cn:"中秋节",detail:"Festival date: Sat 22 Sep. Official leave period and make-up working days have not yet been announced.",planning:true},
+  {year:2029,from:"2029-10-01",to:"2029-10-01",en:"National Day",cn:"国庆节",detail:"Festival date: Mon 1 Oct. Official leave period and make-up working days have not yet been announced.",planning:true,major:true}
 ];
 
-function daysUntil(d){return Math.ceil((new Date(d)-today)/86400000);}
+function parseDate(d){return new Date(d+'T00:00:00');}
+function daysUntil(d){return Math.ceil((parseDate(d)-today)/86400000);}
 
 function renderCard(h,i){
-  var fromD = new Date(h.from); var toD = new Date(h.to);
+  var fromD = parseDate(h.from); var toD = parseDate(h.to);
   var month = fromD.toLocaleString('en',{month:'short'});
   var day = fromD.getDate();
-  var upcoming = i===0 || (i>0 && daysUntil(holidays[0].from)>0);
   var cls = '';
   if(daysUntil(h.from)<=0 && daysUntil(h.to)<0) cls=' past';
   else if(daysUntil(h.from)<=14 && daysUntil(h.from)>=-1) cls=' upcoming';
   var tag='';
   if(cls===' upcoming') tag='<span class="h-tag upcoming">Upcoming</span>';
   else if(cls===' past') tag='<span class="h-tag past">Past</span>';
+  if(h.official) tag+=' <span class="h-tag official">Official schedule</span>';
+  if(h.planning) tag+=' <span class="h-tag planning">Festival date only</span>';
   if(h.major) tag+=' <span class="h-tag major">Major holiday</span>';
-  else if(!h.major) tag+=' <span class="h-tag" style="background:#E6F1FB;color:#185FA5">3-day weekend</span>';
   var daysLeft = daysUntil(h.from);
   var extra='';
   if(daysLeft>0 && daysLeft<=14) extra='<div style="font-size:12px;color:var(--c-brand);margin-top:2px">⏳ '+daysLeft+' days away</div>';
   return '<div class="h-card'+cls+'"><div class="h-date"><div class="h-month">'+month+'</div><div class="h-day">'+day+'</div></div><div class="h-info"><div class="h-name">'+h.en+'</div><div class="h-cn">'+h.cn+'</div><div class="h-detail">'+h.detail+'</div>'+extra+tag+'</div></div>';
 }
 
-var sorted = holidays.slice().sort(function(a,b){return new Date(a.from)-new Date(b.from);});
-document.getElementById('holidayList').innerHTML=sorted.map(function(h,i){return renderCard(h,i);}).join('');
+var availableYears = [2026,2027,2028,2029];
+var currentYear = today.getFullYear();
+var selectedYear = availableYears.indexOf(currentYear)>-1 ? currentYear : (currentYear<2026 ? 2026 : 2029);
+
+function renderYearFilter(){
+  document.getElementById('yearFilter').innerHTML=availableYears.map(function(year){
+    var active=year===selectedYear;
+    return '<button type="button" class="year-btn'+(active?' active':'')+'" data-year="'+year+'" aria-pressed="'+(active?'true':'false')+'">'+year+'</button>';
+  }).join('');
+  document.querySelectorAll('.year-btn').forEach(function(button){
+    button.addEventListener('click',function(){
+      selectedYear=parseInt(button.getAttribute('data-year'),10);
+      renderYearFilter();
+      renderHolidayList();
+    });
+  });
+}
+
+function renderHolidayList(){
+  var selected=holidays.filter(function(h){return h.year===selectedYear;}).sort(function(a,b){return parseDate(a.from)-parseDate(b.from);});
+  document.getElementById('holidayList').innerHTML=selected.map(function(h,i){return renderCard(h,i);}).join('');
+}
+
+renderYearFilter();
+renderHolidayList();
 </script>
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
@@ -134,5 +198,6 @@ document.getElementById('holidayList').innerHTML=sorted.map(function(h,i){return
 
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
 
+<script src="assets/contact/contact-widget.js"></script>
 </body>
 </html>
