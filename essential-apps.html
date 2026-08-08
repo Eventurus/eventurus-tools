@@ -106,6 +106,17 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 }
 </style>
 
+.related-tools { margin: 28px 0 20px; padding: 20px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); }
+.related-tools h3 { font-size: 14px; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.related-tools .rel-list { display: flex; flex-direction: column; gap: 10px; }
+.related-tools .rel-item { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; padding: 10px 12px; border-radius: 8px; transition: background .15s; }
+.related-tools .rel-item:hover { background: var(--color-bg); }
+.related-tools .rel-arrow { color: var(--color-brand); font-size: 16px; flex-shrink: 0; }
+.related-tools .rel-info { flex: 1; min-width: 0; }
+.related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
+.related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
+
+
   <!-- Structured Data -->
   <script type="application/ld+json">
 {
@@ -544,6 +555,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="cross-link">
   <p>Need internet first? → <a href="internet-guide.html">eSIM & SIM Guide</a></p>
 </div>
+<div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="payment-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">WeChat Pay & Alipay Guide</span><span class="rel-desc">Set up mobile payments with a foreign card</span></span></a><a class="rel-item" href="internet-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Internet & VPN Guide</span><span class="rel-desc">Stay connected in China</span></span></a></div></div>
 <div class="footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
   <div>China, Vetted. — <a href="index.html">All Tools</a></div>
