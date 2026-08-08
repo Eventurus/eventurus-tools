@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Chinese Menu Translator — EVENTURUS</title>
-<meta name="description" content="Translate Chinese dishes to English. Search 200+ menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
+<meta name="description" content="Translate Chinese dishes to English. Search 200 menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
   <!-- Open Graph -->
   <meta property="og:title" content="Chinese Menu Translator — EVENTURUS">
-  <meta property="og:description" content="Translate Chinese menus instantly. Search 200+ dishes by name, category, or dietary preference.">
+  <meta property="og:description" content="Translate Chinese menus instantly. Search 200 dishes by name or category.">
   <meta property="og:url" content="https://eventurus.cn/menu-translator.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EVENTURUS">
@@ -23,7 +23,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Chinese Menu Translator — EVENTURUS">
-  <meta name="twitter:description" content="Translate Chinese menus instantly. Search 200+ dishes by name, category, or dietary preference.">
+  <meta name="twitter:description" content="Translate Chinese menus instantly. Search 200 dishes by name or category.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://eventurus.cn/menu-translator.html">
@@ -136,45 +136,12 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 .pagination .page-btn:disabled { opacity:0.35; cursor:default; }
 .pagination .page-info { font-size:13px; color:var(--color-muted); min-width:80px; text-align:center; }
 
-/* Quick Tools section */
-.tools-section { margin-bottom:12px; border:1px solid var(--color-border); border-radius:var(--radius); overflow:hidden; }
-.tools-toggle { padding:12px 16px; background:var(--color-card); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:600; color:var(--color-text); -webkit-user-select:none; user-select:none; }
-.tools-toggle:active { background:var(--color-border); }
-.tools-body { padding:12px 16px; background:var(--color-surface); }
-.tool-label { font-size:12px; color:var(--color-muted); margin-bottom:6px; }
-.tool-row { display:flex; gap:8px; margin-bottom:8px; }
-.tool-input { flex:1; padding:10px 12px; border:1.5px solid var(--color-border); border-radius:var(--radius-sm); font-size:15px; font-family:inherit; -webkit-appearance:none; appearance:none; min-width:0; }
-.tool-input:focus { border-color:var(--color-brand); outline:none; }
-.tool-btn { padding:10px 16px; background:var(--color-brand); color:#fff; border:none; border-radius:var(--radius-sm); font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; }
-.tool-btn:active { opacity:0.85; }
-.tool-result { margin-top:6px; min-height:0; }
-.tool-result .tr-item { background:#F6F9F3; border-radius:var(--radius-sm); padding:10px 12px; margin-bottom:6px; display:flex; align-items:center; gap:10px; }
-.tool-result .tr-zh { font-size:18px; font-weight:700; min-width:60px; }
-.tool-result .tr-en { font-size:13px; color:#555; flex:1; }
-.tool-result .tr-py { font-size:10px; color:#999; font-style:italic; }
-.tool-result .tr-btn { padding:6px 14px; background:var(--color-brand); color:#fff; border:none; border-radius:14px; font-size:12px; font-weight:600; cursor:pointer; white-space:nowrap; flex-shrink:0; }
-.tool-divider { height:1px; background:var(--color-border); margin:10px 0; }
-.tool-empty { font-size:12px; color:var(--color-muted); padding:4px 0; }
-
-/* Dietary filters */
+/* Sorting */
 .filter-strip { display:flex; gap:6px; overflow-x:auto; padding:6px 0 10px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .filter-strip::-webkit-scrollbar { display:none; }
 .filter-btn { flex-shrink:0; padding:7px 12px; border:1.5px solid var(--color-border); border-radius:20px; font-size:12px; font-weight:500; background:var(--color-surface); cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:4px; }
 .filter-btn:active { border-color:var(--color-brand); }
 .filter-btn.on { background:#FFF0E0; border-color:var(--color-accent); color:#8B5E2A; }
-.filter-btn.veg-mode.on { background:var(--color-brand-light); border-color:var(--color-veg); color:var(--color-veg); }
-
-/* Cuisine filter */
-.cuisine-strip { display:flex; gap:6px; overflow-x:auto; padding:0 0 8px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-.cuisine-strip::-webkit-scrollbar { display:none; }
-.cuisine-chip { flex-shrink:0; padding:5px 10px; border-radius:14px; font-size:11px; font-weight:500; cursor:pointer; white-space:nowrap; border:1.5px solid transparent; }
-.cuisine-chip.sichuan { background:#FFF0E0; color:#D85A30; }
-.cuisine-chip.cantonese { background:#EAF3DE; color:#3B6D11; }
-.cuisine-chip.beijing { background:#FFF5F5; color:#A32D2D; }
-.cuisine-chip.dongbei { background:#FFF8E0; color:#BA7517; }
-.cuisine-chip.xibei { background:#FAEEDA; color:#8B6914; }
-.cuisine-chip.jiangzhe { background:#E6F1FB; color:#185FA5; }
-.cuisine-chip.active { border-color:var(--color-text); }
 
 /* Popular badge */
 .popular-star { color:var(--color-accent); font-size:13px; margin-left:4px; }
@@ -195,12 +162,13 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 }
 
 </style>
+<link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
 </head>
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <div class="container">
-<div class="hero"><h1>Chinese Menu Translator</h1><p>200+ dishes in your pocket. Browse, add to your order, then show the waiter.</p></div>
+<div class="hero"><h1>Chinese Menu Translator</h1><p>200 dishes in your pocket. Browse, add to your order, then show the waiter.</p></div>
 
 <!-- Search -->
 <div class="search-box">
@@ -209,50 +177,9 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
   <button class="clear-btn" id="clearBtn" onclick="clearSearch()">&#x2715;</button>
 </div>
 
-<!-- Quick Tools: Translate + Identify -->
-<div class="tools-section">
-  <div class="tools-toggle" onclick="toggleTools()">
-    <span>&#x1F528; Quick Tools</span>
-    <span id="toolsArrow">&#x25BC;</span>
-  </div>
-  <div class="tools-body" id="toolsBody" style="display:none">
-    <div class="tool-label">&#x1F4DD; Type a Chinese dish name, get English translation</div>
-    <div class="tool-row">
-      <input type="text" id="translateInput" class="tool-input" placeholder="e.g. 蒜蓉西兰花 or 干锅花菜" autocomplete="off">
-      <button class="tool-btn" onclick="translateCustom()">Translate</button>
-    </div>
-    <div class="tool-result" id="translateResult"></div>
-
-    <div class="tool-divider"></div>
-
-    <div class="tool-label">&#x1F50E; Describe what you ate — find its real name</div>
-    <div class="tool-row">
-      <input type="text" id="identifyInput" class="tool-input" placeholder="e.g. spicy chicken with peanuts" autocomplete="off">
-      <button class="tool-btn" onclick="identifyDish()">Identify</button>
-    </div>
-    <div class="tool-result" id="identifyResult"></div>
-  </div>
-</div>
-
-<!-- Dietary filters -->
-<div class="filter-strip" id="dietStrip">
-  <button class="filter-btn veg-mode" onclick="toggleDiet('vegetarian')" data-diet="vegetarian">🥬 Vegetarian</button>
-  <button class="filter-btn" onclick="toggleDiet('nopork')" data-diet="nopork">🚫 No Pork</button>
-  <button class="filter-btn" onclick="toggleDiet('noshellfish')" data-diet="noshellfish">🚫 No Shellfish</button>
-  <button class="filter-btn" onclick="toggleDiet('nopeanut')" data-diet="nopeanut">🥜 No Peanuts</button>
-  <button class="filter-btn" onclick="toggleDiet('nogluten')" data-diet="nogluten">🌾 Gluten-Free</button>
-  <button class="filter-btn" onclick="sortPopular()" data-diet="popular">⭐ Popular First</button>
-</div>
-
-<!-- Cuisine chips -->
-<div class="cuisine-strip" id="cuisineStrip">
-  <span class="cuisine-chip sichuan active" onclick="filterCuisine(this)" data-cuisine="all">&#x1F30F; All</span>
-  <span class="cuisine-chip sichuan" onclick="filterCuisine(this)" data-cuisine="sichuan">🌶 Sichuan</span>
-  <span class="cuisine-chip cantonese" onclick="filterCuisine(this)" data-cuisine="cantonese">🥢 Cantonese</span>
-  <span class="cuisine-chip beijing" onclick="filterCuisine(this)" data-cuisine="beijing">🐲 Beijing</span>
-  <span class="cuisine-chip dongbei" onclick="filterCuisine(this)" data-cuisine="dongbei">❄️ Dongbei</span>
-  <span class="cuisine-chip xibei" onclick="filterCuisine(this)" data-cuisine="xibei">🐑 Xibei</span>
-  <span class="cuisine-chip jiangzhe" onclick="filterCuisine(this)" data-cuisine="jiangzhe">🌊 Jiangzhe</span>
+<!-- Sorting -->
+<div class="filter-strip" id="sortStrip">
+  <button class="filter-btn" onclick="sortPopular()" data-sort="featured">⭐ Featured First</button>
 </div>
 
 <!-- Categories -->
@@ -330,6 +257,13 @@ var DISHES = [
   {zh:'肠粉', en:'Rice Noodle Rolls (Cheong Fun)', py:'cháng fěn', cat:'dumplings', icon:'🫘', cuisine:'cantonese'},
   {zh:'糯米鸡', en:'Lotus Leaf Rice (Lo Mai Gai)', py:'nuò mǐ jī', cat:'dumplings', icon:'🍚', tags:['meat']},
   {zh:'水晶包', en:'Steamed Crystal Buns', py:'shuǐ jīng bāo', cat:'dumplings', icon:'🥟', tags:['gluten'], cuisine:'cantonese'},
+  {zh:'馄饨', en:'Wontons', py:'hún tun', cat:'dumplings', icon:'🥟', tags:['meat','pork','gluten'], popular:true},
+  {zh:'奶黄包', en:'Custard Buns', py:'nǎi huáng bāo', cat:'dumplings', icon:'🥟', tags:['gluten']},
+  {zh:'豆沙包', en:'Red Bean Buns', py:'dòu shā bāo', cat:'dumplings', icon:'🥟', tags:['gluten']},
+  {zh:'粽子', en:'Zongzi / Sticky Rice Dumpling', py:'zòng zi', cat:'dumplings', icon:'🍙', popular:true},
+  {zh:'葱油饼', en:'Scallion Pancake', py:'cōng yóu bǐng', cat:'dumplings', icon:'🥞', tags:['gluten'], popular:true},
+  {zh:'韭菜盒子', en:'Chive Pockets', py:'jiǔ cài hé zi', cat:'dumplings', icon:'🥟', tags:['gluten']},
+  {zh:'萝卜糕', en:'Turnip Cake', py:'luó bo gāo', cat:'dumplings', icon:'🍘'},
   // === Noodles & Rice ===
   {zh:'炒饭', en:'Fried Rice', py:'chǎo fàn', cat:'rice', icon:'🍚', popular:true},
   {zh:'蛋炒饭', en:'Egg Fried Rice', py:'dàn chǎo fàn', cat:'rice', icon:'🍚', popular:true},
@@ -347,9 +281,19 @@ var DISHES = [
   {zh:'河粉', en:'Flat Rice Noodles (Ho Fun)', py:'hé fěn', cat:'noodles', icon:'🍜', tags:['gluten']},
   {zh:'乌冬面', en:'Udon Noodles', py:'wū dōng miàn', cat:'noodles', icon:'🍜', tags:['gluten']},
   {zh:'方便面', en:'Instant Noodles', py:'fāng biàn miàn', cat:'noodles', icon:'🍜'},
+  {zh:'刀削面', en:'Knife-Cut Noodles', py:'dāo xiāo miàn', cat:'noodles', icon:'🍜', tags:['gluten'], popular:true},
+  {zh:'油泼面', en:'Hot Oil Noodles', py:'yóu pō miàn', cat:'noodles', icon:'🍜', tags:['spicy','gluten']},
+  {zh:'葱油拌面', en:'Scallion Oil Noodles', py:'cōng yóu bàn miàn', cat:'noodles', icon:'🍜', tags:['gluten'], popular:true},
+  {zh:'云吞面', en:'Wonton Noodle Soup', py:'yún tūn miàn', cat:'noodles', icon:'🍜', tags:['meat','pork','gluten']},
+  {zh:'桂林米粉', en:'Guilin Rice Noodles', py:'guì lín mǐ fěn', cat:'noodles', icon:'🍜', popular:true},
+  {zh:'酸辣粉', en:'Hot and Sour Glass Noodles', py:'suān là fěn', cat:'noodles', icon:'🍜', tags:['spicy'], popular:true},
+  {zh:'重庆小面', en:'Chongqing Spicy Noodles', py:'chóng qìng xiǎo miàn', cat:'noodles', icon:'🍜', tags:['spicy','gluten'], popular:true},
+  {zh:'干炒牛河', en:'Stir-Fried Beef Rice Noodles', py:'gān chǎo niú hé', cat:'noodles', icon:'🍜', tags:['meat'], popular:true},
+  {zh:'腊肠炒饭', en:'Chinese Sausage Fried Rice', py:'là cháng chǎo fàn', cat:'rice', icon:'🍚', tags:['meat','pork']},
+  {zh:'煲仔饭', en:'Claypot Rice', py:'bāo zǎi fàn', cat:'rice', icon:'🍚', popular:true},
   // === Meat & Poultry ===
   {zh:'宫保鸡丁', en:'Kung Pao Chicken', py:'gōng bǎo jī dīng', cat:'meat', icon:'🍗', tags:['spicy','meat','peanut'], popular:true, cuisine:'sichuan'},
-  {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'meat', icon:'🫘', tags:['spicy'], popular:true, cuisine:'sichuan'},
+  {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'meat', icon:'🫘', tags:['spicy','meat','pork'], popular:true, cuisine:'sichuan'},
   {zh:'鱼香肉丝', en:'Yu Xiang Shredded Pork', py:'yú xiāng ròu sī', cat:'meat', icon:'🥩', tags:['meat','pork']},
   {zh:'回锅肉', en:'Twice-Cooked Pork', py:'huí guō ròu', cat:'meat', icon:'🥩', tags:['meat','pork'], popular:true, cuisine:'sichuan'},
   {zh:'红烧肉', en:'Red-Braised Pork Belly', py:'hóng shāo ròu', cat:'meat', icon:'🥩', tags:['meat','pork'], popular:true},
@@ -369,6 +313,20 @@ var DISHES = [
   {zh:'叉烧', en:'Char Siu / BBQ Pork', py:'chā shāo', cat:'meat', icon:'🥩', tags:['meat','pork'], popular:true, cuisine:'cantonese'},
   {zh:'盐焗鸡', en:'Salt Baked Chicken', py:'yán jú jī', cat:'meat', icon:'🍗', tags:['meat'], cuisine:'cantonese'},
   {zh:'牛腩煲', en:'Beef Brisket Clay Pot', py:'niú nǎn bāo', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'可乐鸡翅', en:'Cola Chicken Wings', py:'kě lè jī chì', cat:'meat', icon:'🍗', tags:['meat'], popular:true},
+  {zh:'红烧排骨', en:'Red-Braised Pork Ribs', py:'hóng shāo pái gǔ', cat:'meat', icon:'🍖', tags:['meat','pork'], popular:true},
+  {zh:'糖醋排骨', en:'Sweet and Sour Pork Ribs', py:'táng cù pái gǔ', cat:'meat', icon:'🍖', tags:['meat','pork']},
+  {zh:'京酱肉丝', en:'Shredded Pork in Sweet Bean Sauce', py:'jīng jiàng ròu sī', cat:'meat', icon:'🥩', tags:['meat','pork']},
+  {zh:'木须肉', en:'Moo Shu Pork', py:'mù xū ròu', cat:'meat', icon:'🥩', tags:['meat','pork']},
+  {zh:'梅菜扣肉', en:'Pork Belly with Preserved Mustard Greens', py:'méi cài kòu ròu', cat:'meat', icon:'🥩', tags:['meat','pork']},
+  {zh:'口水鸡', en:'Chilli Oil Chicken (Kou Shui Ji)', py:'kǒu shuǐ jī', cat:'meat', icon:'🍗', tags:['spicy','meat'], popular:true},
+  {zh:'小炒肉', en:'Stir-Fried Pork with Chillies', py:'xiǎo chǎo ròu', cat:'meat', icon:'🥩', tags:['spicy','meat','pork']},
+  {zh:'锅包肉', en:'Crispy Sweet and Sour Pork', py:'guō bāo ròu', cat:'meat', icon:'🥩', tags:['meat','pork'], popular:true},
+  {zh:'狮子头', en:'Braised Pork Meatballs (Lion\'s Head)', py:'shī zi tóu', cat:'meat', icon:'🍖', tags:['meat','pork'], popular:true},
+  {zh:'大盘鸡', en:'Big Plate Chicken', py:'dà pán jī', cat:'meat', icon:'🍗', tags:['spicy','meat'], popular:true},
+  {zh:'酱牛肉', en:'Soy-Braised Beef', py:'jiàng niú ròu', cat:'meat', icon:'🥩', tags:['meat']},
+  {zh:'羊肉串', en:'Lamb Skewers', py:'yáng ròu chuàn', cat:'meat', icon:'🍢', tags:['meat'], popular:true},
+  {zh:'啤酒鸭', en:'Beer-Braised Duck', py:'pí jiǔ yā', cat:'meat', icon:'🦆', tags:['meat']},
   // === Seafood ===
   {zh:'清蒸鱼', en:'Steamed Fish', py:'qīng zhēng yú', cat:'seafood', icon:'🐟', tags:['seafood']},
   {zh:'酸菜鱼', en:'Sour Cabbage Fish', py:'suān cài yú', cat:'seafood', icon:'🐟', tags:['spicy','seafood'], popular:true, cuisine:'sichuan'},
@@ -382,6 +340,13 @@ var DISHES = [
   {zh:'辣炒花蛤', en:'Spicy Stir-Fried Clams', py:'là chǎo huā gé', cat:'seafood', icon:'🐚', tags:['spicy','seafood','shellfish']},
   {zh:'清蒸带子', en:'Steamed Scallops', py:'qīng zhēng dài zǐ', cat:'seafood', icon:'🐚', tags:['seafood','shellfish']},
   {zh:'葱姜龙虾', en:'Ginger & Scallion Lobster', py:'cōng jiāng lóng xiā', cat:'seafood', icon:'🦞', tags:['seafood','shellfish']},
+  {zh:'红烧鱼', en:'Red-Braised Fish', py:'hóng shāo yú', cat:'seafood', icon:'🐟', tags:['seafood']},
+  {zh:'剁椒鱼头', en:'Steamed Fish Head with Chopped Chillies', py:'duò jiāo yú tóu', cat:'seafood', icon:'🐟', tags:['spicy','seafood'], popular:true},
+  {zh:'松鼠桂鱼', en:'Sweet and Sour Mandarin Fish (Squirrel Fish)', py:'sōng shǔ guì yú', cat:'seafood', icon:'🐟', tags:['seafood'], popular:true},
+  {zh:'清蒸鲈鱼', en:'Steamed Sea Bass', py:'qīng zhēng lú yú', cat:'seafood', icon:'🐟', tags:['seafood']},
+  {zh:'白灼虾', en:'Poached Prawns', py:'bái zhuó xiā', cat:'seafood', icon:'🦐', tags:['seafood','shellfish'], popular:true},
+  {zh:'椒盐鱿鱼', en:'Salt and Pepper Squid', py:'jiāo yán yóu yú', cat:'seafood', icon:'🦑', tags:['seafood']},
+  {zh:'腰果虾仁', en:'Stir-Fried Shrimp with Cashews', py:'yāo guǒ xiā rén', cat:'seafood', icon:'🦐', tags:['seafood','shellfish','nut'], popular:true},
   // === Vegetables & Tofu ===
   {zh:'炒青菜', en:'Stir-Fried Greens', py:'chǎo qīng cài', cat:'veg', icon:'🥬'},
   {zh:'蒜蓉西兰花', en:'Garlic Broccoli', py:'suàn róng xī lán huā', cat:'veg', icon:'🥦'},
@@ -393,8 +358,15 @@ var DISHES = [
   {zh:'西红柿炒蛋', en:'Tomato Scrambled Eggs', py:'xī hóng shì chǎo dàn', cat:'veg', icon:'🍅'},
   {zh:'凉拌黄瓜', en:'Cold Cucumber Salad', py:'liáng bàn huáng guā', cat:'veg', icon:'🥒'},
   {zh:'家常豆腐', en:'Home-Style Tofu', py:'jiā cháng dòu fu', cat:'veg', icon:'🫘'},
-  {zh:'麻婆豆腐', en:'Mapo Tofu', py:'má pó dòu fu', cat:'veg', icon:'🫘', tags:['spicy'], popular:true, cuisine:'sichuan'},
   {zh:'凉拌木耳', en:'Cold Wood Ear Salad', py:'liáng bàn mù ěr', cat:'veg', icon:'🍄'},
+  {zh:'手撕包菜', en:'Hand-Torn Cabbage', py:'shǒu sī bāo cài', cat:'veg', icon:'🥬', popular:true},
+  {zh:'干锅花菜', en:'Dry-Pot Cauliflower', py:'gān guō huā cài', cat:'veg', icon:'🥦', tags:['spicy']},
+  {zh:'红烧茄子', en:'Red-Braised Eggplant', py:'hóng shāo qié zi', cat:'veg', icon:'🍆'},
+  {zh:'虎皮青椒', en:'Blistered Green Peppers', py:'hǔ pí qīng jiāo', cat:'veg', icon:'🫑', tags:['spicy']},
+  {zh:'蒜蓉空心菜', en:'Garlic Water Spinach', py:'suàn róng kōng xīn cài', cat:'veg', icon:'🥬'},
+  {zh:'清炒菜心', en:'Stir-Fried Choy Sum', py:'qīng chǎo cài xīn', cat:'veg', icon:'🥬'},
+  {zh:'松仁玉米', en:'Corn with Pine Nuts', py:'sōng rén yù mǐ', cat:'veg', icon:'🌽', tags:['nut']},
+  {zh:'韭菜炒蛋', en:'Scrambled Eggs with Chinese Chives', py:'jiǔ cài chǎo dàn', cat:'veg', icon:'🥚'},
   // === Soup ===
   {zh:'蛋花汤', en:'Egg Drop Soup', py:'dàn huā tāng', cat:'soup', icon:'🥣'},
   {zh:'酸辣汤', en:'Hot & Sour Soup', py:'suān là tāng', cat:'soup', icon:'🥣', tags:['spicy']},
@@ -406,6 +378,10 @@ var DISHES = [
   {zh:'鱼头汤', en:'Fish Head Soup', py:'yú tóu tāng', cat:'soup', icon:'🥣', tags:['seafood']},
   {zh:'萝卜炖牛腩', en:'Radish & Beef Brisket Stew', py:'luó bo dùn niú nǎn', cat:'soup', icon:'🥣', tags:['meat']},
   {zh:'豆腐汤', en:'Tofu Soup', py:'dòu fu tāng', cat:'soup', icon:'🥣'},
+  {zh:'西湖牛肉羹', en:'West Lake Beef Soup', py:'xī hú niú ròu gēng', cat:'soup', icon:'🥣', tags:['meat'], popular:true},
+  {zh:'莲藕排骨汤', en:'Lotus Root and Pork Rib Soup', py:'lián ǒu pái gǔ tāng', cat:'soup', icon:'🥣', tags:['meat','pork']},
+  {zh:'鱼头豆腐汤', en:'Fish Head and Tofu Soup', py:'yú tóu dòu fu tāng', cat:'soup', icon:'🥣', tags:['seafood']},
+  {zh:'胡辣汤', en:'Peppery Soup (Hulatang)', py:'hú là tāng', cat:'soup', icon:'🥣', tags:['spicy','meat']},
   // === Drinks ===
   {zh:'茶', en:'Tea', py:'chá', cat:'drinks', icon:'🍵'},
   {zh:'绿茶', en:'Green Tea', py:'lǜ chá', cat:'drinks', icon:'🍵'},
@@ -434,6 +410,9 @@ var DISHES = [
   {zh:'冰粉', en:'Ice Jelly (Bingfen)', py:'bīng fěn', cat:'dessert', icon:'🍮'},
   {zh:'双皮奶', en:'Double-Skin Milk', py:'shuāng pí nǎi', cat:'dessert', icon:'🍮', cuisine:'cantonese'},
   {zh:'水果拼盘', en:'Fruit Platter', py:'shuǐ guǒ pīn pán', cat:'dessert', icon:'🍉'},
+  {zh:'杨枝甘露', en:'Mango Pomelo Sago', py:'yáng zhī gān lù', cat:'dessert', icon:'🥭', popular:true},
+  {zh:'桂花糕', en:'Osmanthus Cake', py:'guì huā gāo', cat:'dessert', icon:'🍰'},
+  {zh:'芝麻糊', en:'Black Sesame Soup', py:'zhī ma hú', cat:'dessert', icon:'🥣', tags:['sesame']},
   // === Street Food & Snacks ===
   {zh:'煎饼果子', en:'Jianbing (Chinese crepe)', py:'jiān bing guǒ zi', cat:'snacks', icon:'🥞', popular:true, tags:['gluten']},
   {zh:'肉夹馍', en:'Roujiamo (Chinese burger)', py:'ròu jiā mó', cat:'snacks', icon:'🥙', tags:['meat','pork'], popular:true},
@@ -445,6 +424,11 @@ var DISHES = [
   {zh:'鸡蛋仔', en:'Egg Waffles', py:'jī dàn zǎi', cat:'snacks', icon:'🧇'},
   {zh:'糖葫芦', en:'Candied Hawthorn Skewer', py:'táng hú lu', cat:'snacks', icon:'🍡'},
   {zh:'螺蛳粉', en:'Luosifen (rice noodles)', py:'luó sī fěn', cat:'snacks', icon:'🍜', tags:['spicy'], popular:true},
+  {zh:'油条', en:'Youtiao / Fried Dough Sticks', py:'yóu tiáo', cat:'snacks', icon:'🥖', tags:['gluten'], popular:true},
+  {zh:'豆腐脑', en:'Tofu Pudding (Doufunao)', py:'dòu fu nǎo', cat:'snacks', icon:'🥣', popular:true},
+  {zh:'茶叶蛋', en:'Tea Eggs', py:'chá yè dàn', cat:'snacks', icon:'🥚', popular:true},
+  {zh:'烤冷面', en:'Grilled Cold Noodles', py:'kǎo lěng miàn', cat:'snacks', icon:'🥞', tags:['gluten'], popular:true},
+  {zh:'驴肉火烧', en:'Donkey Meat Flatbread', py:'lǘ ròu huǒ shāo', cat:'snacks', icon:'🥙', tags:['meat','gluten']},
   // === Hot Pot ===
   {zh:'火锅', en:'Hot Pot', py:'huǒ guō', cat:'hotpot', icon:'🫕', tags:['spicy'], popular:true, cuisine:'sichuan'},
   {zh:'鸳鸯锅', en:'Dual-Soup Hot Pot', py:'yuān yāng guō', cat:'hotpot', icon:'🫕'},
@@ -495,8 +479,6 @@ var myOrder = [];
 var currentPage = 0;
 var pageSize = 30;
 var cachedFiltered = []; // keep ref for pagination
-var activeDiet = ''; // 'vegetarian','nopork','noshellfish','nopeanut','nogluten'
-var activeCuisine = 'all';
 var popularFirst = false;
 var recentDishes = []; // last 8 added dish indexes
 
@@ -769,61 +751,10 @@ function toggleTools() {
   }
 }
 
-// ===== Dietary filtering =====
-function applyDiet(dishes, diet) {
-  var result = [];
-  for (var i = 0; i < dishes.length; i++) {
-    var d = dishes[i];
-    var tags = d.tags || [];
-    if (diet === 'vegetarian') {
-      var hasMeat = false;
-      for (var t = 0; t < tags.length; t++) {
-        if (tags[t] === 'meat' || tags[t] === 'seafood') { hasMeat = true; break; }
-      }
-      if (!hasMeat) result.push(d);
-    } else if (diet === 'nopork') {
-      if (tags.indexOf('pork') === -1) result.push(d);
-    } else if (diet === 'noshellfish') {
-      if (tags.indexOf('shellfish') === -1) result.push(d);
-    } else if (diet === 'nopeanut') {
-      if (tags.indexOf('peanut') === -1) result.push(d);
-    } else if (diet === 'nogluten') {
-      if (tags.indexOf('gluten') === -1) result.push(d);
-    }
-  }
-  return result;
-}
-
-function toggleDiet(diet) {
-  if (diet === 'popular') { sortPopular(); return; }
-  if (activeDiet === diet) { activeDiet = ''; } else { activeDiet = diet; }
-  var btns = document.querySelectorAll('.filter-btn');
-  for (var i = 0; i < btns.length; i++) {
-    var b = btns[i];
-    var bDiet = b.getAttribute('data-diet');
-    if (bDiet === 'popular') continue;
-    var base = 'filter-btn' + (bDiet === 'vegetarian' ? ' veg-mode' : '');
-    b.className = (activeDiet === bDiet) ? base + ' on' : base;
-  }
-  doQuery(document.getElementById('searchInput').value);
-}
-
 function sortPopular() {
   popularFirst = !popularFirst;
-  var btn = document.querySelector('.filter-btn[data-diet="popular"]');
+  var btn = document.querySelector('.filter-btn[data-sort="featured"]');
   if (btn) btn.className = popularFirst ? 'filter-btn on' : 'filter-btn';
-  doQuery(document.getElementById('searchInput').value);
-}
-
-function filterCuisine(el) {
-  var cuisine = el.getAttribute('data-cuisine');
-  if (!cuisine) return;
-  activeCuisine = cuisine;
-  var chips = document.querySelectorAll('.cuisine-chip');
-  for (var i = 0; i < chips.length; i++) {
-    chips[i].className = chips[i].className.replace(' active','');
-  }
-  el.className += ' active';
   doQuery(document.getElementById('searchInput').value);
 }
 
@@ -915,20 +846,6 @@ function doQuery(val) {
     for (var i = 0; i < DISHES.length; i++) {
       if (DISHES[i].cat === activeCat) filtered.push(DISHES[i]);
     }
-  }
-
-  // Apply cuisine filter
-  if (activeCuisine !== 'all') {
-    var cuisineFiltered = [];
-    for (var i = 0; i < filtered.length; i++) {
-      if (filtered[i].cuisine === activeCuisine) cuisineFiltered.push(filtered[i]);
-    }
-    filtered = cuisineFiltered;
-  }
-
-  // Apply dietary filter
-  if (activeDiet) {
-    filtered = applyDiet(filtered, activeDiet);
   }
 
   if (q) {
@@ -1180,5 +1097,6 @@ function clearSearch() {
 </footer>
 
 
+<script src="assets/contact/contact-widget.js"></script>
 </body>
 </html>
