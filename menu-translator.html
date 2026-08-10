@@ -2,10 +2,9 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Chinese Menu Translator — EVENTURUS</title>
 <meta name="description" content="Translate Chinese dishes to English. Search 200 menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
   <!-- Open Graph -->
@@ -21,7 +20,7 @@
   <meta name="twitter:image" content="https://eventurus.cn/og-menu-translator.png">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chinese Menu Translator — EVENTURUS">
   <meta name="twitter:description" content="Translate Chinese menus instantly. Search 200 dishes by name or category.">
 
@@ -34,7 +33,7 @@
 <meta name="apple-mobile-web-app-title" content="Menu Translator">
 <link rel="manifest" href="menu-manifest.json">
 <style>
-:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#5A6E55; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --color-spicy:#D85A30; --color-veg:#639922; --color-nut:#BA7517; --radius:12px; --radius-sm:8px; }
+:root { --color-text:#2c2c2c; --color-muted:#6D716A; --color-brand:#5A6E55; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --color-spicy:#D85A30; --color-veg:#639922; --color-nut:#BA7517; --radius:12px; --radius-sm:8px; }
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
 .container { max-width:720px; margin:0 auto; padding:0 16px; }
@@ -58,7 +57,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 /* Categories */
 .cat-strip { display:flex; gap:6px; overflow-x:auto; padding:0 0 10px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .cat-strip::-webkit-scrollbar { display:none; }
-.cat-btn { flex-shrink:0; padding:9px 16px; border:1.5px solid var(--color-border); border-radius:20px; font-size:13px; font-weight:500; background:var(--color-surface); cursor:pointer; transition:all .2s; white-space:nowrap; }
+.cat-btn { flex-shrink:0; padding:11px 16px; border:1.5px solid var(--color-border); border-radius:20px; font-size:13px; font-weight:500; min-height:44px; background:var(--color-surface); cursor:pointer; transition:all .2s; white-space:nowrap; }
 .cat-btn:hover { border-color:var(--color-brand); }
 .cat-btn.active { background:var(--color-brand); color:#fff; border-color:var(--color-brand); }
 
@@ -67,7 +66,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 .order-bar.show { display:flex; }
 .order-bar .order-count { flex:1; font-size:13px; font-weight:600; color:var(--color-text); }
 .order-bar .btn-order { padding:10px 18px; background:var(--color-brand); color:#fff; border:none; border-radius:var(--radius-sm); font-size:13px; font-weight:500; cursor:pointer; white-space:nowrap; }
-.order-bar .btn-clear-order { padding:8px 12px; background:transparent; border:1px solid var(--color-border); border-radius:var(--radius-sm); font-size:12px; color:var(--color-muted); cursor:pointer; }
+.order-bar .btn-clear-order { padding:10px 14px; min-height:44px; background:transparent; border:1px solid var(--color-border); border-radius:var(--radius-sm); font-size:12px; color:var(--color-muted); cursor:pointer; }
 
 /* Results */
 .count-label { font-size:13px; color:var(--color-muted); margin-bottom:8px; }
@@ -77,7 +76,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 .dish-info { flex:1; min-width:0; }
 .dish-info .zh { font-size:16px; font-weight:600; margin-bottom:1px; }
 .dish-info .en { font-size:12px; color:#555; line-height:1.4; }
-.dish-info .py { font-size:10px; color:#999; font-style:italic; margin-top:1px; }
+.dish-info .py { font-size:10px; color:#6D716A; font-style:italic; margin-top:1px; }
 .dish-badges { display:flex; gap:3px; flex-wrap:wrap; }
 .badge { display:inline-flex; align-items:center; gap:2px; padding:2px 5px; border-radius:4px; font-size:9px; font-weight:600; }
 .badge.spicy { background:#FFF0E0; color:var(--color-spicy); }
@@ -94,13 +93,13 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 .modal-overlay.show { display:flex; }
 .modal { background:#FFFEF5; border-radius:var(--radius); padding:24px 20px; max-width:420px; width:100%; box-shadow:0 8px 32px rgba(0,0,0,0.15); text-align:center; animation:fadeIn .25s ease; max-height:90vh; overflow-y:auto; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-.modal .m-title { font-size:11px; color:#999; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.modal .m-title { font-size:11px; color:#6D716A; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
 .modal .m-item { padding:14px 0; border-bottom:1px dashed var(--color-border); display:flex; align-items:center; gap:10px; }
 .modal .m-item:last-child { border-bottom:none; }
 .modal .m-item .m-zh { font-size:20px; font-weight:700; letter-spacing:1px; min-width:60px; }
 .modal .m-item .m-detail { flex:1; text-align:left; }
 .modal .m-item .m-detail .m-en { font-size:13px; color:#555; }
-.modal .m-item .m-detail .m-py { font-size:10px; color:#999; font-style:italic; }
+.modal .m-item .m-detail .m-py { font-size:10px; color:#6D716A; font-style:italic; }
 .modal .m-item .m-remove { background:none; border:none; color:#C85A5A; font-size:20px; cursor:pointer; padding:8px; }
 .modal .m-note { font-size:10px; color:#bbb; margin-top:12px; }
 .modal .m-warning { background:#FFF8E8; border:1px solid #F0D060; border-radius:8px; padding:10px 12px; margin-top:12px; font-size:11px; color:#8B6914; line-height:1.5; display:flex; align-items:flex-start; gap:6px; }
@@ -118,7 +117,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 .method-item { background:var(--color-card); border-radius:var(--radius-sm); padding:10px 12px; display:flex; flex-direction:column; }
 .method-item .zh { font-size:18px; font-weight:600; }
 .method-item .en { font-size:12px; color:#666; }
-.method-item .desc { font-size:11px; color:#999; }
+.method-item .desc { font-size:11px; color:#6D716A; }
 
 .footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
 .footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
@@ -139,7 +138,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 /* Sorting */
 .filter-strip { display:flex; gap:6px; overflow-x:auto; padding:6px 0 10px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .filter-strip::-webkit-scrollbar { display:none; }
-.filter-btn { flex-shrink:0; padding:7px 12px; border:1.5px solid var(--color-border); border-radius:20px; font-size:12px; font-weight:500; background:var(--color-surface); cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:4px; }
+.filter-btn { flex-shrink:0; padding:10px 14px; border:1.5px solid var(--color-border); border-radius:20px; font-size:12px; font-weight:500; min-height:44px; background:var(--color-surface); cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:4px; }
 .filter-btn:active { border-color:var(--color-brand); }
 .filter-btn.on { background:#FFF0E0; border-color:var(--color-accent); color:#8B5E2A; }
 
@@ -209,7 +208,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 <!-- Search -->
 <div class="search-box">
   <span class="icon">&#x1F50D;</span>
-  <input type="text" id="searchInput" onkeyup="searchChanged(this)" placeholder="Search in English, Chinese or pinyin..." autocomplete="off">
+  <input type="text" id="searchInput" aria-label="Search dishes" onkeyup="searchChanged(this)" placeholder="Search in English, Chinese or pinyin..." autocomplete="off">
   <button class="clear-btn" id="clearBtn" onclick="clearSearch()">&#x2715;</button>
 </div>
 
@@ -1050,7 +1049,7 @@ function showOrderList() {
   if (!container) return;
 
   if (myOrder.length === 0) {
-    container.innerHTML = '<p style="color:#999;padding:20px;font-size:14px;">No dishes selected yet.</p>';
+    container.innerHTML = '<p style="color:#6D716A;padding:20px;font-size:14px;">No dishes selected yet.</p>';
   } else {
     var itemsHtml = '';
     for (var i = 0; i < myOrder.length; i++) {
@@ -1091,7 +1090,7 @@ function printOrder() {
     items += '<div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px dashed #ddd;">'
       + '<div style="font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:4px;">' + icon + ' ' + o.zh + '</div>'
       + '<div style="font-size:14px;color:#666;">' + o.en + '</div>'
-      + (o.py ? '<div style="font-size:11px;color:#999;font-style:italic;">' + o.py + '</div>' : '')
+      + (o.py ? '<div style="font-size:11px;color:#6D716A;font-style:italic;">' + o.py + '</div>' : '')
       + '</div>';
   }
   var win = window.open('', '', 'width=420,height=700');
@@ -1129,10 +1128,10 @@ function clearSearch() {
 }
 </script>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('menu-sw.js');}</script>
-<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
-<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#6D716A;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'">赣ICP备2026012265号-1</a>
 <span style="margin:0 8px;color:#d0d0d0;">·</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
 

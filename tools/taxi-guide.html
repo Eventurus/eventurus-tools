@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Didi & Taxi Guide + Address Card — EVENTURUS</title>
 <meta name="description" content="How to take a taxi or use Didi in China. Free printable Chinese address card to show your driver. Made for travellers by EVENTURUS.">
 <style>
-:root { --color-text:#2c2c2c; --color-muted:#888780; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --radius:12px; --radius-sm:8px; }
+:root { --color-text:#2c2c2c; --color-muted:#6D716A; --color-brand:#6B7F65; --color-brand-light:#EAF3DE; --color-brand-dark:#3B6D11; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-card:#F8F6F0; --color-accent:#B8895A; --radius:12px; --radius-sm:8px; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; }
 .container { max-width:720px; margin:0 auto; padding:0 20px; }
@@ -38,10 +40,10 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .address-card { background:var(--color-card); border:2px dashed var(--color-border); border-radius:var(--radius); padding:24px; margin:16px 0; text-align:center; transition:all .3s; }
 .address-card.has-address { border-style:solid; border-color:var(--color-brand); background:#fff; }
 .address-card .card-title { font-size:13px; color:var(--color-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
-.address-card .pickup-label { font-size:11px; color:#999; margin-bottom:2px; }
+.address-card .pickup-label { font-size:11px; color:#6D716A; margin-bottom:2px; }
 .address-card .pickup-addr { font-size:15px; font-weight:600; color:var(--color-text); margin-bottom:12px; }
 .address-card .arrow-down { font-size:20px; color:var(--color-brand); margin-bottom:8px; }
-.address-card .dest-label { font-size:11px; color:#999; margin-bottom:2px; }
+.address-card .dest-label { font-size:11px; color:#6D716A; margin-bottom:2px; }
 .address-card .dest-addr { font-size:18px; font-weight:700; color:var(--color-text); margin-bottom:4px; }
 .address-card .dest-addr-zh { font-size:24px; font-weight:700; color:var(--color-text); letter-spacing:1px; margin-bottom:8px; }
 .address-card .card-note { font-size:11px; color:var(--color-muted); margin-top:8px; }
@@ -62,13 +64,13 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 
 /* Download card modal style */
 .print-card { background:#FFFEF5; border:1px solid var(--color-border); padding:32px 24px; border-radius:var(--radius); max-width:400px; margin:0 auto; }
-.print-card .pc-title { font-size:12px; color:#999; text-align:center; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.print-card .pc-title { font-size:12px; color:#6D716A; text-align:center; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
 .print-card .pc-pickup { font-size:13px; color:#666; margin-bottom:4px; }
 .print-card .pc-pickup-addr { font-size:15px; font-weight:500; margin-bottom:16px; padding-bottom:12px; border-bottom:1px dashed var(--color-border); }
 .print-card .pc-dest { font-size:13px; color:#666; margin-bottom:4px; }
 .print-card .pc-dest-addr { font-size:22px; font-weight:700; margin-bottom:4px; }
 .print-card .pc-dest-zh { font-size:28px; font-weight:700; color:var(--color-text); letter-spacing:2px; margin-bottom:12px; }
-.print-card .pc-note { font-size:11px; color:#999; text-align:center; margin-top:12px; }
+.print-card .pc-note { font-size:11px; color:#6D716A; text-align:center; margin-top:12px; }
 
 /* Pricing table */
 .price-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; }
@@ -77,7 +79,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Mi
 .price-table tr:last-child td { border-bottom:none; }
 .price-table .city { font-weight:500; }
 .price-table .price { color:var(--color-muted); }
-.price-table .note { font-size:11px; color:#999; }
+.price-table .note { font-size:11px; color:#6D716A; }
 
 .phrase-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; }
 .phrase-item { background:var(--color-brand-light); border-radius:var(--radius-sm); padding:10px; }
@@ -300,19 +302,20 @@ function printCard() {
   printWin.document.write(`
     <!DOCTYPE html><html><head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
     <title>EVENTURUS Address Card</title>
     <style>
       *{margin:0;padding:0;box-sizing:border-box;}
       body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#FFFEF5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
       .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:36px 28px;max-width:380px;width:100%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-      .brand{font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+      .brand{font-size:11px;color:#6D716A;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
       .label{font-size:11px;color:#aaa;margin-bottom:4px;}
       .pickup{font-size:14px;font-weight:500;margin-bottom:6px;color:#666;}
       .arrow{font-size:18px;color:#6B7F65;margin:8px 0;}
       .dest-label{font-size:11px;color:#aaa;margin-bottom:4px;}
       .dest-en{font-size:15px;font-weight:500;margin-bottom:4px;}
       .dest-zh{font-size:26px;font-weight:700;letter-spacing:2px;margin:8px 0 12px;}
-      .note{font-size:11px;color:#999;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}
+      .note{font-size:11px;color:#6D716A;margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;}
       .footer{font-size:9px;color:#ccc;margin-top:20px;letter-spacing:1px;}
       hr{border:none;border-top:1px dashed #eee;margin:16px 0;}
       .scan-note{font-size:10px;color:#bbb;}

@@ -2,10 +2,9 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Trip Planner — EVENTURUS</title>
 <meta name="description" content="Discover where to go in China. Browse destinations by interest, season and trip length. Curated by EVENTURUS.">
   <!-- Open Graph -->
@@ -21,7 +20,7 @@
   <meta name="twitter:image" content="https://eventurus.cn/og-trip-planner.png">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="China Trip Planner — EVENTURUS">
   <meta name="twitter:description" content="Plan your China trip by destination, season, and interests. Interactive trip planning tool.">
 
@@ -45,12 +44,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 .section h2{font-size:18px;font-weight:600;margin-bottom:12px}
 .section h2 span{color:var(--c-brand)}
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.filter-btn{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:8px 16px;font-size:13px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.filter-btn{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:8px 16px;font-size:13px;cursor:pointer;transition:all .15s;white-space:nowrap;font-family:inherit;min-height:44px}
 .filter-btn:hover{border-color:var(--c-brand)}
 .filter-btn.on{border-color:var(--c-brand);background:#F0F6EC;color:var(--c-brand);font-weight:600}
 .filter-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .filter-row .label{font-size:13px;color:var(--c-muted);white-space:nowrap;min-width:60px}
-.day-pill{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:6px 14px;font-size:13px;cursor:pointer;transition:all .15s}
+.day-pill{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:6px 14px;font-size:13px;cursor:pointer;transition:all .15s;font-family:inherit;min-height:44px}
 .day-pill:hover{border-color:var(--c-brand)}
 .day-pill.on{border-color:var(--c-brand);background:#F0F6EC;color:var(--c-brand);font-weight:600}
 .city-pill{background:var(--c-surface);border:2px solid var(--c-border);border-radius:50px;padding:6px 12px;font-size:12px;cursor:pointer;transition:all .15s}
@@ -421,16 +420,16 @@ var selTags=[], selDays=null, selSeason="all";
 function renderFilters(){
   var h='';
   interests.forEach(function(t){
-    h+='<div class="filter-btn'+(selTags.indexOf(t.id)>=0?' on':'')+'" onclick="toggleTag(\''+t.id+'\')">'+t.emoji+' '+t.label+'</div>';
+    h+='<button type="button" class="filter-btn'+(selTags.indexOf(t.id)>=0?' on':'')+'" aria-pressed="'+(selTags.indexOf(t.id)>=0?'true':'false')+'" onclick="toggleTag(\''+t.id+'\')">'+t.emoji+' '+t.label+'</button>';
   });
   document.getElementById('tagBar').innerHTML=h;
   h='';
-  for(var i=2;i<=7;i++){h+='<div class="day-pill'+(selDays===i?' on':'')+'" onclick="toggleDays('+i+')">'+i+'d</div>';}
-  h+='<div class="day-pill'+(selDays===null?' on':'')+'" onclick="toggleDays(null)">Any</div>';
+  for(var i=2;i<=7;i++){h+='<button type="button" class="day-pill'+(selDays===i?' on':'')+'" onclick="toggleDays('+i+')">'+i+'d</button>';}
+  h+='<button type="button" class="day-pill'+(selDays===null?' on':'')+'" onclick="toggleDays(null)">Any</button>';
   document.getElementById('dayBar').innerHTML=h;
   h='';
   seasons.forEach(function(s){
-    h+='<div class="day-pill'+(selSeason===s.id?' on':'')+'" onclick="selectSeason(\''+s.id+'\')">'+s.emoji+' '+s.label+'</div>';
+    h+='<button type="button" class="day-pill'+(selSeason===s.id?' on':'')+'" aria-pressed="'+(selSeason===s.id?'true':'false')+'" onclick="selectSeason(\''+s.id+'\')">'+s.emoji+' '+s.label+'</button>';
   });
   document.getElementById('seasonBar').innerHTML=h;
 }
@@ -483,10 +482,10 @@ function renderResults(){
 
 renderFilters();renderResults();
 </script>
-<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
-<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#6D716A;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'">赣ICP备2026012265号-1</a>
 <span style="margin:0 8px;color:#d0d0d0;">·</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>

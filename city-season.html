@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>China City Season & Weather Guide — EVENTURUS</title>
   <!-- Open Graph -->
   <meta property="og:title" content="China City Season & Weather Guide — EVENTURUS">
@@ -17,7 +19,7 @@
   <meta name="twitter:image" content="https://eventurus.cn/og-city-season.png">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="China City Season & Weather Guide — EVENTURUS">
   <meta name="twitter:description" content="Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.">
 
@@ -25,9 +27,6 @@
   <link rel="canonical" href="https://eventurus.cn/city-season.html">
 
 <meta name="description" content="Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5;
@@ -51,7 +50,7 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 /* Filters */
 .filter-bar { display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; }
 .filter-bar input, .filter-bar select {
-  padding:10px 16px; border:1px solid var(--color-border); border-radius:8px; font-size:14px; background:var(--color-surface); font-family:inherit;
+  padding:10px 16px;border:1px solid var(--color-border);border-radius:8px;font-size:16px;min-height:44px;background:var(--color-surface);font-family:inherit;
 }
 .filter-bar input { flex:1; min-width:200px; }
 .filter-bar select { width:auto; }
@@ -68,6 +67,7 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .city-card-header {
   padding:14px 16px; display:flex; justify-content:space-between; align-items:center;
   border-bottom:1px solid var(--color-border);
+  width:100%; font-family:inherit; font-size:inherit; background:none; cursor:pointer; text-align:left;
 }
 .city-name { font-size:17px; font-weight:600; }
 .city-name-cn { font-size:13px; color:var(--color-muted); margin-left:6px; }
@@ -222,8 +222,8 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <h2>Browse by City</h2>
 
 <div class="filter-bar">
-  <input type="text" id="search" placeholder="Search city..." oninput="filterCities()">
-  <select id="seasonFilter" onchange="filterCities()">
+  <input type="text" id="search" aria-label="Search city" placeholder="Search city..." oninput="filterCities()">
+  <select id="seasonFilter" aria-label="Filter by season" onchange="filterCities()">
     <option value="">All seasons</option>
     <option value="spring">Spring (Mar–May)</option>
     <option value="summer">Summer (Jun–Aug)</option>
@@ -596,7 +596,7 @@ const CITIES = [
     transit:"Shenzhen"}
 ];
 
-function renderCity(city) {
+function renderCity(city,idx) {
   const months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
   const maxTemp = Math.max(...city.monthly.map(m => m.t));
   const minTemp = Math.min(...city.monthly.map(m => m.t));
@@ -611,7 +611,7 @@ function renderCity(city) {
   div.setAttribute('data-season', city.best);
 
   div.innerHTML = `
-    <div class="city-card-header" onclick="toggleCity(this)">
+    <button type="button" class="city-card-header" onclick="toggleCity(this)" aria-expanded="false" aria-controls="city-body-${idx}">
       <div>
         <span class="city-name">${city.name}</span>
         <span class="city-name-cn">${city.cn}</span>
@@ -619,8 +619,8 @@ function renderCity(city) {
       <div>
         <span class="city-tag ${seasonTagClass}">Best: ${seasonName}</span>
       </div>
-    </div>
-    <div class="city-card-body">
+    </button>
+    <div class="city-card-body" id="city-body-${idx}">
       <div class="month-bars">
         ${city.monthly.map((m,i) => {
           const h = ((m.t - minTemp) / range) * 40 + 8;
@@ -663,6 +663,7 @@ function renderCity(city) {
 function toggleCity(header) {
   const card = header.parentElement;
   card.classList.toggle('expanded');
+  header.setAttribute('aria-expanded', card.classList.contains('expanded'));
 }
 
 function filterCities() {
@@ -679,17 +680,17 @@ function filterCities() {
 }
 
 // Init
-CITIES.forEach(renderCity);
+CITIES.forEach((city,i)=>renderCity(city,i));
 
 // Fix Changsha typo
 document.querySelector('[data-name="changsha"]')?.setAttribute('data-name','changsha');
 </script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
 
-<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
-<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#6D716A;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'">赣ICP备2026012265号-1</a>
 <span style="margin:0 8px;color:#d0d0d0;">·</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
 <script src="assets/contact/contact-widget.js"></script>

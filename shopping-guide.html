@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Shopping on Taobao, JD &amp; Pinduoduo — EVENTURUS</title>
   <!-- Open Graph -->
   <meta property="og:title" content="Shopping on Taobao, JD &amp; Pinduoduo — EVENTURUS">
@@ -17,7 +19,7 @@
   <meta name="twitter:image" content="https://eventurus.cn/og-shopping-guide.png">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shopping on Taobao, JD &amp; Pinduoduo — EVENTURUS">
   <meta name="twitter:description" content="How to shop on China's three biggest e-commerce platforms as a foreigner. Registration, payment, shipping, and how to avoid getting scammed.">
 
@@ -25,9 +27,6 @@
   <link rel="canonical" href="https://eventurus.cn/shopping-guide.html">
 
 <meta name="description" content="How to shop on China's three biggest e-commerce platforms as a foreigner. Registration, payment, shipping, and how to avoid getting scammed.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5; --color-brand-dark: #4A5C46; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -98,7 +97,7 @@ ol.steps li .step-num { position:absolute; left:0; top:10px; width:26px; height:
 .accordion { margin-top:8px; border:1px solid var(--color-border); border-radius:var(--radius); overflow:hidden; background:var(--color-surface); }
 .acc-item { border-bottom:1px solid #EDEDEB; }
 .acc-item:last-child { border-bottom:none; }
-.acc-header { display:flex; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; font-size:14px; font-weight:600; color:var(--color-text); transition:background .2s, color .2s; background:#FAFAF8; }
+.acc-header { display:flex; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; font-size:14px; font-weight:600; color:var(--color-text); transition:background .2s, color .2s; background:#FAFAF8; font-family:inherit; width:100%; border:none; text-align:left; }
 .acc-header:hover { background:#F4F4F0; color:var(--color-brand); }
 .acc-header .acc-icon { flex-shrink:0; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; transition:background .2s, color .2s; }
 .acc-header .acc-num { background:var(--color-brand-light); color:#3B6D11; }
@@ -370,27 +369,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     <h3>Step-by-step registration</h3>
     <div class="accordion" id="reg-accordion">
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-num">1</span><span>Download the app</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-num">1</span><span>Download the app</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Search <strong>淘宝</strong> (Taobao), <strong>京东</strong> (JD), or <strong>拼多多</strong> (Pinduoduo) in your phone's app store. All three are on iOS and Android.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-num">2</span><span>Tap 注册 (Register)</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-num">2</span><span>Tap 注册 (Register)</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>This is usually on the first screen. Enter your Chinese phone number, then enter the SMS verification code you receive.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-num">3</span><span>Set a password</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-num">3</span><span>Set a password</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>6 to 20 characters, must include letters and numbers. Write it down.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-num">4</span><span>Real-name verification</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-num">4</span><span>Real-name verification</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Go to <strong>我的</strong> (My/Me) &#8594; <strong>设置</strong> (Settings) &#8594; <strong>账户与安全</strong> (Account Security) &#8594; <strong>实名认证</strong> (Real-Name Verification).</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-num">5</span><span>Select 护照 (Passport)</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-num">5</span><span>Select 护照 (Passport)</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Upload a clear photo of your passport photo page. Some platforms also ask for a selfie holding your passport.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-num">6</span><span>Wait for approval</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-num">6</span><span>Wait for approval</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Usually takes 1 to 24 hours. You will receive an SMS when approved.</p></div>
       </div>
     </div>
@@ -476,27 +475,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     <h3>How to read a product page</h3>
     <div class="accordion" id="product-accordion">
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Price</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Price</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>The first number you see is the listed price — usually the cheapest variant. The actual price changes when you select a <strong>颜色分类</strong> (colour/type) or <strong>规格</strong> (specification). A phone case might show &yen;5, but when you select "iPhone 16 Pro" it becomes &yen;25.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Sales volume</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Sales volume</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p><strong>月销</strong> = monthly sales. <strong>累计销量</strong> = total sales since listing. Higher numbers = more reliable.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Seller rating</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Seller rating</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Look for crown (皇冠) or diamond (钻石) badges — these indicate high-volume, established sellers. <strong>天猫</strong> (Tmall) sellers on Taobao are verified businesses with stricter quality controls. JD sellers with the <strong>京东自营</strong> (JD Self-Operated) badge are the most trustworthy.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Reviews (评价)</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Reviews (评价)</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Filter by <strong>有图</strong> (with photos) to see real customer shots. These are the most honest representation of what you will receive. Ignore reviews with only text — the photos tell the real story.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Shipping</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Shipping</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p><strong>运费</strong> = shipping fee. Most items ship free (包邮). Look for <strong>24h/48h</strong> dispatch tags — these sellers ship within 24 or 48 hours of your order.</p></div>
       </div>
       <div class="acc-item">
-        <div class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Location (发货地)</span><span class="acc-arrow">&#8964;</span></div>
+        <button type="button" class="acc-header"><span class="acc-icon acc-check">&#10003;</span><span>Location (发货地)</span><span class="acc-arrow">&#8964;</span></button>
         <div class="acc-body"><p>Where the seller dispatches from. Closer to you = faster delivery. Guangdong and Zhejiang are the two major manufacturing and shipping hubs.</p></div>
       </div>
     </div>
@@ -721,10 +720,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">&uarr;</button>
 
-<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
-<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#6D716A;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'">赣ICP备2026012265号-1</a>
 <span style="margin:0 8px;color:#d0d0d0;">&middot;</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
 <script>
@@ -737,13 +736,13 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
   /* Accordion toggle */
   document.querySelectorAll('.acc-header').forEach(function(header) {
+    header.setAttribute('aria-expanded','false');
     header.addEventListener('click', function() {
       var item = this.parentElement;
       var isActive = item.classList.contains('active');
-      /* Optional: close siblings in same accordion */
       var siblings = item.parentElement.querySelectorAll('.acc-item');
-      siblings.forEach(function(s) { s.classList.remove('active'); });
-      if (!isActive) item.classList.add('active');
+      siblings.forEach(function(s) { s.classList.remove('active'); s.querySelector('.acc-header').setAttribute('aria-expanded','false'); });
+      if (!isActive) { item.classList.add('active'); this.setAttribute('aria-expanded','true'); }
     });
   });
 })();
