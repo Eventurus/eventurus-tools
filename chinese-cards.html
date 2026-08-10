@@ -453,10 +453,18 @@ function filterCards(cat, btn) {
 function selectAllText() {
   // A more user-friendly approach: copy all cards text to clipboard
   const text = CARDS.map(c => c.zh + ' (' + c.en + ')').join('\n');
+  const btn = document.querySelector('.controls button:last-child');
+  if (!navigator.clipboard) {
+    btn.textContent = '\u2717 Clipboard unavailable';
+    setTimeout(() => btn.textContent = '\uD83D\uDCCB Select all', 2000);
+    return;
+  }
   navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector('.controls button:last-child');
-    btn.textContent = '&#10003; Copied!';
-    setTimeout(() => btn.textContent = '&#128203; Select all', 2000);
+    btn.textContent = '\u2713 Copied!';
+    setTimeout(() => btn.textContent = '\uD83D\uDCCB Select all', 2000);
+  }).catch(() => {
+    btn.textContent = '\u2717 Copy failed';
+    setTimeout(() => btn.textContent = '\uD83D\uDCCB Select all', 2000);
   });
 }
 
@@ -467,7 +475,7 @@ renderCards('all');
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 <span style="margin:0 8px;color:#d0d0d0;">·</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="https://beian.mps.gov.cn/img/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
 <script src="assets/contact/contact-widget.js"></script>

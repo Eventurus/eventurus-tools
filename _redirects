@@ -1,0 +1,14 @@
+# eventurus.cn redirects
+# Supported by: Cloudflare Pages, Netlify, Vercel, Render, etc.
+# NOT supported by bare GitHub Pages — requires a CDN/edge layer in front.
+# Without a CDN, the meta-refresh in payment-setup.html / taxi-guide.html is the fallback.
+
+/  /  301
+
+# ===== Recommended additions =====
+# These URLs already use meta-refresh + noindex in their HTML fallback.
+# Uncomment when a CDN (Cloudflare/Netlify/Vercel) is placed in front of GitHub Pages:
+
+# /index.html            /                        301
+# /payment-setup.html    /payment-guide.html      301
+# /taxi-guide.html       /didi-guide.html         301

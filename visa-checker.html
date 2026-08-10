@@ -61,6 +61,7 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .opt {
   padding:14px 18px; border:2px solid var(--color-border); border-radius:8px; cursor:pointer; font-size:15px; transition:all .2s;
   background:var(--color-surface); text-align:left; display:flex; align-items:center; gap:12px;
+  font-family: inherit; width: 100%;
 }
 .opt:hover { border-color:var(--color-brand); background:#F5F9F3; }
 .opt.selected { border-color:var(--color-brand); background:#EAF3DE; font-weight:600; }
@@ -129,51 +130,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "China Visa Checker \u2014 EVENTURUS",
-  "description": "Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.",
-  "url": "https://eventurus.cn/visa-checker.html",
-  "inLanguage": "en-GB",
-  "publisher": {
-    "@type": "Organization",
-    "name": "EVENTURUS",
-    "url": "https://eventurus.cn/",
-    "description": "China travel intelligence for international visitors."
-  }
-}
-  </script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "EVENTURUS Tools",
-      "item": "https://eventurus.cn/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Visa Eligibility Checker",
-      "item": "https://eventurus.cn/visa-checker.html"
-    }
-  ]
-}
-  </script>
-<script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
-<link rel="stylesheet" href="assets/contact/contact-widget.css">
-
-<!-- SEO structured data + keywords -->
-<link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/visa-checker.html">
-<link rel="alternate" hreflang="x-default" href="https://eventurus.cn/visa-checker.html">
-<meta name="keywords" content="China travel tool, interactive China guide, travel planning, EVENTURUS tools">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "China Visa Checker - EVENTURUS",
+  "name": "China Visa Checker — EVENTURUS",
   "description": "Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.",
   "url": "https://eventurus.cn/visa-checker.html",
   "applicationCategory": "TravelApplication",
@@ -183,13 +140,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     "price": "0",
     "priceCurrency": "USD"
   },
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EVENTURUS",
+    "url": "https://eventurus.cn/",
+    "description": "China travel intelligence for international visitors."
+  },
   "author": {
     "@type": "Organization",
     "name": "EVENTURUS",
     "url": "https://eventurus.cn"
   }
 }
-</script>
+  </script>
+<script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<link rel="stylesheet" href="assets/contact/contact-widget.css">
+
+<!-- SEO hreflang + keywords -->
+<link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/visa-checker.html">
+<link rel="alternate" hreflang="x-default" href="https://eventurus.cn/visa-checker.html">
+<meta name="keywords" content="China travel tool, interactive China guide, travel planning, EVENTURUS tools">
 </head>
 <body>
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
@@ -310,7 +281,7 @@ function renderOptions(containerId, items, mapper, stateKey) {
   c.innerHTML = items.map(item => {
     const data = mapper(item);
     const flag = data.flag ? `<span class="flag">${data.flag}</span>` : '';
-    return `<div class="opt" onclick="selectOpt('${stateKey}','${data.id}','${containerId}',this)">${flag}${data.label}</div>`;
+    return `<button type="button" class="opt" onclick="selectOpt('${stateKey}','${data.id}','${containerId}',this)">${flag}${data.label}</button>`;
   }).join('');
 }
 
@@ -318,8 +289,18 @@ function selectOpt(key, val, containerId, selectedEl) {
   state[key] = val;
   document.querySelectorAll(`#${containerId} .opt`).forEach(el => el.classList.remove('selected'));
   selectedEl.classList.add('selected');
-  if (key === 'nationality') { goStep(2); document.getElementById('q2').classList.add('active'); scrollTo(0,0); }
-  else if (key === 'purpose') { goStep(3); document.getElementById('q3').classList.add('active'); scrollTo(0,0); }
+  if (key === 'nationality') {
+    document.getElementById('q1').classList.remove('active');
+    goStep(2);
+    document.getElementById('q2').classList.add('active');
+    scrollTo(0,0);
+  }
+  else if (key === 'purpose') {
+    document.getElementById('q2').classList.remove('active');
+    goStep(3);
+    document.getElementById('q3').classList.add('active');
+    scrollTo(0,0);
+  }
   else if (key === 'duration') { showResult(); }
 }
 
@@ -419,6 +400,8 @@ function showResult() {
   document.getElementById('result-badge').className = 'result-badge ' + badgeClass;
   document.getElementById('result-details').innerHTML = details;
   document.getElementById('result').classList.add('show');
+  document.getElementById('q1').classList.remove('active');
+  document.getElementById('q2').classList.remove('active');
   document.getElementById('q3').classList.remove('active');
   goStep(3);
   scrollTo(0, document.getElementById('result').offsetTop - 20);
@@ -441,7 +424,7 @@ init();
 <footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#999;line-height:1.8;margin-top:40px;">
 <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'">赣ICP备2026012265号-1</a>
 <span style="margin:0 8px;color:#d0d0d0;">·</span>
-<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="https://beian.mps.gov.cn/img/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#999'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
 <script src="assets/contact/contact-widget.js"></script>
