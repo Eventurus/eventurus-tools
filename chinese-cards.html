@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235A6E55'/%3E%3Cpath d='M20 16h28v8H29v8h17v8H29v8h19v8H20z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Chinese To-Go Cards — EVENTURUS</title>
+<title>Chinese To-Go Cards - EVENTURUS</title>
   <!-- Open Graph -->
-  <meta property="og:title" content="Chinese To-Go Cards — EVENTURUS">
+  <meta property="og:title" content="Chinese To-Go Cards - EVENTURUS">
   <meta property="og:description" content="Printable Chinese-English phrase cards for travellers in China. Essential phrases for taxis, restaurants, hotels and emergencies.">
   <meta property="og:url" content="https://eventurus.cn/chinese-cards.html">
   <meta property="og:type" content="website">
@@ -20,7 +21,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chinese To-Go Cards — EVENTURUS">
+  <meta name="twitter:title" content="Chinese To-Go Cards - EVENTURUS">
   <meta name="twitter:description" content="Printable Chinese-English phrase cards for travellers in China. Essential phrases for taxis, restaurants, hotels and emergencies.">
 
   <!-- Canonical -->
@@ -264,12 +265,14 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
-</style>  <!-- Structured Data -->
+</style>
+<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
+<!-- Structured Data -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Chinese To-Go Cards \u2014 EVENTURUS",
+  "name": "Chinese To-Go Cards - EVENTURUS",
   "description": "Printable Chinese-English phrase cards for travellers in China. Essential phrases for taxis, restaurants, hotels and emergencies.",
   "url": "https://eventurus.cn/chinese-cards.html",
   "inLanguage": "en-GB",
@@ -313,7 +316,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Chinese To-Go Cards — EVENTURUS",
+  "headline": "Chinese To-Go Cards - EVENTURUS",
   "description": "Printable Chinese-English phrase cards for travellers in China. Essential phrases for taxis, restaurants, hotels and emergencies.",
   "url": "https://eventurus.cn/chinese-cards.html",
   "dateModified": "2026-08-08",
@@ -332,10 +335,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 }
 </script>
 </head>
-<body>
+<body class="evt-v2 evt-cards">
 
 <div class="brand-bar">
-  <a href="/" class="brand">EVENT<em>URUS</em></a>
+  <a href="index.html" class="brand">EVENT<em>URUS</em></a>
   <div class="tagline">China, Vetted.</div>
 </div>
 
@@ -365,12 +368,12 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="card-grid" id="cardGrid"></div>
 
 <div class="cross-link"><p>Related: <a href="dining-guide.html">Dining Guide</a> · <a href="didi-guide.html">Didi Guide</a></p></div>
-<div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="didi-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Didi & Taxi Guide</span><span class="rel-desc">Show the driver your hotel address</span></span></a><a class="rel-item" href="menu-translator.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Menu Translator</span><span class="rel-desc">Point to dishes instead of speaking</span></span></a></div></div>
+<div class="related-tools"><h2>Related Tools</h2><div class="rel-list"><a class="rel-item" href="didi-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Didi & Taxi Guide</span><span class="rel-desc">Show the driver your hotel address</span></span></a><a class="rel-item" href="menu-translator.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Menu Translator</span><span class="rel-desc">Point to dishes instead of speaking</span></span></a></div></div>
 
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated August 2026</div>
 <div class="site-footer">
   <div class="brand-foot">EVENTURUS &middot; VETTED</div>
-  <div>China, Vetted. &mdash; <a href="https://eventurus.cn">eventurus.cn</a></div>
+  <div>China, Vetted. - <a href="https://eventurus.cn">eventurus.cn</a></div>
 </div>
 
 </div>
@@ -438,7 +441,7 @@ function renderCards(filter) {
       <div class="icon">${c.icon}</div>
       <div class="zh">${c.zh}</div>
       <div class="pinyin">${c.pinyin}</div>
-      <div class="en">${c.en}${c.note ? ' <em>&mdash; ' + c.note + '</em>' : ''}</div>
+      <div class="en">${c.en}${c.note ? ' <em> -  ' + c.note + '</em>' : ''}</div>
     </div>
   `).join('');
 }
@@ -477,6 +480,7 @@ renderCards('all');
 <a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
-<script src="assets/contact/contact-widget.js"></script>
+<script src="assets/editorial-tools-v2.js?v=20260811"></script>
+<script src="assets/contact/contact-widget.js?v=20260811"></script>
 </body>
 </html>

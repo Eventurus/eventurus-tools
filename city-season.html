@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235A6E55'/%3E%3Cpath d='M20 16h28v8H29v8h17v8H29v8h19v8H20z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>China City Season & Weather Guide — EVENTURUS</title>
+<title>China City Season & Weather Guide - EVENTURUS</title>
   <!-- Open Graph -->
-  <meta property="og:title" content="China City Season & Weather Guide — EVENTURUS">
+  <meta property="og:title" content="China City Season & Weather Guide - EVENTURUS">
   <meta property="og:description" content="Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.">
   <meta property="og:url" content="https://eventurus.cn/city-season.html">
   <meta property="og:type" content="website">
@@ -20,7 +21,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="China City Season & Weather Guide — EVENTURUS">
+  <meta name="twitter:title" content="China City Season & Weather Guide - EVENTURUS">
   <meta name="twitter:description" content="Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.">
 
   <!-- Canonical -->
@@ -150,12 +151,14 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
-</style>  <!-- Structured Data -->
+</style>
+<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
+<!-- Structured Data -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "China City Season & Weather Guide \u2014 EVENTURUS",
+  "name": "China City Season & Weather Guide - EVENTURUS",
   "description": "Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.",
   "url": "https://eventurus.cn/city-season.html",
   "inLanguage": "en-GB",
@@ -199,7 +202,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "China City Season & Weather Guide — EVENTURUS",
+  "name": "China City Season & Weather Guide - EVENTURUS",
   "description": "Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.",
   "url": "https://eventurus.cn/city-season.html",
   "author": {
@@ -210,7 +213,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 }
 </script>
 </head>
-<body>
+<body class="evt-v2 evt-directory">
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
@@ -225,10 +228,10 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <input type="text" id="search" aria-label="Search city" placeholder="Search city..." oninput="filterCities()">
   <select id="seasonFilter" aria-label="Filter by season" onchange="filterCities()">
     <option value="">All seasons</option>
-    <option value="spring">Spring (Mar–May)</option>
-    <option value="summer">Summer (Jun–Aug)</option>
-    <option value="autumn">Autumn (Sep–Nov)</option>
-    <option value="winter">Winter (Dec–Feb)</option>
+    <option value="spring">Spring (Mar - May)</option>
+    <option value="summer">Summer (Jun - Aug)</option>
+    <option value="autumn">Autumn (Sep - Nov)</option>
+    <option value="winter">Winter (Dec - Feb)</option>
   </select>
 </div>
 
@@ -243,7 +246,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated August 2026</div>
 <div class="footer">
   <div class="brand-foot">EVENTURUS · VETTED</div>
-  <div>China, Vetted. — <a href="index.html">All Tools</a></div>
+  <div>China, Vetted. - <a href="index.html">All Tools</a></div>
 <div class="cross-link"><p>Related: <a href="transit-matrix.html">China City Transit Matrix</a> · <a href="packing-checklist.html">Packing Checklist</a></p></div>
 
 </div>
@@ -259,7 +262,7 @@ const CITIES = [
       {t:29,aqi:85,rain:140,season:"summer"},{t:28,aqi:80,rain:120,season:"summer"},
       {t:23,aqi:70,rain:50,season:"autumn"},{t:15,aqi:80,rain:20,season:"autumn"},
       {t:6,aqi:95,rain:8,season:"autumn"},{t:-1,aqi:115,rain:3,season:"winter"}
-    ],note:"Best Sep–Oct. Spring dust storms. AQI worst in winter.",
+    ],note:"Best Sep - Oct. Spring dust storms. AQI worst in winter.",
     transit:"Beijing"},{name:"Shanghai",cn:"上海",province:"Shanghai",region:"East",best:"autumn",
     monthly:[
       {t:5,aqi:70,rain:50,season:"winter"},{t:6,aqi:65,rain:60,season:"winter"},
@@ -268,7 +271,7 @@ const CITIES = [
       {t:30,aqi:55,rain:150,season:"summer"},{t:30,aqi:50,rain:160,season:"summer"},
       {t:26,aqi:50,rain:100,season:"autumn"},{t:20,aqi:55,rain:60,season:"autumn"},
       {t:14,aqi:60,rain:50,season:"autumn"},{t:8,aqi:70,rain:40,season:"winter"}
-    ],note:"Best Oct–Nov. Plum rains in Jun. Hot & humid Jul–Aug.",
+    ],note:"Best Oct - Nov. Plum rains in Jun. Hot & humid Jul - Aug.",
     transit:"Shanghai"},{name:"Guangzhou",cn:"广州",province:"Guangdong",region:"South",best:"spring",
     monthly:[
       {t:14,aqi:65,rain:40,season:"winter"},{t:15,aqi:60,rain:60,season:"winter"},
@@ -277,7 +280,7 @@ const CITIES = [
       {t:30,aqi:35,rain:210,season:"summer"},{t:30,aqi:35,rain:230,season:"summer"},
       {t:29,aqi:40,rain:180,season:"autumn"},{t:25,aqi:50,rain:80,season:"autumn"},
       {t:20,aqi:55,rain:40,season:"autumn"},{t:15,aqi:65,rain:30,season:"winter"}
-    ],note:"Best Nov–Apr. Hot & humid May–Oct. Typhoon risk Jul–Sep.",
+    ],note:"Best Nov - Apr. Hot & humid May - Oct. Typhoon risk Jul - Sep.",
     transit:"Guangzhou"},{name:"Shenzhen",cn:"深圳",province:"Guangdong",region:"South",best:"spring",
     monthly:[
       {t:15,aqi:55,rain:30,season:"winter"},{t:16,aqi:50,rain:45,season:"winter"},
@@ -286,7 +289,7 @@ const CITIES = [
       {t:31,aqi:30,rain:280,season:"summer"},{t:31,aqi:30,rain:310,season:"summer"},
       {t:29,aqi:35,rain:210,season:"autumn"},{t:26,aqi:40,rain:70,season:"autumn"},
       {t:21,aqi:45,rain:40,season:"autumn"},{t:16,aqi:50,rain:30,season:"winter"}
-    ],note:"Best Nov–Apr. Similar to Guangzhou but greener.",
+    ],note:"Best Nov - Apr. Similar to Guangzhou but greener.",
     transit:"Shenzhen"},{name:"Chengdu",cn:"成都",province:"Sichuan",region:"Southwest",best:"spring",
     monthly:[
       {t:6,aqi:110,rain:10,season:"winter"},{t:8,aqi:105,rain:15,season:"winter"},
@@ -295,7 +298,7 @@ const CITIES = [
       {t:27,aqi:70,rain:175,season:"summer"},{t:26,aqi:70,rain:160,season:"summer"},
       {t:22,aqi:75,rain:110,season:"autumn"},{t:17,aqi:85,rain:45,season:"autumn"},
       {t:12,aqi:100,rain:20,season:"autumn"},{t:7,aqi:115,rain:10,season:"winter"}
-    ],note:"Famous for overcast skies. Best Mar–May & Sep–Oct. AQI worse in winter.",
+    ],note:"Famous for overcast skies. Best Mar - May & Sep - Oct. AQI worse in winter.",
     transit:"Chengdu"},{name:"Xi'an",cn:"西安",province:"Shaanxi",region:"Northwest",best:"autumn",
     monthly:[
       {t:-1,aqi:125,rain:5,season:"winter"},{t:3,aqi:120,rain:10,season:"winter"},
@@ -304,7 +307,7 @@ const CITIES = [
       {t:28,aqi:80,rain:85,season:"summer"},{t:27,aqi:75,rain:75,season:"summer"},
       {t:22,aqi:70,rain:70,season:"autumn"},{t:16,aqi:85,rain:50,season:"autumn"},
       {t:8,aqi:105,rain:20,season:"autumn"},{t:1,aqi:125,rain:5,season:"winter"}
-    ],note:"Sep–Oct is perfect. Spring can be dusty. Winter AQI is rough.",
+    ],note:"Sep - Oct is perfect. Spring can be dusty. Winter AQI is rough.",
     transit:"Xi'an"},{name:"Hangzhou",cn:"杭州",province:"Zhejiang",region:"East",best:"autumn",
     monthly:[
       {t:5,aqi:75,rain:45,season:"winter"},{t:6,aqi:70,rain:55,season:"winter"},
@@ -313,7 +316,7 @@ const CITIES = [
       {t:30,aqi:55,rain:150,season:"summer"},{t:29,aqi:50,rain:140,season:"summer"},
       {t:25,aqi:50,rain:110,season:"autumn"},{t:20,aqi:55,rain:65,season:"autumn"},
       {t:14,aqi:65,rain:50,season:"autumn"},{t:8,aqi:75,rain:40,season:"winter"}
-    ],note:"West Lake at its best Sep–Nov. Plum rain in Jun. Hot Jul–Aug.",
+    ],note:"West Lake at its best Sep - Nov. Plum rain in Jun. Hot Jul - Aug.",
     transit:"Hangzhou"},{name:"Nanjing",cn:"南京",province:"Jiangsu",region:"East",best:"autumn",
     monthly:[
       {t:3,aqi:85,rain:35,season:"winter"},{t:5,aqi:80,rain:45,season:"winter"},
@@ -322,7 +325,7 @@ const CITIES = [
       {t:29,aqi:60,rain:180,season:"summer"},{t:29,aqi:55,rain:140,season:"summer"},
       {t:24,aqi:55,rain:85,season:"autumn"},{t:18,aqi:65,rain:55,season:"autumn"},
       {t:11,aqi:75,rain:45,season:"autumn"},{t:5,aqi:85,rain:30,season:"winter"}
-    ],note:"One of China's 'Three Furnaces'. Visit Mar–May or Sep–Nov.",
+    ],note:"One of China's 'Three Furnaces'. Visit Mar - May or Sep - Nov.",
     transit:"Nanjing"},{name:"Suzhou",cn:"苏州",province:"Jiangsu",region:"East",best:"spring",
     monthly:[
       {t:4,aqi:80,rain:40,season:"winter"},{t:6,aqi:75,rain:50,season:"winter"},
@@ -331,7 +334,7 @@ const CITIES = [
       {t:30,aqi:55,rain:140,season:"summer"},{t:29,aqi:50,rain:130,season:"summer"},
       {t:25,aqi:50,rain:100,season:"autumn"},{t:19,aqi:60,rain:60,season:"autumn"},
       {t:13,aqi:70,rain:45,season:"autumn"},{t:7,aqi:80,rain:35,season:"winter"}
-    ],note:"Classic gardens at peak Apr–May & Sep–Oct. Near Shanghai.",
+    ],note:"Classic gardens at peak Apr - May & Sep - Oct. Near Shanghai.",
     transit:"Shanghai"},{name:"Guilin",cn:"桂林",province:"Guangxi",region:"South",best:"spring",
     monthly:[
       {t:8,aqi:65,rain:45,season:"winter"},{t:10,aqi:60,rain:65,season:"winter"},
@@ -340,7 +343,7 @@ const CITIES = [
       {t:29,aqi:35,rain:210,season:"summer"},{t:29,aqi:35,rain:190,season:"summer"},
       {t:26,aqi:40,rain:100,season:"autumn"},{t:22,aqi:50,rain:70,season:"autumn"},
       {t:16,aqi:55,rain:55,season:"autumn"},{t:10,aqi:65,rain:40,season:"winter"}
-    ],note:"Li River cruise best Apr–Oct. Sep–Oct is sweet spot.",
+    ],note:"Li River cruise best Apr - Oct. Sep - Oct is sweet spot.",
     transit:"Guilin"},{name:"Kunming",cn:"昆明",province:"Yunnan",region:"Southwest",best:"spring",
     monthly:[
       {t:10,aqi:55,rain:15,season:"winter"},{t:12,aqi:50,rain:20,season:"winter"},
@@ -358,7 +361,7 @@ const CITIES = [
       {t:19,aqi:30,rain:200,season:"summer"},{t:19,aqi:30,rain:190,season:"summer"},
       {t:17,aqi:30,rain:120,season:"autumn"},{t:15,aqi:35,rain:50,season:"autumn"},
       {t:11,aqi:38,rain:15,season:"autumn"},{t:7,aqi:40,rain:5,season:"winter"}
-    ],note:"Best Mar–May & Sep–Oct. Cool even in summer. Low AQI year-round.",
+    ],note:"Best Mar - May & Sep - Oct. Cool even in summer. Low AQI year-round.",
     transit:"Kunming"},{name:"Chengde",cn:"承德",province:"Hebei",region:"North",best:"summer",
     monthly:[
       {t:-7,aqi:100,rain:3,season:"winter"},{t:-3,aqi:95,rain:5,season:"winter"},
@@ -367,7 +370,7 @@ const CITIES = [
       {t:27,aqi:75,rain:130,season:"summer"},{t:26,aqi:70,rain:110,season:"summer"},
       {t:21,aqi:65,rain:45,season:"autumn"},{t:13,aqi:75,rain:20,season:"autumn"},
       {t:4,aqi:90,rain:8,season:"autumn"},{t:-4,aqi:105,rain:3,season:"winter"}
-    ],note:"Imperial summer retreat. Cooler than Beijing Jun–Aug.",
+    ],note:"Imperial summer retreat. Cooler than Beijing Jun - Aug.",
     transit:"Beijing"},{name:"Zhangjiajie",cn:"张家界",province:"Hunan",region:"Central",best:"spring",
     monthly:[
       {t:5,aqi:75,rain:30,season:"winter"},{t:7,aqi:70,rain:45,season:"winter"},
@@ -376,7 +379,7 @@ const CITIES = [
       {t:29,aqi:50,rain:170,season:"summer"},{t:28,aqi:50,rain:160,season:"summer"},
       {t:24,aqi:50,rain:100,season:"autumn"},{t:18,aqi:60,rain:80,season:"autumn"},
       {t:12,aqi:65,rain:50,season:"autumn"},{t:7,aqi:75,rain:30,season:"winter"}
-    ],note:"Misty pillar views best after rain Apr–Jun & Sep–Oct.",
+    ],note:"Misty pillar views best after rain Apr - Jun & Sep - Oct.",
     transit:"Changsha"},{name:"Sanya",cn:"三亚",province:"Hainan",region:"South",best:"winter",
     monthly:[
       {t:22,aqi:35,rain:10,season:"winter"},{t:23,aqi:30,rain:15,season:"winter"},
@@ -385,7 +388,7 @@ const CITIES = [
       {t:30,aqi:20,rain:190,season:"summer"},{t:30,aqi:20,rain:200,season:"summer"},
       {t:29,aqi:25,rain:210,season:"autumn"},{t:27,aqi:25,rain:170,season:"autumn"},
       {t:25,aqi:30,rain:50,season:"autumn"},{t:23,aqi:35,rain:15,season:"winter"}
-    ],note:"China's tropical beach escape. Best Nov–Mar. Typhoons Jul–Oct.",
+    ],note:"China's tropical beach escape. Best Nov - Mar. Typhoons Jul - Oct.",
     transit:"Sanya"},{name:"Chongqing",cn:"重庆",province:"Chongqing",region:"Southwest",best:"spring",
     monthly:[
       {t:8,aqi:100,rain:20,season:"winter"},{t:10,aqi:95,rain:25,season:"winter"},
@@ -394,7 +397,7 @@ const CITIES = [
       {t:29,aqi:65,rain:160,season:"summer"},{t:29,aqi:60,rain:140,season:"summer"},
       {t:25,aqi:65,rain:110,season:"autumn"},{t:19,aqi:75,rain:70,season:"autumn"},
       {t:14,aqi:85,rain:35,season:"autumn"},{t:9,aqi:100,rain:20,season:"winter"}
-    ],note:"Known for fog + spicy food. Mar–May & Sep–Oct are best. Brutal summer heat.",
+    ],note:"Known for fog + spicy food. Mar - May & Sep - Oct are best. Brutal summer heat.",
     transit:"Chongqing"},{name:"Wuhan",cn:"武汉",province:"Hubei",region:"Central",best:"autumn",
     monthly:[
       {t:5,aqi:95,rain:35,season:"winter"},{t:7,aqi:90,rain:50,season:"winter"},
@@ -403,7 +406,7 @@ const CITIES = [
       {t:30,aqi:65,rain:170,season:"summer"},{t:29,aqi:60,rain:140,season:"summer"},
       {t:25,aqi:60,rain:90,season:"autumn"},{t:19,aqi:70,rain:65,season:"autumn"},
       {t:13,aqi:80,rain:40,season:"autumn"},{t:7,aqi:95,rain:30,season:"winter"}
-    ],note:"One of 'Three Furnaces'. Visit Sep–Oct or Apr–May to avoid extremes.",
+    ],note:"One of 'Three Furnaces'. Visit Sep - Oct or Apr - May to avoid extremes.",
     transit:"Wuhan"},{name:"Changsha",cn:"长沙",province:"Hunan",region:"Central",best:"autumn",
     monthly:[
       {t:5,aqi:90,rain:45,season:"winter"},{t:7,aqi:85,rain:60,season:"winter"},
@@ -412,7 +415,7 @@ const CITIES = [
       {t:30,aqi:55,rain:150,season:"summer"},{t:29,aqi:50,rain:140,season:"summer"},
       {t:25,qi:55,rain:100,season:"autumn"},{t:19,aqi:65,rain:70,season:"autumn"},
       {t:13,aqi:75,rain:50,season:"autumn"},{t:7,aqi:90,rain:40,season:"winter"}
-    ],note:"Gateway to Zhangjiajie. Sep–Oct is mildest. Summer is hot.",
+    ],note:"Gateway to Zhangjiajie. Sep - Oct is mildest. Summer is hot.",
     transit:"Changsha"},{name:"Dali",cn:"大理",province:"Yunnan",region:"Southwest",best:"spring",
     monthly:[
       {t:9,aqi:40,rain:10,season:"winter"},{t:11,aqi:38,rain:15,season:"winter"},
@@ -421,7 +424,7 @@ const CITIES = [
       {t:21,aqi:28,rain:185,season:"summer"},{t:21,aqi:28,rain:190,season:"summer"},
       {t:19,aqi:30,rain:120,season:"autumn"},{t:17,aqi:35,rain:60,season:"autumn"},
       {t:13,aqi:38,rain:25,season:"autumn"},{t:9,aqi:40,rain:10,season:"winter"}
-    ],note:"Erhai Lake + Cangshan. Best Mar–May. Clear skies in winter.",
+    ],note:"Erhai Lake + Cangshan. Best Mar - May. Clear skies in winter.",
     transit:"Kunming"},{name:"Huangshan",cn:"黄山",province:"Anhui",region:"East",best:"autumn",
     monthly:[
       {t:0,aqi:55,rain:40,season:"winter"},{t:2,aqi:50,rain:55,season:"winter"},
@@ -430,7 +433,7 @@ const CITIES = [
       {t:25,aqi:38,rain:170,season:"summer"},{t:25,aqi:35,rain:160,season:"summer"},
       {t:20,aqi:35,rain:110,season:"autumn"},{t:14,aqi:40,rain:70,season:"autumn"},
       {t:8,aqi:45,rain:50,season:"autumn"},{t:2,aqi:55,rain:35,season:"winter"}
-    ],note:"Oct–Nov sea of clouds season. Mount Huangshan at its peak.",
+    ],note:"Oct - Nov sea of clouds season. Mount Huangshan at its peak.",
     transit:"Huangshan"},{name:"Harbin",cn:"哈尔滨",province:"Heilongjiang",region:"Northeast",best:"winter",
     monthly:[
       {t:-19,aqi:85,rain:5,season:"winter"},{t:-15,aqi:80,rain:5,season:"winter"},
@@ -439,7 +442,7 @@ const CITIES = [
       {t:24,aqi:55,rain:140,season:"summer"},{t:22,aqi:50,rain:110,season:"summer"},
       {t:15,aqi:50,rain:55,season:"autumn"},{t:6,aqi:60,rain:25,season:"autumn"},
       {t:-5,aqi:75,rain:10,season:"autumn"},{t:-15,aqi:85,rain:5,season:"winter"}
-    ],note:"Ice & Snow Festival Jan–Feb. Jul–Aug for mild summer escape.",
+    ],note:"Ice & Snow Festival Jan - Feb. Jul - Aug for mild summer escape.",
     transit:"Harbin"},{name:"Lhasa",cn:"拉萨",province:"Tibet",region:"West",best:"summer",
     monthly:[
       {t:-2,aqi:55,rain:1,season:"winter"},{t:1,aqi:50,rain:2,season:"winter"},
@@ -448,7 +451,7 @@ const CITIES = [
       {t:16,aqi:30,rain:110,season:"summer"},{t:15,aqi:30,rain:100,season:"summer"},
       {t:13,aqi:35,rain:60,season:"autumn"},{t:8,aqi:40,rain:10,season:"autumn"},
       {t:3,aqi:45,rain:3,season:"autumn"},{t:-1,aqi:55,rain:1,season:"winter"}
-    ],note:"High altitude (3650m). Best Jun–Sep. Low AQI year-round.",
+    ],note:"High altitude (3650m). Best Jun - Sep. Low AQI year-round.",
     transit:"Lhasa"},{name:"Urumqi",cn:"乌鲁木齐",province:"Xinjiang",region:"West",best:"autumn",
     monthly:[
       {t:-10,aqi:90,rain:10,season:"winter"},{t:-7,aqi:85,rain:10,season:"winter"},
@@ -457,7 +460,7 @@ const CITIES = [
       {t:26,aqi:60,rain:40,season:"summer"},{t:24,aqi:55,rain:35,season:"summer"},
       {t:18,aqi:55,rain:25,season:"autumn"},{t:10,aqi:65,rain:20,season:"autumn"},
       {t:1,aqi:80,rain:15,season:"autumn"},{t:-7,aqi:90,rain:10,season:"winter"}
-    ],note:"Gateway to Xinjiang. May–Sep best. Dry & hot summer. Cold winter.",
+    ],note:"Gateway to Xinjiang. May - Sep best. Dry & hot summer. Cold winter.",
     transit:"Urumqi"},{name:"Dunhuang",cn:"敦煌",province:"Gansu",region:"Northwest",best:"autumn",
     monthly:[
       {t:-8,aqi:80,rain:1,season:"winter"},{t:-3,aqi:75,rain:1,season:"winter"},
@@ -466,7 +469,7 @@ const CITIES = [
       {t:28,aqi:50,rain:12,season:"summer"},{t:27,aqi:50,rain:10,season:"summer"},
       {t:20,aqi:50,rain:5,season:"autumn"},{t:11,aqi:60,rain:2,season:"autumn"},
       {t:2,aqi:70,rain:1,season:"autumn"},{t:-5,aqi:80,rain:1,season:"winter"}
-    ],note:"Mogao Caves + Gobi. Best Apr–May & Sep–Oct. Extreme temps.",
+    ],note:"Mogao Caves + Gobi. Best Apr - May & Sep - Oct. Extreme temps.",
     transit:"Dunhuang"},{name:"Jiuzhaigou",cn:"九寨沟",province:"Sichuan",region:"Southwest",best:"autumn",
     monthly:[
       {t:-2,aqi:30,rain:5,season:"winter"},{t:0,aqi:28,rain:10,season:"winter"},
@@ -484,7 +487,7 @@ const CITIES = [
       {t:26,aqi:55,rain:140,season:"summer"},{t:27,aqi:50,rain:130,season:"summer"},
       {t:23,aqi:50,rain:70,season:"autumn"},{t:17,aqi:55,rain:35,season:"autumn"},
       {t:10,aqi:65,rain:25,season:"autumn"},{t:3,aqi:75,rain:15,season:"winter"}
-    ],note:"Beach escape. Best Jun–Sep. German colonial architecture + seafood.",
+    ],note:"Beach escape. Best Jun - Sep. German colonial architecture + seafood.",
     transit:"Qingdao"},{name:"Xiamen",cn:"厦门",province:"Fujian",region:"South",best:"spring",
     monthly:[
       {t:13,aqi:55,rain:30,season:"winter"},{t:13,aqi:50,rain:45,season:"winter"},
@@ -493,7 +496,7 @@ const CITIES = [
       {t:29,aqi:30,rain:150,season:"summer"},{t:29,aqi:30,rain:160,season:"summer"},
       {t:27,aqi:35,rain:130,season:"autumn"},{t:23,aqi:40,rain:70,season:"autumn"},
       {t:19,aqi:45,rain:40,season:"autumn"},{t:15,aqi:55,rain:30,season:"winter"}
-    ],note:"Gulangyu Island. Best Mar–May & Oct–Nov. Mild winter.",
+    ],note:"Gulangyu Island. Best Mar - May & Oct - Nov. Mild winter.",
     transit:"Xiamen"},{name:"Mohe",cn:"漠河",province:"Heilongjiang",region:"Northeast",best:"summer",
     monthly:[
       {t:-30,aqi:40,rain:5,season:"winter"},{t:-24,aqi:38,rain:5,season:"winter"},
@@ -502,7 +505,7 @@ const CITIES = [
       {t:21,aqi:28,rain:95,season:"summer"},{t:18,aqi:28,rain:80,season:"summer"},
       {t:10,aqi:30,rain:40,season:"autumn"},{t:-1,aqi:35,rain:15,season:"autumn"},
       {t:-15,aqi:38,rain:8,season:"autumn"},{t:-27,aqi:40,rain:5,season:"winter"}
-    ],note:"China's 'North Pole'. See aurora in winter. Visit Jun–Aug for mild weather.",
+    ],note:"China's 'North Pole'. See aurora in winter. Visit Jun - Aug for mild weather.",
     transit:"Harbin"},{name:"Xishuangbanna",cn:"西双版纳",province:"Yunnan",region:"Southwest",best:"winter",
     monthly:[
       {t:16,aqi:45,rain:15,season:"winter"},{t:18,aqi:40,rain:20,season:"winter"},
@@ -511,7 +514,7 @@ const CITIES = [
       {t:28,aqi:25,rain:200,season:"summer"},{t:27,aqi:25,rain:190,season:"summer"},
       {t:26,aqi:30,rain:150,season:"autumn"},{t:24,aqi:35,rain:90,season:"autumn"},
       {t:20,aqi:40,rain:40,season:"autumn"},{t:16,aqi:45,rain:15,season:"winter"}
-    ],note:"Tropical rainforest. Best Nov–Feb (dry season). Monsoon May–Oct.",
+    ],note:"Tropical rainforest. Best Nov - Feb (dry season). Monsoon May - Oct.",
     transit:"Kunming"},{name:"Luoyang",cn:"洛阳",province:"Henan",region:"Central",best:"spring",
     monthly:[
       {t:0,aqi:115,rain:8,season:"winter"},{t:3,aqi:110,rain:12,season:"winter"},
@@ -520,7 +523,7 @@ const CITIES = [
       {t:28,aqi:70,rain:120,season:"summer"},{t:27,aqi:65,rain:100,season:"summer"},
       {t:22,aqi:65,rain:60,season:"autumn"},{t:16,aqi:80,rain:35,season:"autumn"},
       {t:8,aqi:100,rain:20,season:"autumn"},{t:2,aqi:115,rain:8,season:"winter"}
-    ],note:"Longmen Grottoes + Peony Festival Apr. Best Mar–May & Sep–Oct.",
+    ],note:"Longmen Grottoes + Peony Festival Apr. Best Mar - May & Sep - Oct.",
     transit:"Luoyang"},{name:"Zhengzhou",cn:"郑州",province:"Henan",region:"Central",best:"autumn",
     monthly:[
       {t:1,aqi:120,rain:8,season:"winter"},{t:4,aqi:115,rain:12,season:"winter"},
@@ -529,7 +532,7 @@ const CITIES = [
       {t:29,aqi:75,rain:130,season:"summer"},{t:28,aqi:70,rain:110,season:"summer"},
       {t:23,aqi:70,rain:65,season:"autumn"},{t:17,aqi:85,rain:35,season:"autumn"},
       {t:9,aqi:105,rain:20,season:"autumn"},{t:3,aqi:120,rain:8,season:"winter"}
-    ],note:"Major rail hub. Sep–Oct best. High AQI in winter.",
+    ],note:"Major rail hub. Sep - Oct best. High AQI in winter.",
     transit:"Zhengzhou"},{name:"Shenyang",cn:"沈阳",province:"Liaoning",region:"Northeast",best:"autumn",
     monthly:[
       {t:-12,aqi:90,rain:5,season:"winter"},{t:-8,aqi:85,rain:8,season:"winter"},
@@ -538,7 +541,7 @@ const CITIES = [
       {t:26,aqi:60,rain:150,season:"summer"},{t:25,aqi:55,rain:130,season:"summer"},
       {t:19,aqi:50,rain:60,season:"autumn"},{t:11,aqi:60,rain:30,season:"autumn"},
       {t:1,aqi:75,rain:15,season:"autumn"},{t:-8,aqi:90,rain:8,season:"winter"}
-    ],note:"Imperial Palace (smaller Forbidden City). Sep–Oct best.",
+    ],note:"Imperial Palace (smaller Forbidden City). Sep - Oct best.",
     transit:"Shenyang"},{name:"Dalian",cn:"大连",province:"Liaoning",region:"Northeast",best:"summer",
     monthly:[
       {t:-4,aqi:70,rain:8,season:"winter"},{t:-2,aqi:65,rain:10,season:"winter"},
@@ -547,7 +550,7 @@ const CITIES = [
       {t:25,aqi:45,rain:140,season:"summer"},{t:25,aqi:40,rain:120,season:"summer"},
       {t:21,aqi:40,rain:55,season:"autumn"},{p:15,aqi:50,rain:30,season:"autumn"},
       {t:7,aqi:60,rain:15,season:"autumn"},{t:-1,aqi:70,rain:8,season:"winter"}
-    ],note:"Beachside city. Best Jun–Sep. Russian architecture + seafood.",
+    ],note:"Beachside city. Best Jun - Sep. Russian architecture + seafood.",
     transit:"Dalian"},{name:"Fuzhou",cn:"福州",province:"Fujian",region:"South",best:"spring",
     monthly:[
       {t:11,aqi:55,rain:40,season:"winter"},{t:11,aqi:50,rain:60,season:"winter"},
@@ -556,7 +559,7 @@ const CITIES = [
       {t:29,aqi:30,rain:170,season:"summer"},{t:29,aqi:30,rain:180,season:"summer"},
       {t:26,aqi:35,rain:150,season:"autumn"},{t:22,aqi:40,rain:70,season:"autumn"},
       {t:18,aqi:45,rain:50,season:"autumn"},{t:13,aqi:55,rain:35,season:"winter"}
-    ],note:"Capital of Fujian. Gutian + Tulou nearby. Mar–May & Oct–Nov.",
+    ],note:"Capital of Fujian. Gutian + Tulou nearby. Mar - May & Oct - Nov.",
     transit:"Fuzhou"},{name:"Guiyang",cn:"贵阳",province:"Guizhou",region:"Southwest",best:"summer",
     monthly:[
       {t:5,aqi:60,rain:20,season:"winter"},{t:7,aqi:55,rain:30,season:"winter"},
@@ -592,7 +595,7 @@ const CITIES = [
       {t:31,aqi:30,rain:300,season:"summer"},{t:30,aqi:30,rain:310,season:"summer"},
       {t:28,aqi:35,rain:220,season:"autumn"},{t:25,aqi:40,rain:100,season:"autumn"},
       {t:22,aqi:45,rain:40,season:"autumn"},{t:18,aqi:50,rain:25,season:"winter"}
-    ],note:"Best Oct–Dec. Mild winters. Hot & humid summer with typhoon risk.",
+    ],note:"Best Oct - Dec. Mild winters. Hot & humid summer with typhoon risk.",
     transit:"Shenzhen"}
 ];
 
@@ -693,6 +696,7 @@ document.querySelector('[data-name="changsha"]')?.setAttribute('data-name','chan
 <a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
-<script src="assets/contact/contact-widget.js"></script>
+<script src="assets/editorial-tools-v2.js?v=20260811"></script>
+<script src="assets/contact/contact-widget.js?v=20260811"></script>
 </body>
 </html>

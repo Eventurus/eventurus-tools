@@ -6,25 +6,25 @@
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>China Visa Checker - EVENTURUS</title>
-  <!-- Open Graph -->
-  <meta property="og:title" content="China Visa Checker - EVENTURUS">
-  <meta property="og:description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
-  <meta property="og:url" content="https://eventurus.cn/visa-checker.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EVENTURUS">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:image" content="https://eventurus.cn/og-visa-checker.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://eventurus.cn/og-visa-checker.png">
+ <!-- Open Graph -->
+ <meta property="og:title" content="China Visa Checker - EVENTURUS">
+ <meta property="og:description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
+ <meta property="og:url" content="https://eventurus.cn/visa-checker.html">
+ <meta property="og:type" content="website">
+ <meta property="og:site_name" content="EVENTURUS">
+ <meta property="og:locale" content="en_GB">
+ <meta property="og:image" content="https://eventurus.cn/og-visa-checker.png">
+ <meta property="og:image:width" content="1200">
+ <meta property="og:image:height" content="630">
+ <meta name="twitter:image" content="https://eventurus.cn/og-visa-checker.png">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="China Visa Checker - EVENTURUS">
-  <meta name="twitter:description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
+ <!-- Twitter Card -->
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="China Visa Checker - EVENTURUS">
+ <meta name="twitter:description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://eventurus.cn/visa-checker.html">
+ <!-- Canonical -->
+ <link rel="canonical" href="https://eventurus.cn/visa-checker.html">
 
 <meta name="description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
 <style>
@@ -32,7 +32,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
 
-body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;  -webkit-tap-highlight-color: transparent; }
+body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color: transparent; }
 .container { max-width:680px; margin:0 auto; padding:0 20px; }
 .brand-bar { padding:24px 0 0; text-align:center; }
 .brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
@@ -49,8 +49,8 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .step-dot.done { background:var(--color-brand); }
 
 .question-card {
-  background:var(--color-surface); border-radius:var(--radius); box-shadow:0 1px 3px rgba(0,0,0,0.06); border:1px solid var(--color-border);
-  padding:28px 24px; margin-bottom:16px; display:none;
+ background:var(--color-surface); border-radius:var(--radius); box-shadow:0 1px 3px rgba(0,0,0,0.06); border:1px solid var(--color-border);
+ padding:28px 24px; margin-bottom:16px; display:none;
 }
 .question-card.active { display:block; animation:fadeIn .35s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
@@ -58,9 +58,9 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .q-label { font-size:14px; font-weight:600; margin-bottom:16px; }
 .options { display:flex; flex-direction:column; gap:10px; }
 .opt {
-  padding:14px 18px; border:2px solid var(--color-border); border-radius:8px; cursor:pointer; font-size:16px; transition:all .2s;
-  background:var(--color-surface); text-align:left; display:flex; align-items:center; gap:12px;
-  font-family: inherit; width: 100%;
+ padding:14px 18px; border:2px solid var(--color-border); border-radius:8px; cursor:pointer; font-size:16px; transition:all .2s;
+ background:var(--color-surface); text-align:left; display:flex; align-items:center; gap:12px;
+ font-family: inherit; width: 100%;
 }
 .opt:hover { border-color:var(--color-brand); background:#F5F9F3; }
 .opt.selected { border-color:var(--color-brand); background:#EAF3DE; font-weight:600; }
@@ -68,8 +68,8 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 
 /* Result card */
 .result-card {
-  background:var(--color-surface); border-radius:var(--radius); box-shadow:0 1px 3px rgba(0,0,0,0.06); border:1px solid var(--color-border);
-  padding:28px 24px; display:none; animation:fadeIn .4s ease;
+ background:var(--color-surface); border-radius:var(--radius); box-shadow:0 1px 3px rgba(0,0,0,0.06); border:1px solid var(--color-border);
+ padding:28px 24px; display:none; animation:fadeIn .4s ease;
 }
 .result-card.show { display:block; }
 .result-visa { font-size:28px; font-weight:700; margin:8px 0; }
@@ -102,12 +102,12 @@ body { font-family:var(--font-sans); background:var(--color-bg); color:var(--col
 .site-footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
 
 @media print {
-  body { background: #fff; color: #000; font-size: 12pt; }
-  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
-  a { color: #000; text-decoration: underline; }
-  .container { max-width: 100%; }
-  table { page-break-inside: avoid; }
-  h1, h2, h3 { page-break-after: avoid; }
+ body { background: #fff; color: #000; font-size: 12pt; }
+ .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
+ a { color: #000; text-decoration: underline; }
+ .container { max-width: 100%; }
+ table { page-break-inside: avoid; }
+ h1, h2, h3 { page-break-after: avoid; }
 }
 
 /* Dark mode */
@@ -124,35 +124,36 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
-</style>  <!-- Structured Data -->
-  <script type="application/ld+json">
+</style>
+<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a"> <!-- Structured Data -->
+ <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "China Visa Checker — EVENTURUS",
-  "description": "Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.",
-  "url": "https://eventurus.cn/visa-checker.html",
-  "applicationCategory": "TravelApplication",
-  "operatingSystem": "All",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "inLanguage": "en-GB",
-  "publisher": {
-    "@type": "Organization",
-    "name": "EVENTURUS",
-    "url": "https://eventurus.cn/",
-    "description": "China travel intelligence for international visitors."
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "EVENTURUS",
-    "url": "https://eventurus.cn"
-  }
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "China Visa Checker - EVENTURUS",
+ "description": "Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.",
+ "url": "https://eventurus.cn/visa-checker.html",
+ "applicationCategory": "TravelApplication",
+ "operatingSystem": "All",
+ "offers": {
+ "@type": "Offer",
+ "price": "0",
+ "priceCurrency": "USD"
+ },
+ "inLanguage": "en-GB",
+ "publisher": {
+ "@type": "Organization",
+ "name": "EVENTURUS",
+ "url": "https://eventurus.cn/",
+ "description": "China travel intelligence for international visitors."
+ },
+ "author": {
+ "@type": "Organization",
+ "name": "EVENTURUS",
+ "url": "https://eventurus.cn"
+ }
 }
-  </script>
+ </script>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 
@@ -161,265 +162,265 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <link rel="alternate" hreflang="x-default" href="https://eventurus.cn/visa-checker.html">
 <meta name="keywords" content="China travel tool, interactive China guide, travel planning, EVENTURUS tools">
 </head>
-<body>
+<body class="evt-v2 evt-guide">
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
 <div class="hero"><h1>China Visa Checker</h1><p>Three quick questions based on policies verified through July 2026.</p></div>
 
 <div class="step-indicators">
-  <div class="step-dot active" id="s1"></div>
-  <div class="step-dot" id="s2"></div>
-  <div class="step-dot" id="s3"></div>
+ <div class="step-dot active" id="s1"></div>
+ <div class="step-dot" id="s2"></div>
+ <div class="step-dot" id="s3"></div>
 </div>
 
 <!-- Step 1: Nationality -->
 <div class="question-card active" id="q1">
-  <h2 class="q-label">① Which passport do you hold?</h2>
-  <div class="options" id="nat-options"></div>
+ <h2 class="q-label">① Which passport do you hold?</h2>
+ <div class="options" id="nat-options"></div>
 </div>
 
 <!-- Step 2: Purpose -->
 <div class="question-card" id="q2">
-  <h2 class="q-label">② What's the purpose of your visit?</h2>
-  <div class="options" id="purpose-options"></div>
+ <h2 class="q-label">② What's the purpose of your visit?</h2>
+ <div class="options" id="purpose-options"></div>
 </div>
 
 <!-- Step 3: Duration -->
 <div class="question-card" id="q3">
-  <h2 class="q-label">③ How long will you be staying?</h2>
-  <div class="options" id="duration-options"></div>
+ <h2 class="q-label">③ How long will you be staying?</h2>
+ <div class="options" id="duration-options"></div>
 </div>
 
 <div class="separator">-</div>
 
 <!-- Result -->
 <div class="result-card" id="result">
-  <div class="result-badge" id="result-badge">Tourist Visa (L)</div>
-  <div class="result-visa" id="result-visa"></div>
-  <div class="result-details" id="result-details"></div>
-  <div class="result-actions">
-    <button class="btn btn-outline btn-small" onclick="restart()">← Start over</button>
-  </div>
+ <div class="result-badge" id="result-badge">Tourist Visa (L)</div>
+ <div class="result-visa" id="result-visa"></div>
+ <div class="result-details" id="result-details"></div>
+ <div class="result-actions">
+ <button class="btn btn-outline btn-small" onclick="restart()">← Start over</button>
+ </div>
 </div>
 
 <div class="disclaimer">
-  <strong>Policy date: July 2026.</strong> This tool covers ordinary passports and gives general guidance. Final admission and visa issuance remain subject to the relevant Chinese authorities. Confirm against the <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener">MFA visa portal</a> or your local Chinese embassy before travel.
+ <strong>Policy date: July 2026.</strong> This tool covers ordinary passports and gives general guidance. Final admission and visa issuance remain subject to the relevant Chinese authorities. Confirm against the <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener">MFA visa portal</a> or your local Chinese embassy before travel.
 </div>
 
 <div class="cross-link"><p>Related: <a href="entry-requirements.html">Entry Requirements</a> · <a href="visa-free-guide.html">Visa-Free Guide</a></p></div>
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="entry-requirements.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Entry Requirements Quick Ref</span><span class="rel-desc">Visa-free, eVisa, visa-required countries at a glance</span></span></a><a class="rel-item" href="visa-free-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Visa-Free Entry Guide</span><span class="rel-desc">Complete guide to China visa-free entry by nationality</span></span></a></div></div>
 <div class="site-footer">
-  <div class="brand-foot">EVENTURUS · VETTED</div>
-  <div>China, Vetted. - <a href="index.html">All Tools</a></div>
+ <div class="brand-foot">EVENTURUS · VETTED</div>
+ <div>China, Vetted. - <a href="index.html">All Tools</a></div>
 </div>
 </div>
 
 <script>
 const UNILATERAL = [
-  ["Andorra","🇦🇩"],["Argentina","🇦🇷"],["Australia","🇦🇺"],["Austria","🇦🇹"],["Bahrain","🇧🇭"],["Belgium","🇧🇪"],["Brazil","🇧🇷"],["Brunei","🇧🇳"],["Bulgaria","🇧🇬"],["Canada","🇨🇦"],
-  ["Chile","🇨🇱"],["Croatia","🇭🇷"],["Cyprus","🇨🇾"],["Denmark","🇩🇰"],["Estonia","🇪🇪"],["Finland","🇫🇮"],["France","🇫🇷"],["Germany","🇩🇪"],["Greece","🇬🇷"],["Hungary","🇭🇺"],
-  ["Iceland","🇮🇸"],["Ireland","🇮🇪"],["Italy","🇮🇹"],["Japan","🇯🇵"],["Kuwait","🇰🇼"],["Latvia","🇱🇻"],["Liechtenstein","🇱🇮"],["Luxembourg","🇱🇺"],["Malta","🇲🇹"],["Monaco","🇲🇨"],
-  ["Montenegro","🇲🇪"],["Netherlands","🇳🇱"],["New Zealand","🇳🇿"],["North Macedonia","🇲🇰"],["Norway","🇳🇴"],["Oman","🇴🇲"],["Peru","🇵🇪"],["Poland","🇵🇱"],["Portugal","🇵🇹"],["Romania","🇷🇴"],
-  ["Russia","🇷🇺"],["Saudi Arabia","🇸🇦"],["Slovakia","🇸🇰"],["Slovenia","🇸🇮"],["South Korea","🇰🇷"],["Spain","🇪🇸"],["Sweden","🇸🇪"],["Switzerland","🇨🇭"],["United Kingdom","🇬🇧"],["Uruguay","🇺🇾"]
+ ["Andorra","🇦🇩"],["Argentina","🇦🇷"],["Australia","🇦🇺"],["Austria","🇦🇹"],["Bahrain","🇧🇭"],["Belgium","🇧🇪"],["Brazil","🇧🇷"],["Brunei","🇧🇳"],["Bulgaria","🇧🇬"],["Canada","🇨🇦"],
+ ["Chile","🇨🇱"],["Croatia","🇭🇷"],["Cyprus","🇨🇾"],["Denmark","🇩🇰"],["Estonia","🇪🇪"],["Finland","🇫🇮"],["France","🇫🇷"],["Germany","🇩🇪"],["Greece","🇬🇷"],["Hungary","🇭🇺"],
+ ["Iceland","🇮🇸"],["Ireland","🇮🇪"],["Italy","🇮🇹"],["Japan","🇯🇵"],["Kuwait","🇰🇼"],["Latvia","🇱🇻"],["Liechtenstein","🇱🇮"],["Luxembourg","🇱🇺"],["Malta","🇲🇹"],["Monaco","🇲🇨"],
+ ["Montenegro","🇲🇪"],["Netherlands","🇳🇱"],["New Zealand","🇳🇿"],["North Macedonia","🇲🇰"],["Norway","🇳🇴"],["Oman","🇴🇲"],["Peru","🇵🇪"],["Poland","🇵🇱"],["Portugal","🇵🇹"],["Romania","🇷🇴"],
+ ["Russia","🇷🇺"],["Saudi Arabia","🇸🇦"],["Slovakia","🇸🇰"],["Slovenia","🇸🇮"],["South Korea","🇰🇷"],["Spain","🇪🇸"],["Sweden","🇸🇪"],["Switzerland","🇨🇭"],["United Kingdom","🇬🇧"],["Uruguay","🇺🇾"]
 ];
 
 const MUTUAL = [
-  ["Albania","🇦🇱"],["Antigua and Barbuda","🇦🇬"],["Armenia","🇦🇲"],["Azerbaijan","🇦🇿"],["Bahamas","🇧🇸"],["Barbados","🇧🇧"],["Belarus","🇧🇾"],["Bosnia and Herzegovina","🇧🇦"],["Dominica","🇩🇲"],["Ecuador","🇪🇨"],
-  ["Fiji","🇫🇯"],["Georgia","🇬🇪"],["Grenada","🇬🇩"],["Kazakhstan","🇰🇿"],["Malaysia","🇲🇾"],["Maldives","🇲🇻"],["Mauritius","🇲🇺"],["Qatar","🇶🇦"],["Samoa","🇼🇸"],["San Marino","🇸🇲"],
-  ["Serbia","🇷🇸"],["Seychelles","🇸🇨"],["Singapore","🇸🇬"],["Solomon Islands","🇸🇧"],["Suriname","🇸🇷"],["Thailand","🇹🇭"],["Tonga","🇹🇴"],["United Arab Emirates","🇦🇪"],["Uzbekistan","🇺🇿"]
+ ["Albania","🇦🇱"],["Antigua and Barbuda","🇦🇬"],["Armenia","🇦🇲"],["Azerbaijan","🇦🇿"],["Bahamas","🇧🇸"],["Barbados","🇧🇧"],["Belarus","🇧🇾"],["Bosnia and Herzegovina","🇧🇦"],["Dominica","🇩🇲"],["Ecuador","🇪🇨"],
+ ["Fiji","🇫🇯"],["Georgia","🇬🇪"],["Grenada","🇬🇩"],["Kazakhstan","🇰🇿"],["Malaysia","🇲🇾"],["Maldives","🇲🇻"],["Mauritius","🇲🇺"],["Qatar","🇶🇦"],["Samoa","🇼🇸"],["San Marino","🇸🇲"],
+ ["Serbia","🇷🇸"],["Seychelles","🇸🇨"],["Singapore","🇸🇬"],["Solomon Islands","🇸🇧"],["Suriname","🇸🇷"],["Thailand","🇹🇭"],["Tonga","🇹🇴"],["United Arab Emirates","🇦🇪"],["Uzbekistan","🇺🇿"]
 ];
 
 const STANDARD_VISA = [
-  ["Cambodia","🇰🇭"],["Czech Republic","🇨🇿"],["India","🇮🇳"],["Indonesia","🇮🇩"],["Israel","🇮🇱"],["Lithuania","🇱🇹"],["Mexico","🇲🇽"],["Pakistan","🇵🇰"],
-  ["Philippines","🇵🇭"],["South Africa","🇿🇦"],["Turkey","🇹🇷"],["Ukraine","🇺🇦"],["United States","🇺🇸"],["Vietnam","🇻🇳"],["Other passport","🌍"]
+ ["Cambodia","🇰🇭"],["Czech Republic","🇨🇿"],["India","🇮🇳"],["Indonesia","🇮🇩"],["Israel","🇮🇱"],["Lithuania","🇱🇹"],["Mexico","🇲🇽"],["Pakistan","🇵🇰"],
+ ["Philippines","🇵🇭"],["South Africa","🇿🇦"],["Turkey","🇹🇷"],["Ukraine","🇺🇦"],["United States","🇺🇸"],["Vietnam","🇻🇳"],["Other passport","🌍"]
 ];
 
 const TRANSIT_240 = new Set([
-  "Albania","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom",
-  "Canada","United States","Argentina","Brazil","Chile","Mexico","Australia","New Zealand","Brunei","Indonesia","Japan","Qatar","Singapore","South Korea","United Arab Emirates"
+ "Albania","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom",
+ "Canada","United States","Argentina","Brazil","Chile","Mexico","Australia","New Zealand","Brunei","Indonesia","Japan","Qatar","Singapore","South Korea","United Arab Emirates"
 ]);
 
 const nationalities = [
-  ...UNILATERAL.map(([label,flag]) => ({label,flag,track:"unilateral",visaFree:30})),
-  ...MUTUAL.map(([label,flag]) => ({label,flag,track:"mutual",visaFree:30})),
-  ...STANDARD_VISA.map(([label,flag]) => ({label,flag,track:"required",visaFree:0}))
+ ...UNILATERAL.map(([label,flag]) => ({label,flag,track:"unilateral",visaFree:30})),
+ ...MUTUAL.map(([label,flag]) => ({label,flag,track:"mutual",visaFree:30})),
+ ...STANDARD_VISA.map(([label,flag]) => ({label,flag,track:"required",visaFree:0}))
 ].sort((a,b) => a.label === "Other passport" ? 1 : b.label === "Other passport" ? -1 : a.label.localeCompare(b.label))
  .map((n,i) => ({...n,id:"n"+i,transit240:TRANSIT_240.has(n.label)}));
 
 const D = {
-  nationalities,
-  purposes: [
-    {id:"tourism",label:"Tourism / Holiday"},
-    {id:"business",label:"Business"},
-    {id:"transit",label:"Transit (connecting flight)"},
-    {id:"visit_family",label:"Visiting friends or family"},
-    {id:"study",label:"Study"},
-    {id:"work",label:"Work"}
-  ],
-  durations: [
-    {id:"<24h",label:"Less than 24 hours (transit)"},
-    {id:"1-7d",label:"1-7 days"},
-    {id:"8-10d",label:"8-10 days"},
-    {id:"11-30d",label:"11-30 days"},
-    {id:"31-90d",label:"31-90 days"},
-    {id:">90d",label:"More than 90 days"}
-  ]
+ nationalities,
+ purposes: [
+ {id:"tourism",label:"Tourism / Holiday"},
+ {id:"business",label:"Business"},
+ {id:"transit",label:"Transit (connecting flight)"},
+ {id:"visit_family",label:"Visiting friends or family"},
+ {id:"study",label:"Study"},
+ {id:"work",label:"Work"}
+ ],
+ durations: [
+ {id:"<24h",label:"Less than 24 hours (transit)"},
+ {id:"1-7d",label:"1-7 days"},
+ {id:"8-10d",label:"8-10 days"},
+ {id:"11-30d",label:"11-30 days"},
+ {id:"31-90d",label:"31-90 days"},
+ {id:">90d",label:"More than 90 days"}
+ ]
 };
 
 let state = { nationality: null, purpose: null, duration: null };
 
 function init() {
-  renderOptions('nat-options', D.nationalities, n => n, 'nationality');
-  renderOptions('purpose-options', D.purposes, p => p, 'purpose');
-  renderOptions('duration-options', D.durations, d => d, 'duration');
+ renderOptions('nat-options', D.nationalities, n => n, 'nationality');
+ renderOptions('purpose-options', D.purposes, p => p, 'purpose');
+ renderOptions('duration-options', D.durations, d => d, 'duration');
 }
 
 function renderOptions(containerId, items, mapper, stateKey) {
-  const c = document.getElementById(containerId);
-  c.innerHTML = items.map(item => {
-    const data = mapper(item);
-    const flag = data.flag ? `<span class="flag">${data.flag}</span>` : '';
-    return `<button type="button" class="opt" onclick="selectOpt('${stateKey}','${data.id}','${containerId}',this)">${flag}${data.label}</button>`;
-  }).join('');
+ const c = document.getElementById(containerId);
+ c.innerHTML = items.map(item => {
+ const data = mapper(item);
+ const flag = data.flag ? `<span class="flag">${data.flag}</span>` : '';
+ return `<button type="button" class="opt" onclick="selectOpt('${stateKey}','${data.id}','${containerId}',this)">${flag}${data.label}</button>`;
+ }).join('');
 }
 
 function selectOpt(key, val, containerId, selectedEl) {
-  state[key] = val;
-  document.querySelectorAll(`#${containerId} .opt`).forEach(el => el.classList.remove('selected'));
-  selectedEl.classList.add('selected');
-  if (key === 'nationality') {
-    document.getElementById('q1').classList.remove('active');
-    goStep(2);
-    document.getElementById('q2').classList.add('active');
-    scrollTo(0,0);
-    var firstOpt = document.querySelector('#q2 .opt');
-    if (firstOpt) firstOpt.focus();
-  }
-  else if (key === 'purpose') {
-    document.getElementById('q2').classList.remove('active');
-    goStep(3);
-    document.getElementById('q3').classList.add('active');
-    scrollTo(0,0);
-    var firstOpt = document.querySelector('#q3 .opt');
-    if (firstOpt) firstOpt.focus();
-  }
-  else if (key === 'duration') { showResult(); }
+ state[key] = val;
+ document.querySelectorAll(`#${containerId} .opt`).forEach(el => el.classList.remove('selected'));
+ selectedEl.classList.add('selected');
+ if (key === 'nationality') {
+ document.getElementById('q1').classList.remove('active');
+ goStep(2);
+ document.getElementById('q2').classList.add('active');
+ scrollTo(0,0);
+ var firstOpt = document.querySelector('#q2 .opt');
+ if (firstOpt) firstOpt.focus();
+ }
+ else if (key === 'purpose') {
+ document.getElementById('q2').classList.remove('active');
+ goStep(3);
+ document.getElementById('q3').classList.add('active');
+ scrollTo(0,0);
+ var firstOpt = document.querySelector('#q3 .opt');
+ if (firstOpt) firstOpt.focus();
+ }
+ else if (key === 'duration') { showResult(); }
 }
 
 function goStep(n) {
-  for (let i=1; i<=3; i++) {
-    const dot = document.getElementById('s'+i);
-    if (i < n) { dot.className = 'step-dot done'; }
-    else if (i === n) { dot.className = 'step-dot active'; }
-    else { dot.className = 'step-dot'; }
-  }
+ for (let i=1; i<=3; i++) {
+ const dot = document.getElementById('s'+i);
+ if (i < n) { dot.className = 'step-dot done'; }
+ else if (i === n) { dot.className = 'step-dot active'; }
+ else { dot.className = 'step-dot'; }
+ }
 }
 
 function showResult() {
-  const nat = D.nationalities.find(n => n.id === state.nationality) || D.nationalities.find(n => n.id === 'other');
-  const purpose = state.purpose;
-  const dur = state.duration;
-  const vf = nat.visaFree;
-  const maxDays = {"<24h":1,"1-7d":7,"8-10d":10,"11-30d":30,"31-90d":90,">90d":181}[dur];
+ const nat = D.nationalities.find(n => n.id === state.nationality) || D.nationalities.find(n => n.id === 'other');
+ const purpose = state.purpose;
+ const dur = state.duration;
+ const vf = nat.visaFree;
+ const maxDays = {"<24h":1,"1-7d":7,"8-10d":10,"11-30d":30,"31-90d":90,">90d":181}[dur];
 
-  let visaName = '', badge = '', badgeClass = '', details = '';
+ let visaName = '', badge = '', badgeClass = '', details = '';
 
-  if (purpose === 'work') {
-    visaName = 'Work Visa (Z)';
-    badge = 'VISA REQUIRED';
-    badgeClass = 'badge-red';
-    details = `<strong>A Z visa is required for employment in China.</strong><br><br>
-    Visa-free entry does not cover employment or paid work. The employer normally begins the work-authorisation process in China before the visa application. Requirements, processing and residence-permit steps depend on the local mission and the employing authority.<br><br>
-    <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Check the official China visa portal</a>`;
-  }
+ if (purpose === 'work') {
+ visaName = 'Work Visa (Z)';
+ badge = 'VISA REQUIRED';
+ badgeClass = 'badge-red';
+ details = `<strong>A Z visa is required for employment in China.</strong><br><br>
+ Visa-free entry does not cover employment or paid work. The employer normally begins the work-authorisation process in China before the visa application. Requirements, processing and residence-permit steps depend on the local mission and the employing authority.<br><br>
+ <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Check the official China visa portal</a>`;
+ }
 
-  else if (purpose === 'study') {
-    visaName = 'Student Visa (X1 or X2)';
-    badge = 'VISA REQUIRED';
-    badgeClass = 'badge-red';
-    details = `<strong>Study is not covered by the ordinary visa-free policies.</strong><br><br>
-    <strong>X1</strong> is for study lasting more than 180 days; <strong>X2</strong> is for study lasting no more than 180 days. Use the admission and visa documents supplied by the school, then follow the instructions of the Chinese mission handling the application.`;
-  }
+ else if (purpose === 'study') {
+ visaName = 'Student Visa (X1 or X2)';
+ badge = 'VISA REQUIRED';
+ badgeClass = 'badge-red';
+ details = `<strong>Study is not covered by the ordinary visa-free policies.</strong><br><br>
+ <strong>X1</strong> is for study lasting more than 180 days; <strong>X2</strong> is for study lasting no more than 180 days. Use the admission and visa documents supplied by the school, then follow the instructions of the Chinese mission handling the application.`;
+ }
 
-  else if (purpose === 'transit' && dur === '<24h') {
-    visaName = '24-Hour Visa-Free Transit';
-    badge = 'TRANSIT EXEMPTION';
-    badgeClass = 'badge-blue';
-    details = `<strong>All nationalities may use 24-hour visa-free transit at China's open ports.</strong><br><br>
-    You need a valid international travel document and a confirmed onward international air, ship or train ticket to a third country or region. You must remain in the port's restricted transit area unless immigration grants a temporary entry permit.<br><br>
-    <a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Official NIA transit rules</a>`;
-  }
+ else if (purpose === 'transit' && dur === '<24h') {
+ visaName = '24-Hour Visa-Free Transit';
+ badge = 'TRANSIT EXEMPTION';
+ badgeClass = 'badge-blue';
+ details = `<strong>All nationalities may use 24-hour visa-free transit at China's open ports.</strong><br><br>
+ You need a valid international travel document and a confirmed onward international air, ship or train ticket to a third country or region. You must remain in the port's restricted transit area unless immigration grants a temporary entry permit.<br><br>
+ <a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Official NIA transit rules</a>`;
+ }
 
-  else if (purpose === 'transit' && maxDays <= 10 && nat.transit240) {
-    visaName = '240-Hour Visa-Free Transit';
-    badge = 'TRANSIT EXEMPTION';
-    badgeClass = 'badge-blue';
-    details = `<strong>${nat.label} passport holders are included in the 240-hour transit policy.</strong><br><br>
-    You must hold an international travel document valid for at least 3 months, travel onward to a third country or region, use one of the 65 designated ports, hold a confirmed onward ticket with a departure date, and remain within the permitted area. The maximum stay is 240 hours (10 days).<br><br>
-    <a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Check the official country, port and area rules</a>`;
-  }
+ else if (purpose === 'transit' && maxDays <= 10 && nat.transit240) {
+ visaName = '240-Hour Visa-Free Transit';
+ badge = 'TRANSIT EXEMPTION';
+ badgeClass = 'badge-blue';
+ details = `<strong>${nat.label} passport holders are included in the 240-hour transit policy.</strong><br><br>
+ You must hold an international travel document valid for at least 3 months, travel onward to a third country or region, use one of the 65 designated ports, hold a confirmed onward ticket with a departure date, and remain within the permitted area. The maximum stay is 240 hours (10 days).<br><br>
+ <a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Check the official country, port and area rules</a>`;
+ }
 
-  else if (vf > 0 && maxDays <= 30) {
-    visaName = nat.track === 'unilateral' ? '30-Day Visa-Free Entry' : 'Visa-Free Under Mutual Agreement';
-    badge = 'VISA-FREE';
-    badgeClass = 'badge-green';
-    const expiry = nat.label === 'Russia' ? ' Russia\'s unilateral policy currently runs through 31 December 2027.' : nat.label === 'Brunei' ? '' : nat.track === 'unilateral' ? ' The current unilateral measure runs through 31 December 2026.' : '';
-    details = `<strong>${nat.label} ordinary-passport holders can make this visit without a visa for up to 30 days.</strong><br><br>
-    Covered short-stay purposes include tourism, business, visiting family or friends, exchanges and transit.${expiry}<br><br>
-    Your ordinary passport must remain valid for the intended stay. Carrying documents that support the purpose of travel, such as transport, accommodation or invitation details, is recommended. Work, formal study and news reporting are not covered.<br><br>
-    ${nat.track === 'mutual' ? '<strong>Mutual agreements have country-specific rules.</strong> Check the official agreement if staying longer than 30 days or using the exemption for a less common purpose.' : ''}`;
-  }
+ else if (vf > 0 && maxDays <= 30) {
+ visaName = nat.track === 'unilateral' ? '30-Day Visa-Free Entry' : 'Visa-Free Under Mutual Agreement';
+ badge = 'VISA-FREE';
+ badgeClass = 'badge-green';
+ const expiry = nat.label === 'Russia' ? ' Russia\'s unilateral policy currently runs through 31 December 2027.' : nat.label === 'Brunei' ? '' : nat.track === 'unilateral' ? ' The current unilateral measure runs through 31 December 2026.' : '';
+ details = `<strong>${nat.label} ordinary-passport holders can make this visit without a visa for up to 30 days.</strong><br><br>
+ Covered short-stay purposes include tourism, business, visiting family or friends, exchanges and transit.${expiry}<br><br>
+ Your ordinary passport must remain valid for the intended stay. Carrying documents that support the purpose of travel, such as transport, accommodation or invitation details, is recommended. Work, formal study and news reporting are not covered.<br><br>
+ ${nat.track === 'mutual' ? '<strong>Mutual agreements have country-specific rules.</strong> Check the official agreement if staying longer than 30 days or using the exemption for a less common purpose.' : ''}`;
+ }
 
-  else if (nat.track === 'mutual' && maxDays > 30) {
-    visaName = 'Check the Mutual Agreement';
-    badge = 'AGREEMENT-SPECIFIC';
-    badgeClass = 'badge-orange';
-    details = `<strong>${nat.label} has a mutual visa-exemption agreement with China, but stays beyond 30 days are agreement-specific.</strong><br><br>
-    Some agreements use a 90-days-in-180 rule; others do not. Confirm the applicable duration and purpose in the <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/lhqzjjs/202510/t20251023_11739051.shtml" target="_blank" rel="noopener" style="color:var(--color-brand)">official MFA agreement table</a> before relying on visa-free entry.`;
-  }
+ else if (nat.track === 'mutual' && maxDays > 30) {
+ visaName = 'Check the Mutual Agreement';
+ badge = 'AGREEMENT-SPECIFIC';
+ badgeClass = 'badge-orange';
+ details = `<strong>${nat.label} has a mutual visa-exemption agreement with China, but stays beyond 30 days are agreement-specific.</strong><br><br>
+ Some agreements use a 90-days-in-180 rule; others do not. Confirm the applicable duration and purpose in the <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/lhqzjjs/202510/t20251023_11739051.shtml" target="_blank" rel="noopener" style="color:var(--color-brand)">official MFA agreement table</a> before relying on visa-free entry.`;
+ }
 
-  else {
-    badge = 'VISA NORMALLY REQUIRED';
-    badgeClass = 'badge-red';
-    if (purpose === 'tourism') {
-      visaName = 'Tourist Visa (L)';
-      details = `<strong>A visa is normally required for this standard tourism visit.</strong><br><br>An L visa is the ordinary tourism category. Application documents, appointment method, processing time, fee, validity and permitted stay vary by passport and the Chinese mission handling the case.`;
-    } else if (purpose === 'business') {
-      visaName = 'Business Visa (M)';
-      details = `<strong>A visa is normally required for this business visit.</strong><br><br>An M visa covers commercial and trade activities. The mission may ask for invitation and supporting business documents; exact requirements vary by place of application.`;
-    } else if (purpose === 'visit_family') {
-      visaName = 'Q, S or L Visa — Depending on Your Host';
-      details = `<strong>The correct category depends on whom you are visiting.</strong><br><br><strong>Q1/Q2</strong> cover qualifying family of Chinese citizens or Chinese permanent residents; <strong>S1/S2</strong> cover qualifying family of foreign nationals residing in China; an <strong>L visa</strong> may apply to an ordinary visit to friends. Q1 and S1 are long-stay categories; Q2 and S2 cover stays of no more than 180 days.`;
-    } else {
-      visaName = 'Transit Visa or Prior Confirmation Required';
-      details = `<strong>The selected itinerary does not fit the 24-hour or 240-hour transit rules shown by this checker.</strong><br><br>A transit visa or another appropriate visa may be required. Check the route, ports and permitted area with the carrier and the relevant Chinese mission before departure.`;
-    }
-    details += `<br><br><a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Official China visa information</a>`;
-  }
+ else {
+ badge = 'VISA NORMALLY REQUIRED';
+ badgeClass = 'badge-red';
+ if (purpose === 'tourism') {
+ visaName = 'Tourist Visa (L)';
+ details = `<strong>A visa is normally required for this standard tourism visit.</strong><br><br>An L visa is the ordinary tourism category. Application documents, appointment method, processing time, fee, validity and permitted stay vary by passport and the Chinese mission handling the case.`;
+ } else if (purpose === 'business') {
+ visaName = 'Business Visa (M)';
+ details = `<strong>A visa is normally required for this business visit.</strong><br><br>An M visa covers commercial and trade activities. The mission may ask for invitation and supporting business documents; exact requirements vary by place of application.`;
+ } else if (purpose === 'visit_family') {
+ visaName = 'Q, S or L Visa - Depending on Your Host';
+ details = `<strong>The correct category depends on whom you are visiting.</strong><br><br><strong>Q1/Q2</strong> cover qualifying family of Chinese citizens or Chinese permanent residents; <strong>S1/S2</strong> cover qualifying family of foreign nationals residing in China; an <strong>L visa</strong> may apply to an ordinary visit to friends. Q1 and S1 are long-stay categories; Q2 and S2 cover stays of no more than 180 days.`;
+ } else {
+ visaName = 'Transit Visa or Prior Confirmation Required';
+ details = `<strong>The selected itinerary does not fit the 24-hour or 240-hour transit rules shown by this checker.</strong><br><br>A transit visa or another appropriate visa may be required. Check the route, ports and permitted area with the carrier and the relevant Chinese mission before departure.`;
+ }
+ details += `<br><br><a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener" style="color:var(--color-brand)">→ Official China visa information</a>`;
+ }
 
-  document.getElementById('result-visa').textContent = visaName;
-  document.getElementById('result-badge').textContent = badge;
-  document.getElementById('result-badge').className = 'result-badge ' + badgeClass;
-  document.getElementById('result-details').innerHTML = details;
-  document.getElementById('result').classList.add('show');
-  document.getElementById('q1').classList.remove('active');
-  document.getElementById('q2').classList.remove('active');
-  document.getElementById('q3').classList.remove('active');
-  goStep(3);
-  scrollTo(0, document.getElementById('result').offsetTop - 20); setTimeout(function(){document.getElementById('result').focus();},200);
+ document.getElementById('result-visa').textContent = visaName;
+ document.getElementById('result-badge').textContent = badge;
+ document.getElementById('result-badge').className = 'result-badge ' + badgeClass;
+ document.getElementById('result-details').innerHTML = details;
+ document.getElementById('result').classList.add('show');
+ document.getElementById('q1').classList.remove('active');
+ document.getElementById('q2').classList.remove('active');
+ document.getElementById('q3').classList.remove('active');
+ goStep(3);
+ scrollTo(0, document.getElementById('result').offsetTop - 20); setTimeout(function(){document.getElementById('result').focus();},200);
 }
 
 function restart() {
-  state = { nationality: null, purpose: null, duration: null };
-  document.querySelectorAll('.opt').forEach(el => el.classList.remove('selected'));
-  document.querySelectorAll('.question-card').forEach(el => el.classList.remove('active'));
-  document.getElementById('result').classList.remove('show');
-  document.getElementById('q1').classList.add('active');
-  goStep(1);
-  scrollTo(0,0);
-  var firstOpt = document.querySelector('#q1 .opt');
-  if (firstOpt) firstOpt.focus();
+ state = { nationality: null, purpose: null, duration: null };
+ document.querySelectorAll('.opt').forEach(el => el.classList.remove('selected'));
+ document.querySelectorAll('.question-card').forEach(el => el.classList.remove('active'));
+ document.getElementById('result').classList.remove('show');
+ document.getElementById('q1').classList.add('active');
+ goStep(1);
+ scrollTo(0,0);
+ var firstOpt = document.querySelector('#q1 .opt');
+ if (firstOpt) firstOpt.focus();
 }
 
 init();
@@ -432,6 +433,7 @@ init();
 <a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
 </footer>
 
-<script src="assets/contact/contact-widget.js"></script>
+<script src="assets/contact/contact-widget.js?v=20260811"></script>
+<script src="assets/editorial-tools-v2.js?v=20260811"></script>
 </body>
 </html>

@@ -236,6 +236,14 @@
       body: "Follow Eventurus for updates to this guide and other practical China travel information.",
       insert: { selector: "#grid", position: "dynamic-child", index: 3 },
       sticky: "scroll"
+    },
+    "first-weekend-shanghai.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Keep the Shanghai weekend guide handy.",
+      body: "Follow Eventurus for practical Shanghai information and updates to our destination guides.",
+      insert: { selector: ".section", position: "after-index", index: 1 },
+      sticky: "scroll"
     }
   };
 
