@@ -2,14 +2,6 @@
   "use strict";
 
   var PAGE_CONFIG = {
-    "index.html": {
-      group: "tools-home",
-      intent: "follow",
-      title: "Keep the China toolkit close.",
-      body: "Follow Eventurus for practical China travel information and updates when new tools are published.",
-      insert: { selector: "a.tool-card[href='packing-checklist.html']", position: "after" },
-      sticky: "scroll"
-    },
     "entry-requirements.html": {
       group: "entry",
       intent: "follow",
@@ -160,14 +152,6 @@
       title: "Keep the hospital guide handy.",
       body: "Follow Eventurus for updates to practical China travel tools and health information.",
       insert: { selector: ".section", position: "after-index", index: 0 },
-      sticky: "scroll"
-    },
-    "pharmacy-guide.html": {
-      group: "safety",
-      intent: "follow",
-      title: "Keep the medicine guide handy.",
-      body: "Follow Eventurus for updates to practical China travel tools and health information.",
-      insert: { selector: ".section", position: "after-index", index: 1 },
       sticky: "scroll"
     },
     "shopping-guide.html": {
