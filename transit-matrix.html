@@ -501,6 +501,12 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
+.geo-qa { background:var(--color-surface); border:1px solid var(--color-border); border-radius:12px; padding:24px; margin:0 0 24px; }
+.geo-qa h2 { font-family:var(--font-serif); font-size:20px; font-weight:600; margin-bottom:10px; }
+.geo-qa p { font-size:15px; margin-bottom:10px; }
+.geo-qa p:last-of-type { margin-bottom:0; }
+.geo-qa-meta { font-size:12px; color:var(--color-text-muted); margin-top:12px; letter-spacing:.5px; text-transform:uppercase; }
+
 </style>
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a"> <!-- Structured Data -->
  <script type="application/ld+json">
@@ -537,6 +543,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  "name": "China City Transit Matrix - EVENTURUS",
  "description": "Compare high-speed rail and flight times, costs and distances between major Chinese cities. Plan your China travel with confidence.",
  "url": "https://eventurus.cn/transit-matrix.html",
+ "dateModified": "2026-08-24",
  "applicationCategory": "TravelApplication",
  "operatingSystem": "All",
  "offers": {
@@ -557,6 +564,34 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  "inLanguage": "en-GB"
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is it better to fly or take the train in China?",
+   "acceptedAnswer": { "@type": "Answer", "text": "For most routes under about 1,500 km, high-speed rail beats flying door to door. Shanghai-Beijing takes 4 hours 30 minutes by train against a 2h20m flight plus airport time. For long distances such as Shanghai-Chengdu (10.5 hours by rail versus a 3-hour flight), flying is the better choice." }
+  },
+  {
+   "@type": "Question",
+   "name": "How long is the train from Shanghai to Beijing?",
+   "acceptedAnswer": { "@type": "Answer", "text": "The fastest high-speed trains cover Shanghai to Beijing in about 4 hours 30 minutes, with second-class fares around 576-697 CNY. The flight takes 2h20m, but door-to-door the train is usually the better choice between the two city centres." }
+  },
+  {
+   "@type": "Question",
+   "name": "When is flying better than taking the train in China?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Flying wins on long distances. Shanghai-Chengdu is 10 hours 30 minutes by rail versus a 3-hour flight; Shanghai-Guangzhou is 6h50m by rail versus 2h30m in the air. For routes under about 1,500 km, the train is usually faster door to door." }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I book Chinese train tickets as a foreigner?",
+   "acceptedAnswer": { "@type": "Answer", "text": "You can register on the official 12306 platform with a foreign passport, or book through Trip.com. See the EVENTURUS Train Ticket Booking Guide for the full step-by-step walkthrough." }
+  }
+ ]
+}
+</script>
 </head>
 <body class="evt-v2 evt-guide">
 
@@ -572,6 +607,13 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  <h1>China City Transit Matrix</h1>
  <p>Compare high-speed rail and flight options between China's major cities. Times, costs and distances - at a glance.</p>
 </div>
+
+<section class="geo-qa" aria-label="Quick answer">
+ <h2>Is it better to fly or take the train in China?</h2>
+ <p>For most routes under about 1,500 km, high-speed rail beats flying door to door. Shanghai&#8211;Beijing takes 4 hours 30 minutes by train (second class &#165;576&#8211;697) against a 2h20m flight plus airport time, and the train is the better choice. Short hops are train-only territory: Shanghai&#8211;Hangzhou 45 minutes (&#165;73), Shanghai&#8211;Suzhou 30 minutes (&#165;40).</p>
+ <p>For long distances, fly: Shanghai&#8211;Chengdu is 10 hours 30 minutes by rail versus a 3-hour flight; Shanghai&#8211;Guangzhou 6h50m by rail versus 2h30m in the air.</p>
+ <p class="geo-qa-meta">Last updated 24 August 2026 · Vetted by EVENTURUS</p>
+</section>
 
 <div class="selector-panel">
  <div class="selector-row">

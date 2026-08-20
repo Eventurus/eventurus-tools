@@ -124,6 +124,12 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
+.geo-qa { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius); padding:24px; margin:0 0 24px; }
+.geo-qa h2 { font-family:var(--font-serif); font-size:20px; font-weight:600; margin-bottom:10px; }
+.geo-qa p { font-size:15px; margin-bottom:10px; }
+.geo-qa p:last-of-type { margin-bottom:0; }
+.geo-qa-meta { font-size:12px; color:var(--color-muted); margin-top:12px; letter-spacing:.5px; text-transform:uppercase; }
+
 </style>
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a"> <!-- Structured Data -->
  <script type="application/ld+json">
@@ -133,6 +139,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  "name": "China Visa Checker - EVENTURUS",
  "description": "Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.",
  "url": "https://eventurus.cn/visa-checker.html",
+ "dateModified": "2026-08-24",
  "applicationCategory": "TravelApplication",
  "operatingSystem": "All",
  "offers": {
@@ -154,6 +161,44 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  }
 }
  </script>
+ <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I need a visa to visit China?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Ordinary-passport holders from 79 countries, including the UK, most EU member states, Australia, New Zealand, Canada, Japan, South Korea, Singapore and Malaysia, can enter China visa-free for up to 30 days for tourism, business or family visits. The current unilateral policy runs through 31 December 2026. US, Indian and several other passport holders still need a visa." }
+  },
+  {
+   "@type": "Question",
+   "name": "Do US citizens need a visa for China?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Yes. US ordinary-passport holders are not covered by China's visa-free entry policy and need a visa for tourism or business visits. However, US passport holders are eligible for the 240-hour visa-free transit policy when travelling through China to a third country." }
+  },
+  {
+   "@type": "Question",
+   "name": "What is China's 240-hour visa-free transit policy?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Passport holders from 55 countries can enter China without a visa for up to 240 hours (10 days) when transiting to a third country or region. You need a passport valid for at least 3 months, a confirmed onward ticket, and you must use one of the 65 designated ports and stay within the permitted area." }
+  },
+  {
+   "@type": "Question",
+   "name": "How long can I stay in China without a visa?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Up to 30 days on ordinary passports from the 79 visa-free countries, or up to 240 hours (10 days) under the transit policy. Stays for work, formal study or news reporting are never covered by visa-free entry." }
+  }
+ ]
+}
+ </script>
+ <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "Tools", "item": "https://eventurus.cn/" },
+  { "@type": "ListItem", "position": 2, "name": "China Visa Checker", "item": "https://eventurus.cn/visa-checker.html" }
+ ]
+}
+ </script>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 
@@ -167,6 +212,14 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
 <div class="hero"><h1>China Visa Checker</h1><p>Three quick questions based on policies verified through July 2026.</p></div>
+
+<section class="geo-qa" aria-label="Quick answer">
+ <h2>Do I need a visa to visit China?</h2>
+ <p>Ordinary-passport holders from 79 countries can enter China visa-free for up to 30 days for tourism, business or family visits. This includes the UK, most EU member states, Australia, New Zealand, Canada, Japan, South Korea, Singapore and Malaysia. The current unilateral policy runs through 31 December 2026 (Russia: through 31 December 2027).</p>
+ <p>US, Indian, Turkish, Vietnamese and several other passport holders still need a visa. US passport holders can still use the 240-hour visa-free transit policy (55 eligible nationalities) when travelling through China to a third country.</p>
+ <p>All nationalities may use 24-hour visa-free transit at China's open ports.</p>
+ <p class="geo-qa-meta">Last updated 24 August 2026 · Vetted by EVENTURUS</p>
+</section>
 
 <div class="step-indicators">
  <div class="step-dot active" id="s1"></div>

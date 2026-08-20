@@ -172,6 +172,12 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
+.geo-qa { background:var(--color-surface); border:1px solid var(--color-border); border-radius:12px; padding:24px; margin:0 0 24px; }
+.geo-qa h2 { font-family:var(--font-serif); font-size:20px; font-weight:600; margin-bottom:10px; }
+.geo-qa p { font-size:15px; margin-bottom:10px; }
+.geo-qa p:last-of-type { margin-bottom:0; }
+.geo-qa-meta { font-size:12px; color:var(--color-muted); margin-top:12px; letter-spacing:.5px; text-transform:uppercase; }
+
 </style>
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
 <!-- Structured Data -->
@@ -226,7 +232,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   "headline": "Get Online in China - eSIM & SIM Guide - EVENTURUS",
   "description": "How to get internet in China. Compare eSIM providers you can buy before you arrive, and find airport SIM counters for physical SIM cards at major airports.",
   "url": "https://eventurus.cn/internet-guide.html",
-  "dateModified": "2026-08-08",
+  "dateModified": "2026-08-24",
   "author": {
     "@type": "Organization",
     "name": "EVENTURUS",
@@ -239,6 +245,29 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   },
   "inLanguage": "en-GB",
   "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I get internet in China as a tourist?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The simplest route is a travel eSIM bought before you leave - buy online, activate on arrival, no shop visit or SIM swap. If you prefer a physical SIM, counters at major airport arrivals halls sell short-stay data plans; bring your passport." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my phone support eSIM in China?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most modern phones support travel eSIMs: iPhone XS and newer (except mainland-China models, which have no eSIM), Google Pixel 3 and newer (except Japan models), Samsung Galaxy S20 and newer, and Z Fold or Z Flip series. Some Huawei models also support eSIM." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I buy a SIM card at the airport in China?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can, but most travellers buy a data plan before they arrive and never visit a SIM counter. Airport counters are the fallback: they sell short-stay data plans at major arrivals halls, and you will need your passport for registration." }
+    }
+  ]
 }
 </script>
 </head>
@@ -256,6 +285,13 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <h1>Get Online in China</h1>
   <p>eSIM you can buy before you leave, and where to find a physical SIM card when you land. Everything you need to stay connected.</p>
 </div>
+
+<section class="geo-qa" aria-label="Quick answer">
+  <h2>How do I get internet in China as a tourist?</h2>
+  <p>The simplest route is a travel eSIM bought before you leave - buy online, activate on arrival, no shop visit or SIM swap. Most travellers never visit a SIM counter. Device support: iPhone XS and newer (except mainland-China models, which have no eSIM), Google Pixel 3 and newer, Samsung Galaxy S20 and newer.</p>
+  <p>If you prefer a physical SIM, counters at major airport arrivals halls sell short-stay data plans; bring your passport.</p>
+  <p class="geo-qa-meta">Last updated 24 August 2026 · Vetted by EVENTURUS</p>
+</section>
 
 <div class="pull-quote">
   <blockquote>Most travellers buy a data plan before they arrive and never visit a SIM counter. But knowing where the counters are - just in case - makes the arrival anxiety disappear.</blockquote>

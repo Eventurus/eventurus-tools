@@ -185,6 +185,12 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
+.geo-qa { background:var(--color-surface); border:1px solid var(--color-border); border-radius:12px; padding:24px; margin:0 0 24px; }
+.geo-qa h2 { font-family:var(--font-serif); font-size:20px; font-weight:600; margin-bottom:10px; }
+.geo-qa p { font-size:15px; margin-bottom:10px; }
+.geo-qa p:last-of-type { margin-bottom:0; }
+.geo-qa-meta { font-size:12px; color:var(--color-muted); margin-top:12px; letter-spacing:.5px; text-transform:uppercase; }
+
 </style>
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
 <!-- Structured Data -->
@@ -196,6 +202,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   "description": "How to set up WeChat Pay and Alipay as a foreign traveller in China. Step-by-step instructions, comparison, and tips for cashless payments.",
   "url": "https://eventurus.cn/payment-guide.html",
   "inLanguage": "en-GB",
+  "dateModified": "2026-08-24",
   "publisher": {
     "@type": "Organization",
     "name": "EVENTURUS",
@@ -235,6 +242,14 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use my foreign card in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cash is still accepted, but mobile payments are the default in China. The practical route for foreign travellers is to link an international Visa, Mastercard, American Express or JCB card to Alipay or WeChat Pay - both support foreign cards, with roughly a 3% transaction fee per payment. No Chinese bank account or local phone number needed."
+      }
+    },
     {
       "@type": "Question",
       "name": "Do I need both WeChat Pay and Alipay?",
@@ -327,6 +342,13 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <h1>WeChat Pay &amp; Alipay Guide</h1>
   <p>How to set up mobile payments as a foreign traveller. Step-by-step, from download to your first scan-to-pay.</p>
 </div>
+
+<section class="geo-qa" aria-label="Quick answer">
+  <h2>Can I use my foreign card in China?</h2>
+  <p>Cash is still accepted, but mobile payments are the default in China. The practical route for foreign travellers is to link an international Visa, Mastercard, American Express or JCB card to Alipay or WeChat Pay - both support foreign cards, with roughly a 3% transaction fee per payment. No Chinese bank account or local phone number needed.</p>
+  <p>Set up at least one of the two before you arrive; see the step-by-step walkthrough below.</p>
+  <p class="geo-qa-meta">Last updated 24 August 2026 · Vetted by EVENTURUS</p>
+</section>
 
 <div class="pull-quote">
   <blockquote>China runs on QR codes. WeChat Pay and Alipay are everywhere - from Michelin-starred restaurants to street-side fruit stalls. Setting them up before you arrive saves every transaction.</blockquote>
