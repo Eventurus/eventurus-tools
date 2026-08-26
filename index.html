@@ -39,6 +39,20 @@
   }
 }
 </script>
+<script>
+(function () {
+  try {
+    var p = new URLSearchParams(location.search).get('notrack');
+    if (p === '1') {
+      localStorage.setItem('umami.disabled', '1');
+      alert('Umami tracking DISABLED on this browser.');
+    } else if (p === '0') {
+      localStorage.removeItem('umami.disabled');
+      alert('Umami tracking ENABLED on this browser.');
+    }
+  } catch (e) {}
+})();
+</script>
 <script data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa" defer="" src="https://stats.eventurus.cn/script.js"></script>
 <link href="assets/contact/contact-widget.css" rel="stylesheet"/>
 <style>
