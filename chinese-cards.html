@@ -153,7 +153,6 @@ body {
 }
 
 /* Card grid */
-[hidden] { display: none !important; }
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -268,7 +267,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
 
 </style>
-<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
+<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20261018a">
 <!-- Structured Data -->
   <script type="application/ld+json">
 {
@@ -379,18 +378,19 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 
 <div class="controls">
-  <button class="btn-primary" onclick="window.print()">&#128424; Print cards</button>
-  <button onclick="selectAllText()">&#128203; Select all</button>
+  <button class="btn-primary" onclick="window.print()"><span class="btn-ico" data-icon="print"></span> Print cards</button>
+  <button id="selectAllBtn" onclick="selectAllText()"><span class="btn-ico" data-icon="select"></span> Select all</button>
 </div>
+<div class="sr-only" id="cardsStatus" role="status" aria-live="polite"></div>
 
 <div class="cat-filter" id="catFilter">
-  <button class="cat-btn active" data-cat="all" onclick="filterCards('all', this)">All</button>
-  <button class="cat-btn" data-cat="taxi" onclick="filterCards('taxi', this)">&#128661; Taxi</button>
-  <button class="cat-btn" data-cat="dining" onclick="filterCards('dining', this)">&#127860; Dining</button>
-  <button class="cat-btn" data-cat="hotel" onclick="filterCards('hotel', this)">&#127976; Hotel</button>
-  <button class="cat-btn" data-cat="medical" onclick="filterCards('medical', this)">&#127973; Medical</button>
-  <button class="cat-btn" data-cat="shopping" onclick="filterCards('shopping', this)">&#128722; Shopping</button>
-  <button class="cat-btn" data-cat="basic" onclick="filterCards('basic', this)">&#128172; Basic</button>
+  <button class="cat-btn active" data-cat="all" onclick="filterCards('all', this)" aria-pressed="true">All</button>
+  <button class="cat-btn" data-cat="taxi" onclick="filterCards('taxi', this)" aria-pressed="false"><span class="cat-ico" data-icon="taxi"></span> Taxi</button>
+  <button class="cat-btn" data-cat="dining" onclick="filterCards('dining', this)" aria-pressed="false"><span class="cat-ico" data-icon="dining"></span> Dining</button>
+  <button class="cat-btn" data-cat="hotel" onclick="filterCards('hotel', this)" aria-pressed="false"><span class="cat-ico" data-icon="hotel"></span> Hotel</button>
+  <button class="cat-btn" data-cat="medical" onclick="filterCards('medical', this)" aria-pressed="false"><span class="cat-ico" data-icon="medical"></span> Medical</button>
+  <button class="cat-btn" data-cat="shopping" onclick="filterCards('shopping', this)" aria-pressed="false"><span class="cat-ico" data-icon="shopping"></span> Shopping</button>
+  <button class="cat-btn" data-cat="basic" onclick="filterCards('basic', this)" aria-pressed="false"><span class="cat-ico" data-icon="basic"></span> Basic</button>
 </div>
 
 <div class="card-grid" id="cardGrid">
@@ -682,67 +682,22 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 
 <script>
-const CARDS = [
-  // TAXI
-  { cat:'taxi', icon:'&#128661;', zh:'请带我去这个地址。', pinyin:'Qing dai wo qu zhe ge di zhi.', en:'Please take me to this address.', note:'Show the address on your phone' },
-  { cat:'taxi', icon:'&#128661;', zh:'打表吗？', pinyin:'Da biao ma?', en:'Do you use the meter?', note:'Always ask before starting the ride' },
-  { cat:'taxi', icon:'&#128661;', zh:'我要去机场。', pinyin:'Wo yao qu ji chang.', en:'I need to go to the airport.' },
-  { cat:'taxi', icon:'&#128661;', zh:'我要去火车站。', pinyin:'Wo yao qu huo che zhan.', en:'I need to go to the train station.' },
-  { cat:'taxi', icon:'&#128661;', zh:'在这里停就可以。', pinyin:'Zai zhe li ting jiu ke yi.', en:'You can stop here.' },
-  { cat:'taxi', icon:'&#128661;', zh:'多少钱？', pinyin:'Duo shao qian?', en:'How much?', note:'Check before paying' },
 
-  // DINING
-  { cat:'dining', icon:'&#127860;', zh:'我吃素，不要肉。', pinyin:'Wo chi su, bu yao rou.', en:'I\'m vegetarian, no meat please.' },
-  { cat:'dining', icon:'&#127860;', zh:'我不吃辣。', pinyin:'Wo bu chi la.', en:'I don\'t eat spicy food.' },
-  { cat:'dining', icon:'&#127860;', zh:'我对花生过敏。', pinyin:'Wo dui hua sheng guo min.', en:'I\'m allergic to peanuts.' },
-  { cat:'dining', icon:'&#127860;', zh:'有英文菜单吗？', pinyin:'You ying wen cai dan ma?', en:'Do you have an English menu?', note:'Many tourist-friendly restaurants do' },
-  { cat:'dining', icon:'&#127860;', zh:'买单，谢谢。', pinyin:'Mai dan, xie xie.', en:'Check, please.' },
-  { cat:'dining', icon:'&#127860;', zh:'不要味精。', pinyin:'Bu yao wei jing.', en:'No MSG, please.' },
-  { cat:'dining', icon:'&#127860;', zh:'请问有什么推荐的菜？', pinyin:'Qing wen you shen me tui jian de cai?', en:'What do you recommend?' },
-  { cat:'dining', icon:'&#127860;', zh:'我要打包。', pinyin:'Wo yao da bao.', en:'I\'d like to take this to go.' },
-
-  // HOTEL
-  { cat:'hotel', icon:'&#127976;', zh:'我有预订。', pinyin:'Wo you yu ding.', en:'I have a reservation.' },
-  { cat:'hotel', icon:'&#127976;', zh:'我要办理入住。', pinyin:'Wo yao ban li ru zhu.', en:'I\'d like to check in.' },
-  { cat:'hotel', icon:'&#127976;', zh:'我的房间号是___。', pinyin:'Wo de fang jian hao shi ___.', en:'My room number is ___.' },
-  { cat:'hotel', icon:'&#127976;', zh:'有Wi-Fi吗？密码是多少？', pinyin:'You Wi-Fi ma? Mi ma shi duo shao?', en:'Is there Wi-Fi? What\'s the password?' },
-  { cat:'hotel', icon:'&#127976;', zh:'请帮我叫一辆出租车。', pinyin:'Qing bang wo jiao yi liang chu zu che.', en:'Please call a taxi for me.' },
-  { cat:'hotel', icon:'&#127976;', zh:'早餐几点开始？', pinyin:'Zao can ji dian kai shi?', en:'What time does breakfast start?' },
-  { cat:'hotel', icon:'&#127976;', zh:'我需要多一条毛巾。', pinyin:'Wo xu yao duo yi tiao mao jin.', en:'I need an extra towel.' },
-
-  // MEDICAL
-  { cat:'medical', icon:'&#127973;', zh:'我生病了。', pinyin:'Wo sheng bing le.', en:'I\'m sick.' },
-  { cat:'medical', icon:'&#127973;', zh:'带我去最近的医院。', pinyin:'Dai wo qu zui jin de yi yuan.', en:'Take me to the nearest hospital.' },
-  { cat:'medical', icon:'&#127973;', zh:'我发烧了。', pinyin:'Wo fa shao le.', en:'I have a fever.' },
-  { cat:'medical', icon:'&#127973;', zh:'我肚子疼。', pinyin:'Wo du zi teng.', en:'I have a stomach ache.' },
-  { cat:'medical', icon:'&#127973;', zh:'我需要看医生。', pinyin:'Wo xu yao kan yi sheng.', en:'I need to see a doctor.' },
-  { cat:'medical', icon:'&#127973;', zh:'这个药怎么吃？', pinyin:'Zhe ge yao zen me chi?', en:'How do I take this medicine?' },
-  { cat:'medical', icon:'&#127973;', zh:'我有保险。', pinyin:'Wo you bao xian.', en:'I have insurance.', note:'Show your insurance card' },
-
-  // SHOPPING
-  { cat:'shopping', icon:'&#128722;', zh:'这个多少钱？', pinyin:'Zhe ge duo shao qian?', en:'How much is this?' },
-  { cat:'shopping', icon:'&#128722;', zh:'太贵了，能便宜点吗？', pinyin:'Tai gui le, neng pian yi dian ma?', en:'Too expensive. Can you make it cheaper?', note:'Bargaining is common at markets' },
-  { cat:'shopping', icon:'&#128722;', zh:'可以刷卡吗？', pinyin:'Ke yi shua ka ma?', en:'Can I pay by card?' },
-  { cat:'shopping', icon:'&#128722;', zh:'我可以试穿吗？', pinyin:'Wo ke yi shi chuan ma?', en:'Can I try this on?' },
-
-  // BASIC
-  { cat:'basic', icon:'&#128172;', zh:'你好。谢谢。再见。', pinyin:'Ni hao. Xie xie. Zai jian.', en:'Hello. Thank you. Goodbye.', note:'The three most useful words' },
-  { cat:'basic', icon:'&#128172;', zh:'对不起 / 不好意思。', pinyin:'Dui bu qi / Bu hao yi si.', en:'Sorry / Excuse me.' },
-  { cat:'basic', icon:'&#128172;', zh:'厕所在哪里？', pinyin:'Ce suo zai na li?', en:'Where is the restroom?' },
-  { cat:'basic', icon:'&#128172;', zh:'我不会中文。', pinyin:'Wo bu hui zhong wen.', en:'I don\'t speak Chinese.', note:'Said with a smile, it usually helps' },
-  { cat:'basic', icon:'&#128172;', zh:'请说慢一点。', pinyin:'Qing shuo man yi dian.', en:'Please speak slower.' },
-  { cat:'basic', icon:'&#128172;', zh:'这个用中文怎么说？', pinyin:'Zhe ge yong zhong wen zen me shuo?', en:'How do you say this in Chinese?' },
-  { cat:'basic', icon:'&#128172;', zh:'我迷路了。', pinyin:'Wo mi lu le.', en:'I\'m lost.' },
-];
-
-// The cards are in the document, so their icons cannot be: the source stays
-// emoji-free and this fills the empty spans from the dataset once, on load.
-const CAT_ICON = {};
-CARDS.forEach(function(c) { CAT_ICON[c.cat] = c.icon; });
+// The cards, and the buttons that filter them, are in the document. Their icons
+// cannot be: the source stays emoji-free and this fills the empty spans from one
+// small lookup table on load. Six categories and two toolbar buttons is all the
+// markup needs, so there is no per-card dataset here any more.
+const ICONS = {
+  taxi: '\uD83D\uDE95', dining: '\uD83C\uDF74', hotel: '\uD83C\uDFE8',
+  medical: '\uD83C\uDFE5', shopping: '\uD83D\uDED2', basic: '\uD83D\uDCAC',
+  print: '\uD83D\uDDA8', select: '\uD83D\uDCCB'
+};
 
 function decorateIcons() {
-  document.querySelectorAll('#cardGrid .icon[data-icon]').forEach(function(el) {
-    el.innerHTML = CAT_ICON[el.dataset.icon] || '';
+  document.querySelectorAll('[data-icon]').forEach(function(el) {
+    el.textContent = ICONS[el.dataset.icon] || '';
+    // Decorative: every one of these sits next to a word that says the same.
+    el.setAttribute('aria-hidden', 'true');
   });
 }
 
@@ -755,26 +710,54 @@ function renderCards(filter) {
 }
 
 function filterCards(cat, btn) {
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  document.querySelectorAll('.cat-btn').forEach(function(b) {
+    var on = b === btn;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
   renderCards(cat);
+  announce(cat);
+}
+
+// The count is already written into the page; this only reads it back out loud
+// for assistive tech, which otherwise gets no signal that a filter was applied.
+function announce(cat) {
+  var shown = document.querySelectorAll('#cardGrid .phrase-card:not([hidden])').length;
+  var live = document.getElementById('cardsStatus');
+  if (live) live.textContent = (cat === 'all' ? 'All categories' : cat) + ': ' + shown + ' phrases shown';
 }
 
 function selectAllText() {
-  // A more user-friendly approach: copy all cards text to clipboard
-  const text = CARDS.map(c => c.zh + ' (' + c.en + ')').join('\n');
-  const btn = document.querySelector('.controls button:last-child');
+  // Copies the cards already on the page rather than a second copy of the data,
+  // so the clipboard and the screen cannot disagree. `em` is the side note,
+  // which the old dataset kept out of the copied text and so does this.
+  const text = Array.from(document.querySelectorAll('#cardGrid .phrase-card')).map(function(card) {
+    const zh = card.querySelector('.zh').textContent.trim();
+    const en = Array.from(card.querySelector('.en').childNodes)
+      .filter(n => n.nodeType === 3)
+      .map(n => n.textContent).join('').replace(/\s+/g, ' ').trim();
+    return zh + ' (' + en + ')';
+  }).join('\n');
+
+  const btn = document.getElementById('selectAllBtn');
+  // Swaps the text node only, leaving the icon span in place.
+  const setLabel = t => {
+    for (const node of btn.childNodes) {
+      if (node.nodeType === 3 && node.textContent.trim()) { node.textContent = ' ' + t; return; }
+    }
+  };
+  const reset = () => setLabel('Select all');
   if (!navigator.clipboard) {
-    btn.textContent = '\u2717 Clipboard unavailable';
-    setTimeout(() => btn.textContent = '\uD83D\uDCCB Select all', 2000);
+    setLabel('Clipboard unavailable');
+    setTimeout(reset, 2000);
     return;
   }
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = '\u2713 Copied!';
-    setTimeout(() => btn.textContent = '\uD83D\uDCCB Select all', 2000);
+    setLabel('Copied!');
+    setTimeout(reset, 2000);
   }).catch(() => {
-    btn.textContent = '\u2717 Copy failed';
-    setTimeout(() => btn.textContent = '\uD83D\uDCCB Select all', 2000);
+    setLabel('Copy failed');
+    setTimeout(reset, 2000);
   });
 }
 

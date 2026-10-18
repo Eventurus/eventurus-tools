@@ -2,6 +2,19 @@
    Shared presentation layer for guide and directory pages.
    Theme: light editorial utility. Accent: Eventurus green. */
 
+/* Visibility toggle used by every static-then-filter page.
+
+   The filtered nodes are real nodes in the document, so hiding them is a
+   `hidden` attribute flip rather than a re-render. Some cards carry their own
+   `display`, which beats the attribute's UA default, so the reset has to be
+   here and not repeated per page. A page that filters with `.hidden` needs
+   nothing more than this stylesheet. */
+body.evt-v2 [hidden] { display: none !important; }
+
+/* Text for screen readers and live regions only. */
+body.evt-v2 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
 body.evt-v2 {
   --evt-ink: #252724;
   --evt-muted: #63685f;

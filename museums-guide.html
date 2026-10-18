@@ -234,7 +234,6 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
    tools/geo_build/render_museums.py, so a crawler that does not run the
    filter still reads the collection. The script only toggles `hidden`, which
    has to beat the grid item's own display. */
-[hidden] { display: none !important; }
 .museum-card h3.mc-title { margin: 0; font-family: var(--font-sans); }
 .mc-mini-tag .tag-emoji { margin-right: 4px; }
 .museum-cities { margin: 0; padding-left: 20px; }
@@ -242,7 +241,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 .museum-cities li:last-child { margin-bottom: 0; }
 
 </style>
-<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
+<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20261018a">
 <!-- Structured Data -->
   <script type="application/ld+json">
 {
@@ -801,7 +800,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
     </div>
   </div>
   <div class="tag-chips" id="tagChips"></div>
-  <div class="results-summary" id="resultsSummary"></div>
+  <div class="results-summary" id="resultsSummary" role="status" aria-live="polite"></div>
 </div>
 
 <div class="results-grid" id="resultsGrid">
@@ -2388,15 +2387,21 @@ TAGS.forEach(t => {
   const chip = document.createElement('button');
   chip.className = 'tag-chip';
   chip.dataset.tag = t.id;
-  chip.innerHTML = '<span class="chip-emoji">' + t.emoji + '</span>' + t.label;
+  chip.type = 'button';
+  // A chip is a toggle, so it says so: without aria-pressed a screen reader
+  // reads the same label whether the tag is on or off.
+  chip.setAttribute('aria-pressed', 'false');
+  chip.innerHTML = '<span class="chip-emoji" aria-hidden="true">' + t.emoji + '</span>' + t.label;
   chip.addEventListener('click', function() {
-    if (selectedTags.has(t.id)) {
-      selectedTags.delete(t.id);
-      this.classList.remove('active', t.color);
-    } else {
+    var on = !selectedTags.has(t.id);
+    if (on) {
       selectedTags.add(t.id);
       this.classList.add('active', t.color);
+    } else {
+      selectedTags.delete(t.id);
+      this.classList.remove('active', t.color);
     }
+    this.setAttribute('aria-pressed', on ? 'true' : 'false');
     render();
   });
   tagChips.appendChild(chip);
@@ -2430,6 +2435,8 @@ function iconFor(key) {
 function decorate() {
   resultsGrid.querySelectorAll('[data-icon]').forEach(function(el) {
     el.textContent = iconFor(el.dataset.icon);
+    // Decorative: the label next to it already says what it means.
+    el.setAttribute('aria-hidden', 'true');
   });
 }
 
