@@ -228,6 +228,142 @@
       body: "Follow Eventurus for practical Shanghai information and updates to our destination guides.",
       insert: { selector: ".section", position: "after-index", index: 1 },
       sticky: "scroll"
+    },
+    "accommodation-registration.html": {
+      group: "entry",
+      intent: "follow",
+      title: "Keep the registration guide handy.",
+      body: "Follow Eventurus for updates to this guide and other practical China arrival tools.",
+      insert: { heading: "What happens after you submit", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "beijing-3day-itinerary.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Save the Beijing itinerary.",
+      body: "Follow Eventurus for updates to our China itineraries and new tools when they are published.",
+      insert: { heading: "Where to stay", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "china-markets.html": {
+      group: "shopping",
+      intent: "follow",
+      title: "Keep the market guide handy.",
+      body: "Follow Eventurus for updates to this guide and our China shopping notes.",
+      insert: { heading: "How to shop a wet market", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "china-souvenirs.html": {
+      group: "shopping",
+      intent: "follow",
+      title: "Save the souvenir guide.",
+      body: "Follow Eventurus for updates to this guide and our China shopping notes.",
+      insert: { heading: "Shipping, packing and the refund", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "china-tax-refund.html": {
+      group: "payments",
+      intent: "follow",
+      title: "Keep the refund rules handy.",
+      body: "Follow Eventurus for updates to this guide and other China payment tools.",
+      insert: { heading: "Where the counters are in Shanghai", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "day-trips-beijing.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Keep the Beijing day trips close.",
+      body: "Follow Eventurus for updates to our day trip guides and practical China travel information.",
+      insert: { heading: "Practical notes", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "day-trips-shanghai.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Keep the Shanghai day trips close.",
+      body: "Follow Eventurus for updates to our day trip guides and practical China travel information.",
+      insert: { heading: "Practical notes", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "shanghai-3day-itinerary.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Save the Shanghai itinerary.",
+      body: "Follow Eventurus for updates to our China itineraries and new tools when they are published.",
+      insert: { heading: "Where to stay", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "tenpaygo.html": {
+      group: "payments",
+      intent: "follow",
+      title: "Keep the TenPayGo guide handy.",
+      body: "Follow Eventurus for updates to this guide and other China payment tools.",
+      insert: { heading: "Beyond paying", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Compare the six bases side by side.",
+      body: "Follow Eventurus for updates to our China destination guides and accommodation notes.",
+      insert: { heading: "Anji: the larger, quieter county", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-anji.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Anji area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "How do you get to Anji?", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-beijing.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Beijing area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "By trip type", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-hangzhou.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Hangzhou area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "Longjing and Xixi: the slow stay", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-moganshan.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Moganshan area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "How do you get to Moganshan?", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-shanghai.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Shanghai area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "Lujiazui: the business district", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-suzhou.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Suzhou area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "Which station should you book?", position: "before-heading" },
+      sticky: "scroll"
+    },
+    "where-to-stay-wuzhen.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Save the Wuzhen area guide.",
+      body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
+      insert: { heading: "How do you get to Wuzhen?", position: "before-heading" },
+      sticky: "scroll"
     }
   };
 
