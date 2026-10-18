@@ -153,6 +153,7 @@ body {
 }
 
 /* Card grid */
+[hidden] { display: none !important; }
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -392,118 +393,283 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <button class="cat-btn" data-cat="basic" onclick="filterCards('basic', this)">&#128172; Basic</button>
 </div>
 
-<div class="card-grid" id="cardGrid"></div>
-<!-- geo:cards-static:start -->
-<div class="section">
-  <h2>Every phrase, written out</h2>
-  <p>All 39 phrases from the cards above, written out. Show the screen or read the pinyin aloud; tones matter less than the phrase itself. The right-hand column says when each line is worth using, which is often the difference between being understood and being sold something.</p>
-</div>
-<div class="section">
-  <h2>Taxis and drivers</h2>
-  <div class="table-wrap">
-    <table>
-      <caption>6 phrases: taxis and drivers</caption>
-      <thead><tr><th scope="col">Chinese</th><th scope="col">Pinyin</th><th scope="col">English</th><th scope="col">When to use it</th></tr></thead>
-      <tbody>
-      <tr><td lang="zh-Hans">请带我去这个地址。</td><td>Qing dai wo qu zhe ge di zhi.</td><td>Please take me to this address.</td><td>Show the address on your phone</td></tr>
-      <tr><td lang="zh-Hans">打表吗？</td><td>Da biao ma?</td><td>Do you use the meter?</td><td>Always ask before starting the ride</td></tr>
-      <tr><td lang="zh-Hans">我要去机场。</td><td>Wo yao qu ji chang.</td><td>I need to go to the airport.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我要去火车站。</td><td>Wo yao qu huo che zhan.</td><td>I need to go to the train station.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">在这里停就可以。</td><td>Zai zhe li ting jiu ke yi.</td><td>You can stop here.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">多少钱？</td><td>Duo shao qian?</td><td>How much?</td><td>Check before paying</td></tr>
-      </tbody>
-    </table>
+<div class="card-grid" id="cardGrid">
+<!-- geo:cards:start -->
+  <div class="phrase-card" data-cat="taxi">
+    <span class="cat-tag">taxi</span>
+    <div class="icon" data-icon="taxi"></div>
+    <div class="zh" lang="zh-Hans">请带我去这个地址。</div>
+    <div class="pinyin">Qing dai wo qu zhe ge di zhi.</div>
+    <div class="en">Please take me to this address. <em> - Show the address on your phone</em></div>
   </div>
-</div>
-<div class="section">
-  <h2>Restaurants and food</h2>
-  <div class="table-wrap">
-    <table>
-      <caption>8 phrases: restaurants and food</caption>
-      <thead><tr><th scope="col">Chinese</th><th scope="col">Pinyin</th><th scope="col">English</th><th scope="col">When to use it</th></tr></thead>
-      <tbody>
-      <tr><td lang="zh-Hans">我吃素，不要肉。</td><td>Wo chi su, bu yao rou.</td><td>I'm vegetarian, no meat please.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我不吃辣。</td><td>Wo bu chi la.</td><td>I don't eat spicy food.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我对花生过敏。</td><td>Wo dui hua sheng guo min.</td><td>I'm allergic to peanuts.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">有英文菜单吗？</td><td>You ying wen cai dan ma?</td><td>Do you have an English menu?</td><td>Many tourist-friendly restaurants do</td></tr>
-      <tr><td lang="zh-Hans">买单，谢谢。</td><td>Mai dan, xie xie.</td><td>Check, please.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">不要味精。</td><td>Bu yao wei jing.</td><td>No MSG, please.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">请问有什么推荐的菜？</td><td>Qing wen you shen me tui jian de cai?</td><td>What do you recommend?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我要打包。</td><td>Wo yao da bao.</td><td>I'd like to take this to go.</td><td>&mdash;</td></tr>
-      </tbody>
-    </table>
+  <div class="phrase-card" data-cat="taxi">
+    <span class="cat-tag">taxi</span>
+    <div class="icon" data-icon="taxi"></div>
+    <div class="zh" lang="zh-Hans">打表吗？</div>
+    <div class="pinyin">Da biao ma?</div>
+    <div class="en">Do you use the meter? <em> - Always ask before starting the ride</em></div>
   </div>
-</div>
-<div class="section">
-  <h2>Hotels and check-in</h2>
-  <div class="table-wrap">
-    <table>
-      <caption>7 phrases: hotels and check-in</caption>
-      <thead><tr><th scope="col">Chinese</th><th scope="col">Pinyin</th><th scope="col">English</th><th scope="col">When to use it</th></tr></thead>
-      <tbody>
-      <tr><td lang="zh-Hans">我有预订。</td><td>Wo you yu ding.</td><td>I have a reservation.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我要办理入住。</td><td>Wo yao ban li ru zhu.</td><td>I'd like to check in.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我的房间号是___。</td><td>Wo de fang jian hao shi ___.</td><td>My room number is ___.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">有Wi-Fi吗？密码是多少？</td><td>You Wi-Fi ma? Mi ma shi duo shao?</td><td>Is there Wi-Fi? What's the password?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">请帮我叫一辆出租车。</td><td>Qing bang wo jiao yi liang chu zu che.</td><td>Please call a taxi for me.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">早餐几点开始？</td><td>Zao can ji dian kai shi?</td><td>What time does breakfast start?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我需要多一条毛巾。</td><td>Wo xu yao duo yi tiao mao jin.</td><td>I need an extra towel.</td><td>&mdash;</td></tr>
-      </tbody>
-    </table>
+  <div class="phrase-card" data-cat="taxi">
+    <span class="cat-tag">taxi</span>
+    <div class="icon" data-icon="taxi"></div>
+    <div class="zh" lang="zh-Hans">我要去机场。</div>
+    <div class="pinyin">Wo yao qu ji chang.</div>
+    <div class="en">I need to go to the airport.</div>
   </div>
-</div>
-<div class="section">
-  <h2>Medical and pharmacy</h2>
-  <div class="table-wrap">
-    <table>
-      <caption>7 phrases: medical and pharmacy</caption>
-      <thead><tr><th scope="col">Chinese</th><th scope="col">Pinyin</th><th scope="col">English</th><th scope="col">When to use it</th></tr></thead>
-      <tbody>
-      <tr><td lang="zh-Hans">我生病了。</td><td>Wo sheng bing le.</td><td>I'm sick.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">带我去最近的医院。</td><td>Dai wo qu zui jin de yi yuan.</td><td>Take me to the nearest hospital.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我发烧了。</td><td>Wo fa shao le.</td><td>I have a fever.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我肚子疼。</td><td>Wo du zi teng.</td><td>I have a stomach ache.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我需要看医生。</td><td>Wo xu yao kan yi sheng.</td><td>I need to see a doctor.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">这个药怎么吃？</td><td>Zhe ge yao zen me chi?</td><td>How do I take this medicine?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我有保险。</td><td>Wo you bao xian.</td><td>I have insurance.</td><td>Show your insurance card</td></tr>
-      </tbody>
-    </table>
+  <div class="phrase-card" data-cat="taxi">
+    <span class="cat-tag">taxi</span>
+    <div class="icon" data-icon="taxi"></div>
+    <div class="zh" lang="zh-Hans">我要去火车站。</div>
+    <div class="pinyin">Wo yao qu huo che zhan.</div>
+    <div class="en">I need to go to the train station.</div>
   </div>
-</div>
-<div class="section">
-  <h2>Shopping and prices</h2>
-  <div class="table-wrap">
-    <table>
-      <caption>4 phrases: shopping and prices</caption>
-      <thead><tr><th scope="col">Chinese</th><th scope="col">Pinyin</th><th scope="col">English</th><th scope="col">When to use it</th></tr></thead>
-      <tbody>
-      <tr><td lang="zh-Hans">这个多少钱？</td><td>Zhe ge duo shao qian?</td><td>How much is this?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">太贵了，能便宜点吗？</td><td>Tai gui le, neng pian yi dian ma?</td><td>Too expensive. Can you make it cheaper?</td><td>Bargaining is common at markets</td></tr>
-      <tr><td lang="zh-Hans">可以刷卡吗？</td><td>Ke yi shua ka ma?</td><td>Can I pay by card?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我可以试穿吗？</td><td>Wo ke yi shi chuan ma?</td><td>Can I try this on?</td><td>&mdash;</td></tr>
-      </tbody>
-    </table>
+  <div class="phrase-card" data-cat="taxi">
+    <span class="cat-tag">taxi</span>
+    <div class="icon" data-icon="taxi"></div>
+    <div class="zh" lang="zh-Hans">在这里停就可以。</div>
+    <div class="pinyin">Zai zhe li ting jiu ke yi.</div>
+    <div class="en">You can stop here.</div>
   </div>
-</div>
-<div class="section">
-  <h2>Everyday basics</h2>
-  <div class="table-wrap">
-    <table>
-      <caption>7 phrases: everyday basics</caption>
-      <thead><tr><th scope="col">Chinese</th><th scope="col">Pinyin</th><th scope="col">English</th><th scope="col">When to use it</th></tr></thead>
-      <tbody>
-      <tr><td lang="zh-Hans">你好。谢谢。再见。</td><td>Ni hao. Xie xie. Zai jian.</td><td>Hello. Thank you. Goodbye.</td><td>The three most useful words</td></tr>
-      <tr><td lang="zh-Hans">对不起 / 不好意思。</td><td>Dui bu qi / Bu hao yi si.</td><td>Sorry / Excuse me.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">厕所在哪里？</td><td>Ce suo zai na li?</td><td>Where is the restroom?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我不会中文。</td><td>Wo bu hui zhong wen.</td><td>I don't speak Chinese.</td><td>Said with a smile, it usually helps</td></tr>
-      <tr><td lang="zh-Hans">请说慢一点。</td><td>Qing shuo man yi dian.</td><td>Please speak slower.</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">这个用中文怎么说？</td><td>Zhe ge yong zhong wen zen me shuo?</td><td>How do you say this in Chinese?</td><td>&mdash;</td></tr>
-      <tr><td lang="zh-Hans">我迷路了。</td><td>Wo mi lu le.</td><td>I'm lost.</td><td>&mdash;</td></tr>
-      </tbody>
-    </table>
+  <div class="phrase-card" data-cat="taxi">
+    <span class="cat-tag">taxi</span>
+    <div class="icon" data-icon="taxi"></div>
+    <div class="zh" lang="zh-Hans">多少钱？</div>
+    <div class="pinyin">Duo shao qian?</div>
+    <div class="en">How much? <em> - Check before paying</em></div>
   </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">我吃素，不要肉。</div>
+    <div class="pinyin">Wo chi su, bu yao rou.</div>
+    <div class="en">I'm vegetarian, no meat please.</div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">我不吃辣。</div>
+    <div class="pinyin">Wo bu chi la.</div>
+    <div class="en">I don't eat spicy food.</div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">我对花生过敏。</div>
+    <div class="pinyin">Wo dui hua sheng guo min.</div>
+    <div class="en">I'm allergic to peanuts.</div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">有英文菜单吗？</div>
+    <div class="pinyin">You ying wen cai dan ma?</div>
+    <div class="en">Do you have an English menu? <em> - Many tourist-friendly restaurants do</em></div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">买单，谢谢。</div>
+    <div class="pinyin">Mai dan, xie xie.</div>
+    <div class="en">Check, please.</div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">不要味精。</div>
+    <div class="pinyin">Bu yao wei jing.</div>
+    <div class="en">No MSG, please.</div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">请问有什么推荐的菜？</div>
+    <div class="pinyin">Qing wen you shen me tui jian de cai?</div>
+    <div class="en">What do you recommend?</div>
+  </div>
+  <div class="phrase-card" data-cat="dining">
+    <span class="cat-tag">dining</span>
+    <div class="icon" data-icon="dining"></div>
+    <div class="zh" lang="zh-Hans">我要打包。</div>
+    <div class="pinyin">Wo yao da bao.</div>
+    <div class="en">I'd like to take this to go.</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">我有预订。</div>
+    <div class="pinyin">Wo you yu ding.</div>
+    <div class="en">I have a reservation.</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">我要办理入住。</div>
+    <div class="pinyin">Wo yao ban li ru zhu.</div>
+    <div class="en">I'd like to check in.</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">我的房间号是___。</div>
+    <div class="pinyin">Wo de fang jian hao shi ___.</div>
+    <div class="en">My room number is ___.</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">有Wi-Fi吗？密码是多少？</div>
+    <div class="pinyin">You Wi-Fi ma? Mi ma shi duo shao?</div>
+    <div class="en">Is there Wi-Fi? What's the password?</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">请帮我叫一辆出租车。</div>
+    <div class="pinyin">Qing bang wo jiao yi liang chu zu che.</div>
+    <div class="en">Please call a taxi for me.</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">早餐几点开始？</div>
+    <div class="pinyin">Zao can ji dian kai shi?</div>
+    <div class="en">What time does breakfast start?</div>
+  </div>
+  <div class="phrase-card" data-cat="hotel">
+    <span class="cat-tag">hotel</span>
+    <div class="icon" data-icon="hotel"></div>
+    <div class="zh" lang="zh-Hans">我需要多一条毛巾。</div>
+    <div class="pinyin">Wo xu yao duo yi tiao mao jin.</div>
+    <div class="en">I need an extra towel.</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">我生病了。</div>
+    <div class="pinyin">Wo sheng bing le.</div>
+    <div class="en">I'm sick.</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">带我去最近的医院。</div>
+    <div class="pinyin">Dai wo qu zui jin de yi yuan.</div>
+    <div class="en">Take me to the nearest hospital.</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">我发烧了。</div>
+    <div class="pinyin">Wo fa shao le.</div>
+    <div class="en">I have a fever.</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">我肚子疼。</div>
+    <div class="pinyin">Wo du zi teng.</div>
+    <div class="en">I have a stomach ache.</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">我需要看医生。</div>
+    <div class="pinyin">Wo xu yao kan yi sheng.</div>
+    <div class="en">I need to see a doctor.</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">这个药怎么吃？</div>
+    <div class="pinyin">Zhe ge yao zen me chi?</div>
+    <div class="en">How do I take this medicine?</div>
+  </div>
+  <div class="phrase-card" data-cat="medical">
+    <span class="cat-tag">medical</span>
+    <div class="icon" data-icon="medical"></div>
+    <div class="zh" lang="zh-Hans">我有保险。</div>
+    <div class="pinyin">Wo you bao xian.</div>
+    <div class="en">I have insurance. <em> - Show your insurance card</em></div>
+  </div>
+  <div class="phrase-card" data-cat="shopping">
+    <span class="cat-tag">shopping</span>
+    <div class="icon" data-icon="shopping"></div>
+    <div class="zh" lang="zh-Hans">这个多少钱？</div>
+    <div class="pinyin">Zhe ge duo shao qian?</div>
+    <div class="en">How much is this?</div>
+  </div>
+  <div class="phrase-card" data-cat="shopping">
+    <span class="cat-tag">shopping</span>
+    <div class="icon" data-icon="shopping"></div>
+    <div class="zh" lang="zh-Hans">太贵了，能便宜点吗？</div>
+    <div class="pinyin">Tai gui le, neng pian yi dian ma?</div>
+    <div class="en">Too expensive. Can you make it cheaper? <em> - Bargaining is common at markets</em></div>
+  </div>
+  <div class="phrase-card" data-cat="shopping">
+    <span class="cat-tag">shopping</span>
+    <div class="icon" data-icon="shopping"></div>
+    <div class="zh" lang="zh-Hans">可以刷卡吗？</div>
+    <div class="pinyin">Ke yi shua ka ma?</div>
+    <div class="en">Can I pay by card?</div>
+  </div>
+  <div class="phrase-card" data-cat="shopping">
+    <span class="cat-tag">shopping</span>
+    <div class="icon" data-icon="shopping"></div>
+    <div class="zh" lang="zh-Hans">我可以试穿吗？</div>
+    <div class="pinyin">Wo ke yi shi chuan ma?</div>
+    <div class="en">Can I try this on?</div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">你好。谢谢。再见。</div>
+    <div class="pinyin">Ni hao. Xie xie. Zai jian.</div>
+    <div class="en">Hello. Thank you. Goodbye. <em> - The three most useful words</em></div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">对不起 / 不好意思。</div>
+    <div class="pinyin">Dui bu qi / Bu hao yi si.</div>
+    <div class="en">Sorry / Excuse me.</div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">厕所在哪里？</div>
+    <div class="pinyin">Ce suo zai na li?</div>
+    <div class="en">Where is the restroom?</div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">我不会中文。</div>
+    <div class="pinyin">Wo bu hui zhong wen.</div>
+    <div class="en">I don't speak Chinese. <em> - Said with a smile, it usually helps</em></div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">请说慢一点。</div>
+    <div class="pinyin">Qing shuo man yi dian.</div>
+    <div class="en">Please speak slower.</div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">这个用中文怎么说？</div>
+    <div class="pinyin">Zhe ge yong zhong wen zen me shuo?</div>
+    <div class="en">How do you say this in Chinese?</div>
+  </div>
+  <div class="phrase-card" data-cat="basic">
+    <span class="cat-tag">basic</span>
+    <div class="icon" data-icon="basic"></div>
+    <div class="zh" lang="zh-Hans">我迷路了。</div>
+    <div class="pinyin">Wo mi lu le.</div>
+    <div class="en">I'm lost.</div>
+  </div>
+<!-- geo:cards:end -->
 </div>
-<!-- geo:cards-static:end -->
 <div class="cross-link"><p>Related: <a href="dining-guide.html">Dining Guide</a> · <a href="didi-guide.html">Didi Guide</a></p></div>
 <div class="related-tools"><h2>Related Tools</h2><div class="rel-list"><a class="rel-item" href="didi-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Didi & Taxi Guide</span><span class="rel-desc">Show the driver your hotel address</span></span></a><a class="rel-item" href="menu-translator.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Menu Translator</span><span class="rel-desc">Point to dishes instead of speaking</span></span></a></div></div>
 
@@ -569,18 +735,23 @@ const CARDS = [
   { cat:'basic', icon:'&#128172;', zh:'我迷路了。', pinyin:'Wo mi lu le.', en:'I\'m lost.' },
 ];
 
+// The cards are in the document, so their icons cannot be: the source stays
+// emoji-free and this fills the empty spans from the dataset once, on load.
+const CAT_ICON = {};
+CARDS.forEach(function(c) { CAT_ICON[c.cat] = c.icon; });
+
+function decorateIcons() {
+  document.querySelectorAll('#cardGrid .icon[data-icon]').forEach(function(el) {
+    el.innerHTML = CAT_ICON[el.dataset.icon] || '';
+  });
+}
+
+// Toggling visibility rather than rebuilding the grid: what the reader sees,
+// what the filter hides and what a crawler reads are the same nodes.
 function renderCards(filter) {
-  const grid = document.getElementById('cardGrid');
-  const filtered = filter === 'all' ? CARDS : CARDS.filter(c => c.cat === filter);
-  grid.innerHTML = filtered.map(c => `
-    <div class="phrase-card">
-      <span class="cat-tag">${c.cat}</span>
-      <div class="icon">${c.icon}</div>
-      <div class="zh">${c.zh}</div>
-      <div class="pinyin">${c.pinyin}</div>
-      <div class="en">${c.en}${c.note ? ' <em> -  ' + c.note + '</em>' : ''}</div>
-    </div>
-  `).join('');
+  document.querySelectorAll('#cardGrid .phrase-card').forEach(function(card) {
+    card.hidden = filter !== 'all' && card.dataset.cat !== filter;
+  });
 }
 
 function filterCards(cat, btn) {
@@ -607,6 +778,7 @@ function selectAllText() {
   });
 }
 
+decorateIcons();
 renderCards('all');
 </script>
 <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
