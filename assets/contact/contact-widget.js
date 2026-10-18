@@ -364,6 +364,14 @@
       body: "Follow Eventurus for updates to our China accommodation guides and practical travel information.",
       insert: { heading: "How do you get to Wuzhen?", position: "before-heading" },
       sticky: "scroll"
+    },
+    "moving-shanghai.html": {
+      group: "planning",
+      intent: "follow",
+      title: "Keep the first-week guide handy.",
+      body: "Follow Eventurus for updates to this guide and practical notes on living in China.",
+      insert: { heading: "Build a usable daily routine", position: "before-heading" },
+      sticky: "scroll"
     }
   };
 
