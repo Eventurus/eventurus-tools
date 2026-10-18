@@ -28,8 +28,8 @@
     "sha": "9febb3ef791a83e7"
   },
   "chinese-cards.html": {
-    "date": "2026-09-29",
-    "sha": "c16d8b2d17c229b0"
+    "date": "2026-10-18",
+    "sha": "183956ba5c8a68e8"
   },
   "city-season.html": {
     "date": "2026-10-18",
@@ -56,8 +56,8 @@
     "sha": "7a35ceb41ef49d02"
   },
   "entry-requirements.html": {
-    "date": "2026-09-29",
-    "sha": "1351fb4f31b3f6e1"
+    "date": "2026-10-18",
+    "sha": "256a36596d9c5fb1"
   },
   "essential-apps.html": {
     "date": "2026-10-18",
@@ -77,11 +77,11 @@
   },
   "hospital-guide.html": {
     "date": "2026-10-18",
-    "sha": "c8e82c598a753beb"
+    "sha": "3dffb3d523e74d2c"
   },
   "index.html": {
-    "date": "2026-09-29",
-    "sha": "8f5fdf05c0fbe015"
+    "date": "2026-10-18",
+    "sha": "ea9e4158db7d2501"
   },
   "internet-guide.html": {
     "date": "2026-10-18",
@@ -100,8 +100,8 @@
     "sha": "113a7e5f837c9ca9"
   },
   "museums-guide.html": {
-    "date": "2026-09-29",
-    "sha": "adb63b11fe2951e0"
+    "date": "2026-10-18",
+    "sha": "ecd68f6d6b877485"
   },
   "must-do.html": {
     "date": "2026-10-18",
@@ -154,10 +154,6 @@
   "trip-planner.html": {
     "date": "2026-09-05",
     "sha": "28a7517bfde7620c"
-  },
-  "trip-studio.html": {
-    "date": "2026-10-18",
-    "sha": "dcb021a4e418902b"
   },
   "visa-checker.html": {
     "date": "2026-10-18",
