@@ -890,7 +890,7 @@ body.evt-v2 #backToTop.is-visible {
   body.evt-v2 .h-card .h-name { font-size: 17px; }
   body.evt-v2.evt-cards .phrase-card { padding: 16px; }
   body.evt-v2 .table-wrap::before {
-    content: "Swipe to compare \2192";
+    content: "At a glance \2192";
     position: sticky;
     left: 0;
     display: block;

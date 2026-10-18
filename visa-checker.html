@@ -27,6 +27,7 @@
  <link rel="canonical" href="https://eventurus.cn/visa-checker.html">
 
 <meta name="description" content="Quick visa eligibility tool for China. Select your nationality, purpose and duration to find the right visa type instantly.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; font-family:var(--font-sans); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -169,7 +170,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   {
    "@type": "Question",
    "name": "Do I need a visa to visit China?",
-   "acceptedAnswer": { "@type": "Answer", "text": "Ordinary-passport holders from 79 countries, including the UK, most EU member states, Australia, New Zealand, Canada, Japan, South Korea, Singapore and Malaysia, can enter China visa-free for up to 30 days for tourism, business or family visits. The current unilateral policy runs through 31 December 2026. US, Indian and several other passport holders still need a visa." }
+   "acceptedAnswer": { "@type": "Answer", "text": "Ordinary-passport holders from 79 countries can enter China visa-free for up to 30 days for tourism, business or family visits - 50 under China's unilateral policy (including the UK, most EU member states, Australia, New Zealand, Canada and Japan) and 29 under mutual agreements (including Singapore and Malaysia). The unilateral policy runs through 31 December 2026 (Russia: through 31 December 2027); mutual agreements are not affected by that date. US, Indian and several other passport holders still need a visa." }
   },
   {
    "@type": "Question",
@@ -179,7 +180,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   {
    "@type": "Question",
    "name": "What is China's 240-hour visa-free transit policy?",
-   "acceptedAnswer": { "@type": "Answer", "text": "Passport holders from 55 countries can enter China without a visa for up to 240 hours (10 days) when transiting to a third country or region. You need a passport valid for at least 3 months, a confirmed onward ticket, and you must use one of the 65 designated ports and stay within the permitted area." }
+   "acceptedAnswer": { "@type": "Answer", "text": "Passport holders from 57 countries can enter China without a visa for up to 240 hours (10 days) when transiting to a third country or region. You need a passport valid for at least 3 months, a confirmed onward ticket, and you must use one of the 65 designated ports and stay within the permitted area." }
   },
   {
    "@type": "Question",
@@ -200,6 +201,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 }
  </script>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 
 <!-- SEO hreflang + keywords -->
@@ -211,14 +238,14 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
 <a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
 <div class="container" id="main-content" style="position:relative;">
-<div class="hero"><h1>China Visa Checker</h1><p>Three quick questions based on policies verified through July 2026.</p></div>
+<div class="hero"><h1>China Visa Checker</h1><p>Three quick questions based on policies verified through 8 September 2026.</p></div>
 
 <section class="geo-qa" aria-label="Quick answer">
  <h2>Do I need a visa to visit China?</h2>
- <p>Ordinary-passport holders from 79 countries can enter China visa-free for up to 30 days for tourism, business or family visits. This includes the UK, most EU member states, Australia, New Zealand, Canada, Japan, South Korea, Singapore and Malaysia. The current unilateral policy runs through 31 December 2026 (Russia: through 31 December 2027).</p>
- <p>US, Indian, Turkish, Vietnamese and several other passport holders still need a visa. US passport holders can still use the 240-hour visa-free transit policy (55 eligible nationalities) when travelling through China to a third country.</p>
+ <p>Ordinary-passport holders from 79 countries can enter China visa-free for up to 30 days for tourism, business or family visits: 50 under China's unilateral policy (including the UK, most EU member states, Australia, New Zealand, Canada and Japan) and 29 under mutual agreements (including Singapore and Malaysia). The unilateral policy runs through 31 December 2026 (Russia: through 31 December 2027; Brunei: no stated end date). Mutual agreements are not affected by that date.</p>
+ <p>US, Indian and Turkish passport holders still need a visa for standard visits. US and Vietnamese passport holders can use the 240-hour visa-free transit policy (57 eligible nationalities) when travelling through China to a third country.</p>
  <p>All nationalities may use 24-hour visa-free transit at China's open ports.</p>
- <p class="geo-qa-meta">Last updated 24 August 2026 · Vetted by EVENTURUS</p>
+ <p class="geo-qa-meta">Last updated 8 September 2026 · Vetted by EVENTURUS</p>
 </section>
 
 <div class="step-indicators">
@@ -258,7 +285,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 
 <div class="disclaimer">
- <strong>Policy date: July 2026.</strong> This tool covers ordinary passports and gives general guidance. Final admission and visa issuance remain subject to the relevant Chinese authorities. Confirm against the <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener">MFA visa portal</a> or your local Chinese embassy before travel.
+ <strong>Policy date: 8 September 2026.</strong> This tool covers ordinary passports and gives general guidance. Final admission and visa issuance remain subject to the relevant Chinese authorities. Confirm against the <a href="https://cs.mfa.gov.cn/wgrlh/lhqz/" target="_blank" rel="noopener">MFA visa portal</a> or your local Chinese embassy before travel.
 </div>
 
 <div class="cross-link"><p>Related: <a href="entry-requirements.html">Entry Requirements</a> · <a href="visa-free-guide.html">Visa-Free Guide</a></p></div>
@@ -285,13 +312,13 @@ const MUTUAL = [
 ];
 
 const STANDARD_VISA = [
- ["Cambodia","🇰🇭"],["Czech Republic","🇨🇿"],["India","🇮🇳"],["Indonesia","🇮🇩"],["Israel","🇮🇱"],["Lithuania","🇱🇹"],["Mexico","🇲🇽"],["Pakistan","🇵🇰"],
+ ["Cambodia","🇰🇭"],["Czech Republic","🇨🇿"],["India","🇮🇳"],["Indonesia","🇮🇩"],["Israel","🇮🇱"],["Kyrgyzstan","🇰🇬"],["Lithuania","🇱🇹"],["Mexico","🇲🇽"],["Pakistan","🇵🇰"],
  ["Philippines","🇵🇭"],["South Africa","🇿🇦"],["Turkey","🇹🇷"],["Ukraine","🇺🇦"],["United States","🇺🇸"],["Vietnam","🇻🇳"],["Other passport","🌍"]
 ];
 
 const TRANSIT_240 = new Set([
  "Albania","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom",
- "Canada","United States","Argentina","Brazil","Chile","Mexico","Australia","New Zealand","Brunei","Indonesia","Japan","Qatar","Singapore","South Korea","United Arab Emirates"
+ "Canada","United States","Argentina","Brazil","Chile","Mexico","Australia","New Zealand","Brunei","Indonesia","Japan","Qatar","Singapore","South Korea","United Arab Emirates","Kyrgyzstan","Vietnam"
 ]);
 
 const nationalities = [

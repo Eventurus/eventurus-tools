@@ -28,6 +28,7 @@
   <link rel="canonical" href="https://eventurus.cn/food-delivery-guide.html">
 
 <meta name="description" content="How to use Meituan and Ele.me as a foreigner. App walkthrough, ordering step-by-step, address entry, rider communication tips, and troubleshooting.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5; --color-brand-dark: #4A5C46; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -115,6 +116,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <!-- Umami Analytics -->
   <link rel="stylesheet" href="assets/contact/contact-widget.css">
   <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -181,6 +208,54 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   "isAccessibleForFree": true
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Can foreigners use Meituan and Ele.me?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Both accept a foreign passport for registration and a foreign bank card through WeChat Pay or Alipay. The interface has an English mode, and the in-app chat translates messages to the rider."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I pay for food delivery in China?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Through WeChat Pay or Alipay, both linked to a foreign card. Cash on delivery is not an option, and the order is paid when you place it rather than when it arrives."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if the rider calls and I cannot speak Chinese?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use the in-app chat instead of answering. Both apps translate messages, and the rider can send a photo of the entrance. Many riders also send a standard text when they are close."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I enter my address for delivery?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Enter the building number, floor and room, then drop a pin on the map at the entrance. Add a landmark such as the nearest metro exit, because street numbering is not always obvious from the road."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What should I do if the order is wrong or missing items?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Report it in the app rather than arguing at the door. Both platforms have a refund path for missing or incorrect items, and the rider is not the person who authorises it."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body class="evt-v2 evt-guide">
 <div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
@@ -191,6 +266,24 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <h1>Food Delivery in China</h1>
   <p>How to use Meituan and Ele.me as a foreigner. App walkthrough, ordering step-by-step, address entry, communicating with riders, and what to do when things go wrong.</p>
 </div>
+<!-- geo:keyfacts --><style>
+.geo-kf{background:#F7F5F0;border:1px solid #E5E5E0;border-radius:10px;padding:18px 22px;margin:26px auto;max-width:900px;}
+.geo-kf p{margin:0 0 8px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8a8a80;}
+.geo-kf ul{margin:0;padding-left:18px;}
+.geo-kf li{font-size:14px;line-height:1.7;}
+</style>
+<div class="geo-kf">
+  <p>At a glance</p>
+  <ul>
+    <li>Two apps cover the market: Meituan and Ele.me.</li>
+    <li>Payment runs through WeChat Pay or Alipay; cash is not an option.</li>
+    <li>Delivery usually arrives in 30 to 60 minutes, longer at peak meal times.</li>
+    <li>Your address needs the building number, floor and room, plus a pinned map location.</li>
+    <li>Chat with the rider happens inside the app and translates between languages.</li>
+    <li>A missing item is resolved in the app, not at the door.</li>
+  </ul>
+</div>
+<!-- /geo:keyfacts -->
 
 <!-- Section 1: Platform Overview -->
 <div class="section">
@@ -596,7 +689,33 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <p>Also useful: <a href="dining-guide.html">Eating in China - Dining Guide</a> &middot; <a href="payment-guide.html">WeChat Pay &amp; Alipay Guide</a> &middot; <a href="shopping-guide.html">Shopping Guide</a> &middot; <a href="chinese-cards.html">Chinese To-Go Cards</a></p>
 </div>
 
-<div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="dining-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Eating in China Guide</span><span class="rel-desc">QR ordering, common dishes, dietary tips</span></span></a><a class="rel-item" href="shopping-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Shopping Guide</span><span class="rel-desc">Taobao, JD, Pinduoduo for foreigners</span></span></a></div></div>
+<div class="related-tools">
+<!-- geo:faq -->
+<div class="section">
+  <h2>Frequently asked questions</h2>
+  <p class="sub">Short answers to what people ask before their first order.</p>
+  <div class="info-card">
+    <h3>Can foreigners use Meituan and Ele.me?</h3>
+    <p>Yes. Both accept a foreign passport for registration and a foreign bank card through WeChat Pay or Alipay. The interface has an English mode, and the in-app chat translates messages to the rider.</p>
+  </div>
+  <div class="info-card">
+    <h3>How do I pay for food delivery in China?</h3>
+    <p>Through WeChat Pay or Alipay, both linked to a foreign card. Cash on delivery is not an option, and the order is paid when you place it rather than when it arrives.</p>
+  </div>
+  <div class="info-card">
+    <h3>What if the rider calls and I cannot speak Chinese?</h3>
+    <p>Use the in-app chat instead of answering. Both apps translate messages, and the rider can send a photo of the entrance. Many riders also send a standard text when they are close.</p>
+  </div>
+  <div class="info-card">
+    <h3>How do I enter my address for delivery?</h3>
+    <p>Enter the building number, floor and room, then drop a pin on the map at the entrance. Add a landmark such as the nearest metro exit, because street numbering is not always obvious from the road.</p>
+  </div>
+  <div class="info-card">
+    <h3>What should I do if the order is wrong or missing items?</h3>
+    <p>Report it in the app rather than arguing at the door. Both platforms have a refund path for missing or incorrect items, and the rider is not the person who authorises it.</p>
+  </div>
+</div>
+<!-- /geo:faq --><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="dining-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Eating in China Guide</span><span class="rel-desc">QR ordering, common dishes, dietary tips</span></span></a><a class="rel-item" href="shopping-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Shopping Guide</span><span class="rel-desc">Taobao, JD, Pinduoduo for foreigners</span></span></a></div></div>
 
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated August 2026</div>
 <div class="footer">

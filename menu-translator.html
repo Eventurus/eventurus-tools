@@ -8,6 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Chinese Menu Translator - EVENTURUS</title>
 <meta name="description" content="Translate Chinese dishes to English. Search 200 menu items, browse by category, and show the waiter what you want. Made for China travellers by EVENTURUS.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <!-- Open Graph -->
   <meta property="og:title" content="Chinese Menu Translator - EVENTURUS">
   <meta property="og:description" content="Translate Chinese menus instantly. Search 200 dishes by name or category.">
@@ -176,6 +177,32 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/menu-translator.html">
@@ -238,7 +265,7 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 
 <!-- Cooking Methods Reference -->
 <div class="methods-section" id="methodsSection">
-  <h2>&#x1F52A; Cooking Methods Quick Ref</h2>
+  <h2>Cooking methods quick reference</h2>
   <div class="method-grid">
     <div class="method-item"><div class="zh">炒</div><div class="en">Stir-fried</div><div class="desc">chǎo - hot wok, fast</div></div>
     <div class="method-item"><div class="zh">蒸</div><div class="en">Steamed</div><div class="desc">zhēng - healthy, light</div></div>
@@ -257,6 +284,267 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang
 <div class="count-label" id="countLabel">Browse or search to find dishes. Tap + to add to your order.</div>
 <div class="dish-grid" id="dishGrid"></div>
 <div class="pagination" id="pagination"></div>
+
+<!-- geo:static-dish-list -->
+<style>
+.geo-dishes{max-width:980px;margin:0 auto;}
+.geo-dishes .gdfacts{background:#F7F5F0;border:1px solid #E5E5E0;border-radius:10px;padding:18px 22px;margin:0 0 22px;}
+.geo-dishes .gdfacts p{margin:0 0 8px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8a8a80;}
+.geo-dishes .gdfacts ul{margin:0;padding-left:18px;}
+.geo-dishes .gdfacts li{font-size:14px;line-height:1.7;}
+.geo-dishes h2{margin:34px 0 6px;}
+.geo-dishes .gdlead{font-size:15px;line-height:1.75;margin:0 0 14px;color:#2c2c2c;}
+.geo-dishes table{width:100%;border-collapse:collapse;margin:0 0 10px;}
+.geo-dishes th{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#8a8a80;text-align:left;padding:6px 8px;border-bottom:1px solid #E5E5E0;}
+.geo-dishes td{font-size:14px;padding:7px 8px;border-bottom:1px solid #F0EEE8;vertical-align:top;}
+.geo-dishes td.zh{width:22%;font-weight:600;}
+.geo-dishes td.py{width:26%;color:#676760;}
+.geo-dishes .gdnote{font-size:12px;line-height:1.7;color:#676760;border-top:1px solid #E5E5E0;padding-top:14px;margin-top:8px;}
+</style>
+
+<div class="geo-dishes">
+<h2>The 200 dishes in this translator, written out</h2>
+<p class="gdlead">This page translates Chinese menu items into English, and the list below is the whole dictionary in plain text: 200 dishes across twelve categories, each with the characters to point at, the pinyin to say, and the English name. Read it before you travel, or search it at the table.</p>
+<div class="gdfacts"><p>At a glance</p><ul><li>200 dishes, twelve categories, from dumplings to ingredients.</li><li>Every entry has characters, pinyin and an English name.</li><li>Pointing at the characters is faster than pronouncing them.</li><li>Meat dishes are grouped separately from vegetables and tofu.</li><li>Ingredient entries help you decode a dish you have not seen before.</li><li>Dietary tags appear in the search tool above, not in this list.</li></ul></div>
+<h2>Dumplings and dim sum</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">饺子</td><td class="py">jiǎo zi</td><td>Jiaozi / Dumplings</td></tr>
+<tr><td class="zh">锅贴</td><td class="py">guō tiē</td><td>Pan-fried Dumplings</td></tr>
+<tr><td class="zh">小笼包</td><td class="py">xiǎo lóng bāo</td><td>Soup Dumplings (Xiaolongbao)</td></tr>
+<tr><td class="zh">生煎包</td><td class="py">shēng jiān bāo</td><td>Pan-fried Pork Buns</td></tr>
+<tr><td class="zh">烧卖</td><td class="py">shāo mài</td><td>Siu Mai / Pork Dumplings</td></tr>
+<tr><td class="zh">虾饺</td><td class="py">xiā jiǎo</td><td>Har Gow / Shrimp Dumplings</td></tr>
+<tr><td class="zh">春卷</td><td class="py">chūn juǎn</td><td>Spring Rolls</td></tr>
+<tr><td class="zh">叉烧包</td><td class="py">chā shāo bāo</td><td>BBQ Pork Buns (Char Siu Bao)</td></tr>
+<tr><td class="zh">肠粉</td><td class="py">cháng fěn</td><td>Rice Noodle Rolls (Cheong Fun)</td></tr>
+<tr><td class="zh">糯米鸡</td><td class="py">nuò mǐ jī</td><td>Lotus Leaf Rice (Lo Mai Gai)</td></tr>
+<tr><td class="zh">水晶包</td><td class="py">shuǐ jīng bāo</td><td>Steamed Crystal Buns</td></tr>
+<tr><td class="zh">馄饨</td><td class="py">hún tun</td><td>Wontons</td></tr>
+<tr><td class="zh">奶黄包</td><td class="py">nǎi huáng bāo</td><td>Custard Buns</td></tr>
+<tr><td class="zh">豆沙包</td><td class="py">dòu shā bāo</td><td>Red Bean Buns</td></tr>
+<tr><td class="zh">粽子</td><td class="py">zòng zi</td><td>Zongzi / Sticky Rice Dumpling</td></tr>
+<tr><td class="zh">葱油饼</td><td class="py">cōng yóu bǐng</td><td>Scallion Pancake</td></tr>
+<tr><td class="zh">韭菜盒子</td><td class="py">jiǔ cài hé zi</td><td>Chive Pockets</td></tr>
+<tr><td class="zh">萝卜糕</td><td class="py">luó bo gāo</td><td>Turnip Cake</td></tr>
+</tbody></table>
+<h2>Noodles</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">炒面</td><td class="py">chǎo miàn</td><td>Chow Mein / Fried Noodles</td></tr>
+<tr><td class="zh">捞面</td><td class="py">lāo miàn</td><td>Lo Mein / Tossed Noodles</td></tr>
+<tr><td class="zh">汤面</td><td class="py">tāng miàn</td><td>Soup Noodles</td></tr>
+<tr><td class="zh">兰州拉面</td><td class="py">lán zhōu lā miàn</td><td>Lanzhou Pulled Noodles</td></tr>
+<tr><td class="zh">担担面</td><td class="py">dàn dàn miàn</td><td>Dan Dan Noodles</td></tr>
+<tr><td class="zh">炸酱面</td><td class="py">zhá jiàng miàn</td><td>Zhajiang Noodles</td></tr>
+<tr><td class="zh">热干面</td><td class="py">rè gān miàn</td><td>Hot Dry Noodles</td></tr>
+<tr><td class="zh">米线</td><td class="py">mǐ xiàn</td><td>Rice Noodles (Mixian)</td></tr>
+<tr><td class="zh">过桥米线</td><td class="py">guò qiáo mǐ xiàn</td><td>Crossing-the-Bridge Noodles</td></tr>
+<tr><td class="zh">河粉</td><td class="py">hé fěn</td><td>Flat Rice Noodles (Ho Fun)</td></tr>
+<tr><td class="zh">乌冬面</td><td class="py">wū dōng miàn</td><td>Udon Noodles</td></tr>
+<tr><td class="zh">方便面</td><td class="py">fāng biàn miàn</td><td>Instant Noodles</td></tr>
+<tr><td class="zh">刀削面</td><td class="py">dāo xiāo miàn</td><td>Knife-Cut Noodles</td></tr>
+<tr><td class="zh">油泼面</td><td class="py">yóu pō miàn</td><td>Hot Oil Noodles</td></tr>
+<tr><td class="zh">葱油拌面</td><td class="py">cōng yóu bàn miàn</td><td>Scallion Oil Noodles</td></tr>
+<tr><td class="zh">云吞面</td><td class="py">yún tūn miàn</td><td>Wonton Noodle Soup</td></tr>
+<tr><td class="zh">桂林米粉</td><td class="py">guì lín mǐ fěn</td><td>Guilin Rice Noodles</td></tr>
+<tr><td class="zh">酸辣粉</td><td class="py">suān là fěn</td><td>Hot and Sour Glass Noodles</td></tr>
+<tr><td class="zh">重庆小面</td><td class="py">chóng qìng xiǎo miàn</td><td>Chongqing Spicy Noodles</td></tr>
+<tr><td class="zh">干炒牛河</td><td class="py">gān chǎo niú hé</td><td>Stir-Fried Beef Rice Noodles</td></tr>
+</tbody></table>
+<h2>Rice dishes</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">炒饭</td><td class="py">chǎo fàn</td><td>Fried Rice</td></tr>
+<tr><td class="zh">蛋炒饭</td><td class="py">dàn chǎo fàn</td><td>Egg Fried Rice</td></tr>
+<tr><td class="zh">扬州炒饭</td><td class="py">yáng zhōu chǎo fàn</td><td>Yangzhou Fried Rice</td></tr>
+<tr><td class="zh">白米饭</td><td class="py">bái mǐ fàn</td><td>Steamed Rice</td></tr>
+<tr><td class="zh">腊肠炒饭</td><td class="py">là cháng chǎo fàn</td><td>Chinese Sausage Fried Rice</td></tr>
+<tr><td class="zh">煲仔饭</td><td class="py">bāo zǎi fàn</td><td>Claypot Rice</td></tr>
+</tbody></table>
+<h2>Meat and poultry</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">宫保鸡丁</td><td class="py">gōng bǎo jī dīng</td><td>Kung Pao Chicken</td></tr>
+<tr><td class="zh">麻婆豆腐</td><td class="py">má pó dòu fu</td><td>Mapo Tofu</td></tr>
+<tr><td class="zh">鱼香肉丝</td><td class="py">yú xiāng ròu sī</td><td>Yu Xiang Shredded Pork</td></tr>
+<tr><td class="zh">回锅肉</td><td class="py">huí guō ròu</td><td>Twice-Cooked Pork</td></tr>
+<tr><td class="zh">红烧肉</td><td class="py">hóng shāo ròu</td><td>Red-Braised Pork Belly</td></tr>
+<tr><td class="zh">糖醋里脊</td><td class="py">táng cù lǐ ji</td><td>Sweet & Sour Pork</td></tr>
+<tr><td class="zh">咕噜肉</td><td class="py">gū lū ròu</td><td>Gulaorou / Sweet Sour Pork</td></tr>
+<tr><td class="zh">水煮牛肉</td><td class="py">shuǐ zhǔ niú ròu</td><td>Sichuan Boiled Beef</td></tr>
+<tr><td class="zh">回锅牛肉</td><td class="py">huí guō niú ròu</td><td>Twice-Cooked Beef</td></tr>
+<tr><td class="zh">牛肉面</td><td class="py">niú ròu miàn</td><td>Beef Noodle Soup</td></tr>
+<tr><td class="zh">烤鸭</td><td class="py">kǎo yā</td><td>Peking Duck</td></tr>
+<tr><td class="zh">北京烤鸭</td><td class="py">běi jīng kǎo yā</td><td>Beijing Roast Duck</td></tr>
+<tr><td class="zh">葱爆牛肉</td><td class="py">cōng bào niú ròu</td><td>Scallion Beef</td></tr>
+<tr><td class="zh">孜然羊肉</td><td class="py">zī rán yáng ròu</td><td>Cumin Lamb</td></tr>
+<tr><td class="zh">辣子鸡</td><td class="py">là zi jī</td><td>Chongqing Spicy Chicken</td></tr>
+<tr><td class="zh">红烧牛腩</td><td class="py">hóng shāo niú nǎn</td><td>Braised Beef Brisket</td></tr>
+<tr><td class="zh">东坡肉</td><td class="py">dōng pō ròu</td><td>Dongpo Pork</td></tr>
+<tr><td class="zh">白切鸡</td><td class="py">bái qiē jī</td><td>White Cut Chicken</td></tr>
+<tr><td class="zh">叉烧</td><td class="py">chā shāo</td><td>Char Siu / BBQ Pork</td></tr>
+<tr><td class="zh">盐焗鸡</td><td class="py">yán jú jī</td><td>Salt Baked Chicken</td></tr>
+<tr><td class="zh">牛腩煲</td><td class="py">niú nǎn bāo</td><td>Beef Brisket Clay Pot</td></tr>
+<tr><td class="zh">可乐鸡翅</td><td class="py">kě lè jī chì</td><td>Cola Chicken Wings</td></tr>
+<tr><td class="zh">红烧排骨</td><td class="py">hóng shāo pái gǔ</td><td>Red-Braised Pork Ribs</td></tr>
+<tr><td class="zh">糖醋排骨</td><td class="py">táng cù pái gǔ</td><td>Sweet and Sour Pork Ribs</td></tr>
+<tr><td class="zh">京酱肉丝</td><td class="py">jīng jiàng ròu sī</td><td>Shredded Pork in Sweet Bean Sauce</td></tr>
+<tr><td class="zh">木须肉</td><td class="py">mù xū ròu</td><td>Moo Shu Pork</td></tr>
+<tr><td class="zh">梅菜扣肉</td><td class="py">méi cài kòu ròu</td><td>Pork Belly with Preserved Mustard Greens</td></tr>
+<tr><td class="zh">口水鸡</td><td class="py">kǒu shuǐ jī</td><td>Chilli Oil Chicken (Kou Shui Ji)</td></tr>
+<tr><td class="zh">小炒肉</td><td class="py">xiǎo chǎo ròu</td><td>Stir-Fried Pork with Chillies</td></tr>
+<tr><td class="zh">锅包肉</td><td class="py">guō bāo ròu</td><td>Crispy Sweet and Sour Pork</td></tr>
+<tr><td class="zh">狮子头</td><td class="py">shī zi tóu</td><td>Braised Pork Meatballs (Lion\'s Head)</td></tr>
+<tr><td class="zh">大盘鸡</td><td class="py">dà pán jī</td><td>Big Plate Chicken</td></tr>
+<tr><td class="zh">酱牛肉</td><td class="py">jiàng niú ròu</td><td>Soy-Braised Beef</td></tr>
+<tr><td class="zh">羊肉串</td><td class="py">yáng ròu chuàn</td><td>Lamb Skewers</td></tr>
+<tr><td class="zh">啤酒鸭</td><td class="py">pí jiǔ yā</td><td>Beer-Braised Duck</td></tr>
+</tbody></table>
+<h2>Seafood</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">清蒸鱼</td><td class="py">qīng zhēng yú</td><td>Steamed Fish</td></tr>
+<tr><td class="zh">酸菜鱼</td><td class="py">suān cài yú</td><td>Sour Cabbage Fish</td></tr>
+<tr><td class="zh">水煮鱼</td><td class="py">shuǐ zhǔ yú</td><td>Sichuan Boiled Fish</td></tr>
+<tr><td class="zh">糖醋鱼</td><td class="py">táng cù yú</td><td>Sweet & Sour Fish</td></tr>
+<tr><td class="zh">椒盐虾</td><td class="py">jiāo yán xiā</td><td>Salt & Pepper Shrimp</td></tr>
+<tr><td class="zh">油焖大虾</td><td class="py">yóu mèn dà xiā</td><td>Braised Prawns</td></tr>
+<tr><td class="zh">蒜蓉虾</td><td class="py">suàn róng xiā</td><td>Garlic Shrimp</td></tr>
+<tr><td class="zh">清蒸螃蟹</td><td class="py">qīng zhēng páng xiè</td><td>Steamed Crab</td></tr>
+<tr><td class="zh">蒜蓉生蚝</td><td class="py">suàn róng shēng háo</td><td>Garlic Oysters</td></tr>
+<tr><td class="zh">辣炒花蛤</td><td class="py">là chǎo huā gé</td><td>Spicy Stir-Fried Clams</td></tr>
+<tr><td class="zh">清蒸带子</td><td class="py">qīng zhēng dài zǐ</td><td>Steamed Scallops</td></tr>
+<tr><td class="zh">葱姜龙虾</td><td class="py">cōng jiāng lóng xiā</td><td>Ginger & Scallion Lobster</td></tr>
+<tr><td class="zh">红烧鱼</td><td class="py">hóng shāo yú</td><td>Red-Braised Fish</td></tr>
+<tr><td class="zh">剁椒鱼头</td><td class="py">duò jiāo yú tóu</td><td>Steamed Fish Head with Chopped Chillies</td></tr>
+<tr><td class="zh">松鼠桂鱼</td><td class="py">sōng shǔ guì yú</td><td>Sweet and Sour Mandarin Fish (Squirrel Fish)</td></tr>
+<tr><td class="zh">清蒸鲈鱼</td><td class="py">qīng zhēng lú yú</td><td>Steamed Sea Bass</td></tr>
+<tr><td class="zh">白灼虾</td><td class="py">bái zhuó xiā</td><td>Poached Prawns</td></tr>
+<tr><td class="zh">椒盐鱿鱼</td><td class="py">jiāo yán yóu yú</td><td>Salt and Pepper Squid</td></tr>
+<tr><td class="zh">腰果虾仁</td><td class="py">yāo guǒ xiā rén</td><td>Stir-Fried Shrimp with Cashews</td></tr>
+</tbody></table>
+<h2>Vegetables and tofu</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">炒青菜</td><td class="py">chǎo qīng cài</td><td>Stir-Fried Greens</td></tr>
+<tr><td class="zh">蒜蓉西兰花</td><td class="py">suàn róng xī lán huā</td><td>Garlic Broccoli</td></tr>
+<tr><td class="zh">清炒菠菜</td><td class="py">qīng chǎo bō cài</td><td>Stir-Fried Spinach</td></tr>
+<tr><td class="zh">鱼香茄子</td><td class="py">yú xiāng qié zi</td><td>Yu Xiang Eggplant</td></tr>
+<tr><td class="zh">地三鲜</td><td class="py">dì sān xiān</td><td>Three Treasures (potato, eggplant, pepper)</td></tr>
+<tr><td class="zh">醋溜土豆丝</td><td class="py">cù liū tǔ dòu sī</td><td>Vinegar Shredded Potato</td></tr>
+<tr><td class="zh">干煸豆角</td><td class="py">gān biān dòu jiǎo</td><td>Dry-Fried Long Beans</td></tr>
+<tr><td class="zh">西红柿炒蛋</td><td class="py">xī hóng shì chǎo dàn</td><td>Tomato Scrambled Eggs</td></tr>
+<tr><td class="zh">凉拌黄瓜</td><td class="py">liáng bàn huáng guā</td><td>Cold Cucumber Salad</td></tr>
+<tr><td class="zh">家常豆腐</td><td class="py">jiā cháng dòu fu</td><td>Home-Style Tofu</td></tr>
+<tr><td class="zh">凉拌木耳</td><td class="py">liáng bàn mù ěr</td><td>Cold Wood Ear Salad</td></tr>
+<tr><td class="zh">手撕包菜</td><td class="py">shǒu sī bāo cài</td><td>Hand-Torn Cabbage</td></tr>
+<tr><td class="zh">干锅花菜</td><td class="py">gān guō huā cài</td><td>Dry-Pot Cauliflower</td></tr>
+<tr><td class="zh">红烧茄子</td><td class="py">hóng shāo qié zi</td><td>Red-Braised Eggplant</td></tr>
+<tr><td class="zh">虎皮青椒</td><td class="py">hǔ pí qīng jiāo</td><td>Blistered Green Peppers</td></tr>
+<tr><td class="zh">蒜蓉空心菜</td><td class="py">suàn róng kōng xīn cài</td><td>Garlic Water Spinach</td></tr>
+<tr><td class="zh">清炒菜心</td><td class="py">qīng chǎo cài xīn</td><td>Stir-Fried Choy Sum</td></tr>
+<tr><td class="zh">松仁玉米</td><td class="py">sōng rén yù mǐ</td><td>Corn with Pine Nuts</td></tr>
+<tr><td class="zh">韭菜炒蛋</td><td class="py">jiǔ cài chǎo dàn</td><td>Scrambled Eggs with Chinese Chives</td></tr>
+</tbody></table>
+<h2>Soups</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">蛋花汤</td><td class="py">dàn huā tāng</td><td>Egg Drop Soup</td></tr>
+<tr><td class="zh">酸辣汤</td><td class="py">suān là tāng</td><td>Hot & Sour Soup</td></tr>
+<tr><td class="zh">紫菜蛋花汤</td><td class="py">zǐ cài dàn huā tāng</td><td>Seaweed Egg Drop Soup</td></tr>
+<tr><td class="zh">西红柿蛋汤</td><td class="py">xī hóng shì dàn tāng</td><td>Tomato Egg Soup</td></tr>
+<tr><td class="zh">玉米排骨汤</td><td class="py">yù mǐ pái gǔ tāng</td><td>Corn & Rib Soup</td></tr>
+<tr><td class="zh">冬瓜排骨汤</td><td class="py">dōng guā pái gǔ tāng</td><td>Winter Melon & Rib Soup</td></tr>
+<tr><td class="zh">乌鸡汤</td><td class="py">wū jī tāng</td><td>Black Chicken Soup</td></tr>
+<tr><td class="zh">鱼头汤</td><td class="py">yú tóu tāng</td><td>Fish Head Soup</td></tr>
+<tr><td class="zh">萝卜炖牛腩</td><td class="py">luó bo dùn niú nǎn</td><td>Radish & Beef Brisket Stew</td></tr>
+<tr><td class="zh">豆腐汤</td><td class="py">dòu fu tāng</td><td>Tofu Soup</td></tr>
+<tr><td class="zh">西湖牛肉羹</td><td class="py">xī hú niú ròu gēng</td><td>West Lake Beef Soup</td></tr>
+<tr><td class="zh">莲藕排骨汤</td><td class="py">lián ǒu pái gǔ tāng</td><td>Lotus Root and Pork Rib Soup</td></tr>
+<tr><td class="zh">鱼头豆腐汤</td><td class="py">yú tóu dòu fu tāng</td><td>Fish Head and Tofu Soup</td></tr>
+<tr><td class="zh">胡辣汤</td><td class="py">hú là tāng</td><td>Peppery Soup (Hulatang)</td></tr>
+</tbody></table>
+<h2>Hot pot</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">火锅</td><td class="py">huǒ guō</td><td>Hot Pot</td></tr>
+<tr><td class="zh">鸳鸯锅</td><td class="py">yuān yāng guō</td><td>Dual-Soup Hot Pot</td></tr>
+<tr><td class="zh">麻辣锅底</td><td class="py">má là guō dǐ</td><td>Spicy Broth Base</td></tr>
+<tr><td class="zh">清汤锅底</td><td class="py">qīng tāng guō dǐ</td><td>Clear Broth Base</td></tr>
+<tr><td class="zh">肥牛</td><td class="py">féi niú</td><td>Fatty Beef Slices</td></tr>
+<tr><td class="zh">羊肉片</td><td class="py">yáng ròu piàn</td><td>Lamb Slices</td></tr>
+<tr><td class="zh">虾滑</td><td class="py">xiā huá</td><td>Shrimp Paste</td></tr>
+<tr><td class="zh">鱼丸</td><td class="py">yú wán</td><td>Fish Balls</td></tr>
+<tr><td class="zh">豆腐</td><td class="py">dòu fu</td><td>Tofu</td></tr>
+<tr><td class="zh">金针菇</td><td class="py">jīn zhēn gū</td><td>Enoki Mushrooms</td></tr>
+</tbody></table>
+<h2>Street food and snacks</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">煎饼果子</td><td class="py">jiān bing guǒ zi</td><td>Jianbing (Chinese crepe)</td></tr>
+<tr><td class="zh">肉夹馍</td><td class="py">ròu jiā mó</td><td>Roujiamo (Chinese burger)</td></tr>
+<tr><td class="zh">凉皮</td><td class="py">liáng pí</td><td>Liangpi (cold skin noodles)</td></tr>
+<tr><td class="zh">烤串</td><td class="py">kǎo chuàn</td><td>BBQ Skewers (Chuan)</td></tr>
+<tr><td class="zh">臭豆腐</td><td class="py">chòu dòu fu</td><td>Stinky Tofu</td></tr>
+<tr><td class="zh">麻辣烫</td><td class="py">má là tàng</td><td>Malatang (spicy hot pot)</td></tr>
+<tr><td class="zh">烧烤</td><td class="py">shāo kǎo</td><td>BBQ / Grilled Meat</td></tr>
+<tr><td class="zh">鸡蛋仔</td><td class="py">jī dàn zǎi</td><td>Egg Waffles</td></tr>
+<tr><td class="zh">糖葫芦</td><td class="py">táng hú lu</td><td>Candied Hawthorn Skewer</td></tr>
+<tr><td class="zh">螺蛳粉</td><td class="py">luó sī fěn</td><td>Luosifen (rice noodles)</td></tr>
+<tr><td class="zh">油条</td><td class="py">yóu tiáo</td><td>Youtiao / Fried Dough Sticks</td></tr>
+<tr><td class="zh">豆腐脑</td><td class="py">dòu fu nǎo</td><td>Tofu Pudding (Doufunao)</td></tr>
+<tr><td class="zh">茶叶蛋</td><td class="py">chá yè dàn</td><td>Tea Eggs</td></tr>
+<tr><td class="zh">烤冷面</td><td class="py">kǎo lěng miàn</td><td>Grilled Cold Noodles</td></tr>
+<tr><td class="zh">驴肉火烧</td><td class="py">lǘ ròu huǒ shāo</td><td>Donkey Meat Flatbread</td></tr>
+</tbody></table>
+<h2>Desserts</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">蛋挞</td><td class="py">dàn tǎ</td><td>Egg Tart</td></tr>
+<tr><td class="zh">芒果布丁</td><td class="py">máng guǒ bù dīng</td><td>Mango Pudding</td></tr>
+<tr><td class="zh">红豆沙</td><td class="py">hóng dòu shā</td><td>Red Bean Paste Dessert</td></tr>
+<tr><td class="zh">绿豆汤</td><td class="py">lǜ dòu tāng</td><td>Mung Bean Soup</td></tr>
+<tr><td class="zh">汤圆</td><td class="py">tāng yuán</td><td>Tangyuan (glutinous rice balls)</td></tr>
+<tr><td class="zh">月饼</td><td class="py">yuè bǐng</td><td>Mooncake</td></tr>
+<tr><td class="zh">冰粉</td><td class="py">bīng fěn</td><td>Ice Jelly (Bingfen)</td></tr>
+<tr><td class="zh">双皮奶</td><td class="py">shuāng pí nǎi</td><td>Double-Skin Milk</td></tr>
+<tr><td class="zh">水果拼盘</td><td class="py">shuǐ guǒ pīn pán</td><td>Fruit Platter</td></tr>
+<tr><td class="zh">杨枝甘露</td><td class="py">yáng zhī gān lù</td><td>Mango Pomelo Sago</td></tr>
+<tr><td class="zh">桂花糕</td><td class="py">guì huā gāo</td><td>Osmanthus Cake</td></tr>
+<tr><td class="zh">芝麻糊</td><td class="py">zhī ma hú</td><td>Black Sesame Soup</td></tr>
+</tbody></table>
+<h2>Drinks</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">茶</td><td class="py">chá</td><td>Tea</td></tr>
+<tr><td class="zh">绿茶</td><td class="py">lǜ chá</td><td>Green Tea</td></tr>
+<tr><td class="zh">红茶</td><td class="py">hóng chá</td><td>Black Tea</td></tr>
+<tr><td class="zh">乌龙茶</td><td class="py">wū lóng chá</td><td>Oolong Tea</td></tr>
+<tr><td class="zh">茉莉花茶</td><td class="py">mò lì huā chá</td><td>Jasmine Tea</td></tr>
+<tr><td class="zh">普洱茶</td><td class="py">pǔ ěr chá</td><td>Pu\'er Tea</td></tr>
+<tr><td class="zh">可乐</td><td class="py">kě lè</td><td>Cola</td></tr>
+<tr><td class="zh">雪碧</td><td class="py">xuě bì</td><td>Sprite</td></tr>
+<tr><td class="zh">矿泉水</td><td class="py">kuàng quán shuǐ</td><td>Mineral Water</td></tr>
+<tr><td class="zh">热水</td><td class="py">rè shuǐ</td><td>Hot Water</td></tr>
+<tr><td class="zh">啤酒</td><td class="py">pí jiǔ</td><td>Beer</td></tr>
+<tr><td class="zh">青岛啤酒</td><td class="py">qīng dǎo pí jiǔ</td><td>Tsingtao Beer</td></tr>
+<tr><td class="zh">白酒</td><td class="py">bái jiǔ</td><td>Baijiu (Chinese spirit)</td></tr>
+<tr><td class="zh">橙汁</td><td class="py">chéng zhī</td><td>Orange Juice</td></tr>
+<tr><td class="zh">椰汁</td><td class="py">yē zhī</td><td>Coconut Juice</td></tr>
+<tr><td class="zh">酸奶</td><td class="py">suān nǎi</td><td>Yogurt Drink</td></tr>
+<tr><td class="zh">豆浆</td><td class="py">dòu jiāng</td><td>Soy Milk</td></tr>
+</tbody></table>
+<h2>Ingredients and basics</h2>
+<table><thead><tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr></thead><tbody>
+<tr><td class="zh">鸡肉</td><td class="py">jī ròu</td><td>Chicken</td></tr>
+<tr><td class="zh">猪肉</td><td class="py">zhū ròu</td><td>Pork</td></tr>
+<tr><td class="zh">牛肉</td><td class="py">niú ròu</td><td>Beef</td></tr>
+<tr><td class="zh">羊肉</td><td class="py">yáng ròu</td><td>Lamb / Mutton</td></tr>
+<tr><td class="zh">鱼</td><td class="py">yú</td><td>Fish</td></tr>
+<tr><td class="zh">虾</td><td class="py">xiā</td><td>Shrimp / Prawns</td></tr>
+<tr><td class="zh">鸡蛋</td><td class="py">jī dàn</td><td>Egg</td></tr>
+<tr><td class="zh">米饭</td><td class="py">mǐ fàn</td><td>Rice</td></tr>
+<tr><td class="zh">面条</td><td class="py">miàn tiáo</td><td>Noodles</td></tr>
+<tr><td class="zh">大蒜</td><td class="py">dà suàn</td><td>Garlic</td></tr>
+<tr><td class="zh">葱</td><td class="py">cōng</td><td>Scallion / Spring Onion</td></tr>
+<tr><td class="zh">姜</td><td class="py">jiāng</td><td>Ginger</td></tr>
+<tr><td class="zh">辣椒</td><td class="py">là jiāo</td><td>Chilli Pepper</td></tr>
+<tr><td class="zh">花生</td><td class="py">huā shēng</td><td>Peanuts</td></tr>
+<tr><td class="zh">芝麻</td><td class="py">zhī ma</td><td>Sesame</td></tr>
+</tbody></table>
+<p class="gdnote">Compiled as a reference list. Names vary between regions and between restaurants, and the same characters can mean a different preparation in a different kitchen. The search tool above includes dietary tags that this static list does not.</p>
+</div>
+<!-- /geo:static-dish-list -->
 
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="dining-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Eating in China Guide</span><span class="rel-desc">Restaurant etiquette and common dishes</span></span></a><a class="rel-item" href="food-delivery-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Food Delivery Guide</span><span class="rel-desc">Order food without speaking Chinese</span></span></a></div></div>
 

@@ -1,0 +1,723 @@
+[
+{
+"en": "Humble Administrator's Garden",
+"zh": "拙政园",
+"area": "Gusu",
+"lat": 31.325,
+"lng": 120.629,
+"cat": "sights",
+"tags": [
+"unesco",
+"garden",
+"classic"
+],
+"blurb": "The largest and most celebrated of Suzhou's gardens — 500 years of pavilions, ponds and borrowed views.",
+"hrs": 2,
+"price": "¥70-90",
+"crowd": "Everyone, once",
+"best": "morning"
+},
+{
+"en": "Pingjiang Road",
+"zh": "平江路",
+"area": "Gusu",
+"lat": 31.32,
+"lng": 120.631,
+"cat": "sights",
+"tags": [
+"canal street",
+"800 years",
+"free"
+],
+"blurb": "An 800-year-old canal street that still follows the Song-dynasty map — boats, tea houses, teahouses.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Wanderers",
+"best": "afternoon"
+},
+{
+"en": "Tiger Hill",
+"zh": "虎丘",
+"area": "Gusu",
+"lat": 31.324,
+"lng": 120.575,
+"cat": "sights",
+"tags": [
+"leaning pagoda",
+"2,500 years",
+"su shi"
+],
+"blurb": "The leaning pagoda on the hill Su Shi said you must not miss — Suzhou's founding landmark.",
+"hrs": 2,
+"price": "¥60-70",
+"crowd": "History + pagoda",
+"best": "morning"
+},
+{
+"en": "Lingering Garden",
+"zh": "留园",
+"area": "Gusu",
+"lat": 31.318,
+"lng": 120.592,
+"cat": "sights",
+"tags": [
+"unesco",
+"scholar garden",
+"corridors"
+],
+"blurb": "The masterclass in corridor design — one of four great gardens, quieter than its Humble neighbour.",
+"hrs": 2,
+"price": "¥45-55",
+"crowd": "Garden connoisseurs",
+"best": "morning"
+},
+{
+"en": "Master of the Nets Garden",
+"zh": "网师园",
+"area": "Gusu",
+"lat": 31.3,
+"lng": 120.629,
+"cat": "sights",
+"tags": [
+"small garden",
+"night tours",
+"compact"
+],
+"blurb": "The smallest of the great gardens and the most perfect — night tours with opera in spring-autumn.",
+"hrs": 1,
+"price": "¥30-40 (night ¥100)",
+"crowd": "Garden perfectionists",
+"best": "evening"
+},
+{
+"en": "Jinji Lake",
+"zh": "金鸡湖",
+"area": "SIP",
+"lat": 31.316,
+"lng": 120.697,
+"cat": "sights",
+"tags": [
+"modern",
+"ferris wheel",
+"skyline"
+],
+"blurb": "The modern Suzhou — a lake ringed by towers, with a giant Ferris wheel and a nightly fountain show.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Modem skyline fans",
+"best": "evening"
+},
+{
+"en": "Pan Gate",
+"zh": "盘门",
+"area": "Gusu",
+"lat": 31.294,
+"lng": 120.618,
+"cat": "sights",
+"tags": [
+"city gate",
+"canal",
+"land-water gate"
+],
+"blurb": "The only surviving land-and-water city gate in China — Warring States walls still holding the canal.",
+"hrs": 2,
+"price": "¥40",
+"crowd": "Wall + canal",
+"best": "afternoon"
+},
+{
+"en": "Garden of Cultivation",
+"zh": "艺圃",
+"area": "Gusu",
+"lat": 31.323,
+"lng": 120.609,
+"cat": "sights",
+"tags": [
+"small garden",
+"unesco",
+"quiet"
+],
+"blurb": "A Ming garden of one pond and one hill, where you can sit alone in a UNESCO site for ¥10.",
+"hrs": 1,
+"price": "¥10",
+"crowd": "Quiet garden seekers",
+"best": "morning"
+},
+{
+"en": "Songhelou",
+"zh": "松鹤楼",
+"area": "Gusu",
+"lat": 31.316,
+"lng": 120.625,
+"cat": "food",
+"tags": [
+"suzhou cuisine",
+"since 1735",
+"guanqian"
+],
+"blurb": "The 1735 origin house of Suzhou cuisine — squirrel mandarin fish and braised dishes on Guanqian.",
+"hrs": 2,
+"price": "¥120-200",
+"crowd": "Classic pilgrims",
+"best": "dinner"
+},
+{
+"en": "Deyuelou",
+"zh": "得月楼",
+"area": "Gusu",
+"lat": 31.318,
+"lng": 120.626,
+"cat": "food",
+"tags": [
+"suzhou cuisine",
+"film famous",
+"refined"
+],
+"blurb": "The film-famous house of refined Suzhou banquet dishes, facing the Guanqian crowd.",
+"hrs": 2,
+"price": "¥110-180",
+"crowd": "Banquet diners",
+"best": "dinner"
+},
+{
+"en": "Zhu Hongxing",
+"zh": "朱鸿兴",
+"area": "Gusu",
+"lat": 31.32,
+"lng": 120.624,
+"cat": "food",
+"tags": [
+"noodles",
+"braised pork",
+"old brand"
+],
+"blurb": "The noodle house of braised pork noodles — order the fumian with the skin jelly on the side.",
+"hrs": 1,
+"price": "¥25-50",
+"crowd": "Noodle breakfast",
+"best": "morning"
+},
+{
+"en": "Tongdexing",
+"zh": "同得兴",
+"area": "Gusu",
+"lat": 31.319,
+"lng": 120.622,
+"cat": "food",
+"tags": [
+"maple town noodles",
+"seasonal",
+"white soup"
+],
+"blurb": "Home of the summer-only maple-town white-soup noodles — Suzhou's most seasonal bowl.",
+"hrs": 1,
+"price": "¥30-60",
+"crowd": "Seasonal noodle fans",
+"best": "morning"
+},
+{
+"en": "Yaba Shengjian",
+"zh": "哑巴生煎",
+"area": "Gusu",
+"lat": 31.323,
+"lng": 120.623,
+"cat": "food",
+"tags": [
+"shengjian",
+"pan fried",
+"queue"
+],
+"blurb": "The mute founder's pan-fried buns — soup-flooded, hand-shaped, and worth every minute of the queue.",
+"hrs": 1,
+"price": "¥15-30",
+"crowd": "Bun queue-ers",
+"best": "morning"
+},
+{
+"en": "Wumen Renjia",
+"zh": "吴门人家",
+"area": "Gusu",
+"lat": 31.322,
+"lng": 120.635,
+"cat": "food",
+"tags": [
+"suzhou banquet",
+"old house",
+"tasting"
+],
+"blurb": "Suzhou banquet cooking in an old temple-side house — the sit-down education in local flavour.",
+"hrs": 2,
+"price": "¥100-160",
+"crowd": "Slow banquet lunches",
+"best": "lunch"
+},
+{
+"en": "Xiehe Cai Guan",
+"zh": "协和菜馆",
+"area": "Gusu",
+"lat": 31.308,
+"lng": 120.622,
+"cat": "food",
+"tags": [
+"fly restaurant",
+"local",
+"cheap"
+],
+"blurb": "The locals' fly-restaurant — river shrimp, eel and seasonal greens at honest prices.",
+"hrs": 1,
+"price": "¥50-90",
+"crowd": "In-the-know eaters",
+"best": "dinner"
+},
+{
+"en": "Yuxingji",
+"zh": "裕兴记",
+"area": "Gusu",
+"lat": 31.321,
+"lng": 120.628,
+"cat": "food",
+"tags": [
+"three shrimp noodles",
+"seasonal",
+"old brand"
+],
+"blurb": "Three-shrimp noodles — the June-to-August delicacy that costs like a banquet and tastes like one.",
+"hrs": 1,
+"price": "¥60-130",
+"crowd": "Seasonal luxury",
+"best": "lunch"
+},
+{
+"en": "Suzhou Museum",
+"zh": "苏州博物馆",
+"area": "Gusu",
+"lat": 31.324,
+"lng": 120.628,
+"cat": "culture",
+"tags": [
+"pei",
+"free",
+"must"
+],
+"blurb": "I.M. Pei's modern garden of stone and light beside his ancestral home. Free; book well ahead.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Architecture + art",
+"best": "morning"
+},
+{
+"en": "Suzhou Museum West",
+"zh": "苏州博物馆西馆",
+"area": "Huqiu",
+"lat": 31.305,
+"lng": 120.556,
+"cat": "culture",
+"tags": [
+"expansion",
+"international",
+"free"
+],
+"blurb": "The 2021 west annex — international galleries and Suzhou craft halls, easier to book than the main.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Museum deep-divers",
+"best": "morning"
+},
+{
+"en": "Eslite Spectrum Suzhou",
+"zh": "诚品生活苏州",
+"area": "SIP",
+"lat": 31.324,
+"lng": 120.712,
+"cat": "culture",
+"tags": [
+"bookstore",
+"taiwanese",
+"lakefront"
+],
+"blurb": "The Taiwanese bookstore's mainland flagship — three floors over Jinji Lake, open late.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Book browsers",
+"best": "evening"
+},
+{
+"en": "Bense Art Museum",
+"zh": "本色美术馆",
+"area": "Wuzhong",
+"lat": 31.242,
+"lng": 120.637,
+"cat": "culture",
+"tags": [
+"private museum",
+"zen",
+"teahouse"
+],
+"blurb": "A private zen-museum of timber halls and tea rooms — as much a temple of mood as of art.",
+"hrs": 2,
+"price": "¥30-50",
+"crowd": "Mood seekers",
+"best": "afternoon"
+},
+{
+"en": "Imperial Kiln Brick Museum",
+"zh": "御窑金砖博物馆",
+"area": "Xiangcheng",
+"lat": 31.394,
+"lng": 120.609,
+"cat": "culture",
+"tags": [
+"brick",
+"kiln",
+"architecture"
+],
+"blurb": "The museum of the golden bricks that floored the Forbidden City — kilns still firing on site.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Craft + architecture",
+"best": "morning"
+},
+{
+"en": "Wu Culture Museum",
+"zh": "吴文化博物馆",
+"area": "Wuzhong",
+"lat": 31.262,
+"lng": 120.627,
+"cat": "culture",
+"tags": [
+"wu culture",
+"free",
+"modern"
+],
+"blurb": "The definitive telling of the ancient Wu state — bronze, jade and canal archaeology, free and superb.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Deep history",
+"best": "morning"
+},
+{
+"en": "Zhong Wang Fu",
+"zh": "忠王府",
+"area": "Gusu",
+"lat": 31.324,
+"lng": 120.629,
+"cat": "culture",
+"tags": [
+"taiping",
+"prince's mansion",
+"opera stage"
+],
+"blurb": "The Taiping Heavenly Kingdom prince's mansion — a Qing opera stage and 400-year wenzheng cypresses.",
+"hrs": 1,
+"price": "Free",
+"crowd": "History + opera stage",
+"best": "morning"
+},
+{
+"en": "Taohuawu Creative Block",
+"zh": "桃花坞文创园",
+"area": "Gusu",
+"lat": 31.333,
+"lng": 120.614,
+"cat": "culture",
+"tags": [
+"woodblock prints",
+"creative",
+"quiet"
+],
+"blurb": "The home of Suzhou woodblock New Year prints — studios and the revived Tang Bohu quarter.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Print + craft fans",
+"best": "afternoon"
+},
+{
+"en": "Shantang Street Night",
+"zh": "山塘街夜游",
+"area": "Gusu",
+"lat": 31.323,
+"lng": 120.586,
+"cat": "night",
+"tags": [
+"canal",
+"lanterns",
+"boat"
+],
+"blurb": "The 1,200-year canal street under lantern light — the postcard Suzhou night, best with a boat.",
+"hrs": 2,
+"price": "Free (boat ¥55)",
+"crowd": "First nights",
+"best": "evening"
+},
+{
+"en": "Pingjiang Road Night",
+"zh": "平江路夜色",
+"area": "Gusu",
+"lat": 31.32,
+"lng": 120.631,
+"cat": "night",
+"tags": [
+"canal",
+"tea houses",
+"mellow"
+],
+"blurb": "Pingjiang by night is softer — lantern-lit water, tea house ballads and quieter lanes to drift.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Drifters",
+"best": "evening"
+},
+{
+"en": "Ligongdi",
+"zh": "李公堤",
+"area": "SIP",
+"lat": 31.293,
+"lng": 120.69,
+"cat": "night",
+"tags": [
+"lake bars",
+"restaurants",
+"polished"
+],
+"blurb": "The lake-dike bar and dining strip — the polished way to drink over Jinji Lake's water.",
+"hrs": 2,
+"price": "¥100-200",
+"crowd": "Terrace drinkers",
+"best": "evening"
+},
+{
+"en": "Moonlight Dock",
+"zh": "月光码头",
+"area": "SIP",
+"lat": 31.319,
+"lng": 120.706,
+"cat": "night",
+"tags": [
+"marina",
+"skyline",
+"ferris wheel"
+],
+"blurb": "The marina deck facing the Ferris wheel and tower lights — Suzhou's modern night postcard.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Skyline walkers",
+"best": "evening"
+},
+{
+"en": "Shiquan Street",
+"zh": "十全街",
+"area": "Gusu",
+"lat": 31.299,
+"lng": 120.626,
+"cat": "night",
+"tags": [
+"boutique bars",
+"cafes",
+"young"
+],
+"blurb": "The boutique strip of small bars and cafés near the Master of Nets — Suzhou's young night.",
+"hrs": 2,
+"price": "¥50-120",
+"crowd": "Young drinkers",
+"best": "evening"
+},
+{
+"en": "Huaihai Street",
+"zh": "淮海街",
+"area": "Huqiu",
+"lat": 31.301,
+"lng": 120.552,
+"cat": "night",
+"tags": [
+"japanese street",
+"izakaya",
+"neon"
+],
+"blurb": "A rebuilt Japanese-flavour street of izakaya neon — kitschy, fun and surprisingly good food.",
+"hrs": 2,
+"price": "¥60-150",
+"crowd": "Izakaya crawlers",
+"best": "evening"
+},
+{
+"en": "Guanqian Street",
+"zh": "观前街",
+"area": "Gusu",
+"lat": 31.315,
+"lng": 120.622,
+"cat": "night",
+"tags": [
+"pedestrian",
+"old brands",
+"snacks"
+],
+"blurb": "The century-old pedestrian spine — old-brand sweets and snack counters lit until late.",
+"hrs": 2,
+"price": "¥20-80",
+"crowd": "Snack shoppers",
+"best": "evening"
+},
+{
+"en": "Suzhou Center Night",
+"zh": "苏州中心",
+"area": "SIP",
+"lat": 31.313,
+"lng": 120.699,
+"cat": "night",
+"tags": [
+"mega mall",
+"fountain",
+"gate to the east"
+],
+"blurb": "The mega-mall under the Gate to the East — shopping, fountain plaza and the tower deck above.",
+"hrs": 2,
+"price": "¥50-150",
+"crowd": "Mall night crowd",
+"best": "evening"
+},
+{
+"en": "Jinxi Ancient Town",
+"zh": "锦溪古镇",
+"area": "Kunshan",
+"lat": 31.148,
+"lng": 120.928,
+"cat": "hidden",
+"tags": [
+"museums town",
+"canal",
+"quiet"
+],
+"blurb": "A canal town of ten private museums and one long bridge — the quietest of the water towns.",
+"hrs": 4,
+"price": "¥65 (combo)",
+"crowd": "Quiet museum strollers",
+"best": "morning"
+},
+{
+"en": "Qiandeng Ancient Town",
+"zh": "千灯古镇",
+"area": "Kunshan",
+"lat": 31.264,
+"lng": 121.011,
+"cat": "hidden",
+"tags": [
+"opera origin",
+"stone lanes",
+"gunan"
+],
+"blurb": "The birthplace of Kunqu opera's master and a seven-towered stone lane — small and real.",
+"hrs": 3,
+"price": "¥60 (combo)",
+"crowd": "Opera history fans",
+"best": "morning"
+},
+{
+"en": "Shaxi Ancient Town",
+"zh": "沙溪古镇",
+"area": "Taicang",
+"lat": 31.56,
+"lng": 121.111,
+"cat": "hidden",
+"tags": [
+"unchanged",
+"evening life",
+"local"
+],
+"blurb": "The water town where locals still outnumber tourists — evening lanes stay genuinely alive.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Authenticity seekers",
+"best": "afternoon"
+},
+{
+"en": "Guangfu Ancient Town",
+"zh": "光福古镇",
+"area": "Wuzhong",
+"lat": 31.271,
+"lng": 120.384,
+"cat": "hidden",
+"tags": [
+"temples",
+"plum blossoms",
+"lake",
+"craft"
+],
+"blurb": "A temple-and-craft town on Taihu's shore — plum blossom hills in February, boat builders year-round.",
+"hrs": 3,
+"price": "Free-¥40",
+"crowd": "Season + craft",
+"best": "morning"
+},
+{
+"en": "Luxiang Ancient Village",
+"zh": "陆巷古村",
+"area": "Wuzhong",
+"lat": 31.077,
+"lng": 120.372,
+"cat": "hidden",
+"tags": [
+"ming village",
+"orange hills",
+"dongshan"
+],
+"blurb": "A Ming scholar village of memorial arches on Dongshan island, above orange terraces on Taihu.",
+"hrs": 3,
+"price": "¥65",
+"crowd": "Village + fruit season",
+"best": "morning"
+},
+{
+"en": "Mingyuewan",
+"zh": "明月湾",
+"area": "Wuzhong",
+"lat": 31.051,
+"lng": 120.331,
+"cat": "hidden",
+"tags": [
+"ancient wharf",
+"camphor tree",
+"xishan"
+],
+"blurb": "A 2,500-year wharf village under one giant camphor tree, on Xishan island's quiet shore.",
+"hrs": 3,
+"price": "¥50",
+"crowd": "Sunset + wharf",
+"best": "sunset"
+},
+{
+"en": "Shushan Village",
+"zh": "树山生态村",
+"area": "Huqiu",
+"lat": 31.357,
+"lng": 120.508,
+"cat": "hidden",
+"tags": [
+"hot spring",
+"pear blossom",
+"cycling"
+],
+"blurb": "A hill village of pear orchards and hot-spring guesthouses — March blossom, winter soak.",
+"hrs": 4,
+"price": "Free (onsen ¥150+)",
+"crowd": "Overnight soak + cycle",
+"best": "morning"
+},
+{
+"en": "Tianping Mountain",
+"zh": "天平山",
+"area": "Wuzhong",
+"lat": 31.262,
+"lng": 120.518,
+"cat": "hidden",
+"tags": [
+"red maple",
+"november",
+"fan view"
+],
+"blurb": "The Fan Zhongyan hill whose November maples turn the whole slope red — Suzhou's autumn signal.",
+"hrs": 3,
+"price": "¥30",
+"crowd": "Autumn photographers",
+"best": "morning"
+}
+]

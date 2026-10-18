@@ -1,0 +1,744 @@
+[
+{
+"en": "Hongya Cave",
+"zh": "洪崖洞",
+"area": "Yuzhong",
+"lat": 29.562,
+"lng": 106.578,
+"cat": "sights",
+"tags": [
+"night view",
+"stilted houses",
+"iconic"
+],
+"blurb": "Eleven storeys of stilted buildings glowing over the river — the Miyazaki-looking landmark of Chongqing.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Everyone",
+"best": "evening"
+},
+{
+"en": "Yangtze River Cableway",
+"zh": "长江索道",
+"area": "Yuzhong",
+"lat": 29.557,
+"lng": 106.586,
+"cat": "sights",
+"tags": [
+"cable car",
+"river crossing",
+"transport"
+],
+"blurb": "The last river-crossing cable car — four minutes floating over the Yangtze in a rust-red cabin.",
+"hrs": 1,
+"price": "¥30",
+"crowd": "Everyone",
+"best": "sunset"
+},
+{
+"en": "Ciqikou Old Town",
+"zh": "磁器口",
+"area": "Shapingba",
+"lat": 29.58,
+"lng": 106.451,
+"cat": "sights",
+"tags": [
+"old town",
+"snacks",
+"porcelain"
+],
+"blurb": "A Ming-dynasty porcelain-port town of steep lanes — touristy at the gate, authentic two alleys in.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Half-day wanderers",
+"best": "morning"
+},
+{
+"en": "Liziba Monorail",
+"zh": "李子坝轻轨站",
+"area": "Yuzhong",
+"lat": 29.5538,
+"lng": 106.5381,
+"cat": "sights",
+"tags": [
+"monorail",
+"through building",
+"photos"
+],
+"blurb": "The monorail that drives through the 8th floor of an apartment block. Point, wait, shoot, grin.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Photo stop",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Shancheng Steps",
+"zh": "山城第三步道",
+"area": "Yuzhong",
+"lat": 29.553,
+"lng": 106.563,
+"cat": "sights",
+"tags": [
+"stairs",
+"old town",
+"walk"
+],
+"blurb": "A stone stairway threading real hillside neighbourhoods — the walk that explains vertical Chongqing.",
+"hrs": 2,
+"price": "Free",
+"crowd": "City walkers",
+"best": "morning"
+},
+{
+"en": "Baixiangju",
+"zh": "白象居",
+"area": "Yuzhong",
+"lat": 29.559,
+"lng": 106.584,
+"cat": "sights",
+"tags": [
+"apartment",
+"film site",
+"skyline"
+],
+"blurb": "A 24-storey 1992 apartment block with no lift and three street exits — a vertical village, film-famous.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Architecture + photos",
+"best": "afternoon"
+},
+{
+"en": "Eling Park",
+"zh": "鹅岭公园",
+"area": "Yuzhong",
+"lat": 29.5495,
+"lng": 106.5358,
+"cat": "sights",
+"tags": [
+"hilltop",
+"panorama",
+"free"
+],
+"blurb": "The original hilltop garden of Chongqing — the Liangjiang Tower view beats every rooftop bar.",
+"hrs": 2,
+"price": "Free (tower ¥5)",
+"crowd": "View seekers",
+"best": "sunset",
+"geo_verified": true
+},
+{
+"en": "Huguang Guild Hall",
+"zh": "湖广会馆",
+"area": "Yuzhong",
+"lat": 29.562,
+"lng": 106.585,
+"cat": "sights",
+"tags": [
+"qing dynasty",
+"guild hall",
+"carvings"
+],
+"blurb": "A Qing-dynasty migrants' guild hall of black-lacquer beams and opera stages by the river.",
+"hrs": 2,
+"price": "¥30",
+"crowd": "History readers",
+"best": "afternoon"
+},
+{
+"en": "Pei Jie Hotpot",
+"zh": "珮姐老火锅",
+"area": "Yuzhong",
+"lat": 29.5654,
+"lng": 106.5886,
+"cat": "food",
+"tags": [
+"hotpot",
+"butter base",
+"queue"
+],
+"blurb": "The boutique old-style hotpot — thick butter base, wagyu-grade cuts, and a serious queue.",
+"hrs": 2,
+"price": "¥110-160",
+"crowd": "Hotpot pilgrims",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Yu Wei Xiao Yu",
+"zh": "渝味晓宇火锅",
+"area": "Yuzhong",
+"lat": 29.5833,
+"lng": 106.5428,
+"cat": "food",
+"tags": [
+"hotpot",
+"tongue tip",
+"documentary"
+],
+"blurb": "The 'A Bite of China' hotpot — beef tallow, dry chillies, and seats on the pavement edge.",
+"hrs": 2,
+"price": "¥90-140",
+"crowd": "Heat seekers",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Huashi Wanza Noodles",
+"zh": "花市豌杂面",
+"area": "Yuzhong",
+"lat": 29.5609,
+"lng": 106.581,
+"cat": "food",
+"tags": [
+"noodles",
+"peas+meat sauce",
+"breakfast"
+],
+"blurb": "The peameat-sauce noodles that define Chongqing xiaomian — order weanza, add extra chilli oil.",
+"hrs": 1,
+"price": "¥15-25",
+"crowd": "Noodle breakfast",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Hao You Lai Suan La Fen",
+"zh": "好又来酸辣粉",
+"area": "Yuzhong",
+"lat": 29.559,
+"lng": 106.577,
+"cat": "food",
+"tags": [
+"hot sour noodles",
+"street",
+"standing"
+],
+"blurb": "Hot-and-sour glass noodles eaten standing at the counter by Jiefangbei — the street-snack benchmark.",
+"hrs": 1,
+"price": "¥10-15",
+"crowd": "Street food hunters",
+"best": "afternoon"
+},
+{
+"en": "Jiucun Kaoyaohua",
+"zh": "九村烤脑花",
+"area": "Jiangbei",
+"lat": 29.5698,
+"lng": 106.4855,
+"cat": "food",
+"tags": [
+"grilled brain",
+"midnight",
+"bold"
+],
+"blurb": "Charcoal-grilled pig brain in chilli oil — the midnight dish that separates travellers from tourists.",
+"hrs": 2,
+"price": "¥60-100",
+"crowd": "Midnight bold eaters",
+"best": "late",
+"geo_verified": true
+},
+{
+"en": "Liziba Liangshan Chicken",
+"zh": "李子坝梁山鸡",
+"area": "Yuzhong",
+"lat": 29.6016,
+"lng": 106.5317,
+"cat": "food",
+"tags": [
+"chicken pot",
+"herbs",
+"single dish"
+],
+"blurb": "Medicinal-herb chicken pot under the monorail tracks — the dish locals ride across town for.",
+"hrs": 2,
+"price": "¥70-110",
+"crowd": "One-pot groups",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Qiu Er Guan",
+"zh": "丘二馆",
+"area": "Yuzhong",
+"lat": 29.557,
+"lng": 106.573,
+"cat": "food",
+"tags": [
+"chicken soup",
+"century-old",
+"comfort"
+],
+"blurb": "A century-old house of stewed chicken soup — the gentle counterpoint to a chilli-heavy trip.",
+"hrs": 1,
+"price": "¥40-70",
+"crowd": "Comfort seekers",
+"best": "lunch"
+},
+{
+"en": "Wu Chao Shou",
+"zh": "吴抄手",
+"area": "Yuzhong",
+"lat": 29.5729,
+"lng": 106.5351,
+"cat": "food",
+"tags": [
+"wontons",
+"old brand",
+"oil red"
+],
+"blurb": "Oil-red wontons and dry-tossed noodles from a 1950s counter brand in the city centre.",
+"hrs": 1,
+"price": "¥15-30",
+"crowd": "Snack lunch",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Testbed 2 Erchang",
+"zh": "鹅岭二厂",
+"area": "Yuzhong",
+"lat": 29.554,
+"lng": 106.546,
+"cat": "culture",
+"tags": [
+"printing factory",
+"creative",
+"film site"
+],
+"blurb": "A Republic-era printing plant turned creative complex — balconies, film-site views and design shops.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Design browsers",
+"best": "afternoon"
+},
+{
+"en": "Huangjueping Graffiti Street",
+"zh": "黄桷坪涂鸦街",
+"area": "Jiulongpo",
+"lat": 29.489,
+"lng": 106.535,
+"cat": "culture",
+"tags": [
+"graffiti",
+"art school",
+"street art"
+],
+"blurb": "An entire neighbourhood painted by Sichuan Fine Arts Institute students — China's longest graffiti wall.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Street art hunters",
+"best": "afternoon"
+},
+{
+"en": "Three Gorges Museum",
+"zh": "三峡博物馆",
+"area": "Yuzhong",
+"lat": 29.563,
+"lng": 106.552,
+"cat": "culture",
+"tags": [
+"museum",
+"dam history",
+"free"
+],
+"blurb": "The definitive telling of the Three Gorges — ba culture, boat trackers and a flooded-county model.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Museum readers",
+"best": "morning"
+},
+{
+"en": "Luo Zhongli Museum",
+"zh": "罗中立美术馆",
+"area": "Shapingba",
+"lat": 29.6014,
+"lng": 106.3006,
+"cat": "culture",
+"tags": [
+"art museum",
+"mosaic",
+"campus"
+],
+"blurb": "A museum sheathed in broken-tile mosaic, on the art school campus — the Father painter's namesake.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Art + mosaic photos",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Beicang Creative Zone",
+"zh": "北仓文创园",
+"area": "Jiangbei",
+"lat": 29.573,
+"lng": 106.534,
+"cat": "culture",
+"tags": [
+"textile warehouse",
+"books",
+"calm"
+],
+"blurb": "A cotton warehouse turned library-café compound — the quietest creative corner in Jiangbei.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Readers, slow afternoons",
+"best": "afternoon"
+},
+{
+"en": "Shancheng Lane",
+"zh": "山城巷",
+"area": "Yuzhong",
+"lat": 29.556,
+"lng": 106.574,
+"cat": "culture",
+"tags": [
+"cliffside lanes",
+"restored",
+"river view"
+],
+"blurb": "Cliffside lanes of restored stilt houses above the Yangtze — old Chongqing with a coffee in hand.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Slow walkers",
+"best": "sunset"
+},
+{
+"en": "Longmenhao Old Street",
+"zh": "龙门浩老街",
+"area": "Nanan",
+"lat": 29.559,
+"lng": 106.588,
+"cat": "culture",
+"tags": [
+"consulate houses",
+"restored",
+"river"
+],
+"blurb": "Restored treaty-port houses stacked on the south bank, facing Yuzhong's skyline across the water.",
+"hrs": 2,
+"price": "Free",
+"crowd": "History + view",
+"best": "afternoon"
+},
+{
+"en": "Daijiaxiang Cliff Walk",
+"zh": "戴家巷崖壁步道",
+"area": "Yuzhong",
+"lat": 29.562,
+"lng": 106.576,
+"cat": "culture",
+"tags": [
+"cliff walkway",
+"lanes",
+"view"
+],
+"blurb": "A cliff-edge boardwalk stitching hilltop lanes down to the river — the best free walk in the centre.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Sunset walkers",
+"best": "sunset"
+},
+{
+"en": "Jiu Street",
+"zh": "九街",
+"area": "Jiangbei",
+"lat": 29.5796,
+"lng": 106.5443,
+"cat": "night",
+"tags": [
+"bar district",
+"clubs",
+"late"
+],
+"blurb": "The district where Chongqing actually goes out — bars, clubs and street BBQ till dawn.",
+"hrs": 3,
+"price": "¥80-200",
+"crowd": "Night owls",
+"best": "late",
+"geo_verified": true
+},
+{
+"en": "Jiaochangkou Night Market",
+"zh": "较场口夜市",
+"area": "Yuzhong",
+"lat": 29.554,
+"lng": 106.571,
+"cat": "night",
+"tags": [
+"night market",
+"BBQ skewers",
+"central"
+],
+"blurb": "The central night market — skewers, guokui and cold noodles spilling onto the pavement.",
+"hrs": 2,
+"price": "¥40-80",
+"crowd": "Street food nights",
+"best": "evening"
+},
+{
+"en": "Deyi World",
+"zh": "得意世界",
+"area": "Yuzhong",
+"lat": 29.555,
+"lng": 106.57,
+"cat": "night",
+"tags": [
+"bars",
+"ktv",
+"local"
+],
+"blurb": "The veteran bar block by Jiaochangkou — loud, local and gloriously unpolished.",
+"hrs": 2,
+"price": "¥60-150",
+"crowd": "Local night crowd",
+"best": "evening"
+},
+{
+"en": "Two Rivers Night Cruise",
+"zh": "两江夜游",
+"area": "Yuzhong",
+"lat": 29.563,
+"lng": 106.581,
+"cat": "night",
+"tags": [
+"boat",
+"skyline",
+"must"
+],
+"blurb": "The boat view of Hongya Cave and the peninsula lights — Chongqing's night is a water show.",
+"hrs": 1,
+"price": "¥78-158",
+"crowd": "Everyone, once",
+"best": "evening"
+},
+{
+"en": "Yihuali Night Park",
+"zh": "壹华里夜景公园",
+"area": "Nanan",
+"lat": 29.5111,
+"lng": 106.5901,
+"cat": "night",
+"tags": [
+"hilltop",
+"viewpoint",
+"free"
+],
+"blurb": "A hilltop night park where the whole peninsula spreads below — bring a tripod.",
+"hrs": 2,
+"price": "Free",
+"crowd": "View hunters",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Guanyinqiao Night Area",
+"zh": "观音桥夜区",
+"area": "Jiangbei",
+"lat": 29.8161,
+"lng": 106.1633,
+"cat": "night",
+"tags": [
+"commercial",
+"street food",
+"local crowd"
+],
+"blurb": "Jiangbei's neon core — the snack lanes behind the mall are where locals actually eat at night.",
+"hrs": 2,
+"price": "¥50-120",
+"crowd": "Local night eaters",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Danzishi Old Street",
+"zh": "弹子石老街",
+"area": "Nanan",
+"lat": 29.5798,
+"lng": 106.5879,
+"cat": "night",
+"tags": [
+"restored",
+"terrace",
+"riverside"
+],
+"blurb": "Terraced old streets stepping down to the river confluence, all lit up after dark.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Evening strollers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Changjianghui Riverside",
+"zh": "长嘉汇",
+"area": "Nanan",
+"lat": 29.5783,
+"lng": 106.5859,
+"cat": "night",
+"tags": [
+"riverside mall",
+"terrace bars",
+"view"
+],
+"blurb": "Terrace bars facing the confluence of two rivers — the sit-down way to see the lights.",
+"hrs": 2,
+"price": "¥100-200",
+"crowd": "Terrace drinkers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Pianyan Ancient Town",
+"zh": "偏岩古镇",
+"area": "Beibei",
+"lat": 30.0021,
+"lng": 106.6561,
+"cat": "hidden",
+"tags": [
+"qing town",
+"river tables",
+"mahjong"
+],
+"blurb": "A Qing town where mahjong tables sit in the shallow river itself. Easy half-day from Beibei.",
+"hrs": 4,
+"price": "Free",
+"crowd": "River-cool lunches",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Laitan Ancient Town",
+"zh": "涞滩古镇",
+"area": "Hechuan",
+"lat": 30.1742,
+"lng": 106.4947,
+"cat": "hidden",
+"tags": [
+"walled town",
+"rock carvings",
+"song"
+],
+"blurb": "A walled Song-dynasty town guarding cliff-carved Buddhas above the Jialing bend.",
+"hrs": 4,
+"price": "Free (groto ¥30)",
+"crowd": "History hikers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Zhongshan Ancient Town",
+"zh": "中山古镇",
+"area": "Jiangjin",
+"lat": 28.839,
+"lng": 106.3278,
+"cat": "hidden",
+"tags": [
+"stilt street",
+"bamboo",
+"unchanged"
+],
+"blurb": "A single 1.5-km Song-era street of stilt houses under bamboo — barely touched by tourism.",
+"hrs": 4,
+"price": "Free",
+"crowd": "Slow travellers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Songji Ancient Town",
+"zh": "松溉古镇",
+"area": "Yongchuan",
+"lat": 29.0537,
+"lng": 105.896,
+"cat": "hidden",
+"tags": [
+"river town",
+"stone streets",
+"quiet"
+],
+"blurb": "A Yangtze port town of cobbled streets and ancestral halls, missed by every tour bus.",
+"hrs": 4,
+"price": "Free",
+"crowd": "Silence seekers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Jinfo Mountain",
+"zh": "金佛山",
+"area": "Nanchuan",
+"lat": 29.0493,
+"lng": 107.1274,
+"cat": "hidden",
+"tags": [
+"karst",
+"cable car",
+"snow"
+],
+"blurb": "A karst tabletop mountain with caves, a cliff walk, and genuine snow in winter.",
+"hrs": 6,
+"price": "¥140 (cable inc.)",
+"crowd": "Mountain days",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Heishan Valley",
+"zh": "黑山谷",
+"area": "Wansheng",
+"lat": 28.8845,
+"lng": 106.9987,
+"cat": "hidden",
+"tags": [
+"gorge",
+"boardwalk",
+"summer cool"
+],
+"blurb": "A cool, dark gorge walk on steel boardwalks — Chongqing's summer escape valve.",
+"hrs": 5,
+"price": "¥100-120",
+"crowd": "Valley walkers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Xiannv Mountain",
+"zh": "仙女山",
+"area": "Wulong",
+"lat": 29.4983,
+"lng": 107.7408,
+"cat": "hidden",
+"tags": [
+"alpine meadow",
+"grassland",
+"horses"
+],
+"blurb": "Southern China's alpine meadow — grasslands, horse riding and cool air at 2,000 m.",
+"hrs": 5,
+"price": "¥60",
+"crowd": "Meadow picnics",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Chashan Zhuhai",
+"zh": "茶山竹海",
+"area": "Yongchuan",
+"lat": 29.4163,
+"lng": 105.9301,
+"cat": "hidden",
+"tags": [
+"bamboo sea",
+"film site",
+"cool"
+],
+"blurb": "A 20-square-km bamboo sea — the Crouching Tiger film forest, ten degrees cooler than the city.",
+"hrs": 4,
+"price": "Free",
+"crowd": "Bamboo wanderers",
+"best": "morning",
+"geo_verified": true
+}
+]

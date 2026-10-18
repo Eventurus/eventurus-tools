@@ -8,6 +8,7 @@
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <title>Tools - EVENTURUS · China Travel Intelligence</title>
 <meta content="Practical tools for travelling in China. Visa, payments, transport, trip planning and more — curated by EVENTURUS." name="description"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta content="EVENTURUS Tools - China Travel Intelligence" property="og:title"/>
 <meta content="Practical tools for the China traveller. Visa, payments, transport, planning and more — curated by EVENTURUS." property="og:description"/>
 <meta content="https://eventurus.cn/" property="og:url"/>
@@ -54,6 +55,32 @@
 })();
 </script>
 <script data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa" defer="" src="https://stats.eventurus.cn/script.js"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 <link href="assets/contact/contact-widget.css" rel="stylesheet"/>
 <style>
 :root {
@@ -804,7 +831,7 @@ img{max-width:100%}
 <path d="M4.5 7.5v9"></path>
 </svg></div>
 <h3>Visa Eligibility Checker</h3>
-<p>Three questions covering nationwide visa-free entry, transit exemptions and standard visa categories. Updated July 2026.</p>
+<p>Three questions covering nationwide visa-free entry, transit exemptions and standard visa categories. Updated September 2026.</p>
 </div>
 <div class="feature-link">Open tool <span>↗</span></div>
 </a>
@@ -861,7 +888,7 @@ img{max-width:100%}
 </section>
 <nav aria-label="Tool categories" class="index-nav">
 <div class="wrap">
-<a href="#section-planning---entry">Planning &amp; Entry</a><a href="#section-move-to-china">Move to China</a><a href="#section-getting-around">Getting Around</a><a href="#section-payments---connectivity">Payments &amp; Connectivity</a><a href="#section-plan-your-trip">Plan Your Trip</a><a href="#section-living---staying">Living &amp; Staying</a><a href="#section-health---safety">Health &amp; Safety</a><a href="#section-shopping---food">Shopping &amp; Food</a>
+<a href="#section-planning---entry">Planning &amp; Entry</a><a href="#section-move-to-china">Move to China</a><a href="#section-getting-around">Getting Around</a><a href="#section-city-guide">City Guide</a><a href="#section-payments---connectivity">Payments &amp; Connectivity</a><a href="#section-plan-your-trip">Plan Your Trip</a><a href="#section-living---staying">Living &amp; Staying</a><a href="#section-health---safety">Health &amp; Safety</a><a href="#section-shopping---food">Shopping &amp; Food</a>
 </div>
 </nav>
 <div class="wrap tool-index">
@@ -879,7 +906,7 @@ img{max-width:100%}
 </svg></div>
 <div class="tool-row-copy">
 <h3>Visa Eligibility Checker</h3>
-<p>Three questions covering nationwide visa-free entry, transit exemptions and standard visa categories. Updated July 2026.</p>
+<p>Three questions covering nationwide visa-free entry, transit exemptions and standard visa categories. Updated September 2026.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
 </a>
@@ -891,7 +918,7 @@ img{max-width:100%}
 </svg></div>
 <div class="tool-row-copy">
 <h3>Entry Requirements Quick Ref</h3>
-<p>The 79 nationwide visa-free nationalities, plus common visa-required passports and transit options. Updated July 2026.</p>
+<p>50 unilateral + 29 mutual visa-free nationalities, plus common visa-required passports and transit options. Updated September 2026.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
 </a>
@@ -916,7 +943,7 @@ img{max-width:100%}
 </svg></div>
 <div class="tool-row-copy">
 <h3>China Public Holidays Calendar</h3>
-<p>2026–2029 holiday dates, work compensation days, and travel tips. Plan around the crowds.</p>
+<p>2026 official schedule, 2027–2029 festival dates, work compensation days and travel tips. Plan around the crowds.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
 </a>
@@ -1033,6 +1060,94 @@ img{max-width:100%}
 </a>
 </div>
 </section>
+<section class="tool-section" id="section-city-guide">
+<div class="section-heading">
+<h2>City Guide</h2></div>
+<div class="section-list">
+<a class="tool-row" href="beijing-3day-itinerary.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M7 4.5h10v15H7z"/>
+<path d="M9.5 8h5M9.5 12h5M9.5 16h3"/>
+<circle cx="5" cy="8" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="16" r="1"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Beijing in 3 Days</h3>
+<p>A realistic first-trip route - the Palace Museum, hutongs and one day on the Wall - with booking priorities, pacing and alternatives.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="day-trips-beijing.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 5.5v13l4-2 6 2 4-2v-13l-4 2-6-2z"/>
+<path d="M9 3.5v13M15 5.5v13"/>
+<path d="M7 11c2-2 4-2 5 0s3 2 5 0"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Day Trips from Beijing</h3>
+<p>The Great Wall, Summer Palace, Ming Tombs, Gubei Water Town and Tianjin - compared by pace, transport and the kind of day they create.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="where-to-stay-beijing.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"/>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"/>
+<path d="M10.5 20v-3h3v3M3.5 20h17"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Beijing</h3>
+<p>Wangfujing, Qianmen, Gulou and Sanlitun - matched to sightseeing access, evening atmosphere and traveller type.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="shanghai-3day-itinerary.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 5.5v13l4-2 6 2 4-2v-13l-4 2-6-2z"/>
+<path d="M9 3.5v13M15 5.5v13"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Shanghai in 3 Days</h3>
+<p>A realistic first-trip route - the old city, Bund, former French Concession and a flexible third day - with museum timing and alternatives.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="day-trips-shanghai.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M12 20s6-5.1 6-10.2A6 6 0 0 0 6 9.8C6 14.9 12 20 12 20z"/>
+<circle cx="12" cy="9.8" r="2.1"/>
+<path d="M3.5 20.5h17"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Day Trips from Shanghai</h3>
+<p>Suzhou's gardens, Hangzhou's West Lake, Zhujiajiao and Qibao - compared by door-to-door effort and booking needs.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="where-to-stay-shanghai.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M4 18V8M4 14h16v4M7 10h4v4H7zM11 11h7a2 2 0 0 1 2 2v1"/>
+<path d="M6 18v2M18 18v2"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Shanghai</h3>
+<p>Jing'an, People's Square, the former French Concession, the Bund and Pudong - compared on transport, atmosphere and trade-offs.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="great-wall-guide.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M4 20V9h4V6h4v3h4V6h4v14"></path>
+<path d="M4 13h16M8 9v11M16 9v11"></path>
+<path d="M10.5 16h3v4h-3z"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Great Wall of China Guide</h3>
+<p>Compare 7 sections from Badaling to Jiankou. Transport, tickets, best time to visit, and tips for avoiding the crowds.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+</div>
+</section>
 <section class="tool-section" id="section-payments---connectivity">
 <div class="section-heading">
 <h2>Payments &amp; Connectivity</h2></div>
@@ -1047,6 +1162,19 @@ img{max-width:100%}
 <div class="tool-row-copy">
 <h3>WeChat Pay &amp; Alipay Setup Guide</h3>
 <p>Step-by-step guide for foreigners to set up mobile payments with a passport and foreign card.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="tenpaygo.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="15" x="2.5" y="6"></rect>
+<path d="M6.8 12h3.4"></path>
+<path d="M19.6 10.1a4.3 4.3 0 0 1 0 3.8"></path>
+<path d="M21.6 8.4a7.2 7.2 0 0 1 0 7.2"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>TenPayGo: WeChat Pay for Visitors</h3>
+<p>WeChat Pay's standalone app for short-term visitors: sign up with an email address, no Chinese phone number and no Chinese bank account. What it accepts, and what it will not do.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
 </a>
@@ -1127,24 +1255,24 @@ img{max-width:100%}
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
 </a>
-<a class="tool-row" href="great-wall-guide.html">
-<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
-<path d="M4 20V9h4V6h4v3h4V6h4v14"></path>
-<path d="M4 13h16M8 9v11M16 9v11"></path>
-<path d="M10.5 16h3v4h-3z"></path>
-</svg></div>
-<div class="tool-row-copy">
-<h3>Great Wall of China Guide</h3>
-<p>Compare 7 sections from Badaling to Jiankou. Transport, tickets, best time to visit, and tips for avoiding the crowds.</p>
-</div>
-<div aria-hidden="true" class="tool-row-arrow">↗</div>
-</a>
 </div>
 </section>
 <section class="tool-section" id="section-living---staying">
 <div class="section-heading">
 <h2>Living &amp; Staying</h2></div>
 <div class="section-list">
+<a class="tool-row" href="accommodation-registration.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M4.5 10.6 12 4.5l7.5 6.1"></path>
+<path d="M6.6 9.6v10h10.8v-10"></path>
+<path d="M9.6 15.4l1.6 1.6 3.4-3.4"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Accommodation Registration</h3>
+<p>Staying somewhere other than a hotel? Register your address within 24 hours. The online systems, who files it, and when you can skip it. Updated September 2026.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
 <a class="tool-row" href="menu-translator.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
 <path d="M6 4.5v15M10 4.5v6M14 4.5v6M18 4.5v15"></path>

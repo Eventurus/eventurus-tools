@@ -27,6 +27,7 @@
  <link rel="canonical" href="https://eventurus.cn/shopping-guide.html">
 
 <meta name="description" content="How to shop on China's three biggest e-commerce platforms as a foreigner. Registration, payment, shipping, and how to avoid getting scammed.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5; --color-brand-dark: #4A5C46; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -253,6 +254,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/shopping-guide.html">
@@ -708,7 +735,8 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  <p>Want to communicate more? &rarr; <a href="chinese-cards.html">Chinese To-Go Cards</a></p>
 </div>
 
-<div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="food-delivery-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Food Delivery Guide</span><span class="rel-desc">Meituan and Ele.me ordering guide</span></span></a><a class="rel-item" href="payment-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">WeChat Pay & Alipay Guide</span><span class="rel-desc">You need mobile payments to shop online</span></span></a></div></div>
+<div class="cross-link" style="text-align:center;padding:4px 0 18px;font-size:14px;color:var(--color-muted);"><p>Shopping in person: <a href="china-tax-refund.html">tax refund</a> &middot; <a href="china-markets.html">markets</a> &middot; <a href="china-souvenirs.html">what to buy</a></p></div>
+<div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="food-delivery-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Food Delivery Guide</span><span class="rel-desc">Meituan and Ele.me ordering guide</span></span></a><a class="rel-item" href="payment-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">WeChat Pay & Alipay Guide</span><span class="rel-desc">You need mobile payments to shop online</span></span></a><a class="rel-item" href="china-tax-refund.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">China Tax Refund</span><span class="rel-desc">Claim the VAT back when you fly home</span></span></a><a class="rel-item" href="china-markets.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Markets in Shanghai</span><span class="rel-desc">Tailors, wholesale halls and wet markets</span></span></a><a class="rel-item" href="china-souvenirs.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">What to Buy in China</span><span class="rel-desc">Souvenirs that clear customs</span></span></a></div></div>
 
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated August 2026</div>
 <div class="footer">

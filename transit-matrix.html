@@ -27,6 +27,7 @@
  <link rel="canonical" href="https://eventurus.cn/transit-matrix.html">
 
 <meta name="description" content="Compare high-speed rail and flight times, costs and distances between major Chinese cities. Plan your China travel with confidence.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root {
  --color-text: #2c2c2c;
@@ -530,6 +531,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 }
  </script>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 
 <!-- SEO structured data + keywords -->
@@ -696,6 +723,142 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 </div>
 
+
+
+<!-- geo:transit-static -->
+<div class="section">
+  <h2>Every route, compared</h2>
+  <p class="lead">Of the 110 city pairs here, the train is the better choice on 50 and flying on 60. Distance alone does not settle it: rail wins from 85 km to 1,400 km, and flights win from 460 km up, so the two overlap between roughly 500 and 1,400 km. What decides those is line speed and how far the airport sits from town. Zhengzhou to Guangzhou is 1,400 km and still a train at 5h30m, while Dalian to Beijing is only 460 km and still a flight, because the rail leg takes 4h30m. 12 pairs have no usable flight and 16 have no high-speed line.</p>
+  <div class="table-wrap">
+  <table>
+    <caption>110 city pairs, with the rail and air option side by side. Distances are in kilometres, fares in yuan.</caption>
+    <thead>
+      <tr><th scope="col">From</th><th scope="col">To</th><th scope="col">Train</th><th scope="col">Train fare</th><th scope="col">Flight</th><th scope="col">Air fare</th><th scope="col">Distance</th><th scope="col">Better</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Shanghai</th><td>Beijing</td><td>4h30m</td><td>¥576 - 697</td><td>2h20m</td><td>¥800-1,200</td><td>1,318</td><td>Train</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Nanjing</td><td>1h05m</td><td>¥135</td><td>—</td><td>—</td><td>295</td><td>Train</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Hangzhou</td><td>45m</td><td>¥73</td><td>—</td><td>—</td><td>165</td><td>Train</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Suzhou</td><td>30m</td><td>¥40</td><td>—</td><td>—</td><td>100</td><td>Train</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Guangzhou</td><td>6h50m</td><td>¥793</td><td>2h30m</td><td>¥600-1,000</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Shenzhen</td><td>7h30m</td><td>¥820</td><td>2h30m</td><td>¥600-1,100</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Chengdu</td><td>10h30m</td><td>¥1,000</td><td>3h00m</td><td>¥700-1,300</td><td>1,980</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Wuhan</td><td>4h30m</td><td>¥520</td><td>1h50m</td><td>¥500-800</td><td>839</td><td>Train</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Changsha</td><td>5h00m</td><td>¥550</td><td>2h00m</td><td>¥500-900</td><td>1,050</td><td>Train</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Kunming</td><td>9h35m</td><td>¥1,150</td><td>3h30m</td><td>¥600-1,200</td><td>2,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Guilin</td><td>9h00m</td><td>¥800</td><td>2h30m</td><td>¥500-900</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Qingdao</td><td>5h00m</td><td>¥550</td><td>1h30m</td><td>¥400-800</td><td>814</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Xiamen</td><td>7h00m</td><td>¥630</td><td>1h50m</td><td>¥500-900</td><td>1,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Harbin</td><td>10h30m</td><td>¥1,100</td><td>3h00m</td><td>¥600-1,200</td><td>2,300</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Chongqing</td><td>9h00m</td><td>¥950</td><td>2h45m</td><td>¥500-1,100</td><td>1,900</td><td>Flight</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Lhasa</td><td>—</td><td>—</td><td>4h30m</td><td>¥1,500-2,500</td><td>2,900</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Nanjing</td><td>3h20m</td><td>¥445</td><td>2h00m</td><td>¥500-900</td><td>1,020</td><td>Train</td></tr>
+      <tr><th scope="row">Beijing</th><td>Hangzhou</td><td>4h30m</td><td>¥540</td><td>2h15m</td><td>¥500-1,000</td><td>1,280</td><td>Train</td></tr>
+      <tr><th scope="row">Beijing</th><td>Guangzhou</td><td>8h00m</td><td>¥960</td><td>3h00m</td><td>¥600-1,300</td><td>2,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Shenzhen</td><td>9h00m</td><td>¥1,050</td><td>3h00m</td><td>¥600-1,300</td><td>2,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Chengdu</td><td>7h30m</td><td>¥780</td><td>2h50m</td><td>¥600-1,200</td><td>1,800</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Wuhan</td><td>4h00m</td><td>¥520</td><td>2h15m</td><td>¥500-900</td><td>1,200</td><td>Train</td></tr>
+      <tr><th scope="row">Beijing</th><td>Changsha</td><td>5h30m</td><td>¥650</td><td>2h30m</td><td>¥500-1,000</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Harbin</td><td>5h00m</td><td>¥540</td><td>2h00m</td><td>¥400-900</td><td>1,280</td><td>Train</td></tr>
+      <tr><th scope="row">Beijing</th><td>Qingdao</td><td>3h00m</td><td>¥315</td><td>1h30m</td><td>¥400-800</td><td>670</td><td>Train</td></tr>
+      <tr><th scope="row">Beijing</th><td>Kunming</td><td>10h30m</td><td>¥1,200</td><td>3h30m</td><td>¥700-1,400</td><td>2,600</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Guilin</td><td>8h30m</td><td>¥950</td><td>3h00m</td><td>¥600-1,100</td><td>2,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Xiamen</td><td>9h00m</td><td>¥1,000</td><td>3h00m</td><td>¥600-1,200</td><td>2,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Lhasa</td><td>—</td><td>—</td><td>4h00m</td><td>¥1,500-3,000</td><td>2,600</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Chongqing</td><td>9h00m</td><td>¥950</td><td>2h45m</td><td>¥600-1,200</td><td>1,900</td><td>Flight</td></tr>
+      <tr><th scope="row">Beijing</th><td>Suzhou</td><td>4h30m</td><td>¥520</td><td>—</td><td>—</td><td>1,100</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Shenzhen</td><td>30m</td><td>¥75</td><td>—</td><td>—</td><td>140</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Guilin</td><td>2h30m</td><td>¥310</td><td>1h10m</td><td>¥400-700</td><td>480</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Changsha</td><td>2h30m</td><td>¥315</td><td>1h30m</td><td>¥400-800</td><td>650</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Wuhan</td><td>3h30m</td><td>¥465</td><td>2h00m</td><td>¥500-900</td><td>1,000</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Chengdu</td><td>8h00m</td><td>¥820</td><td>2h30m</td><td>¥500-1,000</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Kunming</td><td>6h30m</td><td>¥660</td><td>2h20m</td><td>¥500-1,000</td><td>1,300</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Xiamen</td><td>3h30m</td><td>¥370</td><td>1h30m</td><td>¥400-800</td><td>550</td><td>Train</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Nanjing</td><td>6h00m</td><td>¥700</td><td>2h40m</td><td>¥500-900</td><td>1,300</td><td>Flight</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Hangzhou</td><td>6h00m</td><td>¥680</td><td>2h10m</td><td>¥500-900</td><td>1,200</td><td>Flight</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Chongqing</td><td>1h30m</td><td>¥155</td><td>—</td><td>—</td><td>280</td><td>Train</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Kunming</td><td>4h30m</td><td>¥480</td><td>1h20m</td><td>¥400-800</td><td>800</td><td>Train</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Lhasa</td><td>—</td><td>—</td><td>2h20m</td><td>¥800-1,800</td><td>1,300</td><td>Flight</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Lijiang</td><td>—</td><td>—</td><td>1h15m</td><td>¥400-900</td><td>500</td><td>Flight</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Zhangjiajie</td><td>—</td><td>—</td><td>1h40m</td><td>¥400-800</td><td>600</td><td>Flight</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Guangzhou</td><td>8h00m</td><td>¥820</td><td>2h20m</td><td>¥500-1,000</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Wuhan</td><td>7h00m</td><td>¥750</td><td>2h10m</td><td>¥500-900</td><td>1,130</td><td>Flight</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Changsha</td><td>6h30m</td><td>¥680</td><td>2h00m</td><td>¥400-800</td><td>1,000</td><td>Flight</td></tr>
+      <tr><th scope="row">Nanjing</th><td>Hangzhou</td><td>1h00m</td><td>¥115</td><td>—</td><td>—</td><td>240</td><td>Train</td></tr>
+      <tr><th scope="row">Nanjing</th><td>Suzhou</td><td>30m</td><td>¥50</td><td>—</td><td>—</td><td>85</td><td>Train</td></tr>
+      <tr><th scope="row">Nanjing</th><td>Wuhan</td><td>3h00m</td><td>¥350</td><td>1h30m</td><td>¥400-700</td><td>600</td><td>Train</td></tr>
+      <tr><th scope="row">Wuhan</th><td>Changsha</td><td>1h30m</td><td>¥200</td><td>—</td><td>—</td><td>350</td><td>Train</td></tr>
+      <tr><th scope="row">Kunming</th><td>Lijiang</td><td>3h00m</td><td>¥230</td><td>1h00m</td><td>¥300-600</td><td>500</td><td>Train</td></tr>
+      <tr><th scope="row">Kunming</th><td>Guilin</td><td>4h00m</td><td>¥450</td><td>1h30m</td><td>¥400-700</td><td>800</td><td>Train</td></tr>
+      <tr><th scope="row">Guilin</th><td>Zhangjiajie</td><td>5h00m</td><td>¥500</td><td>—</td><td>—</td><td>500</td><td>Train</td></tr>
+      <tr><th scope="row">Hangzhou</th><td>Xiamen</td><td>5h00m</td><td>¥550</td><td>1h45m</td><td>¥500-900</td><td>850</td><td>Flight</td></tr>
+      <tr><th scope="row">Qingdao</th><td>Beijing</td><td>3h00m</td><td>¥315</td><td>1h30m</td><td>¥400-800</td><td>670</td><td>Train</td></tr>
+      <tr><th scope="row">Chongqing</th><td>Guilin</td><td>4h30m</td><td>¥450</td><td>1h30m</td><td>¥400-700</td><td>560</td><td>Train</td></tr>
+      <tr><th scope="row">Dalian</th><td>Beijing</td><td>4h30m</td><td>¥261</td><td>1h20m</td><td>¥400-900</td><td>460</td><td>Flight</td></tr>
+      <tr><th scope="row">Dalian</th><td>Shanghai</td><td>10h</td><td>¥612</td><td>1h50m</td><td>¥500-1,100</td><td>1,060</td><td>Flight</td></tr>
+      <tr><th scope="row">Dalian</th><td>Guangzhou</td><td>12h</td><td>¥872</td><td>3h20m</td><td>¥700-1,500</td><td>2,400</td><td>Flight</td></tr>
+      <tr><th scope="row">Dalian</th><td>Chengdu</td><td>11h</td><td>¥776</td><td>3h</td><td>¥600-1,300</td><td>2,200</td><td>Flight</td></tr>
+      <tr><th scope="row">Dalian</th><td>Harbin</td><td>4h30m</td><td>¥244</td><td>1h10m</td><td>¥300-800</td><td>660</td><td>Flight</td></tr>
+      <tr><th scope="row">Dalian</th><td>Zhengzhou</td><td>7h</td><td>¥448</td><td>1h50m</td><td>¥400-1,000</td><td>1,300</td><td>Flight</td></tr>
+      <tr><th scope="row">Dalian</th><td>Qingdao</td><td>4h</td><td>¥240</td><td>1h10m</td><td>¥300-600</td><td>500</td><td>Train</td></tr>
+      <tr><th scope="row">Tianjin</th><td>Beijing</td><td>30m</td><td>¥55</td><td>—</td><td>—</td><td>130</td><td>Train</td></tr>
+      <tr><th scope="row">Tianjin</th><td>Shanghai</td><td>4h30m</td><td>¥508</td><td>2h</td><td>¥400-900</td><td>1,000</td><td>Train</td></tr>
+      <tr><th scope="row">Tianjin</th><td>Guangzhou</td><td>9h</td><td>¥642</td><td>3h</td><td>¥600-1,400</td><td>2,000</td><td>Flight</td></tr>
+      <tr><th scope="row">Tianjin</th><td>Chengdu</td><td>8h</td><td>¥571</td><td>2h50m</td><td>¥500-1,200</td><td>1,900</td><td>Flight</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Beijing</td><td>2h30m</td><td>¥252</td><td>1h30m</td><td>¥300-700</td><td>690</td><td>Train</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Shanghai</td><td>4h</td><td>¥343</td><td>1h40m</td><td>¥400-800</td><td>820</td><td>Train</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Guangzhou</td><td>5h30m</td><td>¥426</td><td>2h</td><td>¥400-1,000</td><td>1,400</td><td>Train</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Chengdu</td><td>5h</td><td>¥370</td><td>1h50m</td><td>¥400-900</td><td>1,100</td><td>Train</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Wuhan</td><td>2h</td><td>¥176</td><td>1h</td><td>¥200-500</td><td>450</td><td>Train</td></tr>
+      <tr><th scope="row">Changchun</th><td>Harbin</td><td>1h</td><td>¥94</td><td>50m</td><td>¥200-500</td><td>260</td><td>Train</td></tr>
+      <tr><th scope="row">Changchun</th><td>Beijing</td><td>5h30m</td><td>¥341</td><td>1h40m</td><td>¥400-900</td><td>980</td><td>Flight</td></tr>
+      <tr><th scope="row">Changchun</th><td>Shanghai</td><td>11h</td><td>¥653</td><td>2h30m</td><td>¥500-1,100</td><td>1,700</td><td>Flight</td></tr>
+      <tr><th scope="row">Changchun</th><td>Dalian</td><td>3h</td><td>¥143</td><td>1h</td><td>¥300-600</td><td>600</td><td>Train</td></tr>
+      <tr><th scope="row">Changchun</th><td>Guangzhou</td><td>13h</td><td>¥880</td><td>3h40m</td><td>¥700-1,600</td><td>2,600</td><td>Flight</td></tr>
+      <tr><th scope="row">Jinan</th><td>Beijing</td><td>1h30m</td><td>¥168</td><td>1h</td><td>¥200-500</td><td>400</td><td>Train</td></tr>
+      <tr><th scope="row">Jinan</th><td>Shanghai</td><td>3h</td><td>¥252</td><td>1h20m</td><td>¥300-700</td><td>650</td><td>Train</td></tr>
+      <tr><th scope="row">Jinan</th><td>Guangzhou</td><td>9h</td><td>¥680</td><td>2h40m</td><td>¥500-1,200</td><td>1,800</td><td>Flight</td></tr>
+      <tr><th scope="row">Jinan</th><td>Nanjing</td><td>2h</td><td>¥194</td><td>1h10m</td><td>¥300-600</td><td>480</td><td>Train</td></tr>
+      <tr><th scope="row">Jinan</th><td>Qingdao</td><td>1h30m</td><td>¥117</td><td>—</td><td>—</td><td>310</td><td>Train</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Shanghai</td><td>3h30m</td><td>¥258</td><td>1h20m</td><td>¥300-700</td><td>780</td><td>Train</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Guangzhou</td><td>4h30m</td><td>¥293</td><td>1h30m</td><td>¥300-800</td><td>820</td><td>Train</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Beijing</td><td>8h</td><td>¥600</td><td>2h30m</td><td>¥500-1,100</td><td>1,800</td><td>Flight</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Chengdu</td><td>10h</td><td>¥560</td><td>2h40m</td><td>¥500-1,200</td><td>1,600</td><td>Flight</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Xiamen</td><td>1h30m</td><td>¥88</td><td>50m</td><td>¥200-400</td><td>230</td><td>Train</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Shenzhen</td><td>5h</td><td>¥325</td><td>1h20m</td><td>¥300-700</td><td>820</td><td>Flight</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Guangzhou</td><td>4h30m</td><td>¥271</td><td>1h30m</td><td>¥300-700</td><td>730</td><td>Train</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Chengdu</td><td>3h30m</td><td>¥263</td><td>1h10m</td><td>¥300-600</td><td>640</td><td>Train</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Beijing</td><td>8h30m</td><td>¥700</td><td>2h50m</td><td>¥500-1,200</td><td>2,100</td><td>Flight</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Shanghai</td><td>8h</td><td>¥560</td><td>2h30m</td><td>¥400-1,000</td><td>1,600</td><td>Flight</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Kunming</td><td>2h</td><td>¥165</td><td>1h</td><td>¥200-500</td><td>350</td><td>Train</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Guilin</td><td>2h30m</td><td>¥149</td><td>50m</td><td>¥200-500</td><td>400</td><td>Train</td></tr>
+      <tr><th scope="row">Lanzhou</th><td>Beijing</td><td>8h</td><td>¥540</td><td>2h30m</td><td>¥500-1,200</td><td>1,750</td><td>Flight</td></tr>
+      <tr><th scope="row">Lanzhou</th><td>Shanghai</td><td>11h</td><td>¥630</td><td>2h50m</td><td>¥500-1,200</td><td>1,700</td><td>Flight</td></tr>
+      <tr><th scope="row">Lanzhou</th><td>Chengdu</td><td>6h30m</td><td>¥407</td><td>1h20m</td><td>¥300-700</td><td>700</td><td>Flight</td></tr>
+      <tr><th scope="row">Lanzhou</th><td>Lhasa</td><td>—</td><td>—</td><td>2h30m</td><td>¥800-1,600</td><td>1,400</td><td>Flight</td></tr>
+      <tr><th scope="row">Sanya</th><td>Guangzhou</td><td>—</td><td>—</td><td>1h30m</td><td>¥300-800</td><td>800</td><td>Flight</td></tr>
+      <tr><th scope="row">Sanya</th><td>Beijing</td><td>—</td><td>—</td><td>4h</td><td>¥800-1,800</td><td>2,600</td><td>Flight</td></tr>
+      <tr><th scope="row">Sanya</th><td>Shanghai</td><td>—</td><td>—</td><td>3h</td><td>¥600-1,400</td><td>2,000</td><td>Flight</td></tr>
+      <tr><th scope="row">Sanya</th><td>Shenzhen</td><td>—</td><td>—</td><td>1h20m</td><td>¥300-700</td><td>750</td><td>Flight</td></tr>
+      <tr><th scope="row">Sanya</th><td>Chengdu</td><td>—</td><td>—</td><td>2h30m</td><td>¥500-1,200</td><td>1,500</td><td>Flight</td></tr>
+      <tr><th scope="row">Ürümqi</th><td>Beijing</td><td>—</td><td>—</td><td>4h</td><td>¥700-1,800</td><td>2,400</td><td>Flight</td></tr>
+      <tr><th scope="row">Ürümqi</th><td>Shanghai</td><td>—</td><td>—</td><td>5h</td><td>¥800-2,000</td><td>3,200</td><td>Flight</td></tr>
+      <tr><th scope="row">Ürümqi</th><td>Chengdu</td><td>—</td><td>—</td><td>3h20m</td><td>¥600-1,500</td><td>2,000</td><td>Flight</td></tr>
+      <tr><th scope="row">Ürümqi</th><td>Lanzhou</td><td>—</td><td>—</td><td>2h20m</td><td>¥400-1,000</td><td>1,780</td><td>Flight</td></tr>
+      <tr><th scope="row">Ürümqi</th><td>Lhasa</td><td>—</td><td>—</td><td>2h40m</td><td>¥500-1,200</td><td>1,300</td><td>Flight</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<!-- /geo:transit-static -->
+<!-- geo:transit-static-tail -->
+<div class="section">
+  <h2>How this was compiled</h2>
+  <div class="info-card">
+    <p>Fares are second class on high-speed rail and economy on flights, in yuan, as sold in October 2026. Rail fares move by departure, so a range means the train sells more than one band on that route. Flight times are wheels-up to wheels-down and do not include the two hours an airport adds at each end, which is why the verdict column weighs door-to-door time rather than the number printed on the boarding pass. A dash means that mode is not a real option on that pair: too close for a flight, or no high-speed line.</p>
+  </div>
+</div>
+<!-- /geo:transit-static-tail -->
 <div class="cross-link"><p>Related: <a href="train-guide.html">Train Seat Guide</a> · <a href="airport-transport.html">Airport Transport</a></p></div>
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="train-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">HSR Seat Guide</span><span class="rel-desc">2nd class, 1st class, business class compared</span></span></a><a class="rel-item" href="airport-transport.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Airport → City Transport</span><span class="rel-desc">Taxi, metro and shuttle from 15 airports</span></span></a></div></div>
 

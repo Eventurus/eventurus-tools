@@ -1,35 +1,66 @@
 # eventurus.cn
 
-> China travel tools and guides for international visitors — visa, transport,
-> payments, connectivity and more. Vetted by EVENTURUS.
+> China travel tools and guides for international visitors: visas, transport,
+> payments, connectivity, food and accommodation. Every guide states the month
+> its facts were last verified.
 
-- [China Travel Tools](https://eventurus.cn/): Practical tools for travelling in China — transit matrix, visa checker, weather guide, phrase cards and more.
-- [China Visa Checker](https://eventurus.cn/visa-checker.html): Check visa requirements for China by nationality, purpose and length of stay, based on policies verified through July 2026.
-- [China Visa-Free Entry Guide](https://eventurus.cn/visa-free-guide.html): Quick reference to China's visa-free policies — unilateral 30-day entry, 240-hour transit, Hainan and Guangdong options.
-- [China Entry Requirements Quick Ref](https://eventurus.cn/entry-requirements.html): China entry requirements by nationality, updated through July 2026.
-- [China Airport to City Transport Guide](https://eventurus.cn/airport-transport.html): Taxi, metro and shuttle prices from 27 major Chinese airports to the city centre, with night-arrival and luggage tips.
-- [China City Transit Matrix](https://eventurus.cn/transit-matrix.html): Compare high-speed rail and flight times, costs and distances between China's major cities.
-- [China High-Speed Train Seat Guide](https://eventurus.cn/train-guide.html): Compare China train classes and sleepers — second, first, business class, hard and soft sleeper.
-- [Train Ticket Booking Guide](https://eventurus.cn/train-booking-guide.html): How to book Chinese train tickets with a foreign passport — 12306 registration and Trip.com alternatives.
-- [Metro and Subway Guide](https://eventurus.cn/metro-guide.html): Using China's metro systems as a foreign traveller — payment, city apps, operating hours.
-- [Didi and Taxi Guide](https://eventurus.cn/didi-guide.html): Booking taxis in China without Chinese — Didi registration, car types, price ranges and driver phrases.
-- [WeChat Pay and Alipay Guide](https://eventurus.cn/payment-guide.html): Setting up mobile payments as a foreign traveller, step by step from download to first scan-to-pay.
-- [Get Online in China — eSIM and SIM Guide](https://eventurus.cn/internet-guide.html): Compare eSIMs you can buy before arrival and find airport SIM counters.
-- [Essential Apps for China](https://eventurus.cn/essential-apps.html): The apps to install before landing — WeChat, Alipay, Didi, Meituan and Trip.com.
-- [Food Delivery in China — Meituan and Ele.me](https://eventurus.cn/food-delivery-guide.html): How to use Meituan and Ele.me as a foreigner, from app setup to your first order.
-- [Shopping on Taobao, JD and Pinduoduo](https://eventurus.cn/shopping-guide.html): Using China's biggest e-commerce platforms as a foreigner — registration, payment and shipping.
-- [Eating in China — Dining Guide](https://eventurus.cn/dining-guide.html): How to eat well in China without the language — QR-code ordering and twenty dishes with Chinese names.
-- [Chinese Menu Translator](https://eventurus.cn/menu-translator.html): Translate 200 Chinese menu items to English, searchable and browsable by category.
+## Visas and entry
+
+- [China Visa Checker](https://eventurus.cn/visa-checker.html): Visa requirements by nationality, purpose and length of stay. Policies verified through July 2026.
+- [China Visa-Free Entry Guide](https://eventurus.cn/visa-free-guide.html): Unilateral 30-day entry, 240-hour transit, Hainan and Guangdong schemes in one table.
+- [China Entry Requirements](https://eventurus.cn/entry-requirements.html): Entry rules by nationality, updated through July 2026.
+- [Accommodation Registration in China](https://eventurus.cn/accommodation-registration.html): The 24-hour rule for non-hotel stays, the national online system, Shanghai self-service, who may file and the exemptions. Checked against National Immigration Administration Announcement No. 7 of 2026.
+- [Chinese Hospital Guide](https://eventurus.cn/hospital-guide.html): Registration, payment and pharmacy at a Chinese hospital as a foreign patient.
+- [Emergency Guide](https://eventurus.cn/emergency-guide.html): Emergency numbers, lost-passport procedure and embassy contacts.
+
+## Accommodation
+
+- [Where to Stay near Shanghai](https://eventurus.cn/where-to-stay.html): Shanghai, Suzhou, Hangzhou, Wuzhen, Moganshan and Anji compared by trip length, nightly cost and travel time from Hongqiao. Hub for the Yangtze Delta cluster.
+- [Where to Stay in Shanghai](https://eventurus.cn/where-to-stay-shanghai.html): Neighbourhoods compared for first visits, nightlife, families and long stays, with rates and metro access.
+- [Where to Stay in Beijing](https://eventurus.cn/where-to-stay-beijing.html): Five areas compared for first visits, hutong stays, business and families, with airport transfer and booking traps.
+- [Where to Stay in Hangzhou](https://eventurus.cn/where-to-stay-hangzhou.html): Six areas around West Lake, with nightly rates, Metro Line 19 from Xiaoshan airport and which station to use.
+- [Where to Stay in Suzhou](https://eventurus.cn/where-to-stay-suzhou.html): Pingjiang Road, Guanqian, the west canals, Jinji Lake and Tongli, with station choice and rail fares from Shanghai.
+- [Where to Stay in Wuzhen](https://eventurus.cn/where-to-stay-wuzhen.html): Inside the gates or outside, four bases with ticket and re-entry rules and the transfer from Tongxiang station.
+- [Where to Stay in Moganshan](https://eventurus.cn/where-to-stay-moganshan.html): Yucun, the mountaintop villas, Laoling, Fatou and Deqing town, with transfer rules, tickets and rail times.
+- [Where to Stay in Anji](https://eventurus.cn/where-to-stay-anji.html): Dipu, Lingfeng, Tianhuangping, Shanchuan and Baofu, with rail times, where a car is needed and resort rates.
+- [Hotel Booking for Foreigners](https://eventurus.cn/tools/accommodation-guide.html): Which Chinese hotels accept foreign guests and what to check before paying.
+
+## Transport
+
+- [China City Transit Matrix](https://eventurus.cn/transit-matrix.html): High-speed rail against flying between major cities, priced door to door rather than airport to airport.
+- [Airport to City Transport](https://eventurus.cn/airport-transport.html): Taxi, metro and shuttle prices from 27 Chinese airports, with night-arrival and luggage notes.
+- [Train Ticket Booking Guide](https://eventurus.cn/train-booking-guide.html): Booking Chinese rail with a foreign passport, including 12306 registration.
+- [China Train Seat Guide](https://eventurus.cn/train-guide.html): Second, first and business class, hard and soft sleeper, compared.
+- [Metro and Subway Guide](https://eventurus.cn/metro-guide.html): Payment, city apps and operating hours on Chinese metro systems.
+- [Didi and Taxi Guide](https://eventurus.cn/didi-guide.html): Didi without Chinese, car types, fares and driver phrases.
+
+## Money and connectivity
+
+- [China Tax Refund for Tourists](https://eventurus.cn/china-tax-refund.html): Departure VAT refund: 200 yuan minimum per shop per day, 11 per cent headline rate less about 2 per cent agency fee, 90 days to leave, airport steps and instant refund.
+- [WeChat Pay and Alipay Guide](https://eventurus.cn/payment-guide.html): Mobile payments from download to first scan, including foreign card linking.
+- [Get Online in China: eSIM and SIM](https://eventurus.cn/internet-guide.html): eSIMs bought before arrival against airport SIM counters, and what works behind the firewall.
+- [Essential Apps for China](https://eventurus.cn/essential-apps.html): What to install before landing: WeChat, Alipay, Didi, Meituan, Trip.com.
+
+## Food, shopping and culture
+
+- [Shopping on Taobao, JD and Pinduoduo](https://eventurus.cn/shopping-guide.html): China's e-commerce platforms as a foreigner, from registration to returns.
+- [Markets in Shanghai](https://eventurus.cn/china-markets.html): Custom tailoring at the South Bund fabric market, Qipu Road as a wholesale district in decline, and how to shop a wet market.
+- [What to Buy in China](https://eventurus.cn/china-souvenirs.html): Tea, silk, porcelain and carved seals, and the four categories customs stops: ivory, coral, pre-1949 objects, valuable herbal medicine.
+- [Food Delivery: Meituan and Ele.me](https://eventurus.cn/food-delivery-guide.html): Ordering delivery as a foreigner, from app setup and address entry to rider calls.
+- [Eating in China](https://eventurus.cn/dining-guide.html): QR-code ordering, dietary needs and twenty dishes with their Chinese names.
+- [Chinese Menu Translator](https://eventurus.cn/menu-translator.html): 200 Chinese menu items in English, searchable and grouped by category.
 - [Chinese To-Go Cards](https://eventurus.cn/chinese-cards.html): Printable Chinese-English phrase cards for taxis, restaurants, hotels and emergencies.
-- [China Public Holidays](https://eventurus.cn/china-holidays.html): China public holiday planning calendar through 2029, with the official 2026 schedule.
-- [China City Season and Weather Guide](https://eventurus.cn/city-season.html): The best season to visit 35+ Chinese cities, with monthly temperature, rainfall and AQI data.
-- [China Packing Checklist](https://eventurus.cn/packing-checklist.html): Seasonal packing guide, essential electronics and prohibited items for China.
-- [What to Do in China](https://eventurus.cn/must-do.html): Fourteen China experiences worth planning a trip around.
-- [Where to Go in China](https://eventurus.cn/must-go.html): An edited guide to China's most worthwhile destinations.
-- [Great Wall of China Guide](https://eventurus.cn/great-wall-guide.html): Which Great Wall section to visit — Badaling, Mutianyu, Simatai and beyond.
-- [Museums and Galleries Guide](https://eventurus.cn/museums-guide.html): A considered guide to museums and galleries across China.
-- [Your First Weekend in Shanghai](https://eventurus.cn/first-weekend-shanghai.html): A no-planning-needed weekend guide for Shanghai.
-- [Moving to Shanghai: Your First Week](https://eventurus.cn/moving-shanghai.html): A practical first-week guide to moving to Shanghai.
-- [Chinese Hospital Guide](https://eventurus.cn/hospital-guide.html): What to expect at a Chinese hospital as a foreign visitor.
-- [Emergency Guide](https://eventurus.cn/emergency-guide.html): Emergency numbers, lost-passport procedures and embassy contacts for China.
-- [Trip Planner](https://eventurus.cn/trip-planner.html): Browse China destinations by interest, season and trip length.
+- [Museums and Galleries Guide](https://eventurus.cn/museums-guide.html): Collections across China with booking routes and opening hours.
+- [Great Wall of China Guide](https://eventurus.cn/great-wall-guide.html): Which section to visit: Badaling, Mutianyu, Simatai and beyond.
+- [What to Do in China](https://eventurus.cn/must-do.html): Fourteen experiences worth planning a trip around.
+- [Where to Go in China](https://eventurus.cn/must-go.html): An edited guide to the country's most worthwhile destinations.
+- [Your First Weekend in Shanghai](https://eventurus.cn/first-weekend-shanghai.html): A weekend in Shanghai that needs no planning.
+- [Moving to Shanghai: Your First Week](https://eventurus.cn/moving-shanghai.html): The first week of a move to Shanghai, practically.
+
+## Planning
+
+- [China Travel Tools](https://eventurus.cn/): The full tool index: transit matrix, visa checker, weather guide, phrase cards.
+- [Trip Planner](https://eventurus.cn/trip-planner.html): Destinations by interest, season and trip length.
+- [China City Season and Weather Guide](https://eventurus.cn/city-season.html): Best season for 35+ cities, with monthly temperature, rainfall and AQI.
+- [China Public Holidays](https://eventurus.cn/china-holidays.html): Holiday calendar through 2029, with the official 2026 schedule.
+- [China Packing Checklist](https://eventurus.cn/packing-checklist.html): Seasonal packing, electronics and prohibited items.

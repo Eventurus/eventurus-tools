@@ -28,6 +28,7 @@
   <link rel="canonical" href="https://eventurus.cn/payment-guide.html">
 
 <meta name="description" content="How to set up WeChat Pay and Alipay as a foreign traveller in China. Step-by-step instructions, comparison, and tips for cashless payments.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root {
   --color-text: #2c2c2c;
@@ -234,6 +235,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 
   <!-- FAQPage structured data -->
@@ -552,6 +579,11 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
         <li>You plan to use Fliggy (Alibaba Travel) for bookings</li>
       </ul>
     </div>
+  </div>
+
+  <div class="info-card" style="margin-top:18px;">
+    <h3>A third app, for short trips</h3>
+    <p>Tencent's WeChat Pay team also publishes <a href="tenpaygo.html">TenPayGo</a>, a standalone app aimed at people visiting for days or weeks. Sign-up takes an email address, and it does not ask for a Chinese phone number, a Chinese bank account or a WeChat account at all. It is deliberately narrower than either app above, so treat it as an option for a short visit rather than a replacement.</p>
   </div>
 </div>
 

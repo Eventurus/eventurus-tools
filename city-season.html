@@ -28,6 +28,7 @@
   <link rel="canonical" href="https://eventurus.cn/city-season.html">
 
 <meta name="description" content="Best season to visit 35+ Chinese cities. Monthly temperature, rainfall and AQI data for travel planning.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root {
   --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5;
@@ -193,6 +194,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/city-season.html">
@@ -222,6 +249,63 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   <p>When to go, what the weather is like, and how bad the air pollution gets. Data for 35+ cities.</p>
 </div>
 
+
+
+<!-- geo:season-static -->
+<div class="section">
+  <h2>Climate at a glance, 38 cities</h2>
+  <p class="lead">China spans five climate zones, so when to go depends entirely on the city. January averages -30°C in Mohe and 22°C in Sanya, while July reaches 31°C in Shenzhen. Beijing and Xi'an peak in September and October, Shanghai in October and November, Guangzhou and Shenzhen from November to April. The table gives four benchmark months for all 38 cities, with the winter air quality that decides how comfortable a visit feels.</p>
+  <p class="sub">Data note: Changsha and Dalian are missing November in the source dataset. Those cells are left blank rather than estimated.</p>
+  <div class="table-wrap">
+  <table>
+    <caption>January, April, July and October mean temperatures in degrees Celsius, with the average air quality index across the winter months.</caption>
+    <thead>
+      <tr><th scope="col">City</th><th scope="col">Region</th><th scope="col">Jan</th><th scope="col">Apr</th><th scope="col">Jul</th><th scope="col">Oct</th><th scope="col">Winter AQI</th><th scope="col">Best months</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Beijing</th><td>North</td><td>-4</td><td>15</td><td>29</td><td>15</td><td>113</td><td>Autumn</td></tr>
+      <tr><th scope="row">Shanghai</th><td>East</td><td>5</td><td>16</td><td>30</td><td>20</td><td>68</td><td>Autumn</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>South</td><td>14</td><td>23</td><td>30</td><td>25</td><td>63</td><td>Spring</td></tr>
+      <tr><th scope="row">Shenzhen</th><td>South</td><td>15</td><td>24</td><td>31</td><td>26</td><td>52</td><td>Spring</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Southwest</td><td>6</td><td>17</td><td>27</td><td>17</td><td>110</td><td>Spring</td></tr>
+      <tr><th scope="row">Xi&#x27;an</th><td>Northwest</td><td>-1</td><td>16</td><td>28</td><td>16</td><td>123</td><td>Autumn</td></tr>
+      <tr><th scope="row">Hangzhou</th><td>East</td><td>5</td><td>17</td><td>30</td><td>20</td><td>73</td><td>Autumn</td></tr>
+      <tr><th scope="row">Nanjing</th><td>East</td><td>3</td><td>16</td><td>29</td><td>18</td><td>83</td><td>Autumn</td></tr>
+      <tr><th scope="row">Suzhou</th><td>East</td><td>4</td><td>16</td><td>30</td><td>19</td><td>78</td><td>Spring</td></tr>
+      <tr><th scope="row">Guilin</th><td>South</td><td>8</td><td>20</td><td>29</td><td>22</td><td>63</td><td>Spring</td></tr>
+      <tr><th scope="row">Kunming</th><td>Southwest</td><td>10</td><td>18</td><td>21</td><td>17</td><td>53</td><td>Spring</td></tr>
+      <tr><th scope="row">Lijiang</th><td>Southwest</td><td>7</td><td>15</td><td>19</td><td>15</td><td>39</td><td>Spring</td></tr>
+      <tr><th scope="row">Chengde</th><td>North</td><td>-7</td><td>14</td><td>27</td><td>13</td><td>100</td><td>Summer</td></tr>
+      <tr><th scope="row">Zhangjiajie</th><td>Central</td><td>5</td><td>17</td><td>29</td><td>18</td><td>73</td><td>Spring</td></tr>
+      <tr><th scope="row">Sanya</th><td>South</td><td>22</td><td>27</td><td>30</td><td>27</td><td>33</td><td>Winter</td></tr>
+      <tr><th scope="row">Chongqing</th><td>Southwest</td><td>8</td><td>19</td><td>29</td><td>19</td><td>98</td><td>Spring</td></tr>
+      <tr><th scope="row">Wuhan</th><td>Central</td><td>5</td><td>18</td><td>30</td><td>19</td><td>93</td><td>Autumn</td></tr>
+      <tr><th scope="row">Changsha</th><td>Central</td><td>5</td><td>18</td><td>30</td><td>13</td><td>88</td><td>Autumn</td></tr>
+      <tr><th scope="row">Dali</th><td>Southwest</td><td>9</td><td>17</td><td>21</td><td>17</td><td>39</td><td>Spring</td></tr>
+      <tr><th scope="row">Huangshan</th><td>East</td><td>0</td><td>13</td><td>25</td><td>14</td><td>53</td><td>Autumn</td></tr>
+      <tr><th scope="row">Harbin</th><td>Northeast</td><td>-19</td><td>7</td><td>24</td><td>6</td><td>83</td><td>Winter</td></tr>
+      <tr><th scope="row">Lhasa</th><td>West</td><td>-2</td><td>8</td><td>16</td><td>8</td><td>53</td><td>Summer</td></tr>
+      <tr><th scope="row">Urumqi</th><td>West</td><td>-10</td><td>11</td><td>26</td><td>10</td><td>88</td><td>Autumn</td></tr>
+      <tr><th scope="row">Dunhuang</th><td>Northwest</td><td>-8</td><td>14</td><td>28</td><td>11</td><td>78</td><td>Autumn</td></tr>
+      <tr><th scope="row">Jiuzhaigou</th><td>Southwest</td><td>-2</td><td>10</td><td>20</td><td>10</td><td>29</td><td>Autumn</td></tr>
+      <tr><th scope="row">Qingdao</th><td>East</td><td>-1</td><td>12</td><td>26</td><td>17</td><td>73</td><td>Summer</td></tr>
+      <tr><th scope="row">Xiamen</th><td>South</td><td>13</td><td>20</td><td>29</td><td>23</td><td>53</td><td>Spring</td></tr>
+      <tr><th scope="row">Mohe</th><td>Northeast</td><td>-30</td><td>1</td><td>21</td><td>-1</td><td>39</td><td>Summer</td></tr>
+      <tr><th scope="row">Xishuangbanna</th><td>Southwest</td><td>16</td><td>25</td><td>28</td><td>24</td><td>43</td><td>Winter</td></tr>
+      <tr><th scope="row">Luoyang</th><td>Central</td><td>0</td><td>16</td><td>28</td><td>16</td><td>113</td><td>Spring</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Central</td><td>1</td><td>17</td><td>29</td><td>17</td><td>118</td><td>Autumn</td></tr>
+      <tr><th scope="row">Shenyang</th><td>Northeast</td><td>-12</td><td>10</td><td>26</td><td>11</td><td>88</td><td>Autumn</td></tr>
+      <tr><th scope="row">Dalian</th><td>Northeast</td><td>-4</td><td>11</td><td>25</td><td>7</td><td>68</td><td>Summer</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>South</td><td>11</td><td>19</td><td>29</td><td>22</td><td>53</td><td>Spring</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Southwest</td><td>5</td><td>16</td><td>25</td><td>16</td><td>58</td><td>Summer</td></tr>
+      <tr><th scope="row">Lanzhou</th><td>Northwest</td><td>-5</td><td>14</td><td>27</td><td>13</td><td>93</td><td>Autumn</td></tr>
+      <tr><th scope="row">Ningbo</th><td>East</td><td>5</td><td>16</td><td>29</td><td>20</td><td>63</td><td>Autumn</td></tr>
+      <tr><th scope="row">Hong Kong</th><td>South</td><td>17</td><td>24</td><td>31</td><td>25</td><td>48</td><td>Spring</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<!-- /geo:season-static -->
 <h2>Browse by City</h2>
 
 <div class="filter-bar">
@@ -237,6 +321,68 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 
 <div class="city-grid" id="cityGrid"></div>
 
+
+
+<!-- geo:season-static-tail -->
+<div class="section">
+  <h2>Month by month, city by city</h2>
+  <p class="sub">The one-line advice for each city, in the order the tool lists them.</p>
+  <div class="table-wrap">
+  <table>
+    <caption>What each city feels like, and when it is worth going.</caption>
+    <thead>
+      <tr><th scope="col">City</th><th scope="col">Best season</th><th scope="col">What to expect</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Beijing</th><td>Autumn (Sep to Nov)</td><td>Best Sep - Oct. Spring dust storms. AQI worst in winter.</td></tr>
+      <tr><th scope="row">Shanghai</th><td>Autumn (Sep to Nov)</td><td>Best Oct - Nov. Plum rains in Jun. Hot &amp; humid Jul - Aug.</td></tr>
+      <tr><th scope="row">Guangzhou</th><td>Spring (Mar to May)</td><td>Best Nov - Apr. Hot &amp; humid May - Oct. Typhoon risk Jul - Sep.</td></tr>
+      <tr><th scope="row">Shenzhen</th><td>Spring (Mar to May)</td><td>Best Nov - Apr. Similar to Guangzhou but greener.</td></tr>
+      <tr><th scope="row">Chengdu</th><td>Spring (Mar to May)</td><td>Famous for overcast skies. Best Mar - May &amp; Sep - Oct. AQI worse in winter.</td></tr>
+      <tr><th scope="row">Xi&#x27;an</th><td>Autumn (Sep to Nov)</td><td>Sep - Oct is perfect. Spring can be dusty. Winter AQI is rough.</td></tr>
+      <tr><th scope="row">Hangzhou</th><td>Autumn (Sep to Nov)</td><td>West Lake at its best Sep - Nov. Plum rain in Jun. Hot Jul - Aug.</td></tr>
+      <tr><th scope="row">Nanjing</th><td>Autumn (Sep to Nov)</td><td>One of China&#x27;s &#x27;Three Furnaces&#x27;. Visit Mar - May or Sep - Nov.</td></tr>
+      <tr><th scope="row">Suzhou</th><td>Spring (Mar to May)</td><td>Classic gardens at peak Apr - May &amp; Sep - Oct. Near Shanghai.</td></tr>
+      <tr><th scope="row">Guilin</th><td>Spring (Mar to May)</td><td>Li River cruise best Apr - Oct. Sep - Oct is sweet spot.</td></tr>
+      <tr><th scope="row">Kunming</th><td>Spring (Mar to May)</td><td>Spring-like year-round. &#x27;Spring City&#x27;. Good any time.</td></tr>
+      <tr><th scope="row">Lijiang</th><td>Spring (Mar to May)</td><td>Best Mar - May &amp; Sep - Oct. Cool even in summer. Low AQI year-round.</td></tr>
+      <tr><th scope="row">Chengde</th><td>Summer (Jun to Aug)</td><td>Imperial summer retreat. Cooler than Beijing Jun - Aug.</td></tr>
+      <tr><th scope="row">Zhangjiajie</th><td>Spring (Mar to May)</td><td>Misty pillar views best after rain Apr - Jun &amp; Sep - Oct.</td></tr>
+      <tr><th scope="row">Sanya</th><td>Winter (Dec to Feb)</td><td>China&#x27;s tropical beach escape. Best Nov - Mar. Typhoons Jul - Oct.</td></tr>
+      <tr><th scope="row">Chongqing</th><td>Spring (Mar to May)</td><td>Known for fog + spicy food. Mar - May &amp; Sep - Oct are best. Brutal summer heat.</td></tr>
+      <tr><th scope="row">Wuhan</th><td>Autumn (Sep to Nov)</td><td>One of &#x27;Three Furnaces&#x27;. Visit Sep - Oct or Apr - May to avoid extremes.</td></tr>
+      <tr><th scope="row">Changsha</th><td>Autumn (Sep to Nov)</td><td>Gateway to Zhangjiajie. Sep - Oct is mildest. Summer is hot.</td></tr>
+      <tr><th scope="row">Dali</th><td>Spring (Mar to May)</td><td>Erhai Lake + Cangshan. Best Mar - May. Clear skies in winter.</td></tr>
+      <tr><th scope="row">Huangshan</th><td>Autumn (Sep to Nov)</td><td>Oct - Nov sea of clouds season. Mount Huangshan at its peak.</td></tr>
+      <tr><th scope="row">Harbin</th><td>Winter (Dec to Feb)</td><td>Ice &amp; Snow Festival Jan - Feb. Jul - Aug for mild summer escape.</td></tr>
+      <tr><th scope="row">Lhasa</th><td>Summer (Jun to Aug)</td><td>High altitude (3650m). Best Jun - Sep. Low AQI year-round.</td></tr>
+      <tr><th scope="row">Urumqi</th><td>Autumn (Sep to Nov)</td><td>Gateway to Xinjiang. May - Sep best. Dry &amp; hot summer. Cold winter.</td></tr>
+      <tr><th scope="row">Dunhuang</th><td>Autumn (Sep to Nov)</td><td>Mogao Caves + Gobi. Best Apr - May &amp; Sep - Oct. Extreme temps.</td></tr>
+      <tr><th scope="row">Jiuzhaigou</th><td>Autumn (Sep to Nov)</td><td>Epic autumn foliage Oct. Summer is also beautiful. Winter less crowded.</td></tr>
+      <tr><th scope="row">Qingdao</th><td>Summer (Jun to Aug)</td><td>Beach escape. Best Jun - Sep. German colonial architecture + seafood.</td></tr>
+      <tr><th scope="row">Xiamen</th><td>Spring (Mar to May)</td><td>Gulangyu Island. Best Mar - May &amp; Oct - Nov. Mild winter.</td></tr>
+      <tr><th scope="row">Mohe</th><td>Summer (Jun to Aug)</td><td>China&#x27;s &#x27;North Pole&#x27;. See aurora in winter. Visit Jun - Aug for mild weather.</td></tr>
+      <tr><th scope="row">Xishuangbanna</th><td>Winter (Dec to Feb)</td><td>Tropical rainforest. Best Nov - Feb (dry season). Monsoon May - Oct.</td></tr>
+      <tr><th scope="row">Luoyang</th><td>Spring (Mar to May)</td><td>Longmen Grottoes + Peony Festival Apr. Best Mar - May &amp; Sep - Oct.</td></tr>
+      <tr><th scope="row">Zhengzhou</th><td>Autumn (Sep to Nov)</td><td>Major rail hub. Sep - Oct best. High AQI in winter.</td></tr>
+      <tr><th scope="row">Shenyang</th><td>Autumn (Sep to Nov)</td><td>Imperial Palace (smaller Forbidden City). Sep - Oct best.</td></tr>
+      <tr><th scope="row">Dalian</th><td>Summer (Jun to Aug)</td><td>Beachside city. Best Jun - Sep. Russian architecture + seafood.</td></tr>
+      <tr><th scope="row">Fuzhou</th><td>Spring (Mar to May)</td><td>Capital of Fujian. Gutian + Tulou nearby. Mar - May &amp; Oct - Nov.</td></tr>
+      <tr><th scope="row">Guiyang</th><td>Summer (Jun to Aug)</td><td>Cool summer escape. Huangguoshu Waterfall nearby.</td></tr>
+      <tr><th scope="row">Lanzhou</th><td>Autumn (Sep to Nov)</td><td>Along the Silk Road. Famous for Lanzhou lamian noodles.</td></tr>
+      <tr><th scope="row">Ningbo</th><td>Autumn (Sep to Nov)</td><td>Port city near Shanghai. Zhoushan Islands nearby.</td></tr>
+      <tr><th scope="row">Hong Kong</th><td>Spring (Mar to May)</td><td>Best Oct - Dec. Mild winters. Hot &amp; humid summer with typhoon risk.</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="section">
+  <h2>How to read these numbers</h2>
+  <div class="info-card">
+    <p>These are monthly climate averages, not forecasts. Temperature is in degrees Celsius, rainfall in millimetres, and air quality as an average AQI reading for the winter months, when it is usually worst. Read the AQI column as a rough guide to whether to pack a mask rather than as a health measure. Air quality across eastern China has improved substantially since 2015, so older guidebooks read worse than the current reality. Check a forecast within a week of travelling.</p>
+  </div>
+</div>
+<!-- /geo:season-static-tail -->
 <div class="cross-link">
   <p>Looking for hotels in these cities? → <a href="transit-matrix.html">Check train & flight routes</a></p>
 </div>
@@ -648,7 +794,7 @@ function renderCity(city,idx) {
       </div>
 
       <div class="climate-row">
-        <span class="climate-chip"><span class="icon">📊</span> AQI: ${Math.round(city.monthly.reduce((s,m)=>s+m.aqi,0)/12)} avg</span>
+        <span class="climate-chip"><span class="icon">📊</span> AQI: ${Math.round(city.monthly.reduce((s,m)=>s+m.aqi,0)/city.monthly.length)} avg</span>
         <span class="climate-chip"><span class="icon">🌡️</span> ${minTemp}°C ~ ${maxTemp}°C</span>
         <span class="climate-chip"><span class="icon">🌧️</span> ${city.monthly.reduce((s,m)=>s+m.rain,0)}mm/yr</span>
       </div>

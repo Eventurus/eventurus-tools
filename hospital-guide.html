@@ -8,6 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Chinese Hospital Guide - EVENTURUS</title>
 <meta name="description" content="What to expect at a Chinese hospital as a foreign visitor. Registration, payment, finding English-speaking doctors, public versus international clinics.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Chinese Hospital Guide - EVENTURUS">
@@ -187,6 +188,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/hospital-guide.html">

@@ -1,0 +1,738 @@
+[
+{
+"en": "Forbidden City",
+"zh": "故宫博物院",
+"area": "Dongcheng",
+"lat": 39.916,
+"lng": 116.397,
+"cat": "sights",
+"tags": [
+"palace",
+"unesco",
+"must"
+],
+"blurb": "The world's largest palace complex, 600 years of imperial China. Closed Mondays; book days ahead.",
+"hrs": 4,
+"price": "¥60",
+"crowd": "Everyone, once",
+"best": "morning"
+},
+{
+"en": "Mutianyu Great Wall",
+"zh": "慕田峪长城",
+"area": "Huairou",
+"lat": 40.432,
+"lng": 116.567,
+"cat": "sights",
+"tags": [
+"great wall",
+"restored",
+"toboggan"
+],
+"blurb": "The best-balance Wall section — restored, forested, quieter than Badaling, with a toboggan ride down.",
+"hrs": 5,
+"price": "¥45 + transport",
+"crowd": "First-timers, families",
+"best": "morning"
+},
+{
+"en": "Temple of Heaven",
+"zh": "天坛",
+"area": "Dongcheng",
+"lat": 39.882,
+"lng": 116.407,
+"cat": "sights",
+"tags": [
+"unesco",
+"park",
+"ceremony"
+],
+"blurb": "The triple-gabled hall where emperors prayed for harvests, set in a park full of morning tai chi.",
+"hrs": 2,
+"price": "¥34 (combo)",
+"crowd": "Culture + park people",
+"best": "morning"
+},
+{
+"en": "Summer Palace",
+"zh": "颐和园",
+"area": "Haidian",
+"lat": 39.999,
+"lng": 116.275,
+"cat": "sights",
+"tags": [
+"unesco",
+"lake",
+"garden"
+],
+"blurb": "Imperial lakeside gardens, a long corridor of paintings and a marble boat. Half a day minimum.",
+"hrs": 3,
+"price": "¥30-60",
+"crowd": "Garden lovers",
+"best": "morning"
+},
+{
+"en": "Lama Temple",
+"zh": "雍和宫",
+"area": "Dongcheng",
+"lat": 39.948,
+"lng": 116.417,
+"cat": "sights",
+"tags": [
+"tibetan buddhist",
+"incense",
+"active"
+],
+"blurb": "Beijing's most active Tibetan temple — incense halls, a 26-metre Buddha, and real worshippers.",
+"hrs": 2,
+"price": "¥25",
+"crowd": "Spiritual seekers",
+"best": "morning"
+},
+{
+"en": "Jingshan Park",
+"zh": "景山公园",
+"area": "Dongcheng",
+"lat": 39.925,
+"lng": 116.397,
+"cat": "sights",
+"tags": [
+"viewpoint",
+"sunset",
+"panorama"
+],
+"blurb": "The hill directly behind the Forbidden City — the one panorama that explains the whole axis.",
+"hrs": 1,
+"price": "¥2",
+"crowd": "Sunset photographers",
+"best": "sunset"
+},
+{
+"en": "Beihai Park",
+"zh": "北海公园",
+"area": "Xicheng",
+"lat": 39.925,
+"lng": 116.389,
+"cat": "sights",
+"tags": [
+"lake",
+"white dagoba",
+"paddle boat"
+],
+"blurb": "A 1,000-year-old imperial lake park with a white dagoba and paddle boats. The gentle classic.",
+"hrs": 2,
+"price": "¥10",
+"crowd": "Families, slow afternoons",
+"best": "afternoon"
+},
+{
+"en": "Guozijian Street",
+"zh": "国子监街",
+"area": "Dongcheng",
+"lat": 39.946,
+"lng": 116.414,
+"cat": "sights",
+"tags": [
+"hutong",
+"confucius",
+"quiet"
+],
+"blurb": "The ancient scholars' academy street — plane trees, stone steles and the Confucius Temple next door.",
+"hrs": 2,
+"price": "¥30 (combo)",
+"crowd": "Quiet culture walks",
+"best": "morning"
+},
+{
+"en": "Li Qun Roast Duck",
+"zh": "利群烤鸭",
+"area": "Dongcheng",
+"lat": 39.8983,
+"lng": 116.4063,
+"cat": "food",
+"tags": [
+"peking duck",
+"courtyard",
+"single shop"
+],
+"blurb": "Roast duck in a hutong courtyard, wood-fired the old way. One shop, one queue, one duck.",
+"hrs": 2,
+"price": "¥150-200",
+"crowd": "Duck pilgrims",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Xiao Chen Chang Luzhu",
+"zh": "小肠陈卤煮",
+"area": "Xicheng",
+"lat": 39.8129,
+"lng": 116.4553,
+"cat": "food",
+"tags": [
+"luzhu",
+"offal",
+"old beijing"
+],
+"blurb": "Luzhu huoshao — pork-gut stew with bread — the most Old-Beijing bowl there is. Not for the timid.",
+"hrs": 1,
+"price": "¥25-40",
+"crowd": "Offal brave",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Baodu Feng",
+"zh": "爆肚冯",
+"area": "Xicheng",
+"lat": 39.897,
+"lng": 116.3961,
+"cat": "food",
+"tags": [
+"tripe",
+"quick blanch",
+"heritage"
+],
+"blurb": "Blanched tripe dipped in sesame sauce, flash-cooked seconds per plate. A Qing-dynasty craft.",
+"hrs": 1,
+"price": "¥40-70",
+"crowd": "Texture adventurers",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Fangzhuanchang 69",
+"zh": "方砖厂69号炸酱面",
+"area": "Dongcheng",
+"lat": 39.934,
+"lng": 116.401,
+"cat": "food",
+"tags": [
+"zhajiang noodles",
+"hutong",
+"single shop"
+],
+"blurb": "A one-dish hutong shop — fried sauce noodles under a chop-full of vegetable topping.",
+"hrs": 1,
+"price": "¥20-30",
+"crowd": "Lunch in the lanes",
+"best": "lunch"
+},
+{
+"en": "Yin San Douzhi",
+"zh": "尹三豆汁",
+"area": "Dongcheng",
+"lat": 39.886,
+"lng": 116.41,
+"cat": "food",
+"tags": [
+"douzhi",
+"fermented",
+"brave"
+],
+"blurb": "Fermented mung-bean drink with pickle rings — the most divisive taste in Beijing. Try once.",
+"hrs": 1,
+"price": "¥5-15",
+"crowd": "The brave",
+"best": "morning"
+},
+{
+"en": "Jubaoyuan",
+"zh": "聚宝源",
+"area": "Xicheng",
+"lat": 39.8867,
+"lng": 116.3633,
+"cat": "food",
+"tags": [
+"hotpot",
+"halal",
+"copper pot"
+],
+"blurb": "Niujie's halal copper-pot hotpot — hand-cut lamb that sells out. Queue early or book.",
+"hrs": 2,
+"price": "¥100-150",
+"crowd": "Hotpot devotees",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Yao Ji Chaogan",
+"zh": "姚记炒肝",
+"area": "Dongcheng",
+"lat": 39.94,
+"lng": 116.402,
+"cat": "food",
+"tags": [
+"chaogan",
+"pork liver",
+"breakfast"
+],
+"blurb": "Stir-fried pork liver and guts stew near the Drum Tower — the classic Beijing breakfast bowl.",
+"hrs": 1,
+"price": "¥20-35",
+"crowd": "Breakfast explorers",
+"best": "morning"
+},
+{
+"en": "Huguosi Snacks",
+"zh": "护国寺小吃",
+"area": "Xicheng",
+"lat": 39.933,
+"lng": 116.376,
+"cat": "food",
+"tags": [
+"snacks",
+"halal",
+"all-in-one"
+],
+"blurb": "The flagship counter of Beijing snack culture — wan dou huang, ai wowo, sweet fermented everything.",
+"hrs": 1,
+"price": "¥15-35",
+"crowd": "Snack samplers",
+"best": "morning"
+},
+{
+"en": "798 Art District",
+"zh": "798艺术区",
+"area": "Chaoyang",
+"lat": 39.984,
+"lng": 116.497,
+"cat": "culture",
+"tags": [
+"galleries",
+"bauhaus",
+"half day"
+],
+"blurb": "A decommissioned military factory turned into Beijing's densest gallery cluster. Sundays are alive.",
+"hrs": 3,
+"price": "Free (shows ¥30-80)",
+"crowd": "Art lovers",
+"best": "afternoon"
+},
+{
+"en": "UCCA Center",
+"zh": "UCCA尤伦斯当代艺术中心",
+"area": "Chaoyang",
+"lat": 39.984,
+"lng": 116.495,
+"cat": "culture",
+"tags": [
+"contemporary",
+"flagship",
+"shows"
+],
+"blurb": "China's most important contemporary art institution, at 798's front door.",
+"hrs": 2,
+"price": "¥60-120",
+"crowd": "Contemporary fans",
+"best": "afternoon"
+},
+{
+"en": "Red Brick Art Museum",
+"zh": "红砖美术馆",
+"area": "Chaoyang",
+"lat": 40.0423,
+"lng": 116.5,
+"cat": "culture",
+"tags": [
+"architecture",
+"courtyard",
+"photos"
+],
+"blurb": "A garden-museum of red brick lattice and courtyards — as famous for the building as the shows.",
+"hrs": 2,
+"price": "¥120-150",
+"crowd": "Architecture photographers",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "National Centre for the Performing Arts",
+"zh": "国家大剧院",
+"area": "Xicheng",
+"lat": 39.904,
+"lng": 116.379,
+"cat": "culture",
+"tags": [
+"opera house",
+"titanium egg",
+"lake"
+],
+"blurb": "Paul Andreu's titanium egg on a lake — even without a ticket, the interior walk is worth it.",
+"hrs": 1,
+"price": "Free entry (shows vary)",
+"crowd": "Architecture fans",
+"best": "evening"
+},
+{
+"en": "Longfu Temple Renewal",
+"zh": "隆福寺文创园",
+"area": "Dongcheng",
+"lat": 39.929,
+"lng": 116.409,
+"cat": "culture",
+"tags": [
+"rooftop",
+"creative",
+"quiet"
+],
+"blurb": "A Ming-era temple market reborn as a creative hub with the city's best quiet rooftop.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Rooftop readers",
+"best": "afternoon"
+},
+{
+"en": "Langyuan Station",
+"zh": "郎园Station",
+"area": "Chaoyang",
+"lat": 39.9683,
+"lng": 116.5159,
+"cat": "culture",
+"tags": [
+"warehouse",
+"markets",
+"industrial"
+],
+"blurb": "A railway warehouse compound of book fairs, coffee roasters and weekend markets.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Weekend wanderers",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "National Art Museum of China",
+"zh": "中国美术馆",
+"area": "Dongcheng",
+"lat": 39.925,
+"lng": 116.41,
+"cat": "culture",
+"tags": [
+"national collection",
+"free",
+"ink"
+],
+"blurb": "The national collection of Chinese modern and ink art, in a pagoda-tipped building. Free with booking.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Ink painting fans",
+"best": "morning"
+},
+{
+"en": "Guardian Art Center",
+"zh": "嘉德艺术中心",
+"area": "Dongcheng",
+"lat": 39.923,
+"lng": 116.413,
+"cat": "culture",
+"tags": [
+"auction house",
+"design",
+"shows"
+],
+"blurb": "Ole Scheeren's stack of brick and glass rings — auction previews and design shows year-round.",
+"hrs": 2,
+"price": "¥60-120",
+"crowd": "Design + collectors",
+"best": "afternoon"
+},
+{
+"en": "Houhai Bar Lakeside",
+"zh": "后海酒吧街",
+"area": "Xicheng",
+"lat": 39.94,
+"lng": 116.383,
+"cat": "night",
+"tags": [
+"lake",
+"bar street",
+"boat"
+],
+"blurb": "Bars strung around a imperial lake — touristy but unbeatable on a summer night with the water.",
+"hrs": 2,
+"price": "¥60-150",
+"crowd": "First nights",
+"best": "evening"
+},
+{
+"en": "Gui Jie Night Street",
+"zh": "簋街",
+"area": "Dongcheng",
+"lat": 39.942,
+"lng": 116.426,
+"cat": "night",
+"tags": [
+"spicy crayfish",
+"late food",
+"24h"
+],
+"blurb": "The 1.5-km spine of late-night spicy crawfish and hotpot. Beijing eats here at 2 am.",
+"hrs": 2,
+"price": "¥100-180",
+"crowd": "Late-night eaters",
+"best": "late"
+},
+{
+"en": "Sanlitun Taikoo Li",
+"zh": "三里屯太古里",
+"area": "Chaoyang",
+"lat": 39.936,
+"lng": 116.453,
+"cat": "night",
+"tags": [
+"shopping",
+"dining",
+"people watch"
+],
+"blurb": "The fashion village where Beijing comes to see and be seen after dark.",
+"hrs": 2,
+"price": "¥100-250",
+"crowd": "People watchers",
+"best": "evening"
+},
+{
+"en": "Jing A Brewing Taproom",
+"zh": "京A精酿",
+"area": "Chaoyang",
+"lat": 39.9178,
+"lng": 116.452,
+"cat": "night",
+"tags": [
+"craft beer",
+"local brew",
+"pizza"
+],
+"blurb": "Beijing's homegrown craft brewery —Worker's PaleAle and rotating local taps near Gongti.",
+"hrs": 2,
+"price": "¥70-120",
+"crowd": "Craft beer drinkers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Great Leap Brewing",
+"zh": "大跃啤酒",
+"area": "Dongcheng",
+"lat": 39.9374,
+"lng": 116.3994,
+"cat": "night",
+"tags": [
+"craft beer",
+"courtyard",
+"original"
+],
+"blurb": "The original hutong craft brewery — a courtyard taproom near the Drum Tower since 2010.",
+"hrs": 2,
+"price": "¥60-100",
+"crowd": "Courtyard drinkers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Blue Note Beijing",
+"zh": "Blue Note北京",
+"area": "Dongcheng",
+"lat": 39.899,
+"lng": 116.399,
+"cat": "night",
+"tags": [
+"jazz",
+"venue",
+"international"
+],
+"blurb": "The New York jazz institution's Beijing room — international acts in a proper listening room.",
+"hrs": 3,
+"price": "¥200-400",
+"crowd": "Jazz + live music",
+"best": "evening"
+},
+{
+"en": "Wudaoying Hutong",
+"zh": "五道营胡同",
+"area": "Dongcheng",
+"lat": 39.947,
+"lng": 116.408,
+"cat": "night",
+"tags": [
+"hutong",
+"boutique bars",
+"quiet"
+],
+"blurb": "The calmer hutong strip — boutique bars and cafes under the Lama Temple's wall.",
+"hrs": 2,
+"price": "¥60-120",
+"crowd": "Quiet night owls",
+"best": "evening"
+},
+{
+"en": "Liangma River Night Cruise",
+"zh": "亮马河夜航",
+"area": "Chaoyang",
+"lat": 39.955,
+"lng": 116.462,
+"cat": "night",
+"tags": [
+"river",
+"lights",
+"boat"
+],
+"blurb": "The post-2022 revamp turned a canal into Beijing's prettiest night waterside — boat or bankside.",
+"hrs": 2,
+"price": "Free (boat ¥60-100)",
+"crowd": "Evening walkers",
+"best": "evening"
+},
+{
+"en": "Cuandixia Village",
+"zh": "爨底下村",
+"area": "Mentougou",
+"lat": 39.9957,
+"lng": 115.646,
+"cat": "hidden",
+"tags": [
+"ming village",
+"stone houses",
+"mountains"
+],
+"blurb": "A intact Ming-era stone village curled into a mountainside, 90 km from the city.",
+"hrs": 4,
+"price": "¥35",
+"crowd": "Overnight village stays",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Lingshui Village",
+"zh": "灵水村",
+"area": "Mentougou",
+"lat": 40.004,
+"lng": 115.7317,
+"cat": "hidden",
+"tags": [
+"scholar village",
+"ancient",
+"quiet"
+],
+"blurb": "The 'Imperial Exam Village' — courtyards of scholars and old locust trees, next to Cuandixia.",
+"hrs": 3,
+"price": "¥20",
+"crowd": "History walkers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Baihe Bay",
+"zh": "白河湾",
+"area": "Huairou",
+"lat": 40.667,
+"lng": 116.6852,
+"cat": "hidden",
+"tags": [
+"river",
+"camping",
+"kayak"
+],
+"blurb": "A green river valley for rafting, camping and river-side BBQs two hours north.",
+"hrs": 5,
+"price": "Free-¥100",
+"crowd": "Outdoor groups",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Gubeikou Great Wall",
+"zh": "古北口长城",
+"area": "Miyun",
+"lat": 40.6957,
+"lng": 117.1858,
+"cat": "hidden",
+"tags": [
+"wild wall",
+"unticketed",
+"hike"
+],
+"blurb": "The wild, unrestored Wall section you can legally walk — watchtowers and no crowds.",
+"hrs": 5,
+"price": "Free-¥25",
+"crowd": "Serious hikers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Hongluo Temple",
+"zh": "红螺寺",
+"area": "Huairou",
+"lat": 40.3784,
+"lng": 116.6291,
+"cat": "hidden",
+"tags": [
+"temple",
+"bamboo forest",
+"autumn"
+],
+"blurb": "A 1,700-year-old Buddhist temple under a bamboo slope — the autumn ginkgo is the show.",
+"hrs": 3,
+"price": "¥54",
+"crowd": "Temple walkers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Zhuangdaokou Wild Wall",
+"zh": "撞道口野长城",
+"area": "Huairou",
+"lat": 40.416,
+"lng": 116.3333,
+"cat": "hidden",
+"tags": [
+"wild wall",
+"short hike",
+"free"
+],
+"blurb": "A short, legal wild-Wall loop through a broken gate — the easiest taste of untouristy Wall.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Casual hikers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Yanqi Lake",
+"zh": "雁栖湖",
+"area": "Huairou",
+"lat": 40.389,
+"lng": 116.6659,
+"cat": "hidden",
+"tags": [
+"lake",
+"cycling",
+"APEC"
+],
+"blurb": "The APEC lakeside with a 15-km cycle loop and the odd-shaped summit hotel across the water.",
+"hrs": 3,
+"price": "¥30-60",
+"crowd": "Cyclists, families",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Baili Landscape Gallery",
+"zh": "百里山水画廊",
+"area": "Yanqing",
+"lat": 40.6994,
+"lng": 116.3414,
+"cat": "hidden",
+"tags": [
+"drive",
+"karst",
+"rural"
+],
+"blurb": "A 100-li scenic drive of river bends, terraces and silicified wood parks in northwest Yanqing.",
+"hrs": 6,
+"price": "Free (parks ¥30)",
+"crowd": "Self-drive days",
+"best": "morning",
+"geo_verified": true
+}
+]

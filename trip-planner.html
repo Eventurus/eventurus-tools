@@ -101,6 +101,32 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 .related-tools .rel-desc { font-size: 12px; color: var(--c-muted); margin-top: 1px; }
 </style>
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a"><script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/trip-planner.html">
@@ -137,8 +163,331 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 <div class="container">
 <div class="hero">
  <h1>Where to Go in China</h1>
- <p>Filter by what you love - we'll show you where. Each destination is vetted, written from experience, and updated for the current season.</p>
 </div>
+
+<!-- Trip Planner v3 · coffee-map style explore + itinerary -->
+<style>
+#tp-app { margin-top: 26px; }
+.tp-tabs { display: flex; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid #E5E2D9; }
+.tp-tab { padding: 10px 4px 12px; margin-right: 18px; border: none; background: none; font-family: Georgia, serif; font-size: 17px; color: #959991; cursor: pointer; border-bottom: 2px solid transparent; }
+.tp-tab.on { color: #232520; border-bottom-color: #CBA866; }
+.tp-citytabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 12px; }
+.tp-city { flex: 0 0 auto; padding: 8px 17px; border: 1px solid #C6CDBF; border-radius: 999px; background: #fff; color: #445B42; font-size: 13.5px; cursor: pointer; }
+.tp-city.on { background: #5A6E55; border-color: #5A6E55; color: #F9F8F6; font-weight: 700; }
+.tp-chips { display: flex; gap: 7px; flex-wrap: wrap; margin: 0 0 14px; }
+.tp-chip { padding: 6px 13px; border: 1px solid #C6CDBF; border-radius: 999px; background: #FAF9F5; color: #5A6E55; font-size: 12.5px; cursor: pointer; }
+.tp-chip.on { background: #E2E9DE; border-color: #5A6E55; font-weight: 700; }
+.tp-split { display: flex; gap: 18px; align-items: flex-start; }
+.tp-mapwrap { flex: 0 0 55%; position: sticky; top: 12px; }
+.tp-mapsvg { width: 100%; height: auto; display: block; border: 1px solid #D8E0D5; border-radius: 14px; background: #F7F3E8; }
+.tp-pin { cursor: pointer; }
+.tp-pin circle.c { fill: #5A6E55; stroke: #F9F8F6; stroke-width: 1.5; transition: r .12s; }
+.tp-pin.dim circle.c { fill: #C9CCC2; }
+.tp-pin text { fill: #F9F8F6; font-size: 9.5px; font-weight: 700; text-anchor: middle; pointer-events: none; }
+.tp-pin.sel circle.c { fill: #B0803A; r: 13; }
+.tp-pin:hover circle.c { r: 13; }
+.tp-side { flex: 1; min-width: 0; }
+.tp-count { color: #959991; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 10px; }
+.tp-list { display: flex; flex-direction: column; gap: 9px; max-height: 640px; overflow-y: auto; padding-right: 4px; }
+.tp-card { border: 1px solid #D8E0D5; border-radius: 12px; background: #FAF9F5; padding: 13px 15px; cursor: pointer; transition: border-color .12s; }
+.tp-card.sel { border-color: #B0803A; background: #FBF6EC; }
+.tp-num { display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: #5A6E55; color: #F9F8F6; font-size: 10.5px; font-weight: 700; align-items: center; justify-content: center; margin-right: 7px; }
+.tp-num.dim { background: #C9CCC2; }
+.tp-card h3 { display: inline; margin: 0; font-family: Georgia, serif; font-size: 16px; font-weight: 400; color: #232520; }
+.tp-card h3 small { font-family: -apple-system, sans-serif; font-size: 11.5px; color: #959991; margin-left: 6px; }
+.tp-area { color: #8A8F86; font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; margin: 4px 0 0 27px; }
+.tp-blurb { margin: 7px 0 0 27px; font-size: 12.5px; line-height: 1.5; color: #3A3E37; }
+.tp-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 0 27px; font-size: 11.5px; color: #6D716A; }
+.tp-meta b { color: #445B42; }
+.tp-map { display: inline-block; margin: 9px 0 0 27px; padding: 5px 12px; border: 1px solid #5A6E55; border-radius: 999px; font-size: 10.5px; font-weight: 700; color: #445B42; text-decoration: none; }
+.tp-empty { padding: 24px; text-align: center; color: #959991; border: 1px dashed #C6CDBF; border-radius: 12px; }
+@media (max-width: 760px) {
+  .tp-split { flex-direction: column-reverse; }
+  .tp-mapwrap { position: relative; top: 0; width: 100%; flex: none; }
+  .tp-list { max-height: none; }
+}
+/* plan tab */
+.tp-sec { font-size: 11px; letter-spacing: 2px; color: #959991; font-weight: 700; margin: 22px 0 12px; }
+.tp-frow { display: flex; align-items: baseline; gap: 14px; margin: 12px 0; flex-wrap: wrap; }
+.tp-flabel { flex: 0 0 74px; font-size: 14px; color: #232520; }
+.tp-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.tp-pill { padding: 8px 16px; border: 1px solid #C6CDBF; border-radius: 999px; background: #fff; color: #73776F; font-size: 13.5px; cursor: pointer; }
+.tp-pill.on { background: #5A6E55; border-color: #5A6E55; color: #F9F8F6; font-weight: 700; }
+.tp-build { margin-top: 14px; padding: 12px 26px; border: none; border-radius: 999px; background: #5A6E55; color: #F9F8F6; font-size: 15px; font-weight: 600; cursor: pointer; }
+.tp-build .arr { color: #E6C77C; margin-left: 6px; }
+.tp-day { border: 1px solid #D8E0D5; border-radius: 14px; background: #FAF9F5; padding: 20px 22px; margin-bottom: 14px; }
+.tp-day h3 { margin: 0 0 4px; font-family: Georgia, serif; font-size: 21px; font-weight: 400; color: #232520; }
+.tp-dayhead { display: flex; align-items: center; justify-content: space-between; }
+.tp-badge { padding: 4px 12px; border-radius: 999px; background: #E2E9DE; color: #445B42; font-size: 10.5px; font-weight: 700; letter-spacing: 1px; }
+.tp-stop { display: flex; gap: 12px; margin-top: 14px; }
+.tp-dot { flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; background: #5A6E55; margin-top: 7px; }
+.tp-t { font-size: 14.5px; color: #232520; }
+.tp-t .dim { color: #959991; }
+.tp-desc { font-size: 13px; line-height: 1.55; color: #5A6055; margin-top: 3px; }
+.tp-walk { color: #CBA866; font-style: italic; font-size: 12.5px; margin: 8px 0 0 20px; }
+.tp-mapbtn { display: inline-block; margin-top: 14px; padding: 7px 16px; border: 1px solid #5A6E55; border-radius: 999px; font-size: 11.5px; font-weight: 700; color: #445B42; text-decoration: none; }
+.tp-how { padding: 14px 18px; border-radius: 10px; background: #F2F5EF; margin-top: 20px; }
+.tp-how b { display: block; font-size: 10.5px; letter-spacing: 1.5px; color: #445B42; margin-bottom: 5px; }
+.tp-how span { font-size: 12.5px; color: #5A6055; }
+</style>
+
+<div id="tp-app">
+  <div class="tp-tabs">
+    <button class="tp-tab on" id="tab-explore">Explore the city</button>
+    <button class="tp-tab" id="tab-plan">Plan an itinerary</button>
+  </div>
+
+  <div id="pane-explore">
+    <div class="tp-citytabs" id="tp-cities"></div>
+    <div class="tp-chips" id="tp-chips"></div>
+    <div class="tp-split">
+      <div class="tp-mapwrap"><svg class="tp-mapsvg" id="tp-svg" viewBox="0 0 640 560"></svg></div>
+      <div class="tp-side">
+        <div class="tp-count" id="tp-count"></div>
+        <div class="tp-list" id="tp-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pane-plan" style="display:none">
+    <div class="tp-sec">1 · CHOOSE YOUR SETUP</div>
+    <div class="tp-frow"><span class="tp-flabel">City</span><div class="tp-pills" id="tp-cities2"></div></div>
+    <div class="tp-frow"><span class="tp-flabel">Days</span><div class="tp-pills" id="tp-days"></div></div>
+    <div class="tp-frow"><span class="tp-flabel">Interests</span><div class="tp-pills" id="tp-ints"></div></div>
+    <button class="tp-build" id="tp-build">Build my itinerary<span class="arr">↗</span></button>
+    <div class="tp-sec">2 · YOUR ITINERARY</div>
+    <div id="tp-itin"></div>
+    <div class="tp-how"><b>HOW IT WORKS</b><span>Curated pool of vetted stops → filtered by your interests → sequenced by walking distance → you check the map.</span></div>
+  </div>
+</div>
+
+<script src="assets/trip-pool/index.js"></script>
+<script>
+(function () {
+  var POOL = window.TRIP_POOL || {};
+  var CITY_LABEL = { shanghai:"Shanghai", beijing:"Beijing", chongqing:"Chongqing", chengdu:"Chengdu", hangzhou:"Hangzhou", suzhou:"Suzhou" };
+  var CATS=[["all","All"],["food","Food"],["sights","Sights"],["culture","Culture"],["night","Nightlife"],["hidden","Hidden Gems"]];
+  var CAT_LABEL = { food:"Food", sights:"Sight", culture:"Culture", night:"Nightlife", hidden:"Hidden Gem" };
+  var INTS = ["Culture","Food","Kids","Outdoors","Shopping"];
+  var DAYS = [1,2,3];
+
+  /* 每城水系示意（经纬度点列，与 POI 同坐标系映射）+ 湖泊椭圆 */
+  var WATER = {
+    shanghai: { rivers: [
+      [[31.40,121.475],[31.30,121.505],[31.26,121.545],[31.24,121.505],[31.19,121.478],[31.10,121.472]],
+      [[31.25,121.395],[31.245,121.44],[31.235,121.475],[31.228,121.492]]
+    ], lakes: [] },
+    beijing: { rivers: [
+      [[40.02,116.30],[39.96,116.37],[39.92,116.43],[39.90,116.50]]
+    ], lakes: [[39.940,116.383,0.012,0.016]] },
+    chongqing: { rivers: [
+      [[29.46,106.42],[29.52,106.52],[29.555,106.565],[29.55,106.63],[29.45,106.70]],
+      [[29.72,106.42],[29.62,106.50],[29.555,106.565]]
+    ], lakes: [] },
+    chengdu: { rivers: [
+      [[30.72,104.00],[30.68,104.045],[30.655,104.075],[30.60,104.095],[30.53,104.10]]
+    ], lakes: [] },
+    hangzhou: { rivers: [
+      [[30.26,119.98],[30.22,120.07],[30.19,120.16],[30.15,120.26]],
+      [[30.335,120.145],[30.30,120.145],[30.27,120.150],[30.243,120.165]]
+    ], lakes: [[30.243,120.145,0.016,0.024]] },
+    suzhou: { rivers: [
+      [[31.44,120.50],[31.36,120.575],[31.30,120.615],[31.22,120.630],[31.10,120.66]],
+      [[31.32,120.62],[31.317,120.655],[31.316,120.695]]
+    ], lakes: [[31.317,120.698,0.024,0.030]] }
+  };
+
+  function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function dist(p,q){ var R=6371,r=Math.PI/180; var a=Math.sin((q.lat-p.lat)*r/2)**2+Math.cos(p.lat*r)*Math.cos(q.lat*r)*Math.sin((q.lng-p.lng)*r/2)**2; return 2*R*Math.asin(Math.sqrt(a)); }
+  function walkMin(p,q){ return Math.max(3, Math.round(dist(p,q)*1.3/4.5*60)); }
+
+  /* ================= EXPLORE ================= */
+  var ex = { city:"shanghai", cat:"all", sel:null };
+  var elC=document.getElementById("tp-cities"), elCh=document.getElementById("tp-chips"), elSvg=document.getElementById("tp-svg"), elL=document.getElementById("tp-list"), elN=document.getElementById("tp-count");
+
+  Object.keys(CITY_LABEL).forEach(function(k){
+    var b=document.createElement("button"); b.type="button"; b.className="tp-city"+(k===ex.city?" on":""); b.textContent=CITY_LABEL[k];
+    b.onclick=function(){ ex.city=k; ex.sel=null; [].forEach.call(elC.children,function(x){x.classList.remove("on");}); b.classList.add("on"); exRender(); };
+    elC.appendChild(b);
+  });
+  CATS.forEach(function(c){
+    var b=document.createElement("button"); b.type="button"; b.className="tp-chip"+(c[0]==="all"?" on":""); b.textContent=c[1];
+    b.onclick=function(){ ex.cat=c[0]; [].forEach.call(elCh.children,function(x){x.classList.remove("on");}); b.classList.add("on"); exRender(); };
+    elCh.appendChild(b);
+  });
+
+  function filtered(){
+    return (POOL[ex.city]||[]).filter(function(p){
+      if(ex.cat!=="all"&&p.cat!==ex.cat) return false;
+      return true;
+    });
+  }
+  function drawMap(items){
+    var pts = items.map(function(p){ return {lat:p.lat,lng:p.lng}; });
+    WATER[ex.city].rivers.forEach(function(r){ r.forEach(function(q){ pts.push({lat:q[0],lng:q[1]}); }); });
+    var lats=pts.map(function(p){return p.lat;}), lngs=pts.map(function(p){return p.lng;});
+    var minLat=Math.min.apply(null,lats), maxLat=Math.max.apply(null,lats);
+    var minLng=Math.min.apply(null,lngs), maxLng=Math.max.apply(null,lngs);
+    var padL=(maxLat-minLat)*0.06, padG=(maxLng-minLng)*0.06;
+    minLat-=padL; maxLat+=padL; minLng-=padG; maxLng+=padG;
+    var W=640,H=560,pad=34;
+    var kx=(W-2*pad)/((maxLng-minLng)*Math.cos(30*Math.PI/180)), ky=(H-2*pad)/(maxLat-minLat);
+    var k=Math.min(kx,ky);
+    var ox=(W-((maxLng-minLng)*Math.cos(30*Math.PI/180))*k)/2, oy=(H-(maxLat-minLat)*k)/2;
+    function X(lng){ return ox+(lng-minLng)*Math.cos(30*Math.PI/180)*k; }
+    function Y(lat){ return oy+(maxLat-lat)*k; }
+    var svg = ['<rect width="640" height="560" fill="#F7F3E8"/>'];
+    svg.push('<rect x="12" y="12" width="616" height="536" fill="none" stroke="#B0803A" stroke-width="1.2" opacity=".55"/>');
+    svg.push('<rect x="17" y="17" width="606" height="526" fill="none" stroke="#B0803A" stroke-width="0.5" opacity=".35"/>');
+    (WATER[ex.city].rivers||[]).forEach(function(r){
+      var d = r.map(function(q,i){ return (i?"L":"M")+X(q[1]).toFixed(1)+" "+Y(q[0]).toFixed(1); }).join(" ");
+      svg.push('<path d="'+d+'" fill="none" stroke="#C9B98A" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>');
+    });
+    (WATER[ex.city].lakes||[]).forEach(function(l){
+      svg.push('<ellipse cx="'+X(l[1]).toFixed(1)+'" cy="'+Y(l[0]).toFixed(1)+'" rx="'+Math.max(10,l[3]*k*Math.cos(30*Math.PI/180)).toFixed(1)+'" ry="'+Math.max(8,l[2]*k).toFixed(1)+'" fill="#C9B98A" opacity="0.8"/>');
+    });
+    svg.push('<text x="620" y="546" text-anchor="end" font-family="Georgia,serif" font-size="13" fill="#B0803A" opacity=".8">'+CITY_LABEL[ex.city]+'</text>');
+    items.forEach(function(p,i){
+      var x=X(p.lng), y=Y(p.lat);
+      var cls = (ex.sel===p.en) ? "tp-pin sel" : "tp-pin";
+      svg.push('<g class="'+cls+'" data-en="'+esc(p.en)+'" transform="translate('+x.toFixed(1)+','+y.toFixed(1)+')">' +
+        '<circle class="c" r="11"/>' +
+        '<text y="3.5">'+(i+1)+'</text>' +
+        '<title>'+esc(p.en)+'</title></g>');
+    });
+    elSvg.innerHTML = svg.join("");
+    [].forEach.call(elSvg.querySelectorAll(".tp-pin"), function(g){
+      g.addEventListener("click", function(){ select(g.getAttribute("data-en")); });
+    });
+  }
+  function select(en){
+    ex.sel = (ex.sel===en) ? null : en;
+    exRender();
+    if(ex.sel){
+      var card = elL.querySelector('[data-en="'+en.replace(/"/g,'\\"')+'"]');
+      if(card){ card.scrollIntoView({block:"nearest",behavior:"smooth"}); }
+    }
+  }
+  function exRender(){
+    var items = filtered();
+    drawMap(items);
+    elN.textContent = items.length+" vetted stops · "+CITY_LABEL[ex.city];
+    elL.innerHTML = items.length ? items.map(function(p,i){
+      var dimCls = (ex.sel && ex.sel!==p.en) ? " dim" : "";
+      var selCls = (ex.sel===p.en) ? " sel" : "";
+      return '<div class="tp-card'+selCls+'" data-en="'+esc(p.en)+'">' +
+        '<span class="tp-num'+dimCls+'">'+(i+1)+'</span><h3>'+esc(p.en)+'<small>'+esc(p.zh)+'</small></h3>' +
+        '<div class="tp-area">'+esc(p.area)+' · '+(CAT_LABEL[p.cat]||esc(p.cat))+'</div>' +
+        '<p class="tp-blurb">'+esc(p.blurb)+'</p>' +
+        '<div class="tp-meta"><span><b>⏱</b> ~'+esc(p.hrs)+'h</span><span><b>💰</b> '+esc(p.price)+'</span><span><b>👥</b> '+esc(p.crowd)+'</span><span><b>🕐</b> '+esc(p.best)+'</span></div>' +
+        '<div class="tp-tags" style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0 27px">' + p.tags.map(function(t){return '<span class="tp-tag" style="padding:2px 9px;border:1px solid #C6CDBF;border-radius:999px;font-size:10.5px;color:#5A6E55;background:#fff">'+esc(t)+'</span>';}).join("") + '</div>' +
+        '<a class="tp-map" href="https://apis.map.qq.com/uri/v1/marker?marker=coord:'+p.lat+','+p.lng+';title:'+encodeURIComponent(p.en+' ('+p.zh+')')+'" target="_blank" rel="noopener">MAP ↗</a>' +
+      '</div>';
+    }).join("") : '<div class="tp-empty">Nothing matches.</div>';
+    [].forEach.call(elL.querySelectorAll(".tp-card"), function(card){
+      card.addEventListener("click", function(){ select(card.getAttribute("data-en")); });
+      var a = card.querySelector(".tp-map");
+      a.addEventListener("click", function(e){ e.stopPropagation(); });
+    });
+  }
+
+  /* ================= PLAN ================= */
+  var INTS_LIST = INTS;
+  var st = { city:"shanghai", days:1, ints:["Culture","Food"], itin:null };
+  var elC2=document.getElementById("tp-cities2"), elD=document.getElementById("tp-days"), elI=document.getElementById("tp-ints");
+  function mkPills(cont, arr, isOn, onPick){
+    arr.forEach(function(v){
+      var b=document.createElement("button"); b.type="button"; b.className="tp-pill"+(isOn(v)?" on":""); b.textContent=CITY_LABEL[v]||v;
+      b.onclick=function(){ onPick(v); sync(); };
+      cont.appendChild(b);
+    });
+  }
+  function sync(){
+    [].forEach.call(elC2.children,function(c,i){ c.classList.toggle("on", Object.keys(CITY_LABEL)[i]===st.city); });
+    [].forEach.call(elD.children,function(c,i){ c.classList.toggle("on", DAYS[i]===st.days); });
+    [].forEach.call(elI.children,function(c,i){ c.classList.toggle("on", st.ints.indexOf(INTS_LIST[i])>-1); });
+  }
+  mkPills(elC2, Object.keys(CITY_LABEL), function(v){return v===st.city;}, function(v){ st.city=v; st.itin=null; renderItin(); });
+  mkPills(elD, DAYS, function(v){return v===st.days;}, function(v){ st.days=v; st.itin=null; renderItin(); });
+  mkPills(elI, INTS_LIST, function(v){return st.ints.indexOf(v)>-1;}, function(v){
+    var i=st.ints.indexOf(v);
+    if(i>-1){ if(st.ints.length>1) st.ints.splice(i,1); } else st.ints.push(v);
+    st.itin=null; renderItin();
+  });
+
+  function matchInterest(p, ints){
+    var hay=(p.cat+" "+p.tags.join(" ")+" "+p.crowd+" "+p.blurb).toLowerCase();
+    return ints.some(function(k){
+      k=k.toLowerCase();
+      if(k==="culture") return p.cat==="culture"||/heritage|garden|museum|temple|history/.test(hay);
+      if(k==="food") return p.cat==="food";
+      if(k==="kids") return /famil|kid|child|panda|toboggan|boat/.test(hay);
+      if(k==="outdoors") return /hike|valley|bamboo|wetland|lake|beach|mountain|stream|gorge|cable|walk|park/.test(hay);
+      if(k==="shopping") return /shop|market|mall|retail|bazaar/.test(hay);
+      return false;
+    });
+  }
+  function build(){
+    var pool=(POOL[st.city]||[]).slice();
+    var used={};
+    function take(list, prev){
+      var c=list.filter(function(p){ return !used[p.en]; });
+      if(!c.length) c=pool.filter(function(p){ return !used[p.en]; });
+      if(!c.length) return null;
+      if(prev) c.sort(function(a,b){ return dist(prev,a)-dist(prev,b); });
+      var pick=c[0]; used[pick.en]=1; return pick;
+    }
+    var days=[];
+    for(var d=0; d<st.days; d++){
+      var att = pool.filter(function(p){ return p.cat==="sights"||p.cat==="culture"||p.cat==="hidden"; });
+      var strict = att.filter(function(p){ return matchInterest(p, st.ints); });
+      if(strict.length>=2) att = strict;
+      var meals = pool.filter(function(p){ return p.cat==="food"; });
+      var nights = pool.filter(function(p){ return p.cat==="night"; });
+      var stops=[], prev=null;
+      var m = take(att, prev);
+      if(m){ stops.push({t:"09:00",p:m,label:m.en,sub:CAT_LABEL[m.cat]+" · "+m.hrs+" hr"+(m.hrs>1?"s":"")+" · "+m.price,desc:m.blurb}); prev=m; }
+      var l = take(meals, prev);
+      if(l){ stops.push({t:"12:00",p:l,label:"Lunch — "+l.en,sub:"1 hr · "+l.price,desc:l.blurb,walkFrom:prev}); prev=l; }
+      var a = take(att, prev);
+      if(a){ stops.push({t:"14:00",p:a,label:a.en,sub:CAT_LABEL[a.cat]+" · "+a.hrs+" hr"+(a.hrs>1?"s":"")+" · "+a.price,desc:a.blurb,walkFrom:prev}); prev=a; }
+      var e = take(nights, prev);
+      if(e){ stops.push({t:"19:00",p:e,label:e.en,sub:CAT_LABEL[e.cat]+" · "+e.price,desc:e.blurb,walkFrom:prev}); prev=e; }
+      days.push({area: m?m.area:(a?a.area:""), stops:stops});
+    }
+    return days;
+  }
+  function renderItin(){
+    var el=document.getElementById("tp-itin");
+    if(!st.itin) st.itin=build();
+    var days=st.itin.slice(0, st.days);
+    el.innerHTML=days.map(function(day,i){
+      var rows=day.stops.map(function(s,idx){
+        var walk=(idx>0&&s.walkFrom)?'<div class="tp-walk">↓ '+walkMin(s.walkFrom,s.p)+' min walk'+(walkMin(s.walkFrom,s.p)>25?' (or taxi/metro)':'')+'</div>':'';
+        return walk+'<div class="tp-stop"><div class="tp-dot"></div><div><div class="tp-t"><b>'+s.t+' · '+esc(s.label)+'</b> <span class="dim">— '+esc(s.sub)+'</span></div><div class="tp-desc">'+esc(s.desc)+'</div></div></div>';
+      }).join("");
+      var km=0; for(var k=1;k<day.stops.length;k++) km+=dist(day.stops[k-1].p,day.stops[k].p);
+      var f=day.stops[0].p,t=day.stops[day.stops.length-1].p;
+      var link="https://apis.map.qq.com/uri/v1/routeplan?planby=walk&fromcoord="+f.lat+","+f.lng+"&fromaddr="+encodeURIComponent(f.zh)+"&tocoord="+t.lat+","+t.lng+"&toaddr="+encodeURIComponent(t.zh);
+      return '<div class="tp-day"><div class="tp-dayhead"><h3>Day '+(i+1)+' — '+esc(day.area)+'</h3><span class="tp-badge">~'+km.toFixed(1)+' KM</span></div>'+rows+
+        '<a class="tp-mapbtn" href="'+link+'" target="_blank" rel="noopener">OPEN DAY '+(i+1)+' IN TENCENT MAPS ↗</a></div>';
+    }).join("");
+  }
+  document.getElementById("tp-build").onclick=function(){ st.itin=build(); renderItin(); document.getElementById("tp-itin").scrollIntoView({behavior:"smooth"}); };
+
+  /* ================= tabs ================= */
+  document.getElementById("tab-explore").onclick=function(){
+    this.classList.add("on"); document.getElementById("tab-plan").classList.remove("on");
+    document.getElementById("pane-explore").style.display=""; document.getElementById("pane-plan").style.display="none";
+  };
+  document.getElementById("tab-plan").onclick=function(){
+    this.classList.add("on"); document.getElementById("tab-explore").classList.remove("on");
+    document.getElementById("pane-plan").style.display=""; document.getElementById("pane-explore").style.display="none";
+  };
+
+  sync(); renderItin(); exRender();
+})();
+</script>
 
 <div class="section">
  <div class="filter-row"><span class="label">Interest:</span><div class="filter-bar" id="tagBar"></div></div>

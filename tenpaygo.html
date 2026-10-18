@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235A6E55'/%3E%3Cpath d='M20 16h28v8H29v8h17v8H29v8h19v8H20z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>TenPayGo: WeChat Pay for Foreign Visitors - EVENTURUS</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="TenPayGo: WeChat Pay for Foreign Visitors - EVENTURUS">
+  <meta property="og:description" content="WeChat Pay's standalone app for short-term visitors: sign up with an email address, no Chinese phone number and no Chinese bank account. What it accepts, what it costs, and what it will not do.">
+  <meta property="og:url" content="https://eventurus.cn/tenpaygo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EVENTURUS">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://eventurus.cn/og-tenpaygo.png">
+  <meta property="og:image:alt" content="TenPayGo - EVENTURUS">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://eventurus.cn/og-tenpaygo.png">
+  <meta name="twitter:image:alt" content="TenPayGo - EVENTURUS">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TenPayGo: WeChat Pay for Foreign Visitors - EVENTURUS">
+  <meta name="twitter:description" content="A standalone app from the WeChat Pay team: email sign-up, no Chinese phone number, no Chinese bank account.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://eventurus.cn/tenpaygo.html">
+
+<!-- Crawling and snippet directives: allow full snippets and large image previews.
+     This is the documented lever for longer search snippets and for AI answer engines
+     that quote page text verbatim. Rolled out site-wide on 29 September 2026. -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<meta name="description" content="TenPayGo is WeChat Pay's standalone app for short-term visitors: email sign-up, no Chinese phone number or bank account. Cards, fees and limits.">
+<style>
+:root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --radius:12px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
+
+body { font-family:var(--font-sans); background:var(--color-bg); color:var(--color-text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;  -webkit-tap-highlight-color: transparent; }
+.container { max-width:920px; margin:0 auto; padding:0 20px; }
+.brand-bar { padding:24px 0 0; text-align:center; }
+.brand-bar .brand { font-size:18px; font-weight:500; letter-spacing:2px; color:var(--color-text); text-decoration:none; }
+.brand-bar .brand em {font-style:normal; color:var(--color-text); }
+.brand-bar .tagline { font-size:12px; color:var(--color-muted); letter-spacing:1px; margin-top:2px; }
+.hero { text-align:center; padding:36px 0 20px; }
+.hero h1 { font-size:28px; font-weight:600; line-height:1.2; margin-bottom:8px; }
+.hero p { font-size:16px; color:var(--color-muted); }
+.info-box { background:#F8F6F0; border-radius:var(--radius); padding:14px 18px; margin-bottom:20px; font-size:13px; color:var(--color-muted); line-height:1.6; }
+.info-box strong { color:var(--color-text); }
+
+h2 { font-size:20px; font-weight:600; margin:32px 0 12px; line-height:1.3; }
+h3 { font-size:16px; font-weight:600; margin:20px 0 8px; }
+p { font-size:15px; line-height:1.75; margin-bottom:14px; }
+ul, ol { margin:0 0 16px 22px; }
+li { font-size:15px; line-height:1.7; margin-bottom:6px; }
+
+.card { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius); padding:18px 20px; margin-bottom:16px; }
+.card h3 { margin-top:0; }
+.card p:last-child, .card ul:last-child { margin-bottom:0; }
+
+.callout { background:#F3F7EE; border-left:3px solid var(--color-brand); border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:0 0 18px; }
+.callout p { margin-bottom:0; font-size:14px; }
+.warning { background:#FDF6EC; border-left:3px solid #C08A2E; border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:0 0 18px; }
+.warning p { margin-bottom:0; font-size:14px; }
+
+.channel-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin-bottom:18px; }
+.channel { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius); padding:16px 18px; }
+.channel .ch-num { font-size:12px; font-weight:600; color:var(--color-brand); letter-spacing:1px; margin-bottom:6px; }
+.channel .ch-name { font-size:15px; font-weight:600; line-height:1.4; }
+.channel .ch-note { font-size:13px; color:var(--color-muted); margin-top:4px; line-height:1.6; }
+.channel .ch-note a { word-break:break-all; }
+
+table { width:100%; border-collapse:collapse; margin:0 0 18px; background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius); font-size:14px; }
+caption { caption-side:top; text-align:left; font-size:13px; color:var(--color-muted); padding:0 0 8px; }
+th, td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--color-border); vertical-align:top; line-height:1.6; }
+th { font-weight:600; font-size:13px; color:var(--color-text); background:#F8F6F0; }
+tbody tr:last-child td { border-bottom:none; }
+
+.faq-item { border-bottom: 1px solid var(--color-border); padding: 16px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--color-text); }
+.faq-a { font-size: 14px; color: var(--color-muted); line-height: 1.6; }
+
+.footer { text-align:center; padding:32px 0; font-size:12px; color:var(--color-muted); }
+.footer a { color:var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.footer .brand-foot { font-style:italic; font-size:14px; color:var(--color-text); letter-spacing:1px; margin-bottom:4px; }
+
+.cross-link { text-align:center; margin:24px 0; }
+.cross-link a { color:var(--color-brand); text-decoration:underline; font-weight:500; }
+
+@keyframes scan-ltr {
+  0%   { transform: translateX(-6px); opacity: 0; }
+  25%  { opacity: .85; }
+  58%  { opacity: .18; }
+  100% { transform: translateX(calc(100vw + 6px)); opacity: 0; }
+}
+
+@media (max-width: 720px) {
+  .container { padding: 0 22px; }
+  thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  caption { display: block; width: 100%; text-align: left; padding-bottom: 10px; }
+  tr { margin-bottom: 14px; border-bottom: 1px solid #ECE8E1; padding-bottom: 12px; }
+  tr:last-child { border-bottom: none; }
+  td { border: none; padding: 5px 0; }
+  td:before { content: attr(data-label); display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: #8A8475; margin-bottom: 2px; }
+  table thead { border: none; }
+  table { border:none; background:transparent; }
+  .no-mobile { display: none; }
+}
+
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .brand-bar, .footer, .cross-link, .filter-bar, .search-bar, #backToTop, .dark-toggle { display: none; }
+  a { color: #000; text-decoration: underline; }
+  .container { max-width: 100%; }
+  table { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* Dark mode */
+a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+.info-card a, .cross-link a { text-decoration: underline; text-underline-offset: 2px; }
+
+.related-tools { margin: 28px 0 20px; padding: 20px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); }
+.related-tools h3 { font-size: 14px; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.related-tools .rel-list { display: flex; flex-direction: column; gap: 10px; }
+.related-tools .rel-item { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; padding: 10px 12px; border-radius: 8px; transition: background .15s; }
+.related-tools .rel-item:hover { background: var(--color-bg); }
+.related-tools .rel-arrow { color: var(--color-brand); font-size: 16px; flex-shrink: 0; }
+.related-tools .rel-info { flex: 1; min-width: 0; }
+.related-tools .rel-title { font-size: 14px; font-weight: 600; color: var(--color-brand); }
+.related-tools .rel-desc { font-size: 12px; color: var(--color-muted); margin-top: 1px; }
+
+</style>
+<link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
+<!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "TenPayGo: WeChat Pay for Foreign Visitors - EVENTURUS",
+  "description": "How TenPayGo works for short-term visitors to China: email sign-up with no Chinese phone number or bank account, the cards and wallets it accepts, the fee schedule, Shenzhen transit, and what it does not do.",
+  "url": "https://eventurus.cn/tenpaygo.html",
+  "datePublished": "2026-09-25",
+  "dateModified": "2026-09-29",
+  "author": {
+    "@type": "Organization",
+    "name": "EVENTURUS",
+    "url": "https://eventurus.cn"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EVENTURUS",
+    "url": "https://eventurus.cn"
+  },
+  "inLanguage": "en-GB",
+  "isAccessibleForFree": true,
+  "keywords": "TenPayGo, WeChat Pay for foreigners, Weixin Pay app for tourists, pay in China without a Chinese phone number, international card China, Starryblu, Shenzhen Tong transit, China mobile payment",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "China"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Foreign visitors to China"
+  },
+  "about": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "TenPayGo",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "iOS 15 or later, Android",
+      "author": {
+        "@type": "Organization",
+        "name": "Tencent Technology (Shenzhen) Company Limited"
+      }
+    },
+    {
+      "@type": "Thing",
+      "name": "Mobile payment in China for foreign visitors"
+    }
+  ],
+  "citation": [
+    "https://tenpaygo.com/",
+    "https://apps.apple.com/us/app/tenpaygo/id6778755338"
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "TenPayGo: WeChat Pay for Foreign Visitors - EVENTURUS",
+  "description": "TenPayGo is WeChat Pay's standalone app for short-term visitors to China: email sign-up, no Chinese phone number or bank account needed.",
+  "url": "https://eventurus.cn/tenpaygo.html",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EVENTURUS",
+    "url": "https://eventurus.cn/",
+    "description": "China travel intelligence for international visitors."
+  }
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need WeChat to use TenPayGo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TenPayGo is a standalone app. You do not need a WeChat account, a WeChat contact list or any mini programs. Tencent's own description is that you can pay at merchants that accept Weixin Pay without needing a Chinese phone number or a Weixin account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a Chinese phone number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You register with an email address: enter it, take the verification code, and set a password. That is the whole sign-up. This is the point of the app, because most Chinese payment apps otherwise expect a mainland mobile number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cards can I add to TenPayGo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "International cards issued outside mainland China, on seven networks, including Visa, Mastercard and UnionPay. Apple Pay is supported as a payment method in its own right, and partner overseas e-wallets are being added in stages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add my Chinese bank card to TenPayGo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TenPayGo only accepts payment methods issued outside mainland China, so a mainland bank card cannot be added and there is no balance to top up. If you live in China, set up WeChat Pay or Alipay on your own number instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does TenPayGo cost to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Card payments of ¥200 or less carry no 3% fee, and payments above ¥200 carry 3% on the whole amount rather than on the part above the threshold. For 90 days after your first payment, the 3% is waived on spending up to ¥1,000 a day, for a card added before 31 December 2026, and the two concessions run alongside each other. Refunds return the fee in proportion. TenPayGo shows the exact amount on the confirmation screen before you approve a payment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use TenPayGo if I live in China?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the wrong tool for residents. There is no way to add a mainland bank card, no balance to hold, and no person-to-person transfer. It is built for people visiting for days or weeks, and for living in China you want WeChat Pay or Alipay registered on your own number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does TenPayGo work outside the big cities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paying does. TenPayGo settles through the Weixin Pay merchant network, so any shop, restaurant or taxi that displays a Weixin Pay QR code can take it. The extras are narrower: the Shenzhen Tong transit code covers Shenzhen buses and metro, and the tax-refund link is Shenzhen-only, with Tencent saying more transport and lifestyle services will follow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get a refund on a TenPayGo payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The merchant starts it. Agree the refund with the shop, they push it through from their side, and the money returns to the card or wallet you paid with. You can follow payments and refunds in the app's transaction history. How long it takes depends on the merchant, the card network and your bank."
+      }
+    }
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EVENTURUS Tools",
+      "item": "https://eventurus.cn/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "TenPayGo",
+      "item": "https://eventurus.cn/tenpaygo.html"
+    }
+  ]
+}
+  </script>
+<script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="assets/contact/contact-widget.css">
+
+<!-- SEO structured data + keywords -->
+<link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/tenpaygo.html">
+<link rel="alternate" hreflang="x-default" href="https://eventurus.cn/tenpaygo.html">
+<meta name="keywords" content="TenPayGo, TenPay Go app, WeChat Pay for foreigners, Weixin Pay app, pay in China without Chinese phone number, international card China, Apple Pay China, Starryblu, Shenzhen Tong, China payment guide, EVENTURUS">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "TenPayGo: WeChat Pay for Foreign Visitors - EVENTURUS",
+  "description": "How TenPayGo works for short-term visitors to China: email sign-up, the cards and wallets it accepts, the fee schedule and what it does not do.",
+  "url": "https://eventurus.cn/tenpaygo.html",
+  "author": {
+    "@type": "Organization",
+    "name": "EVENTURUS",
+    "url": "https://eventurus.cn"
+  }
+}
+</script>
+</head>
+<body class="evt-v2 evt-directory">
+<div class="brand-bar"><a href="index.html" class="brand">EVENT<em>URUS</em></a><div class="tagline">China, Vetted.</div></div>
+<a href="#main-content" class="skip-nav" style="position:absolute;top:-100px;left:20px;background:var(--color-surface);color:var(--color-brand);padding:10px 20px;border-radius:8px;z-index:999;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--color-brand);transition:top .2s;" onfocus="this.style.top='20px'" onblur="this.style.top='-100px'">Skip to main content</a>
+<div class="container" id="main-content" style="position:relative;">
+<div class="hero"><h1>TenPayGo</h1><p>WeChat Pay's standalone app for short-term visitors. An email address is enough to sign up: no Chinese phone number, no Chinese bank account, no WeChat.</p></div>
+
+<h2>The short version</h2>
+
+<div class="card">
+  <ul>
+    <li><strong>What it is.</strong> TenPayGo is a standalone payment app built by Tencent's WeChat Pay team. It launched on 24 September 2026 and is aimed at people visiting China for days or weeks rather than years.</li>
+    <li><strong>Sign-up.</strong> An email address is enough. No Chinese mobile number, no Chinese bank account and no WeChat account. That is the whole point of the app.</li>
+    <li><strong>Pay with.</strong> An international bank card on seven networks, Apple Pay, or a partner overseas e-wallet.</li>
+    <li><strong>Where.</strong> Any merchant in mainland China that accepts Weixin Pay, which in practice covers shops, restaurants, taxis, hotels and attractions.</li>
+    <li><strong>Cost.</strong> No 3% fee on card payments of ¥200 or less, and 3% on the whole amount above that. The 3% is waived for 90 days from your first payment, on up to ¥1,000 a day, for a card added before 31 December 2026. The app shows the exact amount before you confirm.</li>
+  </ul>
+</div>
+
+<div class="info-box">
+  <strong>Verified 26 September 2026.</strong> Details here come from Tencent's own <a href="https://tenpaygo.com/" target="_blank" rel="noopener" style="color:var(--color-brand)">TenPayGo site</a> and the <a href="https://apps.apple.com/us/app/tenpaygo/id6778755338" target="_blank" rel="noopener" style="color:var(--color-brand)">App Store listing</a>, which records version 1.1.2, released on 24 September 2026, English only, iOS 15 or later. Charges follow WeChat Pay's published schedule for international cards. The app launched on 24 September 2026, so treat anything marked "at launch" as a snapshot: Tencent says more services are being added.
+</div>
+
+<h2>What TenPayGo is</h2>
+
+<p>TenPayGo is not a new payment network. It is a smaller front door to one that already exists. Tencent took two services that previously lived inside WeChat, binding a foreign card and paying with an overseas wallet, and put them in an app of their own with an English interface.</p>
+
+<p>The payment service itself is called <strong>Weixin Pay</strong> in Tencent's own English, and WeChat Pay almost everywhere else. A cashier in a Shenzhen noodle shop sees an ordinary Weixin Pay transaction and nothing more, which is why the app works in places that have never heard of it.</p>
+
+<div class="card">
+  <h3>What is inside it</h3>
+  <ul>
+    <li><strong>Pay</strong> for payment methods and the scanner</li>
+    <li><strong>Go</strong> for transport and tax-refund services</li>
+    <li>A transaction history, so you can keep an eye on spending as you go</li>
+  </ul>
+  <p>There is no messaging, no contact list and no mini programs. For a two-week trip that is a feature rather than a limitation.</p>
+</div>
+
+<h2>Who it suits, and who it does not</h2>
+
+<div class="card">
+  <h3>It suits a visit</h3>
+  <p>If you are in China for days or weeks, arriving with cards and a phone, TenPayGo removes the two things that used to stall people: needing a mainland mobile number, and needing to build up some account history before payments switch on.</p>
+</div>
+
+<div class="card">
+  <h3>It does not suit living here</h3>
+  <p>You cannot add a mainland-issued bank card, there is no balance to hold, and there are no person-to-person transfers. For a longer stay, set up <a href="payment-guide.html">WeChat Pay or Alipay</a> on your own number instead. TenPayGo is a visitor's tool, and it says so.</p>
+</div>
+
+<h2>Setting it up</h2>
+
+<div class="channel-grid">
+  <div class="channel"><div class="ch-num">01</div><div class="ch-name">Download it</div><div class="ch-note">Search "TenPayGo" in the App Store or Google Play, or use the download page at <a href="https://tenpaygo.com/" target="_blank" rel="noopener">tenpaygo.com</a>. iOS 15 or later.</div></div>
+  <div class="channel"><div class="ch-num">02</div><div class="ch-name">Register with an email</div><div class="ch-note">Enter the address, take the verification code, set a password. No phone number is requested.</div></div>
+  <div class="channel"><div class="ch-num">03</div><div class="ch-name">Add a way to pay</div><div class="ch-note">Bank card, Apple Pay or E-Wallet. Under E-Wallet there is a <em>Supported Payment Methods</em> list inside the app.</div></div>
+</div>
+
+<div class="warning">
+  <p>On Android, the download is blocked if you open the link inside WeChat. Tap the menu at the top right and choose <strong>Open in Browser</strong>, then download. And do the whole setup before you fly: email codes travel fine, but a hotel lobby is the wrong place to discover your bank blocks payments in China.</p>
+</div>
+
+<h2>What you can pay with</h2>
+
+<div class="channel-grid">
+  <div class="channel"><div class="ch-name">Bank card</div><div class="ch-note">International cards issued outside mainland China, on seven networks, including Visa, Mastercard and UnionPay.</div></div>
+  <div class="channel"><div class="ch-name">Apple Pay</div><div class="ch-note">Switch it on once and it appears at checkout. No card details to type into the app.</div></div>
+  <div class="channel"><div class="ch-name">E-Wallet</div><div class="ch-note">Overseas wallets are joining in stages. Starryblu is named among the first, and Tencent expects around sixty to be connected by the end of 2026.</div></div>
+</div>
+
+<p>Worth keeping the two figures apart. WeChat Pay as a whole already works with wallets from 16 countries and regions, which is a different number from what TenPayGo itself has switched on. The live list is the one inside the app under <em>Supported Payment Methods</em>, and it is the only one worth trusting on the day you arrive.</p>
+
+<h2>Where it works</h2>
+
+<p>TenPayGo settles through the Weixin Pay merchant network, which Tencent describes as tens of millions of merchants. The merchant does not need to have signed up for anything new. Tencent's own list of everyday situations runs from taxis and the metro to dining, shopping, supermarkets, hotels, coffee, bars, attractions and healthcare.</p>
+
+<p>There are two ways to pay, and the app labels them exactly as you will see them:</p>
+
+<ul>
+  <li><strong>Scan to Pay</strong> at small shops and stalls. Scan the merchant's QR code, type the amount and confirm.</li>
+  <li><strong>Show Code to Pay</strong> at supermarkets and chains. Open your own payment code and let the cashier scan it.</li>
+</ul>
+
+<h2>What it costs</h2>
+
+<table>
+  <caption>Charges for international card payments. Above ¥200 the 3% is charged on the whole amount, not on the part above the threshold. TenPayGo shows the exact figure on the confirmation screen before you approve.</caption>
+  <thead>
+    <tr><th scope="col">Paying with</th><th scope="col">Fee</th></tr>
+  </thead>
+  <tbody>
+    <tr><td data-label="Paying with">A bank card, ¥200 or less</td><td data-label="Fee">No 3% fee</td></tr>
+    <tr><td data-label="Paying with">A bank card, above ¥200</td><td data-label="Fee">3%</td></tr>
+    <tr><td data-label="Paying with">Your first 90 days, up to ¥1,000 a day</td><td data-label="Fee">3% waived</td></tr>
+    <tr><td data-label="Paying with">A refund</td><td data-label="Fee">The fee comes back in proportion</td></tr>
+    <tr><td data-label="Paying with">Exchange rate</td><td data-label="Fee">Set by your card network and your bank</td></tr>
+  </tbody>
+</table>
+
+<p>The two privileges sit alongside each other rather than replacing one another. The ¥200 threshold applies for the whole of 2026 on international cards, and the 90-day window starts after your first payment, for a card added before 31 December 2026.</p>
+
+<div class="callout">
+  <p><strong>One honest caveat.</strong> Tencent has not published a separate fee table for TenPayGo. The figures above are WeChat Pay's published schedule for international cards, which is the rail TenPayGo is built on. Your own bank may add a foreign-transaction fee of its own on top, and that part is between you and your bank. Check the confirmation screen.</p>
+</div>
+
+<h2>Beyond paying</h2>
+
+<div class="card">
+  <h3>Circle to explain</h3>
+  <p>Point the camera at a sign, a dish or a building and circle it for an explanation and a translation. It is the feature most likely to be used without thinking about it.</p>
+</div>
+
+<div class="card">
+  <h3>Conversation translation</h3>
+  <p>Face-to-face translation for the moments that need a sentence rather than a word.</p>
+</div>
+
+<div class="card">
+  <h3>Scan and translate a menu</h3>
+  <p>Photograph a menu, translate it, and show the result to the staff to order.</p>
+</div>
+
+<div class="card">
+  <h3>Shenzhen Tong transit</h3>
+  <p>Activate a Shenzhen Tong ride code in the app and use it on Shenzhen buses and the metro. No phone number and no physical transit card needed. It is Shenzhen first, and Tencent describes it as opening gradually rather than switching on for everyone at once.</p>
+</div>
+
+<div class="card">
+  <h3>Departure tax refund</h3>
+  <p>The app links through to the tax-refund process, built with ICBC's Shenzhen branch and other partners. It is a Shenzhen service at launch and Tencent says it is still in development, so do not plan a refund around it yet outside Shenzhen.</p>
+</div>
+
+<h2>What it does not do</h2>
+
+<ul>
+  <li>It cannot take a mainland-issued bank card, so it will never be your main wallet if you live here</li>
+  <li>There is no balance to top up, apart from the Shenzhen transit card, which can only be spent on rides</li>
+  <li>There is no way to send money to another person</li>
+  <li>There are no mini programs, no contacts and no messaging</li>
+  <li>The transport and refund extras are Shenzhen-only for now</li>
+  <li>Cash still has a small place: a few street stalls and small shops take notes only, or accept one wallet and not another, so ¥200 to ¥500 in small notes is worth carrying</li>
+</ul>
+
+<h2>TenPayGo, WeChat Pay or Alipay</h2>
+
+<table>
+  <caption>All three settle at the same tills. What differs is what they ask of you first.</caption>
+  <thead>
+    <tr><th scope="col">Question</th><th scope="col">TenPayGo</th><th scope="col">WeChat Pay / Alipay</th></tr>
+  </thead>
+  <tbody>
+    <tr><td data-label="Question">Sign up with</td><td data-label="TenPayGo">An email address</td><td data-label="WeChat Pay / Alipay">A phone number, then passport verification for card linking</td></tr>
+    <tr><td data-label="Question">WeChat account required</td><td data-label="TenPayGo">No</td><td data-label="WeChat Pay / Alipay">Yes for WeChat Pay, no for Alipay</td></tr>
+    <tr><td data-label="Question">Chinese bank card</td><td data-label="TenPayGo">Not accepted</td><td data-label="WeChat Pay / Alipay">Accepted if you have one</td></tr>
+    <tr><td data-label="Question">Wallet balance</td><td data-label="TenPayGo">None</td><td data-label="WeChat Pay / Alipay">Yes</td></tr>
+    <tr><td data-label="Question">Send money to a person</td><td data-label="TenPayGo">No</td><td data-label="WeChat Pay / Alipay">Yes</td></tr>
+    <tr><td data-label="Question">Mini programs and social</td><td data-label="TenPayGo">No</td><td data-label="WeChat Pay / Alipay">Yes</td></tr>
+    <tr><td data-label="Question">Best for</td><td data-label="TenPayGo">A visit of days or weeks</td><td data-label="WeChat Pay / Alipay">Living here, or a longer stay</td></tr>
+  </tbody>
+</table>
+
+<p>If you are here for a fortnight, TenPayGo is the least setup for the most coverage. If you are staying, install the full apps and do it properly, because you will want the balance and the transfers eventually.</p>
+
+<h2>If something goes wrong</h2>
+
+<ul>
+  <li><strong>A card is refused.</strong> Some issuers block payments in China until you tell them you are travelling. It is worth a call before you fly rather than after.</li>
+  <li><strong>A payment is wrong.</strong> Refunds are started by the merchant rather than by you. Agree it with the shop, they push it through, and the money returns to the card or wallet you used. Track it in the app's transaction history.</li>
+  <li><strong>Support.</strong> The app's own help and the <em>Supported Payment Methods</em> list are in English. Weixin Pay's customer service line is mainly Chinese, so handle card problems with your own bank first.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="card">
+  <div class="faq-item">
+    <div class="faq-q">Do I need WeChat to use TenPayGo?</div>
+    <div class="faq-a">No. TenPayGo is a standalone app. You do not need a WeChat account, a WeChat contact list or any mini programs. Tencent's own description is that you can pay at merchants that accept Weixin Pay without needing a Chinese phone number or a Weixin account.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Do I need a Chinese phone number?</div>
+    <div class="faq-a">No. You register with an email address: enter it, take the verification code, and set a password. That is the whole sign-up. This is the point of the app, because most Chinese payment apps otherwise expect a mainland mobile number.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Which cards can I add to TenPayGo?</div>
+    <div class="faq-a">International cards issued outside mainland China, on seven networks, including Visa, Mastercard and UnionPay. Apple Pay is supported as a payment method in its own right, and partner overseas e-wallets are being added in stages.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I add my Chinese bank card to TenPayGo?</div>
+    <div class="faq-a">No. TenPayGo only accepts payment methods issued outside mainland China, so a mainland bank card cannot be added and there is no balance to top up. If you live in China, set up WeChat Pay or Alipay on your own number instead.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What does TenPayGo cost to use?</div>
+    <div class="faq-a">Card payments of ¥200 or less carry no 3% fee, and payments above ¥200 carry 3% on the whole amount rather than on the part above the threshold. For 90 days after your first payment, the 3% is waived on spending up to ¥1,000 a day, for a card added before 31 December 2026, and the two concessions run alongside each other. Refunds return the fee in proportion. TenPayGo shows the exact amount on the confirmation screen before you approve a payment.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I use TenPayGo if I live in China?</div>
+    <div class="faq-a">It is the wrong tool for residents. There is no way to add a mainland bank card, no balance to hold, and no person-to-person transfer. It is built for people visiting for days or weeks, and for living in China you want WeChat Pay or Alipay registered on your own number.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Does TenPayGo work outside the big cities?</div>
+    <div class="faq-a">Paying does. TenPayGo settles through the Weixin Pay merchant network, so any shop, restaurant or taxi that displays a Weixin Pay QR code can take it. The extras are narrower: the Shenzhen Tong transit code covers Shenzhen buses and metro, and the tax-refund link is Shenzhen-only, with Tencent saying more transport and lifestyle services will follow.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How do I get a refund on a TenPayGo payment?</div>
+    <div class="faq-a">The merchant starts it. Agree the refund with the shop, they push it through from their side, and the money returns to the card or wallet you paid with. You can follow payments and refunds in the app's transaction history. How long it takes depends on the merchant, the card network and your bank.</div>
+  </div>
+</div>
+
+<h2>What we could not confirm</h2>
+
+<div class="card">
+  <p>Two questions come up that the launch material does not settle, and we would rather say so than guess. First, whether opening an account or adding a card involves any identity verification: Tencent describes registration as email only, and no published description mentions a passport step, but the app launched on 24 September 2026 and we have not tested it end to end. Second, whether cards and wallets issued in Hong Kong, Macao and Taiwan, which are part of China, are treated as they are elsewhere. The material says payment methods issued outside mainland China, and draws no further distinction. Both answers are in the app, under <em>Supported Payment Methods</em>.</p>
+</div>
+
+<div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="payment-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">WeChat Pay &amp; Alipay Guide</span><span class="rel-desc">Setting up mobile payments as a foreign traveller, step by step</span></span></a><a class="rel-item" href="essential-apps.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Essential Apps for China</span><span class="rel-desc">The apps to install before landing</span></span></a><a class="rel-item" href="internet-guide.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Get Online in China</span><span class="rel-desc">eSIM, SIM cards and what actually works</span></span></a><a class="rel-item" href="chinese-cards.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Chinese To-Go Cards</span><span class="rel-desc">Printable phrase cards for taxis, dining and hotels</span></span></a></div></div>
+
+<div class="footer">
+  <div class="brand-foot">EVENTURUS · VETTED</div>
+  <div>China, Vetted. - <a href="index.html">All Tools</a></div>
+</div>
+</div>
+
+<button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:100;transition:opacity .2s;">↑</button>
+
+<footer style="text-align:center;padding:32px 16px 24px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;color:#6D716A;line-height:1.8;margin-top:40px;">
+<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'">赣ICP备2026012265号-1</a>
+<span style="margin:0 8px;color:#d0d0d0;">·</span>
+<a href="https://beian.mps.gov.cn/#/query/webSearch?code=36070202001301" target="_blank" rel="noopener noreferrer" style="color:#6D716A;text-decoration:none;letter-spacing:.3px;transition:color .2s;" onmouseover="this.style.color='#666'" onmouseout="this.style.color='#6D716A'"><img src="assets/ghs.png" style="height:14px;vertical-align:middle;margin-right:4px;" alt="">赣公网安备36070202001301号</a>
+</footer>
+
+<script src="assets/editorial-tools-v2.js?v=20260811"></script>
+<script src="assets/contact/contact-widget.js?v=20260811"></script>
+</body>
+</html>

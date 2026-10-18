@@ -4,3 +4,16 @@
 # WeChat credentials — never commit
 **/wechat_config.json
 **/wechat_token_cache.json
+
+# Local backups — never commit (a dated .bak is a rollback aid, not content)
+*.bak
+*.bak_*
+*.bak-*
+
+# Local-only drafts not published to eventurus.cn (verified 404 online 2026-10-18).
+# Keeping them out of git stops them reaching the deploy manifest and sitemap.
+trip-studio.html
+
+# Transient / generated scratch
+*.tmp
+_tmp_*

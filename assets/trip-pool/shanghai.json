@@ -1,0 +1,739 @@
+[
+{
+"en": "Yu Garden",
+"zh": "豫园",
+"area": "Huangpu",
+"lat": 31.227,
+"lng": 121.492,
+"cat": "sights",
+"tags": [
+"garden",
+"heritage",
+"classic"
+],
+"blurb": "A Ming-dynasty garden of rock, water and borrowed views — the classical Suzhou style inside the city.",
+"hrs": 2,
+"price": "¥40",
+"crowd": "First-timers, culture lovers",
+"best": "morning"
+},
+{
+"en": "The Bund",
+"zh": "外滩",
+"area": "Huangpu",
+"lat": 31.24,
+"lng": 121.49,
+"cat": "sights",
+"tags": [
+"waterfront",
+"skyline",
+"free"
+],
+"blurb": "Colonial facades on one side, the Pudong skyline on the other. Shanghai's defining promenade.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Everyone",
+"best": "evening"
+},
+{
+"en": "Tianzifang",
+"zh": "田子坊",
+"area": "Huangpu",
+"lat": 31.21,
+"lng": 121.466,
+"cat": "sights",
+"tags": [
+"lanes",
+"craft",
+"souvenirs"
+],
+"blurb": "Shikumen lanes turned into a maze of studios, teahouses and craft shops. Come early to beat crowds.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Browsers, gift hunters",
+"best": "morning"
+},
+{
+"en": "Wukang Road",
+"zh": "武康路",
+"area": "Xuhui",
+"lat": 31.207,
+"lng": 121.437,
+"cat": "sights",
+"tags": [
+"architecture",
+"walk",
+"cafes"
+],
+"blurb": "The former Route Ferguson: plane trees, Mediterranean villas and the city's best street walk.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Walkers, photographers",
+"best": "afternoon"
+},
+{
+"en": "1933 Old Millfun",
+"zh": "1933老场坊",
+"area": "Hongkou",
+"lat": 31.252,
+"lng": 121.484,
+"cat": "sights",
+"tags": [
+"architecture",
+"art-deco",
+"photos"
+],
+"blurb": "A 1933 slaughterhouse reborn as a concrete maze of ramps and bridges. Genuinely strange, genuinely worth it.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Photographers, architects",
+"best": "afternoon"
+},
+{
+"en": "Duolun Road",
+"zh": "多伦路",
+"area": "Hongkou",
+"lat": 31.264,
+"lng": 121.48,
+"cat": "sights",
+"tags": [
+"history",
+"literary",
+"quiet"
+],
+"blurb": "A 550-metre street where 1930s writers' houses, antique shops and old villas line up shoulder to shoulder.",
+"hrs": 1,
+"price": "Free",
+"crowd": "History readers, quiet seekers",
+"best": "afternoon"
+},
+{
+"en": "Zhujiajiao Water Town",
+"zh": "朱家角",
+"area": "Qingpu",
+"lat": 31.111,
+"lng": 121.054,
+"cat": "sights",
+"tags": [
+"water town",
+"canal",
+"day trip"
+],
+"blurb": "The easiest real water town from Shanghai — stone bridges, canals and a 500-year-old bridge at its heart.",
+"hrs": 4,
+"price": "Free (sights ¥30-60)",
+"crowd": "Day trippers",
+"best": "morning"
+},
+{
+"en": "East Bund Riverside",
+"zh": "东岸滨江",
+"area": "Pudong",
+"lat": 31.1307,
+"lng": 121.4732,
+"cat": "sights",
+"tags": [
+"waterfront",
+"cycling",
+"free"
+],
+"blurb": "A 22-km riverside greenway facing the Bund — the best skyline view in the city, best on a rented bike.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Cyclists, runners",
+"best": "sunset",
+"geo_verified": true
+},
+{
+"en": "Dahu Chun",
+"zh": "大壶春",
+"area": "Huangpu",
+"lat": 31.234,
+"lng": 121.48,
+"cat": "food",
+"tags": [
+"shengjian",
+"pork buns",
+"old-school"
+],
+"blurb": "The pan-fried pork bun institution since 1932 — soup-soaked filling, thick fluffy skin, no queue tricks.",
+"hrs": 1,
+"price": "¥15-30",
+"crowd": "Breakfast hunters",
+"best": "morning"
+},
+{
+"en": "Jia Jia Tang Bao",
+"zh": "佳家汤包",
+"area": "Huangpu",
+"lat": 31.2106,
+"lng": 121.4889,
+"cat": "food",
+"tags": [
+"soup dumplings",
+"xiaolongbao"
+],
+"blurb": "Soup dumplings with crab-roe pork filling worth the shared-table squeeze. Cash-friendly, fast turnover.",
+"hrs": 1,
+"price": "¥25-50",
+"crowd": "Lunch on the go",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Xian De Lai",
+"zh": "鲜得来",
+"area": "Huangpu",
+"lat": 31.237,
+"lng": 121.5137,
+"cat": "food",
+"tags": [
+"pork chop",
+"rice cake",
+"heritage"
+],
+"blurb": "Pork-chop-and-rice-cake, the Shanghainese comfort pairing since 1921. Simple, filling, historic.",
+"hrs": 1,
+"price": "¥25-40",
+"crowd": "Casual lunch",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Dong Tai Xiang",
+"zh": "东泰祥",
+"area": "Huangpu",
+"lat": 31.229,
+"lng": 121.472,
+"cat": "food",
+"tags": [
+"shengjian",
+"breakfast",
+"local"
+],
+"blurb": "The other shengjian school — thin skin, big soup. Locals queue at 7 am for the first batch.",
+"hrs": 1,
+"price": "¥10-25",
+"crowd": "Early risers",
+"best": "morning"
+},
+{
+"en": "Shen Da Cheng",
+"zh": "沈大成",
+"area": "Huangpu",
+"lat": 31.236,
+"lng": 121.483,
+"cat": "food",
+"tags": [
+"sweets",
+"rice cakes",
+"heritage"
+],
+"blurb": "Qingtuan, rice cakes and seasonal sweets from an 1875 counter. Buy a box for the afternoon.",
+"hrs": 1,
+"price": "¥10-30",
+"crowd": "Sweet tooths",
+"best": "afternoon"
+},
+{
+"en": "A Niang Noodle",
+"zh": "阿娘面馆",
+"area": "Huangpu",
+"lat": 31.219,
+"lng": 121.468,
+"cat": "food",
+"tags": [
+"noodles",
+"scallion oil",
+"local"
+],
+"blurb": "Scallion-oil noodles with braised pork — one dish done to perfection in a no-frills room.",
+"hrs": 1,
+"price": "¥25-45",
+"crowd": "Noodle pilgrims",
+"best": "lunch"
+},
+{
+"en": "Mao Long",
+"zh": "茂隆",
+"area": "Xuhui",
+"lat": 31.2216,
+"lng": 121.4598,
+"cat": "food",
+"tags": [
+"benbang",
+"home-style",
+"hidden"
+],
+"blurb": "Bare-bones Benbang (local Shanghainese) cooking on Jinxian Road — braised eel and red-braised pork done right.",
+"hrs": 1,
+"price": "¥80-120",
+"crowd": "Food-focused travellers",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Hai Jin Zi",
+"zh": "海金滋",
+"area": "Xuhui",
+"lat": 31.2212,
+"lng": 121.4576,
+"cat": "food",
+"tags": [
+"benbang",
+"walled tables",
+"local"
+],
+"blurb": "Another Jinxian Road classic — sweet-savoury Shanghainese dishes at neighbourhood prices.",
+"hrs": 1,
+"price": "¥70-110",
+"crowd": "Adventurous eaters",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Shanghai Museum",
+"zh": "上海博物馆",
+"area": "Huangpu",
+"lat": 31.228,
+"lng": 121.474,
+"cat": "culture",
+"tags": [
+"museum",
+"bronze",
+"ceramics"
+],
+"blurb": "China's best collection of bronzes and ceramics in a ding-shaped building. Book the free slot ahead.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Museum people",
+"best": "morning"
+},
+{
+"en": "West Bund Museum",
+"zh": "西岸美术馆",
+"area": "Xuhui",
+"lat": 31.1676,
+"lng": 121.4639,
+"cat": "culture",
+"tags": [
+"art",
+"modern",
+"riverside"
+],
+"blurb": "A David Chipperfield building on the river with Pompidou partnership shows. Pair it with the run path outside.",
+"hrs": 2,
+"price": "¥60-150",
+"crowd": "Modern art fans",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Long Museum West Bund",
+"zh": "龙美术馆西岸馆",
+"area": "Xuhui",
+"lat": 31.1842,
+"lng": 121.4649,
+"cat": "culture",
+"tags": [
+"art",
+"industrial",
+"concrete"
+],
+"blurb": "A coal hopper unloading bridge turned into a vaulted concrete gallery. The building is half the show.",
+"hrs": 2,
+"price": "¥80-150",
+"crowd": "Architecture lovers",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Shanghai Library East",
+"zh": "上海图书馆东馆",
+"area": "Pudong",
+"lat": 31.224,
+"lng": 121.549,
+"cat": "culture",
+"tags": [
+"library",
+"modern",
+"quiet"
+],
+"blurb": "A floating open book of a library with a rooftop terrace reading room. Free with a reservation.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Readers, remote workers",
+"best": "afternoon"
+},
+{
+"en": "Zhang Yuan",
+"zh": "张园",
+"area": "Jing'an",
+"lat": 31.2281,
+"lng": 121.4605,
+"cat": "culture",
+"tags": [
+"shikumen",
+"restored",
+"lanes"
+],
+"blurb": "The city's largest shikumen complex restored and reopened — heritage lanes with careful retail.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Architecture + shopping",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Columbia Circle",
+"zh": "上生新所",
+"area": "Changning",
+"lat": 31.21,
+"lng": 121.428,
+"cat": "culture",
+"tags": [
+"colombia club",
+"restored",
+"cafes"
+],
+"blurb": "A 1924 country club turned into a leafy compound of cafes, bookshops and a navy pool clubhouse.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Slow afternoon people",
+"best": "afternoon"
+},
+{
+"en": "Sinan Mansions",
+"zh": "思南公馆",
+"area": "Huangpu",
+"lat": 31.216,
+"lng": 121.464,
+"cat": "culture",
+"tags": [
+"villas",
+"garden",
+"literary"
+],
+"blurb": "Garden villas where Zhou Enlai and poets once lived; now a calm block of cafes and a famous book fair.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Readers, idle afternoons",
+"best": "afternoon"
+},
+{
+"en": "UCCA Edge",
+"zh": "UCCA Edge",
+"area": "Jing'an",
+"lat": 31.2419,
+"lng": 121.472,
+"cat": "culture",
+"tags": [
+"contemporary",
+"art",
+"museum"
+],
+"blurb": "The Beijing powerhouse's Shanghai outpost — serious contemporary shows above Suzhou Creek.",
+"hrs": 2,
+"price": "¥60-120",
+"crowd": "Contemporary art fans",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Peace Hotel Jazz Bar",
+"zh": "和平饭店爵士吧",
+"area": "Huangpu",
+"lat": 31.243,
+"lng": 121.49,
+"cat": "night",
+"tags": [
+"jazz",
+"veterans",
+"historic"
+],
+"blurb": "The legendary old-gentlemen jazz band, six nights a week, in a 1929 hotel on the Bund.",
+"hrs": 2,
+"price": "¥100-200 (drinks)",
+"crowd": "Romantics, jazz lovers",
+"best": "evening"
+},
+{
+"en": "Speak Low",
+"zh": "Speak Low",
+"area": "Huangpu",
+"lat": 31.221,
+"lng": 121.461,
+"cat": "night",
+"tags": [
+"cocktail",
+"hidden bar",
+"world-class"
+],
+"blurb": "A hidden cocktail bar behind a cookware shop door — consistently ranked among the world's best.",
+"hrs": 2,
+"price": "¥100-150",
+"crowd": "Cocktail serious",
+"best": "evening"
+},
+{
+"en": "Sober Company",
+"zh": "Sober Company",
+"area": "Huangpu",
+"lat": 31.218,
+"lng": 121.465,
+"cat": "night",
+"tags": [
+"cocktail",
+"three floors",
+"hidden"
+],
+"blurb": "Three floors, three moods — cafe, cocktail room, and a hidden top floor you have to earn.",
+"hrs": 2,
+"price": "¥90-140",
+"crowd": "Bar hoppers",
+"best": "evening"
+},
+{
+"en": "The Nest",
+"zh": "The Nest",
+"area": "Huangpu",
+"lat": 31.241,
+"lng": 121.487,
+"cat": "night",
+"tags": [
+"rooftop",
+"cocktail",
+"skyline"
+],
+"blurb": "Rooftop cocktails with a full Bund-and-river panorama. Arrive before 9 pm for the good seats.",
+"hrs": 2,
+"price": "¥120-180",
+"crowd": "Groups, skyline hunters",
+"best": "evening"
+},
+{
+"en": "Bar Rouge",
+"zh": "Bar Rouge",
+"area": "Huangpu",
+"lat": 31.238,
+"lng": 121.49,
+"cat": "night",
+"tags": [
+"club",
+"terrace",
+"classic"
+],
+"blurb": "The Bund terrace club that defined Shanghai nightlife — big nights, bigger views.",
+"hrs": 2,
+"price": "¥150-250",
+"crowd": "Party crowd",
+"best": "late"
+},
+{
+"en": "158 Fang",
+"zh": "巨鹿路158坊",
+"area": "Jing'an",
+"lat": 31.2232,
+"lng": 121.4664,
+"cat": "night",
+"tags": [
+"bar street",
+"courtyard",
+"casual"
+],
+"blurb": "A courtyard compound of small bars and food stalls where locals actually drink.",
+"hrs": 2,
+"price": "¥60-120",
+"crowd": "Casual drinkers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Hengshan Road Bars",
+"zh": "衡山路酒吧街",
+"area": "Xuhui",
+"lat": 31.206,
+"lng": 121.443,
+"cat": "night",
+"tags": [
+"bar street",
+"plane trees",
+"classic"
+],
+"blurb": "The city's original bar street under plane trees — quieter now, still the easiest pub crawl.",
+"hrs": 2,
+"price": "¥60-150",
+"crowd": "Pub crawlers",
+"best": "evening"
+},
+{
+"en": "Xintiandi Nights",
+"zh": "新天地",
+"area": "Huangpu",
+"lat": 31.0486,
+"lng": 121.2005,
+"cat": "night",
+"tags": [
+"shikumen",
+"dining",
+"polished"
+],
+"blurb": "Shikumen lanes lit up after dark — the polished version of old Shanghai for a first night out.",
+"hrs": 2,
+"price": "¥100-200",
+"crowd": "First-nighters",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Xinchang Ancient Town",
+"zh": "新场古镇",
+"area": "Pudong",
+"lat": 31.0231,
+"lng": 121.647,
+"cat": "hidden",
+"tags": [
+"water town",
+"unrestored",
+"quiet"
+],
+"blurb": "The filming town of 'Lust, Caution' — a working water town without the ticket booths.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Escape-the-city day",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Fengjing Ancient Town",
+"zh": "枫泾古镇",
+"area": "Jinshan",
+"lat": 30.893,
+"lng": 121.01,
+"cat": "hidden",
+"tags": [
+"water town",
+"bridges",
+"local"
+],
+"blurb": "Fifty-two bridges over a grid of canals at Shanghai's far southwest edge.",
+"hrs": 3,
+"price": "¥50 (combo)",
+"crowd": "Slow travellers",
+"best": "morning"
+},
+{
+"en": "Zhaojialou",
+"zh": "召稼楼",
+"area": "Minhang",
+"lat": 31.073,
+"lng": 121.5496,
+"cat": "hidden",
+"tags": [
+"water town",
+"snacks",
+"half day"
+],
+"blurb": "A Ming-dynasty farm-town turned snack labyrinth — come hungry, leave cheap.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Food-driven day trips",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Guangfulin Relics Park",
+"zh": "广富林文化遗址",
+"area": "Songjiang",
+"lat": 31.0622,
+"lng": 121.1984,
+"cat": "hidden",
+"tags": [
+"archaeology",
+"underwater",
+"park"
+],
+"blurb": "A 4,000-year-old site whose museum appears to sink into a lake — strange and photogenic.",
+"hrs": 3,
+"price": "¥50",
+"crowd": "History + photos",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Sheshan",
+"zh": "佘山",
+"area": "Songjiang",
+"lat": 31.0954,
+"lng": 121.1756,
+"cat": "hidden",
+"tags": [
+"hill",
+"basilica",
+"hike"
+],
+"blurb": "Shanghai's only real hill — a short forest climb to a red-roofed basilica and an old observatory.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Easy hikers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Chongming Dongtan",
+"zh": "崇明东滩",
+"area": "Chongming",
+"lat": 31.5317,
+"lng": 121.8509,
+"cat": "hidden",
+"tags": [
+"wetland",
+"birds",
+"nature"
+],
+"blurb": "A world-class migratory-bird wetland at the mouth of the Yangtze. Winter is the season.",
+"hrs": 4,
+"price": "¥40",
+"crowd": "Birders, cyclists",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Jinze Ancient Town",
+"zh": "金泽古镇",
+"area": "Qingpu",
+"lat": 31.0369,
+"lng": 120.9214,
+"cat": "hidden",
+"tags": [
+"bridges",
+"song dynasty",
+"sleepy"
+],
+"blurb": "Seven Song-and-Yuan era stone bridges over one canal — the quietest water town in the municipality.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Bridge nerds, silence",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Bihai Jinsha",
+"zh": "碧海金沙",
+"area": "Fengxian",
+"lat": 30.8234,
+"lng": 121.5722,
+"cat": "hidden",
+"tags": [
+"beach",
+"swimming",
+"summer"
+],
+"blurb": "A man-made swimming beach on Hangzhou Bay — the closest thing to a sea day inside Shanghai.",
+"hrs": 4,
+"price": "¥50-80",
+"crowd": "Summer families",
+"best": "afternoon",
+"geo_verified": true
+}
+]

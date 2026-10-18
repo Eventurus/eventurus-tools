@@ -8,6 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>China Public Holidays - EVENTURUS</title>
 <meta name="description" content="China public holiday planning calendar through 2029, with the official 2026 schedule and verified festival dates for 2027 to 2029.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <!-- Open Graph -->
   <meta property="og:title" content="China Public Holidays - EVENTURUS">
   <meta property="og:description" content="China public holiday planning calendar through 2029, with the official 2026 schedule and verified festival dates for 2027 to 2029.">
@@ -85,6 +86,32 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 </style>
 <link rel="stylesheet" href="assets/editorial-tools-v2.css?v=20260812a">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 
 <!-- SEO structured data + keywords -->
@@ -123,7 +150,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Microso
 </div>
 
 <div class="calendar-note">
-  <strong>Accuracy note:</strong> The 2026 ranges and make-up working days follow the <a href="https://www.beijing.gov.cn/cs/gncs/zcwj/202603/t20260327_4568275.html" target="_blank" rel="noopener noreferrer">official State Council schedule</a>. For 2027-2029, only the festival dates are shown. Official leave periods and make-up working days have not been announced as of 22 July 2026. Lunar festival dates were checked against the <a href="https://www.hko.gov.hk/en/gts/time/conversion.htm" target="_blank" rel="noopener noreferrer">Hong Kong Observatory calendar</a>.
+  <strong>Accuracy note:</strong> The 2026 ranges and make-up working days follow the <a href="https://www.beijing.gov.cn/cs/gncs/zcwj/202603/t20260327_4568275.html" target="_blank" rel="noopener noreferrer">official State Council schedule</a>. For 2027-2029, only the festival dates are shown. Official leave periods and make-up working days have not been announced as of 8 September 2026. Lunar festival dates were checked against the <a href="https://www.hko.gov.hk/en/gts/time/conversion.htm" target="_blank" rel="noopener noreferrer">Hong Kong Observatory calendar</a>.
 </div>
 
 <div class="year-filter" id="yearFilter" aria-label="Choose calendar year"></div>
@@ -149,7 +176,7 @@ var holidays = [
   {year:2026,from:"2026-10-01",to:"2026-10-07",en:"National Day · Golden Week",cn:"国庆节 · 黄金周",detail:"Thu-Wed, 7 days off. Work Sun 20 Sep and Sat 10 Oct as make-up working days.",official:true,major:true},
 
   {year:2027,from:"2027-01-01",to:"2027-01-01",en:"New Year's Day",cn:"元旦",detail:"Festival date: Fri 1 Jan. Official leave period and make-up working days have not yet been announced.",planning:true},
-  {year:2027,from:"2027-02-07",to:"2027-02-07",en:"Spring Festival · Year of the Goat",cn:"春节 · 羊年",detail:"Lunar New Year's Day: Sun 7 Feb. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
+  {year:2027,from:"2027-02-06",to:"2027-02-06",en:"Spring Festival · Year of the Goat",cn:"春节 · 羊年",detail:"Lunar New Year's Day: Sat 6 Feb. Official leave period and make-up working days have not yet been announced.",planning:true,major:true},
   {year:2027,from:"2027-04-05",to:"2027-04-05",en:"Qingming Festival",cn:"清明节",detail:"Festival date: Mon 5 Apr. Official leave period and make-up working days have not yet been announced.",planning:true},
   {year:2027,from:"2027-05-01",to:"2027-05-01",en:"Labour Day",cn:"劳动节",detail:"Festival date: Sat 1 May. Official leave period and make-up working days have not yet been announced.",planning:true},
   {year:2027,from:"2027-06-09",to:"2027-06-09",en:"Dragon Boat Festival",cn:"端午节",detail:"Festival date: Wed 9 Jun. Official leave period and make-up working days have not yet been announced.",planning:true},

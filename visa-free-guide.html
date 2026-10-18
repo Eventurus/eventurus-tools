@@ -27,6 +27,7 @@
  <link rel="canonical" href="https://eventurus.cn/visa-free-guide.html">
 
 <meta name="description" content="Quick-reference guide to China's visa-free policies: unilateral 30-day, 240-hour transit, Hainan, Guangdong PRD and more. Check your country and options.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root {
  --color-text: #2c2c2c;
@@ -263,6 +264,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 }
  </script>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/visa-free-guide.html">
@@ -299,11 +326,11 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 
 <div class="pull-quote">
- <blockquote>As of early 2026, China offers visa-free access to nationals of over 75 countries across five different policy tracks. The hardest part is no longer getting in - it is knowing which set of rules applies to you.</blockquote>
+ <blockquote>As of September 2026, China offers visa-free access to nationals of 79 countries - 50 under its unilateral policy and 29 under mutual agreements - across five policy tracks, plus 240-hour visa-free transit for 57 nationalities. The hardest part is no longer getting in - it is knowing which set of rules applies to you.</blockquote>
 </div>
 
 <div class="highlight-box">
- <strong>Last reviewed: 9 August 2026.</strong> Policies change frequently - the most recent additions (UK, Canada, Sweden, Russia, Brazil, Argentina, several Middle Eastern nations) took effect between June 2025 and February 2026. Country lists below verified against the official National Immigration Administration (NIA) publication as of 9 August 2026. Always cross-check with the nearest Chinese embassy or consulate before booking.
+ <strong>Last reviewed: 8 September 2026.</strong> Policies change frequently. Country lists below verified against official National Immigration Administration (NIA) announcements - most recently 20 August 2026, when Kyrgyzstan and Vietnam joined the 240-hour transit and Hainan policies. Always cross-check with the nearest Chinese embassy or consulate before booking.
 </div>
 
 <!-- Section 1: Quick Finder -->
@@ -432,25 +459,27 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  <div class="pc-info">
  <div class="pc-name">240-Hour Transit Visa-Free</div>
  <div class="pc-detail">
- <em>55 countries</em> &bull; Stay up to <em>10 days (240 hours)</em><br>
+ <em>57 countries</em> &bull; Stay up to <em>10 days (240 hours)</em><br>
  Must hold confirmed onward ticket to a third country (not your origin)<br>
- Travel restricted to designated regions - <strong>cannot cross into non-designated provinces</strong>
+ Travel allowed across <strong>all 24 provincial-level regions</strong> on the list below
  </div>
  </div>
  </div>
 
  <div class="info-card">
- <h3><span class="emoji">🌍</span> Eligible countries (55)</h3>
+ <h3><span class="emoji">🌍</span> Eligible countries (57)</h3>
  <p><strong>Europe (40):</strong> Albania, Austria, Belarus, Belgium, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Monaco, Montenegro, Netherlands, North Macedonia, Norway, Poland, Portugal, Romania, Russia, Serbia, Slovakia, Slovenia, Spain, Sweden, Switzerland, Ukraine, United Kingdom</p>
  <p style="margin-top:8px;"><strong>North America (2):</strong> Canada, United States</p>
  <p><strong>South America (4):</strong> Argentina, Brazil, Chile, Mexico</p>
  <p><strong>Oceania (2):</strong> Australia, New Zealand</p>
- <p><strong>Asia (7):</strong> Brunei, Indonesia, Japan, Qatar, Singapore, South Korea, United Arab Emirates</p>
+ <p><strong>Asia (9):</strong> Brunei, Indonesia, Japan, Qatar, Singapore, South Korea, United Arab Emirates, Vietnam, Kyrgyzstan</p>
  </div>
 
  <div class="info-card">
  <h3><span class="emoji">📍</span> Designated regions &amp; their permitted areas</h3>
- <p>You can <strong>only</strong> travel within the designated region of your entry port. Crossing into a non-designated province is a violation.</p>
+ <p>The 240-hour visa-free transit policy covers <strong>65 ports across 24 provincial-level regions</strong>. Once you enter at any one of these ports, you can travel freely <strong>across all 24 listed regions</strong> during your stay (up to 240 hours from the day after entry). Travelling from Shanghai to Beijing, or from Kunming to Chengdu, is permitted as long as both endpoints are on the list below.</p>
+
+    <p style="margin-top:12px;color:#6D716A;font-size:13px;">Note: Regions <em>not</em> on the list (e.g. Tibet, Qinghai, Gansu, Ningxia, Xinjiang) require a separate visa — they are not part of the 240-hour scheme.</p>
 
  <div class="table-wrap">
  <table>
@@ -477,7 +506,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  <tr><td class="td-brand">Nanjing</td><td>Jiangsu Province (entire province)</td></tr>
  <tr><td class="td-brand">Hangzhou / Ningbo / Wenzhou</td><td>Zhejiang Province (entire province)</td></tr>
  <tr><td class="td-brand">Fuzhou</td><td>Fujian Province (entire province, since Dec 2024)</td></tr>
- <tr><td class="td-brand">Lhasa</td><td>Lhasa city area, Tibet</td></tr>
+ 
  <tr><td class="td-brand">Haikou / Sanya</td><td>Hainan Province (entire province)</td></tr>
  </tbody>
  </table>
@@ -505,7 +534,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  <div class="pc-info">
  <div class="pc-name">Hainan Visa-Free</div>
  <div class="pc-detail">
- <em>59 countries</em> &bull; Stay up to <em>30 days</em> &bull; Confined to <strong>Hainan Province only</strong><br>
+ <em>61 countries</em> &bull; Stay up to <em>30 days</em> &bull; Confined to <strong>Hainan Province only</strong><br>
  No onward ticket requirement &bull; Direct flight to Hainan required<br>
  Can enter as individual traveller (not required to join a tour group)
  </div>
@@ -661,9 +690,9 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
  </thead>
  <tbody>
  <tr><td class="td-brand">Unilateral Visa-Free</td><td>50</td><td>30 days</td><td>None (all mainland China)</td><td>No</td></tr>
- <tr><td class="td-brand">240-Hour Transit</td><td>55</td><td>10 days</td><td>Designated region only</td><td>Yes (to 3rd country)</td></tr>
+ <tr><td class="td-brand">240-Hour Transit</td><td>57</td><td>10 days</td><td>24 provincial regions</td><td>Yes (to 3rd country)</td></tr>
  <tr><td class="td-brand">Mutual Exemption</td><td>29</td><td>30 days</td><td>None (all mainland China)</td><td>No</td></tr>
- <tr><td class="td-brand">Hainan Visa-Free</td><td>59</td><td>30 days</td><td>Hainan Province only</td><td>No</td></tr>
+ <tr><td class="td-brand">Hainan Visa-Free</td><td>61</td><td>30 days</td><td>Hainan Province only</td><td>No</td></tr>
  <tr><td class="td-brand">Guangdong PRD (tour group)</td><td>All nationalities*</td><td>6 days (144h)</td><td>9 PRD cities + Shantou</td><td>No (enters from HK/Macau)</td></tr>
  <tr><td class="td-brand">Guilin 144h (ASEAN tour group)</td><td>10 ASEAN countries</td><td>6 days (144h)</td><td>Guilin area, Guangxi</td><td>Yes (via travel agency)</td></tr>
  <tr><td class="td-brand">Xishuangbanna 144h (ASEAN)</td><td>10 ASEAN countries</td><td>6 days (144h)</td><td>Xishuangbanna, Yunnan</td><td>Yes (via travel agency)</td></tr>
@@ -680,7 +709,7 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 </div>
 
 <div class="cross-link">
- <p>Quick reference for 50+ nationalities entering China → <a href="entry-requirements.html">Entry Requirements Quick Ref</a></p>
+ <p>Quick reference for 79 visa-free nationalities entering China → <a href="entry-requirements.html">Entry Requirements Quick Ref</a></p>
 </div>
 
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="visa-checker.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Visa Eligibility Checker</span><span class="rel-desc">Check what visa you need</span></span></a><a class="rel-item" href="entry-requirements.html"><span class="rel-arrow">→</span><span class="rel-info"><span class="rel-title">Entry Requirements Quick Ref</span><span class="rel-desc">Visa-free, eVisa, and visa countries at a glance</span></span></a></div></div>
@@ -696,8 +725,8 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <script>
 // Country data: flag, name, and policy eligibility
 const COUNTRIES = [
- {n:"Albania",f:"🇦🇱",p:["mutual","transit"]},
- {n:"Andorra",f:"🇦🇩",p:["unilateral","transit"]},
+ {n:"Albania",f:"🇦🇱",p:["mutual","transit","hainan"]},
+ {n:"Andorra",f:"🇦🇩",p:["unilateral"]},
  {n:"Antigua and Barbuda",f:"🇦🇬",p:["mutual"]},
  {n:"Argentina",f:"🇦🇷",p:["unilateral","transit","hainan"]},
  {n:"Armenia",f:"🇦🇲",p:["mutual"]},
@@ -707,13 +736,13 @@ const COUNTRIES = [
  {n:"Bahamas",f:"🇧🇸",p:["mutual"]},
  {n:"Bahrain",f:"🇧🇭",p:["unilateral"]},
  {n:"Barbados",f:"🇧🇧",p:["mutual"]},
- {n:"Belarus",f:"🇧🇾",p:["mutual","transit","tourgroup"]},
+ {n:"Belarus",f:"🇧🇾",p:["mutual","transit","hainan","tourgroup"]},
  {n:"Belgium",f:"🇧🇪",p:["unilateral","transit","hainan"]},
- {n:"Bosnia and Herzegovina",f:"🇧🇦",p:["mutual","transit"]},
+ {n:"Bosnia and Herzegovina",f:"🇧🇦",p:["mutual","transit","hainan"]},
  {n:"Brazil",f:"🇧🇷",p:["unilateral","transit","hainan"]},
  {n:"Brunei",f:"🇧🇳",p:["unilateral","transit","hainan"]},
  {n:"Bulgaria",f:"🇧🇬",p:["unilateral","transit","hainan"]},
- {n:"Cambodia",f:"🇰🇭",p:["hainan","guilin","xishuangbanna"]},
+ {n:"Cambodia",f:"🇰🇭",p:["guilin","xishuangbanna"]},
  {n:"Canada",f:"🇨🇦",p:["unilateral","transit","hainan"]},
  {n:"Chile",f:"🇨🇱",p:["unilateral","transit","hainan"]},
  {n:"Croatia",f:"🇭🇷",p:["unilateral","transit","hainan"]},
@@ -738,12 +767,13 @@ const COUNTRIES = [
  {n:"Japan",f:"🇯🇵",p:["unilateral","transit","hainan"]},
  {n:"Kazakhstan",f:"🇰🇿",p:["mutual","hainan"]},
  {n:"Kuwait",f:"🇰🇼",p:["unilateral"]},
- {n:"Laos",f:"🇱🇦",p:["hainan","guilin","xishuangbanna"]},
+ {n:"Kyrgyzstan",f:"🇰🇬",p:["transit","hainan"]},
+ {n:"Laos",f:"🇱🇦",p:["guilin","xishuangbanna"]},
  {n:"Latvia",f:"🇱🇻",p:["unilateral","transit","hainan"]},
- {n:"Liechtenstein",f:"🇱🇮",p:["unilateral","transit"]},
+ {n:"Liechtenstein",f:"🇱🇮",p:["unilateral"]},
  {n:"Lithuania",f:"🇱🇹",p:["transit","hainan"]},
  {n:"Luxembourg",f:"🇱🇺",p:["unilateral","transit","hainan"]},
- {n:"Malaysia",f:"🇲🇾",p:["unilateral","mutual","hainan","guilin","xishuangbanna"]},
+ {n:"Malaysia",f:"🇲🇾",p:["mutual","hainan","guilin","xishuangbanna"]},
  {n:"Maldives",f:"🇲🇻",p:["mutual"]},
  {n:"Malta",f:"🇲🇹",p:["unilateral","transit","hainan"]},
  {n:"Mauritius",f:"🇲🇺",p:["mutual"]},
@@ -751,7 +781,7 @@ const COUNTRIES = [
  {n:"Moldova",f:"🇲🇩",p:["tourgroup"]},
  {n:"Monaco",f:"🇲🇨",p:["unilateral","transit","hainan"]},
  {n:"Montenegro",f:"🇲🇪",p:["unilateral","transit","hainan"]},
- {n:"Myanmar",f:"🇲🇲",p:["hainan","guilin","xishuangbanna"]},
+ {n:"Myanmar",f:"🇲🇲",p:["guilin","xishuangbanna"]},
  {n:"Netherlands",f:"🇳🇱",p:["unilateral","transit","hainan"]},
  {n:"New Zealand",f:"🇳🇿",p:["unilateral","transit","hainan"]},
  {n:"North Macedonia",f:"🇲🇰",p:["unilateral","transit","hainan"]},
@@ -767,7 +797,7 @@ const COUNTRIES = [
  {n:"Samoa",f:"🇼🇸",p:["mutual"]},
  {n:"San Marino",f:"🇸🇲",p:["mutual"]},
  {n:"Saudi Arabia",f:"🇸🇦",p:["unilateral"]},
- {n:"Serbia",f:"🇷🇸",p:["mutual","transit"]},
+ {n:"Serbia",f:"🇷🇸",p:["mutual","transit","hainan"]},
  {n:"Seychelles",f:"🇸🇨",p:["mutual"]},
  {n:"Singapore",f:"🇸🇬",p:["mutual","transit","hainan","guilin","xishuangbanna"]},
  {n:"Slovakia",f:"🇸🇰",p:["unilateral","transit","hainan"]},
@@ -775,6 +805,7 @@ const COUNTRIES = [
  {n:"Solomon Islands",f:"🇸🇧",p:["mutual"]},
  {n:"South Korea",f:"🇰🇷",p:["unilateral","transit","hainan"]},
  {n:"Spain",f:"🇪🇸",p:["unilateral","transit","hainan"]},
+ {n:"Suriname",f:"🇸🇷",p:["mutual"]},
  {n:"Sweden",f:"🇸🇪",p:["unilateral","transit","hainan"]},
  {n:"Switzerland",f:"🇨🇭",p:["unilateral","transit","hainan"]},
  {n:"Thailand",f:"🇹🇭",p:["mutual","hainan","guilin","xishuangbanna"]},
@@ -786,7 +817,7 @@ const COUNTRIES = [
  {n:"United States",f:"🇺🇸",p:["transit","hainan"]},
  {n:"Uruguay",f:"🇺🇾",p:["unilateral"]},
  {n:"Uzbekistan",f:"🇺🇿",p:["mutual"]},
- {n:"Vietnam",f:"🇻🇳",p:["hainan","guilin","xishuangbanna"]},
+ {n:"Vietnam",f:"🇻🇳",p:["transit","hainan","guilin","xishuangbanna"]},
 ].sort((a,b) => a.n.localeCompare(b.n));
 
 // Policy definitions
@@ -803,7 +834,7 @@ const POLICIES = {
  transit: {
  name: "240-Hour Transit Visa-Free",
  dur: "Up to 10 days (240 hours)",
- geo: "Restricted to designated region of entry port (e.g. Beijing → Beijing-Tianjin-Hebei, Shanghai → Shanghai-Jiangsu-Zhejiang)",
+ geo: "Free travel across all 24 permitted provincial-level regions once inside (e.g. enter at Shanghai, exit from Beijing)",
  icon: "✈️",
  color: "blue",
  detail: "Must hold confirmed onward ticket to a third country (not origin). 65 ports across 24 regions. Cannot work or study.",

@@ -7,6 +7,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Moving to Shanghai: Your First Week - EVENTURUS</title>
   <meta name="description" content="A practical first-week guide to moving to Shanghai: accommodation registration, payments, transport, health checks, banking and housing.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://eventurus.cn/moving-shanghai.html">
   <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/moving-shanghai.html">
   <link rel="alternate" hreflang="x-default" href="https://eventurus.cn/moving-shanghai.html">
@@ -408,6 +409,32 @@
     }
   </style>
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 </head>
 
 <body>
@@ -572,6 +599,7 @@
           <p>Hotels normally register guests. If you stay in a private home, rented flat or other non-hotel accommodation, register within 24 hours. Shanghai provides online self-declaration as well as police-station or community service-window routes. The guest, host or accommodation provider may handle the declaration.</p>
           <p>A Chinese mobile number is useful but is not stated as a legal prerequisite in the official guidance. Keep the registration result: it may be requested later.</p>
           <p><a href="https://english.shanghai.gov.cn/en-ArrivalChecklist/20231214/8418f9e06a3248beaa96f8e65331a0b1.html" target="_blank" rel="noopener noreferrer">Read Shanghai's official accommodation-registration guide</a></p>
+          <p>Our <a href="accommodation-registration.html">accommodation registration guide</a> sets out the national online system, the Shanghai one and who files what.</p>
         </div>
       </div>
 

@@ -1,0 +1,743 @@
+[
+{
+"en": "Giant Panda Breeding Base",
+"zh": "大熊猫繁育研究基地",
+"area": "Chenghua",
+"lat": 30.738,
+"lng": 104.145,
+"cat": "sights",
+"tags": [
+"pandas",
+"must",
+"morning"
+],
+"blurb": "The research base where pandas actually eat. Go at 8:30 opening — they sleep by 11.",
+"hrs": 3,
+"price": "¥55",
+"crowd": "Everyone",
+"best": "morning"
+},
+{
+"en": "Kuanzhai Alleys",
+"zh": "宽窄巷子",
+"area": "Qingyang",
+"lat": 30.664,
+"lng": 104.053,
+"cat": "sights",
+"tags": [
+"lanes",
+"qing dynasty",
+"tea house"
+],
+"blurb": "Three Qing-dynasty alleys of grey-brick courtyards — touristy at the gate, quiet in the side lanes.",
+"hrs": 2,
+"price": "Free",
+"crowd": "First-timers",
+"best": "morning"
+},
+{
+"en": "Jinli Old Street",
+"zh": "锦里",
+"area": "Wuhou",
+"lat": 30.644,
+"lng": 104.046,
+"cat": "sights",
+"tags": [
+"old street",
+"snacks",
+"lanterns"
+],
+"blurb": "A rebuilt Qing street of lanterns and snacks beside Wuhou Temple — best after dark.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Evening strollers",
+"best": "evening"
+},
+{
+"en": "Du Fu Thatched Cottage",
+"zh": "杜甫草堂",
+"area": "Qingyang",
+"lat": 30.66,
+"lng": 104.026,
+"cat": "sights",
+"tags": [
+"poet",
+"garden",
+"tang dynasty"
+],
+"blurb": "The thatched cottage where Tang poet Du Fu wrote 240 poems — now a bamboo-and-lotus garden.",
+"hrs": 2,
+"price": "¥50",
+"crowd": "Poetry + garden people",
+"best": "morning"
+},
+{
+"en": "Wuhou Shrine",
+"zh": "武侯祠",
+"area": "Wuhou",
+"lat": 30.645,
+"lng": 104.046,
+"cat": "sights",
+"tags": [
+"three kingdoms",
+"shrine",
+"cypress"
+],
+"blurb": "The shrine to Zhuge Liang among 1,500-year-old cypresses — the Three Kingdoms heartland.",
+"hrs": 2,
+"price": "¥50",
+"crowd": "History readers",
+"best": "morning"
+},
+{
+"en": "People's Park",
+"zh": "人民公园",
+"area": "Qingyang",
+"lat": 30.661,
+"lng": 104.055,
+"cat": "sights",
+"tags": [
+"tea house",
+"matchmaking",
+"ear cleaning"
+],
+"blurb": "The city's front porch — century-old tea house, ear-cleaning masters and the famous matchmaking corner.",
+"hrs": 2,
+"price": "Free (tea ¥20-30)",
+"crowd": "People watchers",
+"best": "afternoon"
+},
+{
+"en": "Wenshu Monastery",
+"zh": "文殊院",
+"area": "Qingyang",
+"lat": 30.674,
+"lng": 104.07,
+"cat": "sights",
+"tags": [
+"temple",
+"free",
+"vegetarian"
+],
+"blurb": "A Tang-dynasty chan temple with free incense, a tea courtyard and an excellent vegetarian kitchen.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Temple + tea",
+"best": "morning"
+},
+{
+"en": "Wangjiang Pavilion Park",
+"zh": "望江楼公园",
+"area": "Jinjiang",
+"lat": 30.6295,
+"lng": 104.0925,
+"cat": "sights",
+"tags": [
+"bamboo",
+"river",
+"poet"
+],
+"blurb": "A riverside park of 200 bamboo species dedicated to Tang poetess Xue Tao. Calm and local.",
+"hrs": 2,
+"price": "Free (tower ¥20)",
+"crowd": "Bamboo shade seekers",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Chen Mapo Tofu",
+"zh": "陈麻婆豆腐",
+"area": "Qingyang",
+"lat": 30.6627,
+"lng": 104.0342,
+"cat": "food",
+"tags": [
+"mapo tofu",
+"origin",
+"since 1862"
+],
+"blurb": "The house that invented mapo tofu in 1862 — order it at the source, then judge every copy.",
+"hrs": 1,
+"price": "¥50-80",
+"crowd": "Pilgrims of the dish",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Long Chao Shou",
+"zh": "龙抄手总店",
+"area": "Jinjiang",
+"lat": 30.657,
+"lng": 104.078,
+"cat": "food",
+"tags": [
+"wontons",
+"snack set",
+"old brand"
+],
+"blurb": "The 1941 wonton house — a set lunch of every Chengdu snack in miniature.",
+"hrs": 1,
+"price": "¥40-70",
+"crowd": "Snack samplers",
+"best": "lunch"
+},
+{
+"en": "Zhong Shuijiao",
+"zh": "钟水饺",
+"area": "Qingyang",
+"lat": 30.662,
+"lng": 104.058,
+"cat": "food",
+"tags": [
+"dumplings",
+"chilli oil",
+"old brand"
+],
+"blurb": "Dumplings in sweet chilli oil — no filling juice, all sauce craft, since 1890s.",
+"hrs": 1,
+"price": "¥20-40",
+"crowd": "Dumpling purists",
+"best": "afternoon"
+},
+{
+"en": "Mingting Restaurant",
+"zh": "明婷饭店",
+"area": "Jinniu",
+"lat": 30.6733,
+"lng": 104.0874,
+"cat": "food",
+"tags": [
+"cangying guanzi",
+"wok hei",
+"legend"
+],
+"blurb": "Chengdu's most famous fly restaurant — brain flower and mapo dishes from a street kitchen.",
+"hrs": 1,
+"price": "¥50-80",
+"crowd": "Offal + wok lovers",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Yutian Restaurant",
+"zh": "雨田饭店",
+"area": "Qingyang",
+"lat": 30.6584,
+"lng": 104.0817,
+"cat": "food",
+"tags": [
+"cangying guanzi",
+"braised",
+"local"
+],
+"blurb": "A home-cooking counter of burnt-rice pots and braised pork — the local lunch institution.",
+"hrs": 1,
+"price": "¥40-70",
+"crowd": "Lunch regulars",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Mao Jiao Huo La",
+"zh": "冒椒火辣",
+"area": "Qingyang",
+"lat": 30.668,
+"lng": 104.05,
+"cat": "food",
+"tags": [
+"bo bo chicken",
+"skewers",
+"queue"
+],
+"blurb": "Bobo chicken and cold skewers on Kuixinglou Street — the queue is the menu's proof.",
+"hrs": 1,
+"price": "¥50-90",
+"crowd": "Skewer fans",
+"best": "dinner"
+},
+{
+"en": "Chengdu Chike",
+"zh": "成都吃客",
+"area": "Jinjiang",
+"lat": 30.6679,
+"lng": 104.0551,
+"cat": "food",
+"tags": [
+"creative sichuan",
+"young",
+"loud"
+],
+"blurb": "Playful modern Sichuan — sugar-oil googly-eyes tofu and naked braised noodles. Loud and fun.",
+"hrs": 1,
+"price": "¥70-110",
+"crowd": "Creative Sichuan",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Ma Wang Zi",
+"zh": "马旺子",
+"area": "Jinjiang",
+"lat": 30.653,
+"lng": 104.076,
+"cat": "food",
+"tags": [
+"sichuan fine",
+"century recipe",
+"polished"
+],
+"blurb": "A century-old Meishan recipe house serving polished Sichuan classics — the refined end of the trip.",
+"hrs": 1,
+"price": "¥90-140",
+"crowd": "Refined Sichuan",
+"best": "dinner"
+},
+{
+"en": "Eastern Suburb Memory",
+"zh": "东郊记忆",
+"area": "Chenghua",
+"lat": 30.6687,
+"lng": 104.1229,
+"cat": "culture",
+"tags": [
+"factory",
+"music",
+"murals"
+],
+"blurb": "A 1950s radio factory turned music-and-art district — tanks, chimneys and indie venues.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Street art + live shows",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Chengdu Museum",
+"zh": "成都博物馆",
+"area": "Qingyang",
+"lat": 30.658,
+"lng": 104.061,
+"cat": "culture",
+"tags": [
+"museum",
+"free",
+"shu history"
+],
+"blurb": "Shu civilization to teahouse culture in a flagship building on Tianfu Square. Free with booking.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Context seekers",
+"best": "morning"
+},
+{
+"en": "Fang Suo Bookstore",
+"zh": "方所书店",
+"area": "Jinjiang",
+"lat": 30.649,
+"lng": 104.084,
+"cat": "culture",
+"tags": [
+"bookstore",
+"cavern",
+"design"
+],
+"blurb": "A cathedral-like bookstore under Taikoo Li — bunks of art books in dramatic concrete vaults.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Book browsers",
+"best": "afternoon"
+},
+{
+"en": "Luhu A4 Museum",
+"zh": "麓湖A4美术馆",
+"area": "Tianfu",
+"lat": 30.467,
+"lng": 104.08,
+"cat": "culture",
+"tags": [
+"contemporary",
+"lake",
+"serious shows"
+],
+"blurb": "A contemporary art island museum in the Luhu lake district — strong rotating shows.",
+"hrs": 2,
+"price": "¥60-100",
+"crowd": "Contemporary fans",
+"best": "afternoon"
+},
+{
+"en": "Xu Liaoyuan Museum",
+"zh": "许燎源现代设计博物馆",
+"area": "Longquanyi",
+"lat": 30.5825,
+"lng": 104.1565,
+"cat": "culture",
+"tags": [
+"design",
+"ceramics",
+"avant"
+],
+"blurb": "The designer's own museum of radical furniture and ceramics — a white box worth the ride.",
+"hrs": 2,
+"price": "¥30-50",
+"crowd": "Design nerds",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Sichuan Grand Theatre",
+"zh": "四川大剧院",
+"area": "Qingyang",
+"lat": 30.662,
+"lng": 104.062,
+"cat": "culture",
+"tags": [
+"theatre",
+"opera",
+"modern"
+],
+"blurb": "The province's flagship stage — Sichuan opera face-changing without the tourist trap setting.",
+"hrs": 2,
+"price": "¥100-380",
+"crowd": "Opera + theatre",
+"best": "evening"
+},
+{
+"en": "Tiexiangsi Water Street",
+"zh": "铁像寺水街",
+"area": "Wuhou",
+"lat": 30.5578,
+"lng": 104.0491,
+"cat": "culture",
+"tags": [
+"nunnery",
+"water street",
+"tea"
+],
+"blurb": "A rebuilt canal street around a nunnery — the local tea-and-mahjong evening, done gracefully.",
+"hrs": 2,
+"price": "Free (tea ¥30)",
+"crowd": "Tea + evening stroll",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Kuanzhai 1921 Courtyards",
+"zh": "宽窄巷子1921院子",
+"area": "Qingyang",
+"lat": 30.665,
+"lng": 104.052,
+"cat": "culture",
+"tags": [
+"courtyard",
+"exhibition",
+"quiet"
+],
+"blurb": "The quietest courtyards of Kuanzhai — rotating craft exhibitions without the main-lane crush.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Craft browsers",
+"best": "afternoon"
+},
+{
+"en": "Jiuyanqiao Bar Street",
+"zh": "九眼桥酒吧街",
+"area": "Jinjiang",
+"lat": 30.6418,
+"lng": 104.0841,
+"cat": "night",
+"tags": [
+"bar street",
+"riverside",
+"neon"
+],
+"blurb": "The riverside wall of neon bars — Chengdu's nightlife postcard, row after row along the Jinjiang.",
+"hrs": 3,
+"price": "¥70-150",
+"crowd": "Bar hoppers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Yulin Xiaoguan",
+"zh": "玉林路小酒馆",
+"area": "Wuhou",
+"lat": 30.622,
+"lng": 104.051,
+"cat": "night",
+"tags": [
+"folk song",
+"legend",
+"local"
+],
+"blurb": "The little bar of Zhao Lei's song 'Chengdu' — a pilgrimage, and still a real neighbourhood bar.",
+"hrs": 2,
+"price": "¥50-100",
+"crowd": "Song pilgrims",
+"best": "evening"
+},
+{
+"en": "Lan Gui Fang Chengdu",
+"zh": "兰桂坊成都",
+"area": "Jinjiang",
+"lat": 30.645,
+"lng": 104.085,
+"cat": "night",
+"tags": [
+"club district",
+"riverside",
+"international"
+],
+"blurb": "The riverside club quarter — international DJs, terrace lounges, and a younger crowd.",
+"hrs": 3,
+"price": "¥100-200",
+"crowd": "Club crowd",
+"best": "late",
+"geo_verified": true
+},
+{
+"en": "339 Tower Night Area",
+"zh": "339天府熊猫塔",
+"area": "Chenghua",
+"lat": 30.6623,
+"lng": 104.0946,
+"cat": "night",
+"tags": [
+"tower",
+"lights",
+"observation"
+],
+"blurb": "The panda-topped TV tower lit over the river — observation deck or just the riverside lights.",
+"hrs": 2,
+"price": "¥60-100 (deck)",
+"crowd": "View seekers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Kuixinglou Street",
+"zh": "奎星楼街",
+"area": "Qingyang",
+"lat": 30.668,
+"lng": 104.05,
+"cat": "night",
+"tags": [
+"snack street",
+"cafes",
+"local"
+],
+"blurb": "The foodiest little street in the centre — bobo chicken by day, craft bars by night.",
+"hrs": 2,
+"price": "¥40-100",
+"crowd": "Eat + drink crawls",
+"best": "evening"
+},
+{
+"en": "Jinli Night Walk",
+"zh": "锦里夜场",
+"area": "Wuhou",
+"lat": 30.6453,
+"lng": 104.0947,
+"cat": "night",
+"tags": [
+"lanterns",
+"old street",
+"snacks"
+],
+"blurb": "The lantern-lit old street after dark is a different place — go at 8 pm, not noon.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Atmosphere seekers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Tianfu Panda Tower Lights",
+"zh": "交子大道夜景",
+"area": "Tianfu",
+"lat": 30.5832,
+"lng": 104.055,
+"cat": "night",
+"tags": [
+"modern skyline",
+"light show",
+"twin towers"
+],
+"blurb": "The Jiaozi twin towers' light show over the financial district — new Chengdu at full volume.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Skyline watchers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Wenshufang Night Lanes",
+"zh": "文殊坊夜巷",
+"area": "Qingyang",
+"lat": 30.675,
+"lng": 104.071,
+"cat": "night",
+"tags": [
+"temple lanes",
+"quiet",
+"tea + bars"
+],
+"blurb": "The renovated lanes by Wenshu Monastery — tea houses sliding into low-lit bars after dark.",
+"hrs": 2,
+"price": "¥40-90",
+"crowd": "Quiet night walks",
+"best": "evening"
+},
+{
+"en": "Pengzhen Guanyin Tea House",
+"zh": "彭镇观音阁老茶馆",
+"area": "Shuangliu",
+"lat": 30.5832,
+"lng": 103.871,
+"cat": "hidden",
+"tags": [
+"century tea house",
+"photography",
+"smoky"
+],
+"blurb": "A smoky century-old tea house frozen in 1970 — photographers arrive at dawn, locals never left.",
+"hrs": 2,
+"price": "¥10-20 (tea)",
+"crowd": "Photographers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Anren Ancient Town",
+"zh": "安仁古镇",
+"area": "Dayi",
+"lat": 30.5042,
+"lng": 103.6251,
+"cat": "hidden",
+"tags": [
+"republic mansions",
+"museums",
+"old street"
+],
+"blurb": "27 Republic-era mansions and the Jianchuan Museum cluster — warlord-era Chengdu preserved.",
+"hrs": 5,
+"price": "¥60-100 (museum combo)",
+"crowd": "History deep-divers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Yuantong Ancient Town",
+"zh": "元通古镇",
+"area": "Chongzhou",
+"lat": 30.734,
+"lng": 103.6223,
+"cat": "hidden",
+"tags": [
+"riverside",
+"bridges",
+"untouristy"
+],
+"blurb": "Three rivers meet under Qing-dynasty arcades — a living town that never became a ticket gate.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Unrestored-town fans",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Xilai Ancient Town",
+"zh": "西来古镇",
+"area": "Pujiang",
+"lat": 30.3005,
+"lng": 103.5104,
+"cat": "hidden",
+"tags": [
+"banyan trees",
+"ming street",
+"slow"
+],
+"blurb": "Twelve 500-year-old banyans shade a Ming-dynasty main street by a slow river.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Tree + tea afternoons",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Pingyue Ancient Town",
+"zh": "平乐古镇",
+"area": "Qionglai",
+"lat": 30.3435,
+"lng": 103.3331,
+"cat": "hidden",
+"tags": [
+"water town",
+"bamboo rafts",
+"south silk road"
+],
+"blurb": "A South Silk Road river town — bamboo rafting, old bridges and the start of the tea-horse route.",
+"hrs": 4,
+"price": "Free",
+"crowd": "River town days",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Jiaguan Ancient Town",
+"zh": "夹关古镇",
+"area": "Qionglai",
+"lat": 30.2567,
+"lng": 103.2173,
+"cat": "hidden",
+"tags": [
+"bridges",
+"tea terraces",
+"deep cut"
+],
+"blurb": "Three Ming stone bridges over a green river, hemmed by tea terraces. Genuinely off the map.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Deep-cut explorers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Mingyue Village",
+"zh": "明月村",
+"area": "Pujiang",
+"lat": 30.764,
+"lng": 104.1168,
+"cat": "hidden",
+"tags": [
+"artist village",
+"pottery",
+"tea fields"
+],
+"blurb": "An artist-run village of pottery kilns and indigo dye studios among tea fields — Chengdu's craft escape.",
+"hrs": 4,
+"price": "Free (workshops ¥50+)",
+"crowd": "Craft participants",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Longquanshan Sunset Ridge",
+"zh": "龙泉山观日台",
+"area": "Jianyang",
+"lat": 30.5573,
+"lng": 104.307,
+"cat": "hidden",
+"tags": [
+"sunrise",
+"city view",
+"drive"
+],
+"blurb": "The ridge where all of Chengdu photographs its sunrise and sunset — a 40-minute drive from downtown.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Sunset chasers",
+"best": "sunset",
+"geo_verified": true
+}
+]

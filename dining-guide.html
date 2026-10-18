@@ -28,6 +28,7 @@
   <link rel="canonical" href="https://eventurus.cn/dining-guide.html">
 
 <meta name="description" content="How to eat well in China without the language. QR code ordering, twenty dishes with Chinese names, delivery apps, dietary needs, and restaurant etiquette.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <style>
 :root { --color-text:#2c2c2c; --color-muted: #676760; --color-brand: #5A6E55; --color-brand-light: #E3EFD5; --color-brand-dark: #4A5C46; --color-bg:#F9F9F9; --color-surface:#fff; --color-border:#E5E5E0; --color-highlight:#F1EFE8; --font-serif:'Playfair Display',Georgia,serif; --font-sans:'Inter',-apple-system,Helvetica,Arial,sans-serif; --radius:12px; --shadow:0 1px 3px rgba(0,0,0,0.06); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -213,6 +214,32 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
   </script>
 <link rel="stylesheet" href="assets/contact/contact-widget.css">
 <script defer src="https://stats.eventurus.cn/script.js" data-website-id="1a9d60d4-e50a-48cc-8532-43102b0f41aa"></script>
+<script>
+/* EVENTURUS: tag visits arriving from the WeChat Mini Program web-view.
+   Umami cannot separate these from normal WeChat browser traffic, so we
+   fire a custom event when a Mini Program environment is detected. */
+(function () {
+  try {
+    var isMp = (window.__wxjs_environment === 'miniprogram') ||
+               /miniProgram/i.test(navigator.userAgent || '') ||
+               /servicewechat\.com/i.test(location.href) ||
+               location.protocol === 'miniprogram:';
+    if (!isMp) return;
+    var m = (location.pathname || '').match(/([^\/]+)\.html$/);
+    var tool = m ? m[1] : 'index';
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      if (window.umami && typeof window.umami.track === 'function') {
+        clearInterval(t);
+        window.umami.track('miniprogram-view', { tool: tool });
+      } else if (tries > 25) {
+        clearInterval(t);
+      }
+    }, 200);
+  } catch (e) {}
+})();
+</script>
 
 <!-- SEO structured data + keywords -->
 <link rel="alternate" hreflang="en-GB" href="https://eventurus.cn/dining-guide.html">
@@ -254,6 +281,24 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 <div class="pull-quote">
   <blockquote>Chinese dining culture can feel overwhelming at first - QR codes instead of menus, a dozen dishes arriving at once, and the bill becoming a diplomatic negotiation. Once you understand the rhythm, it is one of the most rewarding parts of travel here.</blockquote>
 </div>
+<!-- geo:keyfacts --><style>
+.geo-kf{background:#F7F5F0;border:1px solid #E5E5E0;border-radius:10px;padding:18px 22px;margin:26px auto;max-width:900px;}
+.geo-kf p{margin:0 0 8px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8a8a80;}
+.geo-kf ul{margin:0;padding-left:18px;}
+.geo-kf li{font-size:14px;line-height:1.7;}
+</style>
+<div class="geo-kf">
+  <p>At a glance</p>
+  <ul>
+    <li>Most restaurants order by scanning a QR code at the table.</li>
+    <li>Dishes arrive as they are ready and are shared, rather than served in courses.</li>
+    <li>Tea is usually free; tap water is not brought unless you ask.</li>
+    <li>Spice level is often assumed, so say no chilli before the order goes in.</li>
+    <li>The bill is settled at the counter or by scanning a code at the table.</li>
+    <li>English menus exist in tourist areas and are rare outside them.</li>
+  </ul>
+</div>
+<!-- /geo:keyfacts -->
 
 <div style="text-align:center;padding:4px 0;color:var(--color-muted);font-size:14px;" aria-hidden="true">&bull; &bull; &bull;</div>
 

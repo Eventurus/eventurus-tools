@@ -1,0 +1,747 @@
+[
+{
+"en": "West Lake",
+"zh": "西湖",
+"area": "Xihu",
+"lat": 30.2646,
+"lng": 120.1386,
+"cat": "sights",
+"tags": [
+"unesco",
+"lake",
+"free"
+],
+"blurb": "The most painted lake in China — causeways, pagodas and willow banks, all free and all walkable.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Everyone",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Lingyin Temple",
+"zh": "灵隐寺",
+"area": "Xihu",
+"lat": 30.241,
+"lng": 120.097,
+"cat": "sights",
+"tags": [
+"buddhist",
+"grottoes",
+"incense"
+],
+"blurb": "A 1,700-year-old Chan temple under Feilai Peak's Buddha carvings — incense, grottoes and cicadas.",
+"hrs": 3,
+"price": "¥75 (park+temple)",
+"crowd": "Temple + carving fans",
+"best": "morning"
+},
+{
+"en": "Xixi Wetland",
+"zh": "西溪国家湿地公园",
+"area": "Xihu",
+"lat": 30.273,
+"lng": 120.062,
+"cat": "sights",
+"tags": [
+"wetland",
+"boat",
+"national park"
+],
+"blurb": "China's first national wetland park — boat channels, persimmon trees and village docks inside the city.",
+"hrs": 4,
+"price": "¥80 (boat inc.)",
+"crowd": "Nature + boat people",
+"best": "morning"
+},
+{
+"en": "Qinghefang Old Street",
+"zh": "清河坊",
+"area": "Shangcheng",
+"lat": 30.243,
+"lng": 120.166,
+"cat": "sights",
+"tags": [
+"old street",
+"medicine halls",
+"snacks"
+],
+"blurb": "A Song-dynasty commercial street of medicine halls and snack counters, under Wu Hill.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Snack + souvenir",
+"best": "afternoon"
+},
+{
+"en": "Grand Canal Gongchen Bridge",
+"zh": "京杭大运河拱宸桥",
+"area": "Gongshu",
+"lat": 30.327,
+"lng": 120.14,
+"cat": "sights",
+"tags": [
+"unesco",
+"canal",
+"bridge"
+],
+"blurb": "The southern terminus of the Grand Canal — a 400-year stone bridge over working barge traffic.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Canal walkers",
+"best": "afternoon"
+},
+{
+"en": "Longjing Village",
+"zh": "龙井村",
+"area": "Xihu",
+"lat": 30.222,
+"lng": 120.103,
+"cat": "sights",
+"tags": [
+"tea fields",
+"village",
+"tasting"
+],
+"blurb": "The original Dragon Well tea village — terraced fields, roasting sheds and farmhouse cups.",
+"hrs": 3,
+"price": "Free (tea ¥50+)",
+"crowd": "Tea drinkers",
+"best": "morning"
+},
+{
+"en": "Jiuxi Smoke Trees",
+"zh": "九溪烟树",
+"area": "Xihu",
+"lat": 30.211,
+"lng": 120.113,
+"cat": "sights",
+"tags": [
+"stream",
+"valley",
+"walk"
+],
+"blurb": "A stream-side walk of tea fields and smoke-trees — the quietest of the lake's valley walks.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Valley walkers",
+"best": "afternoon"
+},
+{
+"en": "Yunqi Bamboo Path",
+"zh": "云栖竹径",
+"area": "Xihu",
+"lat": 30.1906,
+"lng": 120.0897,
+"cat": "sights",
+"tags": [
+"bamboo",
+"path",
+"cool"
+],
+"blurb": "A stone path under a full bamboo canopy — the coolest kilometre in Hangzhou in summer.",
+"hrs": 2,
+"price": "¥8",
+"crowd": "Bamboo shade seekers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Lou Wai Lou",
+"zh": "楼外楼",
+"area": "Xihu",
+"lat": 30.252,
+"lng": 120.148,
+"cat": "food",
+"tags": [
+"west lake vinegar fish",
+"since 1848",
+"institution"
+],
+"blurb": "The 1848 lakeside house of West Lake vinegar fish and dongpo pork — a rite of passage.",
+"hrs": 2,
+"price": "¥120-200",
+"crowd": "Classic pilgrims",
+"best": "lunch"
+},
+{
+"en": "Zhiweiguan Weizhuang",
+"zh": "知味观味庄",
+"area": "Xihu",
+"lat": 30.235,
+"lng": 120.2357,
+"cat": "food",
+"tags": [
+"hangzhou classics",
+"garden",
+"yanggong di"
+],
+"blurb": "The refined Yanggong-di branch — dongpo pork andlotus-leaf dishes in a garden by the water.",
+"hrs": 2,
+"price": "¥100-160",
+"crowd": "Refined classics",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Longjing Caotang",
+"zh": "龙井草堂",
+"area": "Xihu",
+"lat": 30.225,
+"lng": 120.1163,
+"cat": "food",
+"tags": [
+"farm to table",
+"no menu",
+"high end"
+],
+"blurb": "A no-menu farm-to-table house beside the tea fields — the most serious dining room in Hangzhou.",
+"hrs": 2,
+"price": "¥500-700",
+"crowd": "Fine-dining pilgrims",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Kui Yuan Guan",
+"zh": "奎元馆",
+"area": "Gongshu",
+"lat": 30.2455,
+"lng": 120.2102,
+"cat": "food",
+"tags": [
+"shrimp eel noodles",
+"since 1867",
+"old brand"
+],
+"blurb": "The 1867 noodle house of shrimp-and-eel noodles — one bowl, 150 years of practice.",
+"hrs": 1,
+"price": "¥30-70",
+"crowd": "Noodle purists",
+"best": "lunch",
+"geo_verified": true
+},
+{
+"en": "Ju Ying Noodle",
+"zh": "菊英面店",
+"area": "Shangcheng",
+"lat": 30.24,
+"lng": 120.172,
+"cat": "food",
+"tags": [
+"pianerchuan",
+"single dish",
+"queue"
+],
+"blurb": "Pian'erchuan — bamboo shoot, pork and snow vegetable noodles — from a tiny, single-minded shop.",
+"hrs": 1,
+"price": "¥25-45",
+"crowd": "Noodle queue-ers",
+"best": "morning"
+},
+{
+"en": "Youbu Doujiang",
+"zh": "游埠豆浆",
+"area": "Shangcheng",
+"lat": 30.3265,
+"lng": 120.2471,
+"cat": "food",
+"tags": [
+"soy milk",
+"fried dough",
+"breakfast"
+],
+"blurb": "Salted soy milk and crisp youtiao at a jammed breakfast counter — Hangzhou's morning ritual.",
+"hrs": 1,
+"price": "¥10-20",
+"crowd": "Breakfast regulars",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Laotouer Youbaoxia",
+"zh": "老头儿油爆虾",
+"area": "Shangcheng",
+"lat": 30.2974,
+"lng": 120.1545,
+"cat": "food",
+"tags": [
+"oil fried shrimp",
+"local chain",
+"classic"
+],
+"blurb": "Oil-burst river shrimp and braised eel — the local Hangzhou flavours, done louder and better.",
+"hrs": 1,
+"price": "¥70-110",
+"crowd": "Shrimp fans",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "Fuyuanju",
+"zh": "福缘居",
+"area": "Shangcheng",
+"lat": 30.239,
+"lng": 120.1766,
+"cat": "food",
+"tags": [
+"hangbang cangying",
+"home-style",
+"hidden"
+],
+"blurb": "A hidden hangbang fly-restaurant — braised dishes and oil-fried shrimp at neighbourhood prices.",
+"hrs": 1,
+"price": "¥50-90",
+"crowd": "In-the-know eaters",
+"best": "dinner",
+"geo_verified": true
+},
+{
+"en": "China Academy of Art Nanshan",
+"zh": "中国美院南山校区",
+"area": "Shangcheng",
+"lat": 30.243,
+"lng": 120.1604,
+"cat": "culture",
+"tags": [
+"art school",
+"wang shu",
+"architecture"
+],
+"blurb": "Wang Shu's Pritzker buildings along West Lake's south edge — the campus is the exhibition.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Architecture fans",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Zhejiang Art Museum",
+"zh": "浙江美术馆",
+"area": "Shangcheng",
+"lat": 30.231,
+"lng": 120.1569,
+"cat": "culture",
+"tags": [
+"art museum",
+"free",
+"ink"
+],
+"blurb": "The provincial museum of ink and modern art, lakeside under Wu Hill. Free with booking.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Ink + modern",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "China Silk Museum",
+"zh": "中国丝绸博物馆",
+"area": "Xihu",
+"lat": 30.2229,
+"lng": 120.1513,
+"cat": "culture",
+"tags": [
+"silk",
+"free",
+"textiles"
+],
+"blurb": "The world's largest silk museum — looms, conservation ateliers and 5,000 years of thread. Free.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Textile + history",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "China National Tea Museum",
+"zh": "中国茶叶博物馆",
+"area": "Xihu",
+"lat": 30.2322,
+"lng": 120.1208,
+"cat": "culture",
+"tags": [
+"tea",
+"free",
+"longjing"
+],
+"blurb": "Everything about tea, set inside the Longjing fields themselves. Free, and you leave thirsty.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Tea students",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Liangzhu Museum",
+"zh": "良渚博物院",
+"area": "Yuhang",
+"lat": 30.3774,
+"lng": 120.028,
+"cat": "culture",
+"tags": [
+"5,000 years",
+"jade",
+"unesco"
+],
+"blurb": "The jade-and-city story of a 5,000-year civilization — David Chipperfield galleries in wetlands.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Deep history",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "OōEli Tianmuli",
+"zh": "天目里",
+"area": "Xihu",
+"lat": 30.2664,
+"lng": 120.0994,
+"cat": "culture",
+"tags": [
+"renzo piano",
+"design",
+"by art"
+],
+"blurb": "Renzo Piano's apple-crate campus —By Art museum, bookshop and the city's design crowd.",
+"hrs": 2,
+"price": "Free (museum ¥60+)",
+"crowd": "Design crowd",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Da Ding Roof",
+"zh": "大屋顶书馆",
+"area": "Yuhang",
+"lat": 30.3651,
+"lng": 120.0322,
+"cat": "culture",
+"tags": [
+"library",
+"cherry trees",
+"calm"
+],
+"blurb": "A quiet concrete library beside Liangzhu's cherry rows — the reading room worth the metro ride.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Readers",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Qiaoxi Heritage Blocks",
+"zh": "桥西历史街区",
+"area": "Gongshu",
+"lat": 30.3168,
+"lng": 120.1378,
+"cat": "culture",
+"tags": [
+"canal houses",
+"craft museums",
+"free"
+],
+"blurb": "Canal-side houses with knife, umbrella and fan museums — the Grand Canal's craft memory.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Craft browsers",
+"best": "afternoon",
+"geo_verified": true
+},
+{
+"en": "Nanshan Road Bars",
+"zh": "南山路",
+"area": "Shangcheng",
+"lat": 30.237,
+"lng": 120.149,
+"cat": "night",
+"tags": [
+"bar street",
+"tree lit",
+"lake edge"
+],
+"blurb": "The lake-edge avenue that turns into a lit bar corridor after dark — the classic Hangzhou night.",
+"hrs": 2,
+"price": "¥70-150",
+"crowd": "Bar crawlers",
+"best": "evening"
+},
+{
+"en": "Wushan Night Market",
+"zh": "吴山夜市",
+"area": "Shangcheng",
+"lat": 30.2529,
+"lng": 120.1688,
+"cat": "night",
+"tags": [
+"bazaar",
+"bargains",
+"local"
+],
+"blurb": "The old-school bazaar of phone cases, socks and skewers — unglamorous and completely local.",
+"hrs": 1,
+"price": "¥20-80",
+"crowd": "Bazaar hunters",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Wulin Night Market",
+"zh": "武林夜市",
+"area": "Gongshu",
+"lat": 30.2616,
+"lng": 120.1596,
+"cat": "night",
+"tags": [
+"night market",
+"crafts",
+"central"
+],
+"blurb": "The central night market lane — crafts, snacks and people, five minutes from West Lake's north.",
+"hrs": 1,
+"price": "¥20-60",
+"crowd": "Central strollers",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Shengli River Food Street",
+"zh": "胜利河美食街",
+"area": "Gongshu",
+"lat": 30.296,
+"lng": 120.144,
+"cat": "night",
+"tags": [
+"food street",
+"crayfish",
+"bbq"
+],
+"blurb": "The dedicated food street under lantern rows — crayfish, BBQ and beer in wholesale quantities.",
+"hrs": 2,
+"price": "¥60-120",
+"crowd": "Serious eaters",
+"best": "evening"
+},
+{
+"en": "Grand Canal Night Cruise",
+"zh": "运河夜游",
+"area": "Gongshu",
+"lat": 30.2745,
+"lng": 120.1645,
+"cat": "night",
+"tags": [
+"boat",
+"lit banks",
+"cheap"
+],
+"blurb": "A cheap evening boat down the lit canal — bridges, barges and bankside tea houses sliding past.",
+"hrs": 1,
+"price": "¥3-100",
+"crowd": "Boat riders",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Hubin in77 Night",
+"zh": "湖滨in77",
+"area": "Shangcheng",
+"lat": 30.248,
+"lng": 120.163,
+"cat": "night",
+"tags": [
+"mall quarter",
+"fountain",
+"busy"
+],
+"blurb": "The lakefront retail quarter where the evening crowd gathers — fountain shows and street energy.",
+"hrs": 2,
+"price": "¥60-150",
+"crowd": "Evening crowds",
+"best": "evening"
+},
+{
+"en": "Qingzhiwu",
+"zh": "青芝坞",
+"area": "Xihu",
+"lat": 30.2581,
+"lng": 120.1214,
+"cat": "night",
+"tags": [
+"village lanes",
+"cafes",
+"near zhejiang uni"
+],
+"blurb": "A village lane of cafes and small restaurants by the university — young, cheap and pleasant.",
+"hrs": 2,
+"price": "¥50-100",
+"crowd": "Student crowd",
+"best": "evening",
+"geo_verified": true
+},
+{
+"en": "Qianjiang New City Lights",
+"zh": "钱江新城灯光秀",
+"area": "Shangcheng",
+"lat": 30.25,
+"lng": 120.21,
+"cat": "night",
+"tags": [
+"light show",
+"modern",
+"free"
+],
+"blurb": "The CBD towers run a coordinated light show over the river plaza — new Hangzhou after dark.",
+"hrs": 1,
+"price": "Free",
+"crowd": "Light show watchers",
+"best": "evening"
+},
+{
+"en": "Maojiabu",
+"zh": "茅家埠",
+"area": "Xihu",
+"lat": 30.238,
+"lng": 120.121,
+"cat": "hidden",
+"tags": [
+"west lake quiet",
+"reeds",
+"free"
+],
+"blurb": "West Lake's quiet upper corner — reed banks, causeways and tea houses without tour groups.",
+"hrs": 2,
+"price": "Free",
+"crowd": "Lake refuges",
+"best": "morning"
+},
+{
+"en": "Tangqi Ancient Town",
+"zh": "塘栖古镇",
+"area": "Linping",
+"lat": 30.4777,
+"lng": 120.1826,
+"cat": "hidden",
+"tags": [
+"canal town",
+"covered bridge",
+"loquats"
+],
+"blurb": "A canal town under one long covered bridge — loquat season (May) is the local festival.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Canal day trippers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Jingshan Temple",
+"zh": "径山寺",
+"area": "Yuhang",
+"lat": 30.3798,
+"lng": 119.7652,
+"cat": "hidden",
+"tags": [
+"chan temple",
+"tea origin",
+"mountain"
+],
+"blurb": "The mountain temple whose tea ceremony seeded the Japanese one — mist, cedars and quiet halls.",
+"hrs": 3,
+"price": "¥30",
+"crowd": "Tea + temple",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Shen'ao Ancient Village",
+"zh": "深澳古村",
+"area": "Tonglu",
+"lat": 29.8512,
+"lng": 119.8392,
+"cat": "hidden",
+"tags": [
+"ming water system",
+"halls",
+"undiscovered"
+],
+"blurb": "A Ming village engineered around an underground water grid —申屠 halls and almost no tourists.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Village deep-divers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Huantan Village",
+"zh": "欢潭村",
+"area": "Xiaoshan",
+"lat": 29.9544,
+"lng": 120.3102,
+"cat": "hidden",
+"tags": [
+"yue fei history",
+"white walls",
+"restored"
+],
+"blurb": "A restored village of white-walled courtyards named for Yue Fei's troops' welcome well.",
+"hrs": 3,
+"price": "Free",
+"crowd": "Village wanderers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Xianghu Lake",
+"zh": "湘湖",
+"area": "Xiaoshan",
+"lat": 30.128,
+"lng": 120.222,
+"cat": "hidden",
+"tags": [
+"sister lake",
+"quieter",
+"boats"
+],
+"blurb": "West Lake's quieter sister across the river — same water beauty, a tenth of the people.",
+"hrs": 3,
+"price": "Free (boat ¥40+)",
+"crowd": "Lake refusers of crowds",
+"best": "morning"
+},
+{
+"en": "Longmen Ancient Town",
+"zh": "龙门古镇",
+"area": "Fuyang",
+"lat": 29.9008,
+"lng": 119.9509,
+"cat": "hidden",
+"tags": [
+"sun clan",
+"maze lanes",
+"ming"
+],
+"blurb": "A Ming clan town of the Sun family — maze lanes, ballroom-sized halls and three thousand relatives.",
+"hrs": 4,
+"price": "¥60",
+"crowd": "Maze explorers",
+"best": "morning",
+"geo_verified": true
+},
+{
+"en": "Zhinan Village",
+"zh": "指南村",
+"area": "Lin'an",
+"lat": 30.243,
+"lng": 119.572,
+"cat": "hidden",
+"tags": [
+"autumn ginkgo",
+"terraces",
+"mountain"
+],
+"blurb": "A terraced mountain village famous for its November reds and golds — the autumn pilgrimage site.",
+"hrs": 4,
+"price": "Free",
+"crowd": "Autumn photographers",
+"best": "morning"
+}
+]
