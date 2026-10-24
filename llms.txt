@@ -23,6 +23,9 @@
 - [Where to Stay in Wuzhen](https://eventurus.cn/where-to-stay-wuzhen.html): Inside the gates or outside, four bases with ticket and re-entry rules and the transfer from Tongxiang station.
 - [Where to Stay in Moganshan](https://eventurus.cn/where-to-stay-moganshan.html): Yucun, the mountaintop villas, Laoling, Fatou and Deqing town, with transfer rules, tickets and rail times.
 - [Where to Stay in Anji](https://eventurus.cn/where-to-stay-anji.html): Dipu, Lingfeng, Tianhuangping, Shanchuan and Baofu, with rail times, where a car is needed and resort rates.
+- [Where to Stay in Chengdu](https://eventurus.cn/where-to-stay-chengdu.html): Five areas compared for first visits, courtyard stays and the panda reserve, with the Tianfu-versus-Shuangliu airport difference priced. Line 18 fares and the 24-hour airport bus.
+- [Where to Stay in Chongqing](https://eventurus.cn/where-to-stay-chongqing.html): Five areas across the peninsula and both banks, including which metro line crosses which river, Line 10 and Line 3 from Jiangbei airport, and the hillside-lift reality of a city built in layers.
+- [Where to Stay in Xi'an](https://eventurus.cn/where-to-stay-xian.html): Inside the Ming walls or outside them, five areas with Metro Line 2 access, Line 14 from Xianyang airport, and the difference between the Bell Tower and the South Gate.
 - [Hotel Booking for Foreigners](https://eventurus.cn/tools/accommodation-guide.html): Which Chinese hotels accept foreign guests and what to check before paying.
 
 ## Transport
@@ -33,11 +36,13 @@
 - [China Train Seat Guide](https://eventurus.cn/train-guide.html): Second, first and business class, hard and soft sleeper, compared.
 - [Metro and Subway Guide](https://eventurus.cn/metro-guide.html): Payment, city apps and operating hours on Chinese metro systems.
 - [Didi and Taxi Guide](https://eventurus.cn/didi-guide.html): Didi without Chinese, car types, fares and driver phrases.
+- [E-Bike Rental in China](https://eventurus.cn/ebike-rental-china.html): What a foreign visitor may legally ride: the 25 km/h line between an electric bicycle and a motorcycle, licences, plates, helmet fines and rental rates from Yangshuo to Shanghai. Verified October 2026 against published standards and provincial rules.
 
 ## Money and connectivity
 
 - [China Tax Refund for Tourists](https://eventurus.cn/china-tax-refund.html): Departure VAT refund: 200 yuan minimum per shop per day, 11 per cent headline rate less about 2 per cent agency fee, 90 days to leave, airport steps and instant refund.
 - [WeChat Pay and Alipay Guide](https://eventurus.cn/payment-guide.html): Mobile payments from download to first scan, including foreign card linking.
+- [TenPayGo: WeChat Pay for Visitors](https://eventurus.cn/tenpaygo.html): WeChat Pay's standalone app for short-term visitors, from sign-up and card linking to the limits that apply.
 - [Get Online in China: eSIM and SIM](https://eventurus.cn/internet-guide.html): eSIMs bought before arrival against airport SIM counters, and what works behind the firewall.
 - [Essential Apps for China](https://eventurus.cn/essential-apps.html): What to install before landing: WeChat, Alipay, Didi, Meituan, Trip.com.
 
@@ -60,6 +65,10 @@
 ## Planning
 
 - [China Travel Tools](https://eventurus.cn/): The full tool index: transit matrix, visa checker, weather guide, phrase cards.
+- [Beijing in 3 Days](https://eventurus.cn/beijing-3day-itinerary.html): A first-trip route through the Palace Museum, the hutongs and one day on the Wall, with booking priorities and pacing.
+- [Shanghai in 3 Days](https://eventurus.cn/shanghai-3day-itinerary.html): The old city, the Bund and the former French Concession in three days, with museum timing and alternatives.
+- [Day Trips from Beijing](https://eventurus.cn/day-trips-beijing.html): The Great Wall, Summer Palace, Ming Tombs, Gubei Water Town and Tianjin, compared by pace and transport.
+- [Day Trips from Shanghai](https://eventurus.cn/day-trips-shanghai.html): Suzhou, Hangzhou, Zhujiajiao and Qibao, compared by door-to-door effort and booking needs.
 - [Trip Planner](https://eventurus.cn/trip-planner.html): Destinations by interest, season and trip length.
 - [China City Season and Weather Guide](https://eventurus.cn/city-season.html): Best season for 35+ cities, with monthly temperature, rainfall and AQI.
 - [China Public Holidays](https://eventurus.cn/china-holidays.html): Holiday calendar through 2029, with the official 2026 schedule.

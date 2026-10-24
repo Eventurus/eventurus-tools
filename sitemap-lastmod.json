@@ -1,91 +1,115 @@
 {
   "accommodation-registration.html": {
-    "date": "2026-10-18",
-    "sha": "bfeb971cf2249938"
+    "date": "2026-10-23",
+    "sha": "1e0ed71397f7dccf"
   },
   "airport-transport.html": {
-    "date": "2026-10-18",
-    "sha": "7877ac110499cada"
+    "date": "2026-10-23",
+    "sha": "5c9b578d352ab258"
+  },
+  "answers.html": {
+    "date": "2026-10-21",
+    "sha": "0d9036b391fd5668"
   },
   "beijing-3day-itinerary.html": {
-    "date": "2026-10-18",
-    "sha": "ec1d77fd172b5051"
+    "date": "2026-10-23",
+    "sha": "61009936f83aa2b4"
+  },
+  "booking-attractions-china.html": {
+    "date": "2026-10-21",
+    "sha": "96ea4c0334d7d939"
   },
   "china-holidays.html": {
     "date": "2026-09-29",
     "sha": "5465d4da590069fe"
   },
   "china-markets.html": {
-    "date": "2026-10-18",
-    "sha": "ead1af79d8e3e61d"
+    "date": "2026-10-23",
+    "sha": "f7ceb7288217e7c3"
   },
   "china-souvenirs.html": {
-    "date": "2026-10-18",
-    "sha": "27db6cb532beb282"
+    "date": "2026-10-23",
+    "sha": "d398e3b4fe702650"
   },
   "china-tax-refund.html": {
-    "date": "2026-10-18",
-    "sha": "cfd799ec9c60d878"
+    "date": "2026-10-23",
+    "sha": "e45173ad3617b467"
   },
   "chinese-cards.html": {
     "date": "2026-10-18",
     "sha": "211e684dcec7f065"
+  },
+  "chongqing.html": {
+    "date": "2026-10-23",
+    "sha": "954150e3554817b5"
   },
   "city-season.html": {
     "date": "2026-10-18",
     "sha": "34b7fd0f467ca98d"
   },
   "day-trips-beijing.html": {
-    "date": "2026-10-18",
-    "sha": "b187949a8e38d5f8"
+    "date": "2026-10-23",
+    "sha": "1a7f5094a625cb95"
   },
   "day-trips-shanghai.html": {
-    "date": "2026-10-18",
-    "sha": "91162ff8d55ae558"
+    "date": "2026-10-23",
+    "sha": "f80b70ca0ee3875f"
   },
   "didi-guide.html": {
-    "date": "2026-10-18",
-    "sha": "a735a6a9ad6a41fa"
+    "date": "2026-10-23",
+    "sha": "3959e9e865bf9641"
   },
   "dining-guide.html": {
-    "date": "2026-10-18",
-    "sha": "49bcd211aed8de21"
+    "date": "2026-10-23",
+    "sha": "9d96780258ea25c4"
+  },
+  "ebike-rental-china.html": {
+    "date": "2026-10-21",
+    "sha": "d100ff498579a178"
   },
   "emergency-guide.html": {
-    "date": "2026-10-18",
-    "sha": "7a35ceb41ef49d02"
+    "date": "2026-10-23",
+    "sha": "691359d073ac835c"
   },
   "entry-requirements.html": {
     "date": "2026-10-18",
     "sha": "b9eaf1abef4f801e"
   },
   "essential-apps.html": {
-    "date": "2026-10-18",
-    "sha": "123c8cee130f18d5"
+    "date": "2026-10-23",
+    "sha": "871be9897776b8dd"
   },
   "first-weekend-shanghai.html": {
     "date": "2026-09-29",
     "sha": "4dfb742cad2de161"
   },
   "food-delivery-guide.html": {
-    "date": "2026-10-17",
-    "sha": "3fcf2c8c635ddfd0"
+    "date": "2026-10-23",
+    "sha": "96a4a835460285ea"
   },
   "great-wall-guide.html": {
-    "date": "2026-10-18",
-    "sha": "9981596c36a3c412"
+    "date": "2026-10-23",
+    "sha": "0e0c0dff5f03d362"
   },
   "hospital-guide.html": {
-    "date": "2026-10-18",
-    "sha": "3dffb3d523e74d2c"
+    "date": "2026-10-23",
+    "sha": "ea11048fa71fc3e4"
+  },
+  "how-long-each-city.html": {
+    "date": "2026-10-21",
+    "sha": "1ccee19e7c848138"
   },
   "index.html": {
-    "date": "2026-10-18",
-    "sha": "fb65b1e3ae0367c8"
+    "date": "2026-10-23",
+    "sha": "f0d0711749bb1ce5"
   },
   "internet-guide.html": {
-    "date": "2026-10-18",
-    "sha": "ca3465994e670f28"
+    "date": "2026-10-23",
+    "sha": "05a9385903a90c12"
+  },
+  "layover-china.html": {
+    "date": "2026-10-23",
+    "sha": "26feccd587e0d0c5"
   },
   "menu-translator.html": {
     "date": "2026-10-18",
@@ -104,32 +128,32 @@
     "sha": "036a3bedff43b1e8"
   },
   "must-do.html": {
-    "date": "2026-10-18",
-    "sha": "2cfa767822a66dd2"
+    "date": "2026-10-23",
+    "sha": "48c2b0b5361615e4"
   },
   "must-go.html": {
     "date": "2026-09-29",
     "sha": "4872da8029e711c3"
   },
   "packing-checklist.html": {
-    "date": "2026-10-18",
-    "sha": "ac85385a4afcb6fb"
+    "date": "2026-10-23",
+    "sha": "f71612da44174ee8"
   },
   "payment-guide.html": {
-    "date": "2026-10-18",
-    "sha": "309d9054b54f870c"
+    "date": "2026-10-23",
+    "sha": "3adb7ac16c77a8e1"
   },
   "shanghai-3day-itinerary.html": {
-    "date": "2026-10-18",
-    "sha": "6db38b8cdc2da9b7"
+    "date": "2026-10-23",
+    "sha": "46b961c1c44cf24c"
   },
   "shopping-guide.html": {
-    "date": "2026-10-18",
-    "sha": "9a2a1a4f767536fd"
+    "date": "2026-10-23",
+    "sha": "ede40c62d017a3b3"
   },
   "tenpaygo.html": {
-    "date": "2026-10-18",
-    "sha": "292ad51e262c9b5c"
+    "date": "2026-10-23",
+    "sha": "cd5f4f8e4ddba5c4"
   },
   "tools/accommodation-guide.html": {
     "date": "2026-09-29",
@@ -148,8 +172,8 @@
     "sha": "0ba7f721b0529268"
   },
   "transit-matrix.html": {
-    "date": "2026-10-18",
-    "sha": "87fcdb448563a3e8"
+    "date": "2026-10-23",
+    "sha": "d11673d158e9a4f0"
   },
   "trip-planner.html": {
     "date": "2026-09-05",
@@ -160,39 +184,55 @@
     "sha": "3ff36831cdd14627"
   },
   "visa-free-guide.html": {
-    "date": "2026-10-18",
-    "sha": "6a4c1f5d8da99c78"
+    "date": "2026-10-23",
+    "sha": "f13d91fb206490c8"
+  },
+  "what-a-trip-costs.html": {
+    "date": "2026-10-21",
+    "sha": "ac6e84a8e67bff99"
   },
   "where-to-stay-anji.html": {
-    "date": "2026-10-18",
-    "sha": "81646a5fe21a8a61"
+    "date": "2026-10-23",
+    "sha": "0ccbb8497762ece3"
   },
   "where-to-stay-beijing.html": {
-    "date": "2026-10-18",
-    "sha": "a483f71045e382d2"
+    "date": "2026-10-23",
+    "sha": "5b741e575b14a5d7"
+  },
+  "where-to-stay-chengdu.html": {
+    "date": "2026-10-21",
+    "sha": "c7369609549ac9c1"
+  },
+  "where-to-stay-chongqing.html": {
+    "date": "2026-10-21",
+    "sha": "855b8343167b2296"
   },
   "where-to-stay-hangzhou.html": {
-    "date": "2026-10-18",
-    "sha": "2759233bb78e4553"
+    "date": "2026-10-23",
+    "sha": "0fbd449d116490a1"
   },
   "where-to-stay-moganshan.html": {
-    "date": "2026-10-18",
-    "sha": "7537d76775e85a08"
+    "date": "2026-10-23",
+    "sha": "fce344aadeb83199"
   },
   "where-to-stay-shanghai.html": {
-    "date": "2026-10-18",
-    "sha": "659048de984bb3f8"
+    "date": "2026-10-23",
+    "sha": "ff86acfa17f939fd"
   },
   "where-to-stay-suzhou.html": {
-    "date": "2026-10-18",
-    "sha": "878ec83247f4dd11"
+    "date": "2026-10-23",
+    "sha": "c0a8264029575f14"
   },
   "where-to-stay-wuzhen.html": {
-    "date": "2026-10-18",
-    "sha": "38a3767291eb582a"
+    "date": "2026-10-23",
+    "sha": "f0e541633bd89d4d"
+  },
+  "where-to-stay-xian.html": {
+    "date": "2026-10-21",
+    "sha": "e5e5dc9cf8042cac"
   },
   "where-to-stay.html": {
-    "date": "2026-10-18",
-    "sha": "2ef2cd331861cb12"
+    "date": "2026-10-23",
+    "sha": "2482fb14f63c81c2"
   }
 }

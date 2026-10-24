@@ -322,6 +322,57 @@ img{max-width:100%}
 }
 .feature-link span{color:var(--gold);font-size:13px}
 
+/* New & updated strip — 一行三条，作为四张卡下方的"最近更新"入口。
+   刻意做得比 feature-card 轻：卡片是"先开哪个"，这里只是"又有什么新的"。 */
+.new-strip{
+  margin-top:26px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:148px minmax(0,1fr);
+  gap:22px;
+  align-items:start;
+}
+.new-strip-label{
+  color:var(--gold);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding-top:5px;
+}
+.new-list{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+}
+.new-item{
+  display:block;
+  padding:0 22px;
+  border-left:1px solid var(--line);
+  text-decoration:none;
+  transition:color .18s ease;
+}
+.new-item:first-child{padding-left:0;border-left:none}
+.new-item:last-child{padding-right:0}
+.new-item .new-title{
+  display:block;
+  font-family:var(--serif);
+  font-size:17px;
+  font-weight:600;
+  line-height:1.32;
+  letter-spacing:-.005em;
+  color:var(--ink);
+}
+.new-item .new-desc{
+  display:block;
+  margin-top:5px;
+  font-size:12.5px;
+  line-height:1.55;
+  color:var(--muted);
+}
+.new-item:hover .new-title{color:var(--green)}
+
 /* Sticky category rail */
 .index-nav{
   position:sticky;
@@ -480,6 +531,10 @@ img{max-width:100%}
   .hero-intro{max-width:520px}
   .hero-panel{min-height:260px}
   .tool-section{grid-template-columns:210px minmax(0,1fr);gap:32px}
+  .new-strip{grid-template-columns:1fr;gap:14px}
+  .new-list{grid-template-columns:1fr;gap:12px}
+  .new-item{padding:12px 0 0;border-left:none;border-top:1px solid var(--line)}
+  .new-item:first-child{padding-top:0;border-top:none}
 }
 
 /* Mobile */
@@ -813,7 +868,7 @@ img{max-width:100%}
 <span class="label">START HERE</span>
 <h2>The four we would open first.</h2>
 </div>
-<p>The fastest routes through the questions most travellers hit before or just after arrival.</p>
+<p>One for the entry question, one for everything else, one for the money, one for the first meal.</p>
 </div>
 <div class="feature-grid">
 <a class="feature-card feature-1" href="visa-checker.html">
@@ -834,37 +889,37 @@ img{max-width:100%}
 </div>
 <div class="feature-link">Open tool <span>↗</span></div>
 </a>
-<a class="feature-card feature-2" href="moving-shanghai.html">
+<a class="feature-card feature-2" href="answers.html">
 <div class="feature-meta">
 <span>02</span>
-<span>Move to China</span>
+<span>Ask Anything</span>
 </div>
 <div class="feature-content">
 <div aria-hidden="true" class="feature-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
-<path d="M5 20V9l5-3v14M10 20V4l5 2v14M15 20v-8l4-2v10"></path>
-<path d="M7 12h1M7 15h1M12 8h1M12 11h1M12 14h1M17 14h.1M17 17h.1"></path>
+<path d="M5 5.5h14v10H9l-4 3z"></path>
+<path d="M9.6 9.2a1.9 1.9 0 1 1 2.6 1.8c-.5.2-.7.6-.7 1.1v.3"></path>
+<path d="M11.5 14.1h.01"></path>
 </svg></div>
-<h3>Moving to Shanghai: Your First Week</h3>
-<p>A relocation guide for your first seven days. SIM card, police registration, bank account, groceries and transport.</p>
+<h3>Answers, Before You Ask</h3>
+<p>Every question we have answered on this site, in one place: 184 of them, grouped by what you are trying to do.</p>
 </div>
-<div class="feature-link">Open tool <span>↗</span></div>
+<div class="feature-link">Open the answers <span>&#8599;</span></div>
 </a>
-<a class="feature-card feature-3" href="transit-matrix.html">
+<a class="feature-card feature-3" href="what-a-trip-costs.html">
 <div class="feature-meta">
 <span>03</span>
-<span>Getting Around</span>
+<span>Budget</span>
 </div>
 <div class="feature-content">
 <div aria-hidden="true" class="feature-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
-<path d="M4 7h12l4 5-4 5H4z"></path>
-<path d="M8 7l3 10M13 7l3 10"></path>
-<circle cx="8" cy="17.5" r="1.2"></circle>
-<circle cx="16" cy="17.5" r="1.2"></circle>
+<circle cx="12" cy="12" r="7.8"></circle>
+<path d="M9.4 8.6l2.6 3.4 2.6-3.4"></path>
+<path d="M12 12v4.2M9.8 13.4h4.4"></path>
 </svg></div>
-<h3>China City Transit Matrix</h3>
-<p>Compare HSR and flights between 20 cities. Times, prices and distances at a glance.</p>
+<h3>What a Trip to China Costs</h3>
+<p>Day, hotel, meal and transport costs, then what a whole trip comes to and what people quietly under-budget.</p>
 </div>
-<div class="feature-link">Open tool <span>↗</span></div>
+<div class="feature-link">Open the costs <span>&#8599;</span></div>
 </a>
 <a class="feature-card feature-4" href="menu-translator.html">
 <div class="feature-meta">
@@ -883,6 +938,23 @@ img{max-width:100%}
 <div class="feature-link">Open tool <span>↗</span></div>
 </a>
 </div>
+<div class="new-strip">
+<span class="new-strip-label">New &amp; updated</span>
+<div class="new-list">
+<a class="new-item" href="chongqing.html">
+<span class="new-title">Chongqing City Guide</span>
+<span class="new-desc">Two or three nights, and where the night views are.</span>
+</a>
+<a class="new-item" href="layover-china.html">
+<span class="new-title">Layovers &amp; Transit Stops</span>
+<span class="new-desc">Whether a connection is long enough to leave the airport.</span>
+</a>
+<a class="new-item" href="how-long-each-city.html">
+<span class="new-title">How Many Days in Each City</span>
+<span class="new-desc">Ten, fourteen and sixteen-day shapes, and what the trains allow.</span>
+</a>
+</div>
+</div>
 </div>
 </section>
 <nav aria-label="Tool categories" class="index-nav">
@@ -895,6 +967,18 @@ img{max-width:100%}
 <div class="section-heading">
 <h2>Planning &amp; Entry</h2></div>
 <div class="section-list">
+<a class="tool-row" href="answers.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 5.5h14v10H9l-4 3z"></path>
+<path d="M9.6 9.2a1.9 1.9 0 1 1 2.6 1.8c-.5.2-.7.6-.7 1.1v.3"></path>
+<path d="M11.5 14.1h.01"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Answers, Before You Ask</h3>
+<p>Every question we have answered on this site, in one place: 184 of them, grouped by what you are trying to do.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
 <a class="tool-row" href="visa-checker.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
 <path d="M7 3.5h8.5L19 7v13.5H7z"></path>
@@ -982,6 +1066,19 @@ img{max-width:100%}
 <div class="section-heading">
 <h2>Getting Around</h2></div>
 <div class="section-list">
+<a class="tool-row" href="ebike-rental-china.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<circle cx="6" cy="17" r="3"></circle>
+<circle cx="18" cy="17" r="3"></circle>
+<path d="M6 17l4-6h5l2 6"></path>
+<path d="M9 8h4M15 11l3-3"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>E-Bike Rental in China</h3>
+<p>The 25 km/h line between an e-bike and a motorcycle, plus rates from Yangshuo to Shanghai.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
 <a class="tool-row" href="transit-matrix.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
 <path d="M4 7h12l4 5-4 5H4z"></path>
@@ -1030,6 +1127,17 @@ img{max-width:100%}
 <p>Taxi, metro and shuttle prices from 27 major airports to the city centre.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="layover-china.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="7.6"></circle>
+<path d="M12 7.6V12l3.1 1.9"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Layovers &amp; Transit Stops</h3>
+<p>How long a connection needs to be before leaving the airport is a reasonable idea.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
 </a>
 <a class="tool-row" href="metro-guide.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
@@ -1122,6 +1230,17 @@ img{max-width:100%}
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
 </a>
+<a class="tool-row" href="first-weekend-shanghai.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M12 20s6-5.1 6-10.2A6 6 0 0 0 6 9.8C6 14.9 12 20 12 20z"></path>
+<circle cx="12" cy="9.8" r="2.1"></circle>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Your First Weekend in Shanghai</h3>
+<p>SIM, Alipay, Didi and Meituan on arrival, then the Bund, one dinner and one breakfast worth planning around.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
 <a class="tool-row" href="day-trips-shanghai.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
 <path d="M12 20s6-5.1 6-10.2A6 6 0 0 0 6 9.8C6 14.9 12 20 12 20z"/>
@@ -1144,6 +1263,114 @@ img{max-width:100%}
 <p>Jing'an, People's Square, the former French Concession, the Bund and Pudong - compared on transport, atmosphere and trade-offs.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="where-to-stay-chengdu.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"/>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"/>
+<path d="M10.5 20v-3h3v3M3.5 20h17"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Chengdu</h3>
+<p>Chunxi Road, Tianfu Square, Kuanzhai Alley, Wuhou and Eastern Suburb Memory - compared on metro access, food on foot and rate.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="chongqing.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M12 20s6-5.1 6-10.2A6 6 0 0 0 6 9.8C6 14.9 12 20 12 20z"></path>
+<circle cx="12" cy="9.8" r="2.1"></circle>
+<path d="M3.5 20.5h17"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Chongqing City Guide</h3>
+<p>Two or three nights, where the night views actually are, and how the hills and the metro work.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="where-to-stay-chongqing.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"/>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"/>
+<path d="M10.5 20v-3h3v3M3.5 20h17"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Chongqing</h3>
+<p>Jiefangbei, Guanyinqiao, Jiangbeizui, Nanbin Road and Ciqikou - compared for a city of levels, lifts and river crossings.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="where-to-stay-xian.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"/>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"/>
+<path d="M10.5 20v-3h3v3M3.5 20h17"/>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Xi'an</h3>
+<p>Bell Tower, South Gate, Dayanta, North Station and the hi-tech zone - inside the walls and out, compared.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="where-to-stay-hangzhou.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"></path>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"></path>
+<path d="M10.5 20v-3h3v3M3.5 20h17"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Hangzhou</h3>
+<p>Hubin, Nanshan Road, Wulin Square, Qiantang New City, Longjing and Gongchen Bridge - six bases compared.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="where-to-stay-suzhou.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"></path>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"></path>
+<path d="M10.5 20v-3h3v3M3.5 20h17"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Suzhou</h3>
+<p>Pingjiang Road, Guanqian Street, the west canals, SIP and Tongli - five bases, and which station to book.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="where-to-stay-anji.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"></path>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"></path>
+<path d="M10.5 20v-3h3v3M3.5 20h17"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Anji</h3>
+<p>Dipu, Lingfeng, Tianhuangping, Shanchuan and Baofu - five bases, in a county with limited rail.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="where-to-stay-moganshan.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"></path>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"></path>
+<path d="M10.5 20v-3h3v3M3.5 20h17"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Moganshan</h3>
+<p>Yucun, the mountaintop, Laoling, Fatou and Deqing town - five bases, and why the address decides the trip.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="where-to-stay-wuzhen.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M5 20V6h14v14"></path>
+<path d="M8 9h2v2H8zM14 9h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z"></path>
+<path d="M10.5 20v-3h3v3M3.5 20h17"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Where to Stay in Wuzhen</h3>
+<p>Inside Xizha, inside Dongzha, outside the west gate and Tongxiang - four bases, plus what the ticket covers.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
 </a>
 <a class="tool-row" href="great-wall-guide.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
@@ -1231,6 +1458,40 @@ img{max-width:100%}
 <p>Pick your city, trip length, and interests. We'll suggest a route with transport times and highlights.</p>
 </div>
 <div aria-hidden="true" class="tool-row-arrow">↗</div>
+</a>
+<a class="tool-row" href="how-long-each-city.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="8.2"></circle>
+<path d="M12 7.4V12l3.1 1.9"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>How Many Days in Each City</h3>
+<p>Ten, fourteen and sixteen-day shapes for the same cities, and the train times that decide how many bases you can hold.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="what-a-trip-costs.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="7.8"></circle>
+<path d="M9.4 8.6l2.6 3.4 2.6-3.4"></path>
+<path d="M12 12v4.2M9.8 13.4h4.4"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>What a Trip to China Costs</h3>
+<p>Day, hotel, meal and transport costs by city, what a whole trip comes to, and what people quietly under-budget.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
+</a>
+<a class="tool-row" href="booking-attractions-china.html">
+<div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">
+<path d="M4.5 9h15v6h-15z"></path>
+<path d="M9.2 9v6M14.8 9v6"></path>
+</svg></div>
+<div class="tool-row-copy">
+<h3>Booking Attractions on a Passport</h3>
+<p>Palace Museum, Tiananmen, the Great Wall and the Terracotta Warriors - which tickets need a passport and how far ahead.</p>
+</div>
+<div aria-hidden="true" class="tool-row-arrow">&#8599;</div>
 </a>
 <a class="tool-row" href="must-go.html">
 <div aria-hidden="true" class="tool-row-icon"><svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24">

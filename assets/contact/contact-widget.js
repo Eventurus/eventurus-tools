@@ -34,6 +34,14 @@
       insert: { selector: "#gridView", position: "after" },
       sticky: "scroll"
     },
+    "ebike-rental-china.html": {
+      group: "transport",
+      intent: "follow",
+      title: "Keep the e-bike guide handy.",
+      body: "Follow Eventurus for updates to China transport guides and practical travel tools.",
+      insert: { heading: "If the police stop you", position: "before-heading" },
+      sticky: "scroll"
+    },
     "train-guide.html": {
       group: "transport",
       intent: "follow",
@@ -325,6 +333,22 @@
       insert: { heading: "By trip type", position: "before-heading" },
       sticky: "scroll"
     },
+    "where-to-stay-chengdu.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves in Chengdu. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      insert: { selector: "#areas-at-a-glance", position: "after" }
+    },
+    "where-to-stay-chongqing.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves in Chongqing. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      insert: { selector: "#areas-at-a-glance", position: "after" }
+    },
     "where-to-stay-hangzhou.html": {
       group: "accommodation",
       intent: "follow",
@@ -365,6 +389,14 @@
       insert: { heading: "How do you get to Wuzhen?", position: "before-heading" },
       sticky: "scroll"
     },
+    "where-to-stay-xian.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves in Xi'an. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      insert: { selector: "#areas-at-a-glance", position: "after" }
+    },
     "moving-shanghai.html": {
       group: "planning",
       intent: "follow",
@@ -372,6 +404,91 @@
       body: "Follow Eventurus for updates to this guide and practical notes on living in China.",
       insert: { heading: "Build a usable daily routine", position: "before-heading" },
       sticky: "scroll"
+    },
+
+    "answers.html": {
+      group: "planning",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: the questions people ask us most, answered properly, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    /* 2026-10-21 · Reddit 选题三页。key 是**部署后的文件名**，
+       ship.json 里的目标名必须与此处一致，否则卡片静默不出现。 */
+    "how-long-each-city.html": {
+      group: "planning",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves in the cities above. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      remove: ".cta",
+      insert: { selector: ".footer", position: "before" },
+      /* 读完正文处的第二张卡，样式与西安/成都/重庆三页完全同一个组件。
+         口径是订阅，不带关键词——所以按钮会自动压掉弹窗里的 Stays 那行。 */
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, hotel shortlists, and the practical detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "booking-attractions-china.html": {
+      group: "planning",
+      intent: "follow",
+      title: "These steps change without notice.",
+      body: "Follow Eventurus in WeChat and we will send the updates, along with the other China travel tools we publish.",
+      remove: ".cta",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: what to book before you fly, what changed this month, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "what-a-trip-costs.html": {
+      group: "planning",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves, city by city. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      remove: ".cta",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: what things actually cost, where the money goes, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    /* 2026-10-23 · 重庆城市页与中转页。key 必须是部署后的文件名。 */
+    "chongqing.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Our hotel shortlist, on request",
+      body: "A short, vetted list of hotels we would book ourselves in Chongqing. Follow Eventurus in WeChat and send the single word Stays to get it.",
+      keyword: "Stays",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, the questions people ask us most, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "layover-china.html": {
+      group: "transport",
+      intent: "follow",
+      title: "The rules change without notice.",
+      body: "Follow Eventurus in WeChat and we will send the updates to the transit rules, along with the other China travel tools we publish.",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: what to do with a long connection, what changed this month, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
     }
   };
 
@@ -390,9 +507,31 @@
   buildHeaderButton();
   removeLegacyCta();
   var contentCta = mountContentCta();
+  mountFollowCta();
   buildFooterContact();
   buildSticky(contentCta);
   observeImpression(contentCta);
+  wireStaticTriggers();
+
+  /* Static buttons written into the page markup, as opposed to the ones this
+     script creates. They carry data-evt-open-wechat and open the same dialog,
+     so an editor can put a CTA in a specific paragraph without a config entry.
+     Add data-evt-skip-keyword when the button asks to follow for editorial
+     reasons rather than for the keyword reward — otherwise the dialog promises
+     a keyword the reader never asked for. */
+  function wireStaticTriggers() {
+    document.addEventListener("click", function (event) {
+      var trigger = event.target && event.target.closest
+        ? event.target.closest("[data-evt-open-wechat]")
+        : null;
+      if (!trigger) return;
+      event.preventDefault();
+      openWechat(
+        trigger.getAttribute("data-evt-open-wechat") || "inline",
+        { skipKeyword: trigger.hasAttribute("data-evt-skip-keyword") }
+      );
+    });
+  }
 
   function readSession(key) {
     try { return window.sessionStorage.getItem(key); }
@@ -419,7 +558,7 @@
     };
   }
 
-  function button(label, style, placement) {
+  function button(label, style, placement, opts) {
     var el = document.createElement("button");
     el.type = "button";
     el.className = "evt-button" + (style === "secondary" ? " evt-button--secondary" : "");
@@ -430,7 +569,7 @@
     el.setAttribute("data-umami-event-group", config.group);
     el.setAttribute("data-umami-event-placement", placement);
     el.addEventListener("click", function () {
-      openWechat(placement);
+      openWechat(placement, opts);
     });
     return el;
   }
@@ -444,7 +583,10 @@
     bar.appendChild(ask);
   }
 
-  function createContentCta(placement) {
+  /* `source` 让同一套卡片样式可以承载第二段文案（见 mountFollowCta）。
+     不传时就是 config 自己，行为与旧版完全一致。 */
+  function createContentCta(placement, source) {
+    var cfg = source || config;
     var card = document.createElement("aside");
     card.className = "evt-widget evt-content-cta";
     card.setAttribute("aria-label", "Continue with Eventurus");
@@ -454,30 +596,72 @@
     copy.className = "evt-content-cta__copy";
     var title = document.createElement("h2");
     title.className = "evt-content-cta__title";
-    title.textContent = config.title;
+    title.textContent = cfg.title;
     var body = document.createElement("p");
     body.className = "evt-content-cta__body";
-    body.textContent = config.body;
+    body.textContent = cfg.body;
     copy.appendChild(title);
     copy.appendChild(body);
 
     var actions = document.createElement("div");
     actions.className = "evt-content-cta__actions";
-    actions.appendChild(button("Follow on WeChat", "primary", placement));
+    actions.appendChild(
+      button("Follow on WeChat", "primary", placement, cfg.skipKeyword ? { skipKeyword: true } : null)
+    );
 
     card.appendChild(copy);
     card.appendChild(actions);
     return card;
   }
 
+  /* 一页第二张卡：只请人关注，不承诺关键词。
+     西安 / 成都 / 重庆三页挂的就是这个卡片组件，这里不新造样式，
+     只是允许同一页再声明一张 followCta。 */
+  function mountFollowCta() {
+    var follow = config.followCta;
+    if (!follow) return null;
+    var card = createContentCta("follow", {
+      title: follow.title,
+      body: follow.body,
+      skipKeyword: follow.skipKeyword !== false
+    });
+    if (follow.insert) applyInsertRule(card, follow.insert);
+    fallbackMount(card);
+    return card;
+  }
+
+  function fallbackMount(card) {
+    if (card.parentNode) return;
+    /* 2026-10-21 · 锚点不存在时，卡片此前会静默消失：不报错、不占位、不 404，
+       页面看起来只是「少了一块」。退一档到页脚之前，再退到主内容末尾，最后才退到 body。
+       页面改版换了 id 也不会把 CTA 弄丢。 */
+    var foot = document.querySelector(".site-footer, .footer");
+    if (foot) {
+      foot.insertAdjacentElement("beforebegin", card);
+    } else {
+      var host = document.querySelector("main, #main-content");
+      (host || document.body).appendChild(card);
+    }
+  }
+
   function mountContentCta() {
     var card = createContentCta("content");
-    var rule = config.insert;
+    applyInsertRule(card, config.insert);
+    fallbackMount(card);
+    return card;
+  }
+
+  function applyInsertRule(card, rule) {
     if (!rule) return card;
 
     if (rule.position === "after") {
       var afterTarget = document.querySelector(rule.selector);
       if (afterTarget) afterTarget.insertAdjacentElement("afterend", card);
+    }
+
+    if (rule.position === "before") {
+      var beforeTarget = document.querySelector(rule.selector);
+      if (beforeTarget) beforeTarget.insertAdjacentElement("beforebegin", card);
     }
 
     if (rule.position === "before-actions") {
@@ -575,9 +759,14 @@
     wechat.id = "evt-wechat-dialog";
     wechat.className = "evt-widget evt-dialog";
     wechat.setAttribute("aria-labelledby", "evt-wechat-title");
+    var keywordNote = config.keyword
+      ? '<p class="evt-dialog__intro" data-keyword-note><strong>' +
+        (config.keywordNote || 'Then send the single word ' + config.keyword + ' to get the shortlist.') +
+        '</strong></p>'
+      : '';
     wechat.innerHTML = '<div class="evt-dialog__inner">' +
       '<div class="evt-dialog__top"><div><h2 class="evt-dialog__title" id="evt-wechat-title">Follow Eventurus in WeChat</h2>' +
-      '<p class="evt-dialog__intro">Get practical China travel information and updates when new tools are published.</p></div>' +
+      '<p class="evt-dialog__intro">Get practical China travel information and updates when new tools are published.</p>' + keywordNote + '</div>' +
       '<button type="button" class="evt-dialog__close" data-close-dialog>Close</button></div>' +
       '<div class="evt-wechat-layout"><img class="evt-qr" src="assets/contact/wechat-official.jpg" alt="Eventurus WeChat Official Account QR code">' +
       '<div><h3>Eventurus</h3><p>Scan with WeChat. On mobile, long-press to save the code first.</p>' +
@@ -596,9 +785,12 @@
     });
   }
 
-  function openWechat(placement) {
+  function openWechat(placement, opts) {
     var dialog = document.getElementById("evt-wechat-dialog");
     if (!dialog) return;
+    // 关键词附注只在「为了拿清单而来」的按钮上出现；纯订阅入口不该承诺关键词。
+    var note = dialog.querySelector("[data-keyword-note]");
+    if (note) note.style.display = opts && opts.skipKeyword ? "none" : "";
     if (typeof dialog.showModal === "function") dialog.showModal();
     else dialog.setAttribute("open", "");
     track("qr-reveal", eventData(placement, "wechat-official"));
