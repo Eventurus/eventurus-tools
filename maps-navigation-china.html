@@ -16,8 +16,10 @@
 <meta property="og:image" content="https://eventurus.cn/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maps in China: what works, and what Google will not tell you">
 <meta name="twitter:image" content="https://eventurus.cn/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Maps in China: what works, and what Google will not tell you">
 <meta name="twitter:title" content="Maps in China: What Works, and What Google Will Not Tell You - EVENTURUS">
 <meta name="twitter:description" content="Why Google Maps is thin here, which two apps to install, how to move saved places across, how to search in English and how Chinese addresses are written.">
 <link rel="canonical" href="https://eventurus.cn/maps-navigation-china.html">
@@ -135,6 +137,18 @@ div.section[id] { scroll-margin-top:16px; }
   .map-jump { gap:6px; }
   .map-jump a { font-size:12px; padding:5px 11px; }
 }
+@media (max-width:600px) {
+  /* one swipeable row of anchors, 44px targets, edge to edge */
+  .map-jump { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding:0 0 12px;
+              -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .map-jump::-webkit-scrollbar { display:none; }
+  .map-jump a { flex:0 0 auto; min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; font-size:12.5px; }
+}
+@media (max-width:767px) {
+  .evt-widget.evt-sticky { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  body.evt-sticky-visible #backToTop { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+  body.evt-sticky-visible .footer { padding-bottom: 96px; }
+}
 @media print {
   .map-jump { display:none; }
   .map-err, .faq-item { break-inside:avoid; }
@@ -198,7 +212,87 @@ div.section[id] { scroll-margin-top:16px; }
         "@type": "Thing",
         "name": "Navigation apps in mainland China"
       },
-      "keywords": "amap, gaode, baidu maps, apple maps china, google maps china, chinese address format, navigation app china"
+      "keywords": "amap, gaode, baidu maps, apple maps china, google maps china, chinese address format, navigation app china",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Mainland China"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Travellers and residents who need navigation in mainland China"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.news.cn/tech/20260710/06e4623285254897898e6d86ff612b9f/c.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.autonavi.com/"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Maps in China: sections on this page",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The short answer",
+          "url": "https://eventurus.cn/maps-navigation-china.html#answer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Why Google is thin here",
+          "url": "https://eventurus.cn/maps-navigation-china.html#why"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What to install",
+          "url": "https://eventurus.cn/maps-navigation-china.html#install"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Getting your saved places across",
+          "url": "https://eventurus.cn/maps-navigation-china.html#transfer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Searching in English",
+          "url": "https://eventurus.cn/maps-navigation-china.html#search"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Addresses, written the Chinese way",
+          "url": "https://eventurus.cn/maps-navigation-china.html#address"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "On foot, in transit, in a taxi",
+          "url": "https://eventurus.cn/maps-navigation-china.html#modes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "When it says it cannot find you",
+          "url": "https://eventurus.cn/maps-navigation-china.html#locate"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Frequently Asked Questions",
+          "url": "https://eventurus.cn/maps-navigation-china.html#faq"
+        }
+      ]
     }
   ]
 }
@@ -295,9 +389,14 @@ div.section[id] { scroll-margin-top:16px; }
   <h2>The short answer</h2>
   <p class="sub">Install two apps before you fly. Neither is Google.</p>
 
-  <div class="highlight-box">
-    <strong>Amap</strong> for getting from A to B: navigation, transit, live traffic, restaurants and ride-hailing. It has an English interface, and English place names in many cities.<br>
-    <strong>Apple Maps</strong> as the second opinion. In mainland China it draws on the same data Amap uses, and the interface is already English.
+    <div class="info-card">
+    <ul>
+      <li><strong>What works</strong> &mdash; Amap (高德地图) and Apple Maps are the two that work for navigation in mainland China; Google Maps is thin, dated and offset.</li>
+      <li><strong>Why Google is thin</strong> &mdash; Published mapping data in China uses the GCJ-02 coordinate system, so international pins land 50 to 500 metres from the door, whatever the connection.</li>
+      <li><strong>Searching</strong> &mdash; Paste the Chinese name rather than the English label; pinyin resolves famous sites such as Tiananmen and rarely resolves a restaurant.</li>
+      <li><strong>Addresses</strong> &mdash; A Chinese address runs big to small: province, district, road, building number, then floor and room.</li>
+      <li><strong>When it loses you</strong> &mdash; Location permission set to always, background refresh on, and an offline city map downloaded before arrival solve most of it.</li>
+    </ul>
   </div>
 
   <p>That pair covers almost everything. Baidu Maps is the other serious option and is more Chinese-first; Tencent Maps lives inside WeChat and is fine for a shared location, less good as a daily driver.</p>
@@ -538,7 +637,7 @@ div.section[id] { scroll-margin-top:16px; }
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="essential-apps.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Essential Apps for China</span><span class="rel-desc">What to install before landing</span></span></a><a class="rel-item" href="internet-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Get Online in China</span><span class="rel-desc">eSIMs, SIM cards and what works</span></span></a><a class="rel-item" href="didi-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Didi and Taxi Guide</span><span class="rel-desc">Ride-hailing without Chinese</span></span></a><a class="rel-item" href="metro-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Metro and Subway Guide</span><span class="rel-desc">Payment, city apps and exit letters</span></span></a><a class="rel-item" href="food-delivery-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Food Delivery Guide</span><span class="rel-desc">Addresses that riders can find</span></span></a><a class="rel-item" href="answers.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Answers, Before You Ask</span><span class="rel-desc">184 questions, answered in a sentence or two</span></span></a></div></div>
 
 <div class="section" style="padding-top:8px;">
-  <p style="font-size:13px;line-height:1.7;color:var(--evt-muted);font-style:italic;">Compiled 2 November 2026 from Xinhua's report on the English build of AMAP, the app listings for Amap, Baidu Maps and Apple Maps, and the coordinate-system notices that govern published mapping data in mainland China. Interface features change with releases; check the app you install.</p>
+  <p style="font-size:13px;line-height:1.7;color:var(--evt-muted);font-style:italic;">Verified 2 November 2026 against Xinhua's July 2026 report on the English build of AMAP and the app listings for Amap, Baidu Maps and Apple Maps, and compiled from the same, the app listings for Amap, Baidu Maps and Apple Maps, and the coordinate-system notices that govern published mapping data in mainland China. Interface features change with releases; check the app you install.</p>
 </div>
 
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated November 2026</div>

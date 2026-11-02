@@ -16,8 +16,10 @@
 <meta property="og:image" content="https://eventurus.cn/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Where to stay in Guangzhou: six areas compared">
 <meta name="twitter:image" content="https://eventurus.cn/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Where to stay in Guangzhou: six areas compared">
 <meta name="twitter:title" content="Where to Stay in Guangzhou: 6 Areas Compared - EVENTURUS">
 <meta name="twitter:description" content="Zhujiang New Town, Tianhe, Yuexiu, Shamian, Pazhou and the airport, compared by rates, metro access and Canton Fair dates.">
 <link rel="canonical" href="https://eventurus.cn/where-to-stay-guangzhou.html">
@@ -135,6 +137,18 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 /* page-scoped: guangzhou */
 div.section[id] { scroll-margin-top:16px; }
 .gzh-note { font-size:12px; color:var(--color-muted); margin:8px 0 0; }
+@media (max-width:600px) {
+  /* one swipeable row of anchors, 44px targets, edge to edge */
+  .gzh-jump { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding:0 0 12px;
+              -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .gzh-jump::-webkit-scrollbar { display:none; }
+  .gzh-jump a { flex:0 0 auto; min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; font-size:12.5px; }
+}
+@media (max-width:767px) {
+  .evt-widget.evt-sticky { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  body.evt-sticky-visible #backToTop { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+  body.evt-sticky-visible .footer { padding-bottom: 96px; }
+}
 @media print {
   .faq-item { break-inside:avoid; }
 }
@@ -201,7 +215,73 @@ div.section[id] { scroll-margin-top:16px; }
           "@type": "Country",
           "name": "China"
         }
-      }
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Guangzhou, Guangdong, China"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Business travellers, Canton Fair buyers and first-time visitors to Guangzhou"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.cantonfair.org.cn/"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.gzmtr.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.gbiac.net/"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Where to stay in Guangzhou: sections on this page",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "What is the best area to stay in Guangzhou?",
+          "url": "https://eventurus.cn/where-to-stay-guangzhou.html#answer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The areas at a glance",
+          "url": "https://eventurus.cn/where-to-stay-guangzhou.html#areas"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Canton Fair: the dates that move the whole city",
+          "url": "https://eventurus.cn/where-to-stay-guangzhou.html#fair"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Which area suits which trip",
+          "url": "https://eventurus.cn/where-to-stay-guangzhou.html#trips"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Booking practicalities",
+          "url": "https://eventurus.cn/where-to-stay-guangzhou.html#booking"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Frequently Asked Questions",
+          "url": "https://eventurus.cn/where-to-stay-guangzhou.html#faq"
+        }
+      ]
     }
   ]
 }
@@ -299,12 +379,12 @@ div.section[id] { scroll-margin-top:16px; }
   <div class="info-card">
     <h3>Pick by the trip, not by the map</h3>
     <ul>
-      <li><strong>First visit:</strong> Zhujiang New Town, the CBD east of the old city. Line 3, Line 5 and the APM all serve it.</li>
+      <li><strong>First visit:</strong> Zhujiang New Town, the CBD east of the old city, where Line 3 and Line 5 meet and the riverfront is on foot.</li>
       <li><strong>Old city and food:</strong> Yuexiu, around Beijing Road and Gongyuanqian, where Lines 1 and 2 cross.</li>
-      <li><strong>Shopping:</strong> Tianhe, with Tiyu Xilu as the busiest interchange in the city.</li>
+      <li><strong>Shopping:</strong> Tianhe, with Tiyu Xilu as the busiest interchange in Guangzhou.</li>
       <li><strong>Quiet and architecture:</strong> Liwan, around Shamian Island and the Xiguan lanes.</li>
-      <li><strong>Canton Fair:</strong> Pazhou, on Line 8, walking distance from the complex.</li>
-      <li><strong>Early flight:</strong> the airport area, 45 to 60 minutes from the centre.</li>
+      <li><strong>Canton Fair:</strong> Pazhou on Line 8, walking distance from the Canton Fair Complex.</li>
+      <li><strong>Early flight:</strong> The Baiyun airport area, 45 to 60 minutes from the centre.</li>
     </ul>
   </div>
   <div class="highlight-box"><strong>Rule of thumb:</strong> Guangzhou is large and the metro is fast. Two changes cost 15 minutes; a bad location costs an hour a day.</div>
@@ -550,7 +630,7 @@ div.section[id] { scroll-margin-top:16px; }
 
 <div style="text-align:center;padding:4px 0;color:var(--color-muted);font-size:14px;" aria-hidden="true">&bull; &bull; &bull;</div>
 
-<div class="method"><strong>How this guide was compiled.</strong> Compiled in November 2026 from the Canton Fair's published phase dates, Guangzhou Metro's station timetables, airport transport information and published room rates for a standard double. Prices are indicative ranges, not quotations, and exclude booking-site fees. Journey times are door to door in normal traffic; the evening peak adds ten to twenty minutes between the CBD and the old city.</div>
+<div class="method"><strong>How this guide was compiled.</strong> Verified 2 November 2026 against the Canton Fair's published phase dates, Guangzhou Metro's station timetables, airport transport information and published room rates for a standard double. Prices are indicative ranges, not quotations, and exclude booking-site fees. Journey times are door to door in normal traffic; the evening peak adds ten to twenty minutes between the CBD and the old city.</div>
 <p class="uplink">Part of <a href="where-to-stay.html">the Where to Stay guide</a>, alongside <a href="where-to-stay-shenzhen.html">Shenzhen</a>.</p>
 
 <div style="text-align:center;padding:4px 0;color:var(--color-muted);font-size:14px;" aria-hidden="true">&bull; &bull; &bull;</div>

@@ -489,6 +489,67 @@
         body: "We publish daily China travel inspiration and recommendations: what to do with a long connection, what changed this month, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
         insert: { selector: ".related-tools", position: "before" }
       }
+    },
+    /* 2026-11-02 · five pages: zhangjiajie, scams, guangzhou, shenzhen, maps */
+    "zhangjiajie.html": {
+      group: "destinations",
+      intent: "follow",
+      title: "Ticket rules move with the season.",
+      body: "Follow Eventurus in WeChat and we will send the Zhangjiajie ticket, cableway and shuttle changes, along with the other China travel tools we publish.",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, what things actually cost, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "scams-guide.html": {
+      group: "safety",
+      intent: "follow",
+      title: "The complaint routes change by city.",
+      body: "Follow Eventurus in WeChat and we will send updates to the 12315 and 12345 routes, along with the other China travel tools we publish.",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, what things actually cost, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "where-to-stay-guangzhou.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Rates move with the fair calendar.",
+      body: "Follow Eventurus in WeChat and we will send the Canton Fair phase dates and the hotel-rate windows around them, along with the other China travel tools we publish.",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, what things actually cost, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "where-to-stay-shenzhen.html": {
+      group: "accommodation",
+      intent: "follow",
+      title: "Border hours change quietly.",
+      body: "Follow Eventurus in WeChat and we will send the port-hour changes and the other China travel tools we publish.",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, what things actually cost, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
+    },
+    "maps-navigation-china.html": {
+      group: "apps",
+      intent: "follow",
+      title: "The apps change their English support quietly.",
+      body: "Follow Eventurus in WeChat and we will send the map-app changes we notice, along with the other China travel tools we publish.",
+      insert: { selector: ".footer", position: "before" },
+      followCta: {
+        title: "More where this came from.",
+        body: "We publish daily China travel inspiration and recommendations: city guides, what things actually cost, and the detail the guidebooks leave out. Follow Eventurus in WeChat and it arrives without you going looking for it.",
+        insert: { selector: ".related-tools", position: "before" }
+      }
     }
   };
 

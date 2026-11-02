@@ -16,8 +16,10 @@
 <meta property="og:image" content="https://eventurus.cn/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zhangjiajie: how many days, and which park you actually want">
 <meta name="twitter:image" content="https://eventurus.cn/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Zhangjiajie: how many days, and which park you actually want">
 <meta name="twitter:title" content="Zhangjiajie: How Many Days, and Which Park You Want - EVENTURUS">
 <meta name="twitter:description" content="Zhangjiajie in two, three or four days: Wulingyuan against Tianmen Mountain, what the four-day ticket covers, how to arrive and where to sleep.">
 <link rel="canonical" href="https://eventurus.cn/zhangjiajie.html">
@@ -137,6 +139,18 @@ div.section[id] { scroll-margin-top:16px; }
   .zjj-jump { gap:6px; }
   .zjj-jump a { font-size:12px; padding:5px 11px; }
 }
+@media (max-width:600px) {
+  /* one swipeable row of anchors, 44px targets, edge to edge */
+  .zjj-jump { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding:0 0 12px;
+              -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .zjj-jump::-webkit-scrollbar { display:none; }
+  .zjj-jump a { flex:0 0 auto; min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; font-size:12.5px; }
+}
+@media (max-width:767px) {
+  .evt-widget.evt-sticky { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  body.evt-sticky-visible #backToTop { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+  body.evt-sticky-visible .footer { padding-bottom: 96px; }
+}
 @media print {
   .zjj-jump { display:none; }
   .zjj-err, .faq-item { break-inside:avoid; }
@@ -204,7 +218,91 @@ div.section[id] { scroll-margin-top:16px; }
           "name": "China"
         }
       },
-      "keywords": "zhangjiajie, how many days in zhangjiajie, wulingyuan, tianmen mountain, bailong elevator, avatar mountains, zhangjiajie itinerary"
+      "keywords": "zhangjiajie, how many days in zhangjiajie, wulingyuan, tianmen mountain, bailong elevator, avatar mountains, zhangjiajie itinerary",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Zhangjiajie, Hunan, China"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Independent travellers planning a first or second trip to China"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "url": "http://www.hnzjj.com/index.php/Ticket/show/2.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.12306.cn/en/index.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://peoplerail.com/newszb/html/2026-09/03/content_3_67795.htm"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Zhangjiajie: sections on this page",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The short answer",
+          "url": "https://eventurus.cn/zhangjiajie.html#answer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Two parks, not one",
+          "url": "https://eventurus.cn/zhangjiajie.html#parks"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How the ticket and the shuttle work",
+          "url": "https://eventurus.cn/zhangjiajie.html#tickets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Three days, in order",
+          "url": "https://eventurus.cn/zhangjiajie.html#three"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Two days, or four",
+          "url": "https://eventurus.cn/zhangjiajie.html#variants"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Getting there",
+          "url": "https://eventurus.cn/zhangjiajie.html#getting"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Where to stay",
+          "url": "https://eventurus.cn/zhangjiajie.html#stay"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Weather and closures",
+          "url": "https://eventurus.cn/zhangjiajie.html#weather"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Frequently Asked Questions",
+          "url": "https://eventurus.cn/zhangjiajie.html#faq"
+        }
+      ]
     }
   ]
 }
@@ -310,10 +408,14 @@ div.section[id] { scroll-margin-top:16px; }
   <h2>The short answer</h2>
   <p class="sub">Two days for one park. Three for both. Anything less is a coach tour.</p>
 
-  <div class="highlight-box">
-    <strong>Two days</strong> &mdash; Wulingyuan only, two mornings in the pillars, Tianmen left for next time.
-    <strong>Three days</strong> &mdash; the usual shape: two mornings in Wulingyuan, one in Tianmen, sleeping in two different towns.
-    <strong>Four days</strong> &mdash; add the glass bridge at the Grand Canyon or a slow morning on the Yangjiajie ridge.
+    <div class="info-card">
+    <ul>
+      <li><strong>How many days</strong> &mdash; Zhangjiajie needs two full days for Wulingyuan alone, three to add Tianmen Mountain, and four if the glass bridge at the Grand Canyon is included.</li>
+      <li><strong>Which park</strong> &mdash; Wulingyuan holds the sandstone pillars that people call the Avatar mountains; Tianmen Mountain is a separate ticket on the edge of Zhangjiajie city, 40 km away.</li>
+      <li><strong>The ticket</strong> &mdash; The Wulingyuan gate ticket is &yen;165 and the version that includes the park shuttle buses is &yen;236, both valid for four consecutive days from first entry.</li>
+      <li><strong>Cable cars</strong> &mdash; The Bailong Elevator is &yen;65 one way and the three cableways run &yen;65 to &yen;76; none of them is included in the gate ticket.</li>
+      <li><strong>Arrival</strong> &mdash; Zhangjiajie West is the high-speed station, about two hours from Changsha South, one hour from Fenghuang and 40 minutes by shuttle from Wulingyuan town.</li>
+    </ul>
   </div>
 
   <p>Zhangjiajie is not one park. It is two separately ticketed parks about 40 km apart, plus a glass bridge that belongs to neither. Wulingyuan holds the sandstone pillars on every poster. Tianmen Mountain stands at the edge of the city, with a cableway that runs 7,455 metres up to it.</p>
@@ -593,7 +695,7 @@ div.section[id] { scroll-margin-top:16px; }
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="train-booking-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Train Ticket Booking Guide</span><span class="rel-desc">Book Chinese trains with a foreign passport</span></span></a><a class="rel-item" href="airport-transport.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Airport to City Transport</span><span class="rel-desc">Taxi, metro and shuttle prices from 27 airports</span></span></a><a class="rel-item" href="how-long-each-city.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">How Many Days in Each City</span><span class="rel-desc">Ten, fourteen and sixteen-day shapes</span></span></a><a class="rel-item" href="what-a-trip-costs.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">What a Trip to China Costs</span><span class="rel-desc">Day, hotel and transport costs</span></span></a><a class="rel-item" href="booking-attractions-china.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Booking Attractions in China</span><span class="rel-desc">Timed slots, passports and the apps that work</span></span></a><a class="rel-item" href="answers.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Answers, Before You Ask</span><span class="rel-desc">184 questions, answered in a sentence or two</span></span></a></div></div>
 
 <div class="section" style="padding-top:8px;">
-  <p style="font-size:13px;line-height:1.7;color:var(--evt-muted);font-style:italic;">Compiled 2 November 2026. Ticket prices and validity follow the Hunan price notice in force from 1 January 2025 and the Wulingyuan scenic area's own ticket page; the shuttle bus price follows the Zhangjiajie notice in force from 1 January 2026. Rail times follow published timetables and the operator's own service notes. Ride prices and hotel ranges were checked in November 2026 and are indicative: the gate and the booking site decide on the day.</p>
+  <p style="font-size:13px;line-height:1.7;color:var(--evt-muted);font-style:italic;">Verified 2 November 2026 against the Wulingyuan scenic area's own ticket page and the Hunan price notice in force from 1 January 2025. Ticket prices and validity follow the Hunan price notice in force from 1 January 2025 and the Wulingyuan scenic area's own ticket page; the shuttle bus price follows the Zhangjiajie notice in force from 1 January 2026. Rail times follow published timetables and the operator's own service notes. Ride prices and hotel ranges were checked in November 2026 and are indicative: the gate and the booking site decide on the day.</p>
 </div>
 
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated November 2026</div>

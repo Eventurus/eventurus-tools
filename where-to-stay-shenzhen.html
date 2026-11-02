@@ -16,8 +16,10 @@
 <meta property="og:image" content="https://eventurus.cn/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Where to stay in Shenzhen: five areas compared">
 <meta name="twitter:image" content="https://eventurus.cn/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Where to stay in Shenzhen: five areas compared">
 <meta name="twitter:title" content="Where to Stay in Shenzhen: 5 Areas Compared - EVENTURUS">
 <meta name="twitter:description" content="Futian, Luohu, Nanshan and Shekou, Bao'an and the eastern coast, compared by rates, border crossings and which rail station you arrive at.">
 <link rel="canonical" href="https://eventurus.cn/where-to-stay-shenzhen.html">
@@ -135,6 +137,18 @@ a { color: var(--color-brand); text-decoration: underline; text-underline-offset
 /* page-scoped: shenzhen */
 div.section[id] { scroll-margin-top:16px; }
 .szh-note { font-size:12px; color:var(--color-muted); margin:8px 0 0; }
+@media (max-width:600px) {
+  /* one swipeable row of anchors, 44px targets, edge to edge */
+  .szh-jump { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding:0 0 12px;
+              -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .szh-jump::-webkit-scrollbar { display:none; }
+  .szh-jump a { flex:0 0 auto; min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; font-size:12.5px; }
+}
+@media (max-width:767px) {
+  .evt-widget.evt-sticky { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  body.evt-sticky-visible #backToTop { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+  body.evt-sticky-visible .footer { padding-bottom: 96px; }
+}
 @media print {
   .faq-item { break-inside:avoid; }
 }
@@ -201,7 +215,67 @@ div.section[id] { scroll-margin-top:16px; }
           "@type": "Country",
           "name": "China"
         }
-      }
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Shenzhen, Guangdong, China"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Travellers crossing from Hong Kong and business visitors to Shenzhen"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "url": "https://ka.sz.gov.cn/"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.szmc.net/"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.12306.cn/en/index.html"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Where to stay in Shenzhen: sections on this page",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 5,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Which part of Shenzhen should I stay in?",
+          "url": "https://eventurus.cn/where-to-stay-shenzhen.html#answer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The areas at a glance",
+          "url": "https://eventurus.cn/where-to-stay-shenzhen.html#areas"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Crossing from Hong Kong",
+          "url": "https://eventurus.cn/where-to-stay-shenzhen.html#crossing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Booking practicalities",
+          "url": "https://eventurus.cn/where-to-stay-shenzhen.html#booking"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Frequently Asked Questions",
+          "url": "https://eventurus.cn/where-to-stay-shenzhen.html#faq"
+        }
+      ]
     }
   ]
 }
@@ -299,10 +373,10 @@ div.section[id] { scroll-margin-top:16px; }
   <div class="info-card">
     <h3>Pick by the trip</h3>
     <ul>
-      <li><strong>First visit, two nights:</strong> Futian, around the civic centre or Coco Park.</li>
-      <li><strong>Crossing at Luohu:</strong> Luohu, with the station and the port in the same block.</li>
-      <li><strong>Work in Nanshan:</strong> Shekou or the Science Park end, where the ferries also leave.</li>
-      <li><strong>Early flight:</strong> Bao'an, on Line 11.</li>
+      <li><strong>First visit, two nights:</strong> Futian, around the civic centre or Coco Park, where four metro lines cross.</li>
+      <li><strong>Crossing at Luohu:</strong> Luohu, with Shenzhen station and the port in the same block.</li>
+      <li><strong>Work in Nanshan:</strong> Shekou or the Science Park end, where the ferries to Macau and the airport also leave.</li>
+      <li><strong>Early flight:</strong> Bao'an, on Line 11 from the airport.</li>
       <li><strong>Weekend by the sea:</strong> Dameisha or Yantian, on Line 8.</li>
     </ul>
   </div>
@@ -507,7 +581,7 @@ div.section[id] { scroll-margin-top:16px; }
 
 <div style="text-align:center;padding:4px 0;color:var(--color-muted);font-size:14px;" aria-hidden="true">&bull; &bull; &bull;</div>
 
-<div class="method"><strong>How this guide was compiled.</strong> Compiled in November 2026 from the Shenzhen Port Office's published crossing hours, Shenzhen Metro timetables, China Railway services and published room rates for a standard double. Prices are indicative ranges rather than quotations, and exclude booking-site fees.</div>
+<div class="method"><strong>How this guide was compiled.</strong> Verified 2 November 2026 against the Shenzhen Port Office's published crossing hours, Shenzhen Metro timetables, China Railway services and published room rates for a standard double. Prices are indicative ranges rather than quotations, and exclude booking-site fees.</div>
 <p class="uplink">Part of <a href="where-to-stay.html">the Where to Stay guide</a>, alongside <a href="where-to-stay-guangzhou.html">Guangzhou</a>.</p>
 
 <div style="text-align:center;padding:4px 0;color:var(--color-muted);font-size:14px;" aria-hidden="true">&bull; &bull; &bull;</div>

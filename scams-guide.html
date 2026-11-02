@@ -16,8 +16,10 @@
 <meta property="og:image" content="https://eventurus.cn/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scams in China: the five setups, and how to end them">
 <meta name="twitter:image" content="https://eventurus.cn/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Scams in China: the five setups, and how to end them">
 <meta name="twitter:title" content="Scams in China: The Five Setups, and How to End Them - EVENTURUS">
 <meta name="twitter:description" content="The tea invitation, the taxi that will not meter, the closed museum, the bar bill and the helpful stranger: what each one costs and the four sentences that end it.">
 <link rel="canonical" href="https://eventurus.cn/scams-guide.html">
@@ -136,6 +138,18 @@ div.section[id] { scroll-margin-top:16px; }
   .scm-jump { gap:6px; }
   .scm-jump a { font-size:12px; padding:5px 11px; }
 }
+@media (max-width:600px) {
+  /* one swipeable row of anchors, 44px targets, edge to edge */
+  .scm-jump { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding:0 0 12px;
+              -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .scm-jump::-webkit-scrollbar { display:none; }
+  .scm-jump a { flex:0 0 auto; min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; font-size:12.5px; }
+}
+@media (max-width:767px) {
+  .evt-widget.evt-sticky { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  body.evt-sticky-visible #backToTop { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+  body.evt-sticky-visible .footer { padding-bottom: 96px; }
+}
 @media print {
   .scm-jump { display:none; }
   .scm-err, .faq-item { break-inside:avoid; }
@@ -199,7 +213,85 @@ div.section[id] { scroll-margin-top:16px; }
         "@type": "Thing",
         "name": "Travel fraud and consumer complaints in China"
       },
-      "keywords": "china scams, tea scam, taxi scam, 12315, 12345, tourist scam china, consumer complaint china"
+      "keywords": "china scams, tea scam, taxi scam, 12315, 12345, tourist scam china, consumer complaint china",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "China"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "First-time visitors to China and newly arrived residents"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.12315.cn/"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.gov.cn/"
+        },
+        {
+          "@type": "CreativeWork",
+          "url": "https://www.mps.gov.cn/"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Scams in China: sections on this page",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 8,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The short answer",
+          "url": "https://eventurus.cn/scams-guide.html#answer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The five setups",
+          "url": "https://eventurus.cn/scams-guide.html#five"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What it costs, by scene",
+          "url": "https://eventurus.cn/scams-guide.html#costs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "How to end it in the moment",
+          "url": "https://eventurus.cn/scams-guide.html#moment"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "How to complain afterwards",
+          "url": "https://eventurus.cn/scams-guide.html#complain"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "What is not a scam",
+          "url": "https://eventurus.cn/scams-guide.html#not"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "If it already happened",
+          "url": "https://eventurus.cn/scams-guide.html#after"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Frequently Asked Questions",
+          "url": "https://eventurus.cn/scams-guide.html#faq"
+        }
+      ]
     }
   ]
 }
@@ -295,9 +387,14 @@ div.section[id] { scroll-margin-top:16px; }
   <h2>The short answer</h2>
   <p class="sub">Most trips meet none of this. The ones that do meet it in five places.</p>
 
-  <div class="highlight-box">
-    <strong>Stop it early.</strong> Every setup below depends on you staying polite and staying put. The four sentences in the middle of this page end most of them.<br>
-    <strong>Do not pay under protest.</strong> Money handed over at the table is treated as agreement. Offer to settle at the police station instead.
+    <div class="info-card">
+    <ul>
+      <li><strong>How common</strong> &mdash; Most visitors to China meet none of these setups; the reports cluster in tourist districts and at transport hubs rather than across the country.</li>
+      <li><strong>The five</strong> &mdash; The tea invitation, transport from an airport or station, tickets and guides outside a gate, nightlife, and unsolicited help with money.</li>
+      <li><strong>The amounts</strong> &mdash; &yen;370 for tea recurs in reports, a nightlife bill runs into thousands, and an unmetered car from a station adds &yen;150 to &yen;400.</li>
+      <li><strong>Ending it</strong> &mdash; Four sentences in pinyin end most of them: b&ugrave; y&ograve;ng le, q&igrave;ng d&#462; bi&#462;o, w&#466; y&agrave;o b&agrave;oj&#464;ng. Do not pay under protest; offer to settle at a police station.</li>
+      <li><strong>Complaining</strong> &mdash; 12315 handles consumer disputes, 12345 the municipal ones and 110 anything happening now, and the online 12315 form asks for a mainland mobile number.</li>
+    </ul>
   </div>
 
   <p>Crime of the sort visitors fear is rare. What happens instead is commercial, scripted, and concentrated in tourist districts and transport hubs.</p>
@@ -526,7 +623,7 @@ div.section[id] { scroll-margin-top:16px; }
 <div class="related-tools"><h3>Related Tools</h3><div class="rel-list"><a class="rel-item" href="emergency-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Emergency Guide</span><span class="rel-desc">Numbers, lost passports and embassy contacts</span></span></a><a class="rel-item" href="payment-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">WeChat Pay and Alipay Guide</span><span class="rel-desc">Payment records that work as evidence</span></span></a><a class="rel-item" href="didi-guide.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Didi and Taxi Guide</span><span class="rel-desc">Fixed fares before you get in</span></span></a><a class="rel-item" href="china-tax-refund.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">China Tax Refund for Tourists</span><span class="rel-desc">The departure refund, and the receipts it needs</span></span></a><a class="rel-item" href="answers.html"><span class="rel-arrow">&rarr;</span><span class="rel-info"><span class="rel-title">Answers, Before You Ask</span><span class="rel-desc">184 questions, answered in a sentence or two</span></span></a></div></div>
 
 <div class="section" style="padding-top:8px;">
-  <p style="font-size:13px;line-height:1.7;color:var(--evt-muted);font-style:italic;">Compiled 2 November 2026 from community reports collected between 18 October and 1 November 2026, the State Administration for Market Regulation's 12315 platform, and city 12345 service pages. Amounts are reported figures rather than official statistics, and no authority publishes a register of these incidents. Complaint procedures were checked in November 2026 and change by city.</p>
+  <p style="font-size:13px;line-height:1.7;color:var(--evt-muted);font-style:italic;">Verified 2 November 2026 against the 12315 complaint platform's own form and the State Council's description of the 12345 service line, and compiled from community reports collected between 18 October and 1 November 2026, the State Administration for Market Regulation's 12315 platform, and city 12345 service pages. Amounts are reported figures rather than official statistics, and no authority publishes a register of these incidents. Complaint procedures were checked in November 2026 and change by city.</p>
 </div>
 
 <div class="page-updated" style="text-align:center;font-size:12px;color:var(--color-muted);margin:0 0 12px;">Updated November 2026</div>
