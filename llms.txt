@@ -27,10 +27,12 @@
 - [Where to Stay in Chongqing](https://eventurus.cn/where-to-stay-chongqing.html): Five areas across the peninsula and both banks, including which metro line crosses which river, Line 10 and Line 3 from Jiangbei airport, and the hillside-lift reality of a city built in layers.
 - [Where to Stay in Xi'an](https://eventurus.cn/where-to-stay-xian.html): Inside the Ming walls or outside them, five areas with Metro Line 2 access, Line 14 from Xianyang airport, and the difference between the Bell Tower and the South Gate.
 - [Hotel Booking for Foreigners](https://eventurus.cn/tools/accommodation-guide.html): Which Chinese hotels accept foreign guests and what to check before paying.
+- [Where to Stay in Guangzhou](https://eventurus.cn/where-to-stay-guangzhou.html): Six areas compared, with Canton Fair phase dates, Baiyun airport transfers and the Guangzhou South connections to Hong Kong and Shenzhen.
+- [Where to Stay in Shenzhen](https://eventurus.cn/where-to-stay-shenzhen.html): Five areas, the six land ports and their opening hours, and the difference between Shenzhen North and Futian station.
 
 ## Transport
 
-- [China City Transit Matrix](https://eventurus.cn/transit-matrix.html): High-speed rail against flying between major cities, priced door to door rather than airport to airport.
+- [Train or Flight in China](https://eventurus.cn/transit-matrix.html): Where high-speed rail beats flying across 120 city pairs, priced door to door rather than airport to airport.
 - [Airport to City Transport](https://eventurus.cn/airport-transport.html): Taxi, metro and shuttle prices from 27 Chinese airports, with night-arrival and luggage notes.
 - [Train Ticket Booking Guide](https://eventurus.cn/train-booking-guide.html): Booking Chinese rail with a foreign passport, including 12306 registration.
 - [China Train Seat Guide](https://eventurus.cn/train-guide.html): Second, first and business class, hard and soft sleeper, compared.
@@ -45,6 +47,8 @@
 - [TenPayGo: WeChat Pay for Visitors](https://eventurus.cn/tenpaygo.html): WeChat Pay's standalone app for short-term visitors, from sign-up and card linking to the limits that apply.
 - [Get Online in China: eSIM and SIM](https://eventurus.cn/internet-guide.html): eSIMs bought before arrival against airport SIM counters, and what works behind the firewall.
 - [Essential Apps for China](https://eventurus.cn/essential-apps.html): What to install before landing: WeChat, Alipay, Didi, Meituan, Trip.com.
+- [Maps and Navigation in China](https://eventurus.cn/maps-navigation-china.html): Which map apps work, how to move saved places across, how to search in English and how Chinese addresses are ordered.
+- [Scams in China](https://eventurus.cn/scams-guide.html): The five commercial setups, what each costs, the sentences that end them and the 12315 and 12345 complaint routes.
 
 ## Food, shopping and culture
 
@@ -61,6 +65,10 @@
 - [Where to Go in China](https://eventurus.cn/must-go.html): An edited guide to the country's most worthwhile destinations.
 - [Your First Weekend in Shanghai](https://eventurus.cn/first-weekend-shanghai.html): A weekend in Shanghai that needs no planning.
 - [Moving to Shanghai: Your First Week](https://eventurus.cn/moving-shanghai.html): The first week of a move to Shanghai, practically.
+
+## Destinations
+
+- [Zhangjiajie](https://eventurus.cn/zhangjiajie.html): How many days the two parks need, Wulingyuan against Tianmen Mountain, the four-day ticket and the high-speed connections.
 
 ## Planning
 
