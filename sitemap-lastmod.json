@@ -4,12 +4,12 @@
     "sha": "1e0ed71397f7dccf"
   },
   "airport-transport.html": {
-    "date": "2026-10-23",
-    "sha": "5c9b578d352ab258"
+    "date": "2026-11-02",
+    "sha": "c4bf9e653dbb2b2a"
   },
   "answers.html": {
-    "date": "2026-10-21",
-    "sha": "0d9036b391fd5668"
+    "date": "2026-11-02",
+    "sha": "904564e22f08102b"
   },
   "beijing-3day-itinerary.html": {
     "date": "2026-10-23",
@@ -40,12 +40,12 @@
     "sha": "211e684dcec7f065"
   },
   "chongqing.html": {
-    "date": "2026-10-23",
-    "sha": "954150e3554817b5"
+    "date": "2026-11-01",
+    "sha": "8cf28eef209cb45f"
   },
   "city-season.html": {
-    "date": "2026-10-18",
-    "sha": "34b7fd0f467ca98d"
+    "date": "2026-11-02",
+    "sha": "aeb3ef2b2c977a3d"
   },
   "day-trips-beijing.html": {
     "date": "2026-10-23",
@@ -56,8 +56,8 @@
     "sha": "f80b70ca0ee3875f"
   },
   "didi-guide.html": {
-    "date": "2026-10-23",
-    "sha": "3959e9e865bf9641"
+    "date": "2026-11-02",
+    "sha": "89f98084ec364e08"
   },
   "dining-guide.html": {
     "date": "2026-10-23",
@@ -66,6 +66,14 @@
   "ebike-rental-china.html": {
     "date": "2026-10-21",
     "sha": "d100ff498579a178"
+  },
+  "editorial-beijing-autumn.html": {
+    "date": "2026-10-24",
+    "sha": "0b9c670e382e18e7"
+  },
+  "editorial-chongqing-evening.html": {
+    "date": "2026-10-24",
+    "sha": "7eb06f59f9c4cfc4"
   },
   "emergency-guide.html": {
     "date": "2026-10-23",
@@ -76,20 +84,20 @@
     "sha": "b9eaf1abef4f801e"
   },
   "essential-apps.html": {
-    "date": "2026-10-23",
-    "sha": "871be9897776b8dd"
+    "date": "2026-11-02",
+    "sha": "ea6ffa8811d9dc7d"
   },
   "first-weekend-shanghai.html": {
     "date": "2026-09-29",
     "sha": "4dfb742cad2de161"
   },
   "food-delivery-guide.html": {
-    "date": "2026-10-23",
-    "sha": "96a4a835460285ea"
+    "date": "2026-11-02",
+    "sha": "b83e3bab539b96ef"
   },
   "great-wall-guide.html": {
-    "date": "2026-10-23",
-    "sha": "0e0c0dff5f03d362"
+    "date": "2026-11-02",
+    "sha": "3a01d2f1c455a831"
   },
   "hospital-guide.html": {
     "date": "2026-10-23",
@@ -108,8 +116,8 @@
     "sha": "05a9385903a90c12"
   },
   "layover-china.html": {
-    "date": "2026-10-23",
-    "sha": "26feccd587e0d0c5"
+    "date": "2026-11-02",
+    "sha": "88877fc2b8b75e87"
   },
   "menu-translator.html": {
     "date": "2026-10-18",
@@ -132,8 +140,8 @@
     "sha": "48c2b0b5361615e4"
   },
   "must-go.html": {
-    "date": "2026-09-29",
-    "sha": "4872da8029e711c3"
+    "date": "2026-11-02",
+    "sha": "77b69de17ff2a36b"
   },
   "packing-checklist.html": {
     "date": "2026-10-23",
@@ -164,16 +172,16 @@
     "sha": "ec9a27d712ee32f9"
   },
   "train-booking-guide.html": {
-    "date": "2026-09-29",
-    "sha": "1886dd394b4f2ddd"
+    "date": "2026-11-02",
+    "sha": "aabfa85bc90a4cdd"
   },
   "train-guide.html": {
-    "date": "2026-09-29",
-    "sha": "0ba7f721b0529268"
+    "date": "2026-11-02",
+    "sha": "02df1a9a1d3f3324"
   },
   "transit-matrix.html": {
-    "date": "2026-10-23",
-    "sha": "d11673d158e9a4f0"
+    "date": "2026-11-02",
+    "sha": "500c92b190f858a5"
   },
   "trip-planner.html": {
     "date": "2026-09-05",
@@ -196,16 +204,16 @@
     "sha": "0ccbb8497762ece3"
   },
   "where-to-stay-beijing.html": {
-    "date": "2026-10-23",
-    "sha": "5b741e575b14a5d7"
+    "date": "2026-11-02",
+    "sha": "210f578632bd5726"
   },
   "where-to-stay-chengdu.html": {
-    "date": "2026-10-21",
-    "sha": "c7369609549ac9c1"
+    "date": "2026-11-02",
+    "sha": "79e3f368ab8b8d71"
   },
   "where-to-stay-chongqing.html": {
-    "date": "2026-10-21",
-    "sha": "855b8343167b2296"
+    "date": "2026-11-02",
+    "sha": "d5c081a0d736bc71"
   },
   "where-to-stay-hangzhou.html": {
     "date": "2026-10-23",
@@ -228,8 +236,8 @@
     "sha": "f0e541633bd89d4d"
   },
   "where-to-stay-xian.html": {
-    "date": "2026-10-21",
-    "sha": "e5e5dc9cf8042cac"
+    "date": "2026-11-02",
+    "sha": "48e922c2962349fd"
   },
   "where-to-stay.html": {
     "date": "2026-10-23",
