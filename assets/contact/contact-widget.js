@@ -336,6 +336,7 @@
     "where-to-stay-chengdu.html": {
       group: "accommodation",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves in Chengdu. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",
@@ -344,6 +345,7 @@
     "where-to-stay-chongqing.html": {
       group: "accommodation",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves in Chongqing. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",
@@ -392,6 +394,7 @@
     "where-to-stay-xian.html": {
       group: "accommodation",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves in Xi'an. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",
@@ -409,6 +412,7 @@
     "answers.html": {
       group: "planning",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",
@@ -424,6 +428,7 @@
     "how-long-each-city.html": {
       group: "planning",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves in the cities above. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",
@@ -440,6 +445,7 @@
     "booking-attractions-china.html": {
       group: "planning",
       intent: "follow",
+      sticky: "scroll",
       title: "These steps change without notice.",
       body: "Follow Eventurus in WeChat and we will send the updates, along with the other China travel tools we publish.",
       remove: ".cta",
@@ -453,6 +459,7 @@
     "what-a-trip-costs.html": {
       group: "planning",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves, city by city. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",

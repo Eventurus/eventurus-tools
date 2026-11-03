@@ -319,6 +319,15 @@ body.evt-sticky-visible #backToTop {
   bottom: 88px !important;
 }
 
+/* 2026-11-03 · iPhone home indicator：sticky 条与回到顶部都让开底部安全区 */
+.evt-widget.evt-sticky {
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+}
+
+body.evt-sticky-visible #backToTop {
+  bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
 @media (max-width: 767px) {
   .evt-header-ask {
     display: none;

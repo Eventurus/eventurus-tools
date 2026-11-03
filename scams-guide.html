@@ -145,11 +145,6 @@ div.section[id] { scroll-margin-top:16px; }
   .scm-jump::-webkit-scrollbar { display:none; }
   .scm-jump a { flex:0 0 auto; min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; font-size:12.5px; }
 }
-@media (max-width:767px) {
-  .evt-widget.evt-sticky { bottom: calc(12px + env(safe-area-inset-bottom)); }
-  body.evt-sticky-visible #backToTop { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
-  body.evt-sticky-visible .footer { padding-bottom: 96px; }
-}
 @media print {
   .scm-jump { display:none; }
   .scm-err, .faq-item { break-inside:avoid; }
