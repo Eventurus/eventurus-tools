@@ -468,6 +468,7 @@
     "chongqing.html": {
       group: "destinations",
       intent: "follow",
+      sticky: "scroll",
       title: "Our hotel shortlist, on request",
       body: "A short, vetted list of hotels we would book ourselves in Chongqing. Follow Eventurus in WeChat and send the single word Stays to get it.",
       keyword: "Stays",
@@ -481,6 +482,7 @@
     "layover-china.html": {
       group: "transport",
       intent: "follow",
+      sticky: "scroll",
       title: "The rules change without notice.",
       body: "Follow Eventurus in WeChat and we will send the updates to the transit rules, along with the other China travel tools we publish.",
       insert: { selector: ".footer", position: "before" },
