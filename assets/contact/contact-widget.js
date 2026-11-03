@@ -494,6 +494,7 @@
     "zhangjiajie.html": {
       group: "destinations",
       intent: "follow",
+      sticky: "scroll",
       title: "Ticket rules move with the season.",
       body: "Follow Eventurus in WeChat and we will send the Zhangjiajie ticket, cableway and shuttle changes, along with the other China travel tools we publish.",
       insert: { selector: ".footer", position: "before" },
@@ -506,6 +507,7 @@
     "scams-guide.html": {
       group: "safety",
       intent: "follow",
+      sticky: "scroll",
       title: "The complaint routes change by city.",
       body: "Follow Eventurus in WeChat and we will send updates to the 12315 and 12345 routes, along with the other China travel tools we publish.",
       insert: { selector: ".footer", position: "before" },
@@ -518,6 +520,7 @@
     "where-to-stay-guangzhou.html": {
       group: "accommodation",
       intent: "follow",
+      sticky: "scroll",
       title: "Rates move with the fair calendar.",
       body: "Follow Eventurus in WeChat and we will send the Canton Fair phase dates and the hotel-rate windows around them, along with the other China travel tools we publish.",
       insert: { selector: ".footer", position: "before" },
@@ -530,6 +533,7 @@
     "where-to-stay-shenzhen.html": {
       group: "accommodation",
       intent: "follow",
+      sticky: "scroll",
       title: "Border hours change quietly.",
       body: "Follow Eventurus in WeChat and we will send the port-hour changes and the other China travel tools we publish.",
       insert: { selector: ".footer", position: "before" },
@@ -542,6 +546,7 @@
     "maps-navigation-china.html": {
       group: "apps",
       intent: "follow",
+      sticky: "scroll",
       title: "The apps change their English support quietly.",
       body: "Follow Eventurus in WeChat and we will send the map-app changes we notice, along with the other China travel tools we publish.",
       insert: { selector: ".footer", position: "before" },
