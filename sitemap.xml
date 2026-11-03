@@ -3,7 +3,7 @@
   <url>
     <loc>https://eventurus.cn/</loc>
     <changefreq>daily</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -33,7 +33,7 @@
   <url>
     <loc>https://eventurus.cn/booking-attractions-china.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -69,7 +69,7 @@
   <url>
     <loc>https://eventurus.cn/chongqing.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -111,7 +111,7 @@
   <url>
     <loc>https://eventurus.cn/emergency-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -147,25 +147,31 @@
   <url>
     <loc>https://eventurus.cn/hospital-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/how-long-each-city.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/internet-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eventurus.cn/layover-china.html</loc>
     <changefreq>monthly</changefreq>
     <lastmod>2026-11-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/maps-navigation-china.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -195,7 +201,7 @@
   <url>
     <loc>https://eventurus.cn/must-do.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -213,7 +219,13 @@
   <url>
     <loc>https://eventurus.cn/payment-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/scams-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -267,7 +279,7 @@
   <url>
     <loc>https://eventurus.cn/trip-planner.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -285,7 +297,7 @@
   <url>
     <loc>https://eventurus.cn/what-a-trip-costs.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -313,6 +325,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://eventurus.cn/where-to-stay-guangzhou.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://eventurus.cn/where-to-stay-hangzhou.html</loc>
     <changefreq>monthly</changefreq>
     <lastmod>2026-10-23</lastmod>
@@ -328,6 +346,12 @@
     <loc>https://eventurus.cn/where-to-stay-shanghai.html</loc>
     <changefreq>monthly</changefreq>
     <lastmod>2026-10-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/where-to-stay-shenzhen.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -351,7 +375,13 @@
   <url>
     <loc>https://eventurus.cn/where-to-stay.html</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://eventurus.cn/zhangjiajie.html</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
